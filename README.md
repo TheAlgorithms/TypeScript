@@ -18,8 +18,8 @@ TypeScript Repository of TheAlgorithms, which implements various algorithms and 
 <!-- Disclaimer -->
 
 <h4 align="center">
-  These implementations are for demonstrative purposes only. Dedicated implementations of these algorithms and data
-  structures are much better for performance and security reasons. We also do not provide any guarantee for api stability.
+  These implementations are for demonstrative/educational purposes only. Dedicated implementations of these algorithms and data
+  structures are much better for performance and security reasons. We also do not provide any guarantee for API stability.
 </h4>
 
 ---
