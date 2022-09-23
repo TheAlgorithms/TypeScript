@@ -15,7 +15,7 @@ referenced and used by learners from around the globe. Being one of our contribu
 
 - You did your work - plagiarism is not allowed.
   - Any plagiarized work will not be merged.
-- Your work will be distributed under [GNU License](LICENSE) once your pull request is merged.
+- Your work will be distributed under [MIT License](LICENSE) once your pull request is merged.
 - Your submitted work must fulfill our styles and standards.
 
 **New implementation** is welcome! For example, new solutions to a problem, different representations of a graph data
