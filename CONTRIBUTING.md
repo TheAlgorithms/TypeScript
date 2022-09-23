@@ -70,7 +70,7 @@ It roughly means you will need to use `export` and `import` statements instead o
 #### Coding Style
 
 To maximize the readability and correctness of our code, we require that new submissions follow the
-[JavaScript Standard Style](https://standardjs.com/).
+[TypeScript Standard Style](https://github.com/standard/ts-standard).
 
 Before committing, please run
 
