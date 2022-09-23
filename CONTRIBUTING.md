@@ -67,42 +67,6 @@ We use the [ES Module](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-de
 
 It roughly means you will need to use `export` and `import` statements instead of `module.exports` and `require()`.
 
-#### Testing
-
-Be confident that your code works. When was the last time you committed a code change, your build failed, and half of
-your app stopped working? Mine was last week. Writing tests for our Algorithms will help us ensure the implementations
-are air tight even after multiple fixes and code changes.
-
-We use [Jest](https://jestjs.io/) to run unit tests on our algorithms. It provides a very readable and expressive way to
-structure your test code.
-
-It is advised that the algorithm file (module) does not contain any "live" code but rather just exports the function(s)
-needed to execute the algorithm. Your test code can import those function(s), call them with the appropriate parameters
-and inspect the outcome. Example: [RatInAMaze.test.js](Backtracking/tests/RatInAMaze.test.js).
-
-Please refrain from using `console` in your implementation AND test code.
-
-You can (and should!) run all tests locally before committing your changes:
-
-```shell
-npm test
-```
-
-If you want save some time and just run a specific test:
-
-```shell
-# this will run any test file where the filename matches "koch"
-npm test -- koch
-```
-
-You can also start Jest in "watch" mode:
-
-```shell
-npm test -- --watchAll
-```
-
-This will run all tests and watch source and test files for changes. When a change is made, the tests will run again.
-
 #### Coding Style
 
 To maximize the readability and correctness of our code, we require that new submissions follow the
