@@ -45,20 +45,20 @@ Algorithms should be packaged in a way that would make it easy for readers to pu
 Algorithms should:
 
 - have intuitive class and function names that make their purpose clear to readers.
-- use JavaScript naming conventions and intuitive variable names to ease comprehension.
+- use TypScript naming conventions and intuitive variable names to ease comprehension.
 - be flexible to take different input values.
-- raise JavaScript exceptions (RangeError, etc.) on erroneous input values.
+- raise TypeScript exceptions (RangeError, etc.) on erroneous input values.
 
-Algorithms in this repo should not be how-to examples for existing JavaScript packages. Instead, they should perform
+Algorithms in this repo should not be how-to examples for existing TypeScript packages. Instead, they should perform
 internal calculations or manipulations to convert input values into different output values. Those calculations or
-manipulations can use data types, classes, or functions of existing JavaScript packages but each algorithm in this repo
+manipulations can use data types, classes, or functions of existing TypeScript packages but each algorithm in this repo
 should add unique value.
 
 #### File Naming Convention
 
 - filenames should use the UpperCamelCase (PascalCase) style.
 - There should be no spaces in filenames.
-- **Example:** `UserProfile.js` is allowed but `userprofile.js`,`Userprofile.js`,`user-Profile.js`,`userProfile.js` are
+- **Example:** `UserProfile.ts` is allowed but `userprofile.ts`,`Userprofile.ts`,`user-Profile.ts`,`userProfile.ts` are
   not.
 
 #### Module System
