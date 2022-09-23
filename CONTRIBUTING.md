@@ -143,4 +143,4 @@ function sumOfArray(arrayOfNumbers) {
   - **Be consistent in the use of these guidelines when submitting.**
   - Happy coding!
 
-Writer [@itsvinayak](https://github.com/itsvinayak), May 2020.
+Writer [@gefgu](https://github.com/gefgu), September 2022.
