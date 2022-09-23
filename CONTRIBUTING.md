@@ -72,12 +72,6 @@ It roughly means you will need to use `export` and `import` statements instead o
 To maximize the readability and correctness of our code, we require that new submissions follow the
 [TypeScript Standard Style](https://github.com/standard/ts-standard).
 
-Before committing, please run
-
-```shell
-npm run style
-```
-
 In order to apply the coding style (where it can be done automatically). If an error is shown, please figure out what's
 wrong, fix it and run standard again.
 
