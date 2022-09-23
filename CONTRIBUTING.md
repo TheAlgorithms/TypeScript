@@ -81,13 +81,13 @@ A few (but not all) of the things to keep in mind:
 - Names start with a letter.
 - Follow code indentation: Always use 2 spaces for indentation of code blocks.
 
-```js
-function sumOfArray(arrayOfNumbers) {
-  let sum = 0
+```ts
+function sumOfArray(arrayOfNumbers: number[]): number {
+  let sum = 0;
   for (let i = 0; i < arrayOfNumbers.length; i++) {
-    sum += arrayOfNumbers[i]
+    sum += arrayOfNumbers[i];
   }
-  return sum
+  return sum;
 }
 ```
 
