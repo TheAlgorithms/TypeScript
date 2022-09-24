@@ -1,0 +1,34 @@
+{
+  "name": "jest-mock",
+  "version": "29.0.3",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/facebook/jest.git",
+    "directory": "packages/jest-mock"
+  },
+  "license": "MIT",
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./build/index.d.ts",
+      "default": "./build/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "dependencies": {
+    "@jest/types": "^29.0.3",
+    "@types/node": "*"
+  },
+  "devDependencies": {
+    "@tsd/typescript": "~4.8.2",
+    "tsd-lite": "^0.6.0"
+  },
+  "engines": {
+    "node": "^14.15.0 || ^16.10.0 || >=18.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "77f865da39af5b3e1c114dc347e49257eb3dcfd1"
+}

@@ -1,0 +1,38 @@
+{
+  "name": "@jest/fake-timers",
+  "version": "29.0.3",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/facebook/jest.git",
+    "directory": "packages/jest-fake-timers"
+  },
+  "license": "MIT",
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./build/index.d.ts",
+      "default": "./build/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "dependencies": {
+    "@jest/types": "^29.0.3",
+    "@sinonjs/fake-timers": "^9.1.2",
+    "@types/node": "*",
+    "jest-message-util": "^29.0.3",
+    "jest-mock": "^29.0.3",
+    "jest-util": "^29.0.3"
+  },
+  "devDependencies": {
+    "@jest/test-utils": "^29.0.3",
+    "@types/sinonjs__fake-timers": "^8.1.2"
+  },
+  "engines": {
+    "node": "^14.15.0 || ^16.10.0 || >=18.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "77f865da39af5b3e1c114dc347e49257eb3dcfd1"
+}
