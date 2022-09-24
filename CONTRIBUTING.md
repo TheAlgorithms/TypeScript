@@ -82,12 +82,12 @@ A few (but not all) of the things to keep in mind:
 - Follow code indentation: Always use 2 spaces for indentation of code blocks.
 
 ```ts
-function sumOfArray(arrayOfNumbers: number[]): number {
-  let sum = 0;
-  for (let i = 0; i < arrayOfNumbers.length; i++) {
-    sum += arrayOfNumbers[i];
+function sum(arr: number[]): number {
+  let total = 0;
+  for (let i = 0; i < arr.length; i++) {
+    total += arr[i];
   }
-  return sum;
+  return total;
 }
 ```
 
