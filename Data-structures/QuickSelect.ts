@@ -9,6 +9,7 @@
  * @complexity : O(n^2) (worst case)
  * ----
  * @param items array
+ * @flow
  */
 
 const QuickSelect = (items: Array<number>, kth: number): number => {
