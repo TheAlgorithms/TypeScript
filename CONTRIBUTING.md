@@ -96,6 +96,18 @@ function sum(arr: number[]): number {
 - Please refrain from using `console.log` or any other console methods.
 - **Absolutely** don't use `alert`.
 - We strongly recommend the use of ECMAScript 6.
+- Avoid the use of `any` type. Create an interface/class instead.
+- Don't prefix Interfaces with `I`.
+- Prefer not to use `null` nor `undefined` for explicit unavailability. 
+
+```ts
+// BAD
+let foo = { x: 123, y: undefined };
+
+// GOOD
+let foo: { x: number, y?: number } = { x:123 };
+```
+- Annotate arrays as `foos: Foo[]` instead of `foos: Array<Foo>`.
 - Avoid importing external libraries for basic algorithms. Only use those libraries for complicated algorithms.
 - Most importantly:
   - **Be consistent in the use of these guidelines when submitting.**
