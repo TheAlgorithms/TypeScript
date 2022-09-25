@@ -29,7 +29,7 @@ We appreciate any contribution, from fixing grammar mistakes to implementing com
 section if you are contributing to your work.
 
 If you submit a pull request that resolves an open issue, please help us to keep our issue list small by adding
-`fixes: #{$ISSUE_NO}` to your commit message. GitHub will use this tag to auto-close the issue if your PR is merged.
+`closes: #{$ISSUE_NO}` to your commit message. GitHub will use this tag to auto-close the issue if your PR is merged.
 
 #### What is an Algorithm?
 
