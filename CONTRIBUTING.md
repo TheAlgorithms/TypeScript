@@ -58,8 +58,7 @@ should add unique value.
 
 - Filenames should use the UpperCamelCase (PascalCase) style.
 - There should be no spaces in filenames.
-- **Example:** `UserProfile.ts` is allowed but `userprofile.ts`,`Userprofile.ts`,`user-Profile.ts`,`userProfile.ts` are
-  not.
+- **Example:** `UserProfile.ts` is allowed. Do not use `userprofile.ts`, `Userprofile.ts`, `user-Profile.ts`, `userProfile.ts`; these methods are discouraged.
 
 #### Module System
 
