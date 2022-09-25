@@ -56,7 +56,7 @@ should add unique value.
 
 #### File Naming Convention
 
-- filenames should use the UpperCamelCase (PascalCase) style.
+- Filenames should use the UpperCamelCase (PascalCase) style.
 - There should be no spaces in filenames.
 - **Example:** `UserProfile.ts` is allowed but `userprofile.ts`,`Userprofile.ts`,`user-Profile.ts`,`userProfile.ts` are
   not.
