@@ -63,7 +63,7 @@ should add unique value.
 #### Commit Messages Formatting
 
 - Prefer to use the following format: `<type>: <short summary>`. If necessary, put any extra information in the description.
-- Commit types include (but not limited to): 
+- Commit types include (but are not limited to): 
   - **docs**: Documentantion only changes
   - **feat**: A new feature
   - **fix**: A bug fix
