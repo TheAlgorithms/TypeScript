@@ -60,6 +60,18 @@ should add unique value.
 - There should be no spaces in filenames.
 - **Example:** `UserProfile.ts` is allowed. Do not use `userprofile.ts`, `Userprofile.ts`, `user-Profile.ts`, `userProfile.ts`; these methods are discouraged.
 
+#### Commit Messages Formatting
+
+- Prefer to use the following format: `<type>: <short summary>`. If necessary, put any extrainformation in the description.
+- Commit types include (but not limited to): 
+  - **docs**: Documentantion only changes
+  - **feat**: A new feature
+  - **fix**: A bug fix
+- **Examples**: 
+  - `feat: add quicksort algorithm`
+  - `chore: fix spelling`
+  - `fix: improper error message`
+
 #### Module System
 
 We use the [ES Module](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/) system, which bring an official, standardized module system to JavaScript.
