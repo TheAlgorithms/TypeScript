@@ -18,7 +18,7 @@ referenced and used by learners from around the globe. Being one of our contribu
 - Your work will be distributed under [MIT License](LICENSE) once your pull request is merged.
 - Your submitted work must fulfill our styles and standards.
 
-**New implementation** is welcome! For example, new solutions to a problem, different representations of a graph data
+**New implementations** are welcome! For example, new solutions to a problem, different representations of a graph data
 structure or algorithm designs with different complexity.
 
 **Improving comments** and **writing proper tests** are also highly welcome.
