@@ -2,18 +2,16 @@
  * [QuickSelect](https://www.geeksforgeeks.org/quickselect-algorithm/) is an algorithm to find the kth smallest number
  *
  * Notes:
- * - QuickSelect is related to QuickSort, thus has optimal best and average case (O(n)) but unlikely poor worst case (O(n^2))
- * - This implementation uses randomly selected pivots for better performance
+ * - QuickSelect is related to QuickSort, thus has optimal best and average case O(n) but unlikely poor worst case O(n^2)
  * ----
- * @complexity : O(n) (on average )
- * @complexity : O(n^2) (worst case)
+ * @complexity O(n) (on average)
+ * @complexity O(n^2) (worst case)
  * ----
  * @param items array
  * @flow
  */
 
 const QuickSelect = (items: Array<number>, kth: number): number => {
-  // eslint-disable-line no-unused-vars
   if (kth < 1 || kth > items.length) {
     throw new RangeError("Index Out of Bound");
   }
