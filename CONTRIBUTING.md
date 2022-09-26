@@ -127,4 +127,4 @@ let foo: { x: number, y?: number } = { x:123 };
   - **Be consistent in the use of these guidelines when submitting.**
   - Happy coding!
 
-Writer [@gefgu](https://github.com/gefgu), September 2022.
+Written by [**@gefgu**](https://github.com/gefgu) and community, September 2022.
