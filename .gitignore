@@ -1,7 +1,6 @@
 # dependencies
 /node_modules
-/temp
-/Maths
+
 # misc
 .DS_Store
 .env.local
