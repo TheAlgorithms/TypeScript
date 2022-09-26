@@ -1,6 +1,6 @@
 # dependencies
 /node_modules
-/temp
+
 # misc
 .DS_Store
 .env.local
