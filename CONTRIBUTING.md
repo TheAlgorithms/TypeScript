@@ -68,6 +68,7 @@ should add unique value.
   - **feat**: A new feature
   - **fix**: A bug fix
   - **chore**: Miscellaneous stuff that does not match any of the above
+
 - **Examples**: 
   - `feat: add quicksort algorithm`
   - `chore: fix spelling`
