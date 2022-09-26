@@ -72,6 +72,7 @@ should add unique value.
   - `feat: add quicksort algorithm`
   - `chore: fix spelling`
   - `fix: improper error message`
+  -  `docs: add contributing guidelines`
 
 #### Module System
 
