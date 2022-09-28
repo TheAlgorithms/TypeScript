@@ -104,7 +104,7 @@ function sum(arr: number[]): number {
 - Use only `let` and `const`, never use `var`
 - Prefer proper input/output of your functions over side effects.
 - We strongly recommend the use of ECMAScript 6.
-- Avoid the use of `any` type. Create an interface/class instead.
+- Only use `any` if appropriate. Prefer to create proper types instead.
 - Don't prefix Interfaces with `I`.
 - Prefer not to use `null` nor `undefined` for explicit unavailability. 
 
