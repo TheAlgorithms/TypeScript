@@ -90,9 +90,12 @@ To maximize the readability and correctness of our code, we require that new sub
 
 A few (but not all) of the things to keep in mind:
 
-- Use `lowerCamelCase` with the leading character as lowercase for identifier names (variables and functions).
-- Names start with a letter.
-- Follow code indentation: Always use 2 spaces for indentation of code blocks.
+- Naming conventions:
+  - Names always start with a letter (not with an underscore).
+  - Use `UpperCamelCase` for classes, interfaces & types.
+  - Use `lowerCamelCase` for functions and local variables.
+  - Use `SCREAMING_SNAKE_CASE` for global ("universal") constants.
+- Code indentation: Always use 2 spaces for indentation of code blocks.
 
 ```ts
 function sum(arr: number[]): number {
@@ -108,15 +111,16 @@ function sum(arr: number[]): number {
 - We required the use of TypeScript.
 - Only use `any` if appropriate. Prefer to create proper types instead.
 - No redundant naming. Don't prefix interfaces with `I`, class members with `m`, function with `func` or `f`, etc.
-- Prefer using optional fields over `null` or `undefined`. 
+- Prefer using optional fields over `null` or `undefined`.
 
 ```ts
 // BAD
 let foo = { x: 123, y: undefined };
 
 // GOOD
-let foo: { x: number, y?: number } = { x:123 };
+let foo: { x: number, y?: number } = { x: 123 };
 ```
+
 - Annotate arrays as `foos: Foo[]` instead of `foos: Array<Foo>`.
 - Refrain from importing external libraries. Implement the algorithms "from scratch".
 - Most importantly:
