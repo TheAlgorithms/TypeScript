@@ -26,7 +26,7 @@ structure, or algorithm designs with different complexity.
 ### Contribution
 
 We appreciate any contribution, from fixing grammar mistakes to implementing complex algorithms. Please read this
-section if you are contributing to your work.
+section if you are contributing to this repository.
 
 If you submit a pull request that resolves an open issue, please help us to keep our issue list small by adding
 `closes: #{$ISSUE_NO}` to your commit message. GitHub will use this tag to auto-close the issue if your PR is merged.
