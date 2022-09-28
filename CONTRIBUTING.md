@@ -100,10 +100,9 @@ function sum(arr: number[]): number {
 }
 ```
 
-- Avoid using global variables and avoid `==`.
-- Please use `let` over `var`.
-- Please refrain from using `console.log` or any other console methods.
-- **Absolutely** don't use `alert`.
+- Avoid using global variables and avoid `==` (use `===` instead).
+- Use only `let` and `const`, never use `var`
+- Prefer proper input/output of your functions over side effects.
 - We strongly recommend the use of ECMAScript 6.
 - Avoid the use of `any` type. Create an interface/class instead.
 - Don't prefix Interfaces with `I`.
