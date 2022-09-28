@@ -106,7 +106,7 @@ function sum(arr: number[]): number {
 - We strongly recommend the use of ECMAScript 6.
 - Only use `any` if appropriate. Prefer to create proper types instead.
 - Don't prefix Interfaces with `I`.
-- Prefer not to use `null` nor `undefined` for explicit unavailability. 
+- Prefer using optional fields over `null` or `undefined`. 
 
 ```ts
 // BAD
