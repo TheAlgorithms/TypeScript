@@ -88,7 +88,7 @@ To maximize the readability and correctness of our code, we require that new sub
 
 A few (but not all) of the things to keep in mind:
 
-- Use camelCase with the leading character as lowercase for identifier names (variables and functions).
+- Use `lowerCamelCase` with the leading character as lowercase for identifier names (variables and functions).
 - Names start with a letter.
 - Follow code indentation: Always use 2 spaces for indentation of code blocks.
 
