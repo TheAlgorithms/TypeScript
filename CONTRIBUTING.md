@@ -95,9 +95,7 @@ A few (but not all) of the things to keep in mind:
 ```ts
 function sum(arr: number[]): number {
   let total = 0;
-  for (let i = 0; i < arr.length; i++) {
-    total += arr[i];
-  }
+  for (const elem of arr) total += elem;
   return total;
 }
 ```
