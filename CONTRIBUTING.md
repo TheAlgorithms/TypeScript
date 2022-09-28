@@ -67,13 +67,15 @@ should add unique value.
   - **docs**: Documentation only changes
   - **feat**: A new feature
   - **fix**: A bug fix
-  - **chore**: Miscellaneous stuff that does not match any of the above
+  - **test**: Adding or fixing tests
+  - **chore**: CI / code quality / minor quality of life improvements
 
 - **Examples**: 
   - `feat: add quicksort algorithm`
   - `chore: fix spelling`
   - `fix: improper error message`
-  -  `docs: add contributing guidelines`
+  - `docs: add contributing guidelines`
+  - `test: add test for quicksort algorithm`
 
 #### Module System
 
