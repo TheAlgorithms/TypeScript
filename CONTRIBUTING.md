@@ -45,7 +45,7 @@ Algorithms should be packaged in a way that would make it easy for readers to pu
 Algorithms should:
 
 - Have intuitive class and function names that make their purpose clear to readers.
-- Use TypScript naming conventions and intuitive variable names to ease comprehension.
+- Use TypeScript naming conventions and intuitive variable names to ease comprehension.
 - Be flexible to take different input values.
 - Raise TypeScript exceptions (RangeError, etc.) on erroneous input values.
 
