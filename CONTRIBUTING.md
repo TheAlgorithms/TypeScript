@@ -105,7 +105,7 @@ function sum(arr: number[]): number {
 - Prefer proper input/output of your functions over side effects.
 - We required the use of TypeScript.
 - Only use `any` if appropriate. Prefer to create proper types instead.
-- Don't prefix Interfaces with `I`.
+- No redundant naming. Don't prefix interfaces with `I`, class members with `m`, function with `func` or `f`, etc.
 - Prefer using optional fields over `null` or `undefined`. 
 
 ```ts
