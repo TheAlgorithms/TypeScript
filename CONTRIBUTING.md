@@ -116,7 +116,7 @@ let foo = { x: 123, y: undefined };
 let foo: { x: number, y?: number } = { x:123 };
 ```
 - Annotate arrays as `foos: Foo[]` instead of `foos: Array<Foo>`.
-- Avoid importing external libraries for basic algorithms. Only use those libraries for complicated algorithms.
+- Refrain from importing external libraries. Implement the algorithms "from scratch".
 - Most importantly:
   - **Be consistent in the use of these guidelines when submitting.**
   - Happy coding!
