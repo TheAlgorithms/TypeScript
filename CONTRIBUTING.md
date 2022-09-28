@@ -77,7 +77,7 @@ should add unique value.
 
 #### Module System
 
-We use the [ES Module](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/) system, which bring an official, standardized module system to JavaScript.
+We use the [ES Module](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/) system, which brings an official, standardized module system to TypeScript.
 
 It roughly means you will need to use `export` and `import` statements instead of `module.exports` and `require()`.
 
