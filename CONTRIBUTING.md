@@ -35,19 +35,19 @@ If you submit a pull request that resolves an open issue, please help us to keep
 
 An Algorithm is one or more functions (or classes) that:
 
-- take one or more inputs.
-- perform some internal calculations or data manipulations.
-- return one or more outputs.
-- have minimal side effects.
+- Take one or more inputs.
+- Perform some internal calculations or data manipulations.
+- Return one or more outputs.
+- Have minimal side effects.
 
 Algorithms should be packaged in a way that would make it easy for readers to put them into larger programs.
 
 Algorithms should:
 
-- have intuitive class and function names that make their purpose clear to readers.
-- use TypScript naming conventions and intuitive variable names to ease comprehension.
-- be flexible to take different input values.
-- raise TypeScript exceptions (RangeError, etc.) on erroneous input values.
+- Have intuitive class and function names that make their purpose clear to readers.
+- Use TypScript naming conventions and intuitive variable names to ease comprehension.
+- Be flexible to take different input values.
+- Raise TypeScript exceptions (RangeError, etc.) on erroneous input values.
 
 Algorithms in this repo should not be how-to examples for existing TypeScript packages. Instead, they should perform
 internal calculations or manipulations to convert input values into different output values. Those calculations or
