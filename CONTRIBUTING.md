@@ -64,7 +64,7 @@ should add unique value.
 
 - Prefer to use the following format: `<type>: <short summary>`. If necessary, put any extra information in the description.
 - Commit types include (but are not limited to): 
-  - **docs**: Documentantion only changes
+  - **docs**: Documentation only changes
   - **feat**: A new feature
   - **fix**: A bug fix
   - **chore**: Miscellaneous stuff that does not match any of the above
