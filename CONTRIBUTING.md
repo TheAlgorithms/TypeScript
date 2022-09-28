@@ -120,5 +120,3 @@ let foo: { x: number, y?: number } = { x:123 };
 - Most importantly:
   - **Be consistent in the use of these guidelines when submitting.**
   - Happy coding!
-
-Written by [**@gefgu**](https://github.com/gefgu) and community, September 2022.
