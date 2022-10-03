@@ -28,17 +28,17 @@ describe('Testing Stack data structure', () => {
     expect(stack.isEmpty()).toBeFalsy();
   });
 
-  it('last should return the last value', () => {
+  it('top should return the last value', () => {
     const stack = new Stack<number>();
     stack.push(2);
 
-    expect(stack.last()).toBe(2);
+    expect(stack.top()).toBe(2);
   });
 
-  it('last should return null when the stack is empty', () => {
+  it('top should return null when the stack is empty', () => {
     const stack = new Stack<number>();
 
-    expect(stack.last()).toBe(null);
+    expect(stack.top()).toBe(null);
   });
 
   it('length should return the number of elements in the stack', () => {

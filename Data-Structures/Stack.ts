@@ -1,12 +1,11 @@
 /* Stack data-structure. It's work is based on the LIFO method (last-IN-first-OUT).
  * It means that elements added to the stack are placed on the top and only the
  * last element (from the top) can be reached. After we get access to the last
- * element, he pops from the stack.
+ * element, it pops from the stack.
  * This is a class-based implementation of a Stack.
  */
 export class Stack<T> {
   private stack: T[] = [];
-  private top: number = 0;
   private limit: number;
 
   /**
@@ -23,12 +22,11 @@ export class Stack<T> {
    * @param {T} value - the new value to add
    */
   push(value: T) {
-    if (this.top + 1 > this.limit) {
+    if (this.length() + 1 > this.limit) {
       throw new Error('Stack Overflow');
     }
 
     this.stack.push(value);
-    this.top++;
   }
 
   /**
@@ -38,9 +36,7 @@ export class Stack<T> {
    * @return {T} removed element
    */
   pop(): T {
-    if (this.top !== 0) {
-      this.top -= 1;
-
+    if (this.length() !== 0) {
       return this.stack.pop() as T;
     }
 
@@ -53,7 +49,7 @@ export class Stack<T> {
    * @return {number} the number of elements in the stack
    */
   length(): number {
-    return this.top;
+    return this.stack.length;
   }
 
   /**
@@ -62,17 +58,17 @@ export class Stack<T> {
    * @return {boolean} returns true if the stack is empty, otherwise false
    */
   isEmpty(): boolean {
-    return this.top === 0;
+    return this.length() === 0;
   }
 
   /**
-   * @function last
+   * @function top
    * @description - return the last element in the stack without removing it
    * @return {T | null} return the last element or null if the stack is empty
    */
-  last(): T | null {
-    if (this.top !== 0) {
-      return this.stack[this.top - 1];
+  top(): T | null {
+    if (this.length() !== 0) {
+      return this.stack[this.length() - 1];
     }
 
     return null;
