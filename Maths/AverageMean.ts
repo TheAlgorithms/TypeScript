@@ -8,7 +8,7 @@
  * @example AverageMean([10, 40, 100, 20]) = 42.5
  */
 
-export const AverageMean = (numbers: number[]) => {
+export const AverageMean = (numbers: number[]): number => {
   if (!Array.isArray(numbers) || numbers.length < 1) {
     throw new TypeError("Invalid Input");
   }
