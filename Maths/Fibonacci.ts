@@ -8,19 +8,16 @@
  */
 
 export const fibonacciValue = (number: number): number => {
-  if (typeof number === "string") {
-    throw "Input should be a number";
+  if (number < 0) {
+    throw "Number should be greater than 0";
   }
 
   if (number === 0) {
     return 0;
   }
 
-  if (number < 0) {
-    throw "Number should be greater";
-  }
-
   let a = 0;
+
   let b = 1;
 
   for (let i = 1; i < number; ++i) {
