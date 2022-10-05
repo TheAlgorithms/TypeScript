@@ -9,7 +9,7 @@
  */
 
 export const AverageMean = (numbers: number[]): number => {
-  if (!Array.isArray(numbers) || numbers.length < 1) {
+  if (numbers.length < 1) {
     throw new TypeError("Invalid Input");
   }
 
