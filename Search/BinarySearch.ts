@@ -28,9 +28,12 @@ export const binarySearchIterative = (array: number[], target: number): number =
     while (array[middle] !== target && start <= end) {
         // if the target is less than the middle value, move the end pointer to be middle -1 to narrow the search space
         // otherwise, move the start pointer to be middle + 1 
-        target < array[middle]
-            ? end = middle - 1
-            : start = middle + 1;
+        if (target < array[middle]) {
+            end = middle - 1;
+        }
+        else {
+            start = middle + 1;
+        }
 
         // redeclare the middle index when the search window changes
         middle = Math.floor((start + end) / 2);
