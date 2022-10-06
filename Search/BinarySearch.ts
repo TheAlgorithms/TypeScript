@@ -20,7 +20,7 @@ export const binarySearchIterative = (array: number[], target: number): number =
     // declare pointers for the start, middle and end indices
     let start = 0,
         end = array.length - 1,
-        middle = Math.floor((start + end) / 2);
+        middle = (start + end) >> 1;
     
     // ensure the target is within the bounds of the array
     if (target < array[start] || target > array[end]) return -1;
@@ -34,9 +34,8 @@ export const binarySearchIterative = (array: number[], target: number): number =
         else {
             start = middle + 1;
         }
-
         // redeclare the middle index when the search window changes
-        middle = Math.floor((start + end) / 2);
+        middle = (start + end) >> 1;
     }
     // return the middle index if it is equal to target
     return array[middle] === target ? middle : -1;
@@ -48,7 +47,7 @@ export const binarySearchRecursive = (array: number[], target: number, start = 0
     // ensure the target is within the bounds of the array
     if (target < array[start] || target > array[end]) return -1;
 
-    const middle = Math.floor((start + end) / 2);
+    const middle = (start + end) >> 1;
 
     if (array[middle] === target) return middle; // target found
     if (start > end) return -1; // target not found
