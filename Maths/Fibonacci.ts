@@ -1,13 +1,13 @@
 /**
- * A function to get Fibonacci value of given number
+ * A function to get nth Fibonacci number
  * @param number The input integer
- * @return {number} Fibonacci value of `number`
- * @example fibonacciValue(4) => 3 | fibonacciValue(6) => 8
+ * @return {number} Fibonacci number of `number`
+ * @example nthFibonacci(4) => 3 | nthFibonacci(6) => 8
  * @see https://en.m.wikipedia.org/wiki/Fibonacci_number
  * @author MohdFaisalBidda <https://github.com/MohdFaisalBidda>
  */
 
-export const fibonacciValue = (number: number): number => {
+export const nthFibonacci = (number: number): number => {
   if (number < 0)  throw "Number should be greater than 0";
   
   if (number === 0)  return 0;

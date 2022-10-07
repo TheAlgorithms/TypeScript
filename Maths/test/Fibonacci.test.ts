@@ -1,14 +1,14 @@
-import {fibonacciValue} from '../Fibonacci';
+import {nthFibonacci} from '../Fibonacci';
 
-describe('FibonacciValue', () => {
+describe('nthFibonacci', () => {
   
 test('should return correct value', () => {
   
-expect(fibonacciValue(0)).toBe(0);
-expect(fibonacciValue(1)).toBe(1);
-expect(fibonacciValue(5)).toBe(5);
-expect(fibonacciValue(4)).toBe(3);
-expect(fibonacciValue(0)).toBe(0);
+expect(nthFibonacci(0)).toBe(0);
+expect(nthFibonacci(1)).toBe(1);
+expect(nthFibonacci(5)).toBe(5);
+expect(nthFibonacci(4)).toBe(3);
+expect(nthFibonacci(0)).toBe(0);
   
 });
 });
