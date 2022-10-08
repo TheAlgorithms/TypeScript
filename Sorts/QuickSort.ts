@@ -36,7 +36,7 @@ export const partition = (
 /**
  * Quicksort implementation
  *
- * @param {Array<number>} array
+ * @param {number[]} array
  * @param {number} [left=0]
  * @param {number} [right=array.length - 1]
  * @returns {number[]}
