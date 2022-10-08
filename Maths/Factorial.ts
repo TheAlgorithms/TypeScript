@@ -1,7 +1,7 @@
 /**
  * @function Factorial
  * @description Calculate the factorial of a positive integer.
- * @param {number} num - A positive number.
+ * @param {number} num - A positive integer.
  * @return {number} - The factorial.
  * @see https://en.wikipedia.org/wiki/Factorial
  * @example Factorial(0) = 1
