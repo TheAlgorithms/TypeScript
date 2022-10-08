@@ -106,23 +106,85 @@ function sum(arr: number[]): number {
 ```
 
 - Avoid using global variables and avoid `==` (use `===` instead).
-- Use only `let` and `const`, never use `var`
+- Use only `let` and `const`, never use `var`; inline expressions which are only used a single time unless naming a variable adds to the readability.
 - Prefer proper input/output of your functions over side effects.
 - We required the use of TypeScript.
 - Only use `any` if appropriate. Prefer to create proper types instead.
 - No redundant naming. Don't prefix interfaces with `I`, class members with `m`, function with `func` or `f`, etc.
 - Prefer using optional fields over `null` or `undefined`.
-
-```ts
-// BAD
-let foo = { x: 123, y: undefined };
-
-// GOOD
-let foo: { x: number, y?: number } = { x: 123 };
-```
-
 - Annotate arrays as `foos: Foo[]` instead of `foos: Array<Foo>`.
 - Refrain from importing external libraries. Implement the algorithms "from scratch".
 - Most importantly:
   - **Be consistent in the use of these guidelines when submitting.**
   - Happy coding!
+
+##### Bad
+
+```ts
+let foo = { x: 123, y: undefined };
+````
+
+##### Good
+
+```ts
+let foo: { x: number, y?: number } = { x: 123 };
+```
+
+#### Writing Good Tests
+
+Trivial "algorithms" or formulas (think `abs`) may go without tests. Everything else **must** have decent test coverage.
+While it is not required that your tests trigger execution of every line of code you have written,
+you should definitely test edge cases, selected standard inputs, larger inputs and ideally even randomized inputs.
+
+Tests are written using [Jest](https://jestjs.io/). If you can meaningfully divide your test cases into descriptive classes,
+use a `describe` block for the algorithm and `it` blocks for classes of test cases.
+If you can not classify your test cases (which is the case especially for trivial algorithms like Fibonacci numbers or factorials),
+use a single `test` block for all test cases. **Do not** use `describe` & `it` blocks with redundant descriptions for the `it` blocks:
+
+##### Bad
+
+```ts
+describe("Factorial", () => {
+  // Bad: it-blocks add absolutely no value
+  it("works", () => {
+    expect(factorial(0)).toBe(1);
+  });
+  it("works #2", () => {
+    expect(factorial(1)).toBe(1);
+  });
+  // Bad: Redundant it-block description
+  it("3! is 6", () => {
+    expect(factorial(3)).toBe(6);
+  });
+  // Bad: Redundant it-block description
+  it("4! is 24", () => {
+    // Bad: Naming these variables adds no value; they should have been inlined
+    const input = 4;
+    const expected = 24;
+    expect(factorial(input)).toBe(expected);
+  });
+});
+```
+
+##### Good
+
+```ts
+// Good: Much more concise, still the same coverage
+test("Factorial", () => {
+  expect(factorial(0)).toBe(1);
+  expect(factorial(1)).toBe(1);
+  expect(factorial(3)).toBe(6);
+  expect(factorial(4)).toBe(24);
+});
+```
+
+##### Even Better
+
+```ts
+// More concise, plus we get test name formatting
+test("Factorial", () => {
+  test.each([[0, 1], [1, 1], [3, 6], [4, 24]])('%i! = %i', (n, expected) => {
+    expect(factorial(n)).toBe(expected);
+  });
+});
+```
