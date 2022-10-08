@@ -4,7 +4,7 @@
  * @param {number} num - A natural number.
  * @return {number} - Sum of all digits of given natural number.
  * @see https://en.wikipedia.org/wiki/Digit_sum
- * @example Factorial(12) = 3
+ * @example DigitSum(12) = 3
  * @example DigitSum(9045) = 18
  */
 
