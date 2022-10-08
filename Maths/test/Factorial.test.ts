@@ -1,17 +1,12 @@
 import { Factorial } from "../Factorial";
 
 describe("Factorial", () => {
-  test.each([-0.1, -1, -2, -42])(
-    "should throw an error for numbers < 0 like %i",
+  test.each([-0.1, -1, -2, -42, 0.01, 0.42, 0.5, 1.337])(
+    "should throw an error for non natural number %d",
     (num) => {
-      expect(() => Factorial(num)).toThrowError("num must be >= 0");
-    },
-  );
-
-  test.each([0.01, 0.42, 0.5, 1.337])(
-    "should throw an error for numbers that are not integers like %i",
-    (num) => {
-      expect(() => Factorial(num)).toThrowError("only integers are supported");
+      expect(() => Factorial(num)).toThrowError(
+        "only natural numbers are supported",
+      );
     },
   );
 
