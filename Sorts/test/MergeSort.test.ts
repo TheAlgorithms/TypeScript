@@ -6,7 +6,7 @@ describe("Merge Sort", () => {
 
         let inBuiltSortArr = Array<number>(arrLen)
         for (let i = 0; i < arrLen; i++) { inBuiltSortArr[i] = Math.random() }
-        let mergeSortArray = inBuiltSortArr;
+        let mergeSortArray = inBuiltSortArr.slice();
 
         inBuiltSortArr.sort((a, b) => a - b);
         expect(MergeSort(mergeSortArray)).toStrictEqual(inBuiltSortArr);
@@ -17,7 +17,7 @@ describe("Merge Sort", () => {
 
         let inBuiltSortArr = Array<number>(arrLen)
         for (let i = 0; i < arrLen; i++) { inBuiltSortArr[i] = Math.random() }
-        let mergeSortArray = inBuiltSortArr;
+        let mergeSortArray = inBuiltSortArr.slice();
 
         inBuiltSortArr.sort((a, b) => a - b);
         expect(MergeSort(mergeSortArray)).toStrictEqual(inBuiltSortArr);
