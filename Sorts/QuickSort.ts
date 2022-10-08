@@ -5,8 +5,8 @@
  * @example QuickSort([8, 3, 5, 1, 4, 2]) = [1, 2, 3, 4, 5, 8]
  */
 
- export const partition = (
-  array: Array<number>,
+export const partition = (
+  array: number[],
   left: number = 0,
   right: number = array.length - 1
 ) => {
@@ -39,10 +39,10 @@
  * @param {Array<number>} array
  * @param {number} [left=0]
  * @param {number} [right=array.length - 1]
- * @returns {Array<number>}
+ * @returns {number[]}
  */
 export const QuickSort = (
-  array: Array<number>,
+  array: number[],
   left: number = 0,
   right: number = array.length - 1
 ) => {
