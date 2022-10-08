@@ -1,16 +1,5 @@
 import { QuickSort } from "../QuickSort";
 
-/**
- * Space complexity - O(nlogn)
- * Time complexity 
- *      Best case   -   O(nlogn)
- *                      When pivot element lies in the middle of the list
- *      Worst case  -   O(n^2)
- *                      When pivot element lies on the extreme ends
- *      Average case -  O(nlogn)
- *                      When the above two cases are not met
- */
-
 describe("Quick Sort", () => {
     it("should return the correct value for average case", () => {
         expect(QuickSort([1, 4, 2, 5, 9, 6, 3, 8, 10, 7])).toStrictEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);

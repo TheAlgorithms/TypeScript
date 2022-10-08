@@ -40,7 +40,17 @@ export const partition = (
  * @param {number} [left=0]
  * @param {number} [right=array.length - 1]
  * @returns {number[]}
+ * @complexity_analysis
+ * Space complexity - O(nlogn)
+ * Time complexity 
+ *      Best case   -   O(nlogn)
+ *                      When pivot element lies in the middle of the list
+ *      Worst case  -   O(n^2)
+ *                      When pivot element lies on the extreme ends
+ *      Average case -  O(nlogn)
+ *                      When the above two cases are not met
  */
+
 export const QuickSort = (
   array: number[],
   left: number = 0,
