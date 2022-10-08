@@ -1,25 +1,19 @@
 import { MergeSort } from "../MergeSort";
 
 describe("Merge Sort", () => {
-    it("generating array with length 10 and comparing with sorted array", () => {
-        let arrLen = 10;
+    it("generating array with variable length and comparing with sorted array", () => {
+        let arrLenArr = [10, 200, 40000];
 
-        let inBuiltSortArr = Array<number>(arrLen)
-        for (let i = 0; i < arrLen; i++) { inBuiltSortArr[i] = Math.random() }
-        let mergeSortArray = inBuiltSortArr.slice();
+        arrLenArr.forEach((arrLen: number) => {
 
-        inBuiltSortArr.sort((a, b) => a - b);
-        expect(MergeSort(mergeSortArray)).toStrictEqual(inBuiltSortArr);
-    });
+            let inBuiltSortArr = Array<number>(arrLen)
+            for (let i = 0; i < arrLen; i++) { inBuiltSortArr[i] = Math.random() * 10000 }
+            let mergeSortArray = inBuiltSortArr.slice();
 
-    it("generating array with length 20000 and comparing with sorted array", () => {
-        let arrLen = 20000;
+            inBuiltSortArr.sort((a, b) => a - b);
+            expect(MergeSort(mergeSortArray)).toStrictEqual(inBuiltSortArr);
 
-        let inBuiltSortArr = Array<number>(arrLen)
-        for (let i = 0; i < arrLen; i++) { inBuiltSortArr[i] = Math.random() }
-        let mergeSortArray = inBuiltSortArr.slice();
-
-        inBuiltSortArr.sort((a, b) => a - b);
-        expect(MergeSort(mergeSortArray)).toStrictEqual(inBuiltSortArr);
+        })
     });
 });
+
