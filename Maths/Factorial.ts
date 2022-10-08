@@ -12,7 +12,7 @@ export const Factorial = (num: number): number => {
     throw new Error("num must be >= 0");
   }
 
-  if (!Number.isInteger(num)){
+  if (!Number.isInteger(num)) {
     throw new Error("only integers are supported");
   }
 
