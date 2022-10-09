@@ -7,5 +7,5 @@
 */
 
 export const degreeToRadian =(degrees:number):number =>{
-  return parseFloat((degrees * (Math.PI/180)).toFixed(4));
+  return (degrees * (Math.PI/180));
 }
