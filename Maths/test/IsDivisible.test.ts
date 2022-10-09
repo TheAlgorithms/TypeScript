@@ -1,4 +1,4 @@
-import {isDivisible} from './Sum';
+import {isDivisible} from '../IsDivisible';
 
 describe('Divisible', () => {
   
