@@ -1,6 +1,6 @@
 import {bubbleSort} from "../BubbleSort"
 
-describe("Bubble Sort", () => { 
+describe("BubbleSort", () => { 
    it("should return the correct value for average case", () => { 
      expect(bubbleSort([8, 3, 5, 1, 4, 2])).toStrictEqual([1, 2, 3, 4, 5, 8]); 
    }); 

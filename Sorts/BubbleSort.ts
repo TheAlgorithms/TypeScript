@@ -16,8 +16,8 @@
 
 export const bubbleSort =(arr:number[]):number[] =>{
 
- for(i=0;i<arr.length;i++){
-    for(j=0;j<arr.length-1;j++){
+ for(let i=0;i<arr.length;i++){
+    for(let j=0;j<arr.length-1;j++){
       if(arr[j]>arr[j+1]){
         let temp:number =arr[j];
         arr[j]=arr[j+1];
