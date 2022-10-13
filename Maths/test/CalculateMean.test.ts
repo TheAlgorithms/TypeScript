@@ -1,4 +1,4 @@
-import { calculateMean } from "../calculateMean";
+import { calculateMean } from "../CalculateMean";
 
 describe("Tests for AverageMean", () => {
   it("should be a function", () => {
