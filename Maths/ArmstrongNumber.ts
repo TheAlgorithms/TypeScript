@@ -17,12 +17,13 @@ export const ArmstrongNumber = (num: number): boolean => {
   if (typeof num !== 'number' || num <= 0) return false;
 
   let compNum = 0
+  let cloneNum = num
+  const numOfDigits = Math.floor(1 + Math.log10(num))
 
-  const digitArr = num
-    .toString()
-    .split('');
+  while (cloneNum > 0) {
+    compNum += Math.pow(cloneNum % 10, numOfDigits)
+    cloneNum = Math.floor(cloneNum / 10)
+  }
 
-  digitArr.map((digit) => compNum += Math.pow(Number(digit), digitArr.length))
-
-  return num === compNum
+  return compNum === num
 }
