@@ -1,4 +1,4 @@
-import { Stack } from '../../Stack';
+import { Stack } from '../Stack';
 
 describe('Testing Stack data structure', () => {
   it('push should add a new element to the stack', () => {

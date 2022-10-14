@@ -42,7 +42,7 @@ if you make any mistakes. The names of the maintainers of this repository are li
 [welcome]: https://img.shields.io/static/v1.svg?label=Contributions&message=Welcome&color=0059b3
 
 <!-- External Links -->
-[discord-server]: https://discord.gg/c7MnfGFGa6
+[discord-server]: https://the-algorithms.com/discord/
 [actions]: https://github.com/TheAlgorithms/TypeScript/actions
 [repositories]: https://github.com/orgs/TheAlgorithms/repositories
 [help-wanted]: https://github.com/TheAlgorithms/TypeScript/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22
