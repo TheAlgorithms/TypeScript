@@ -1,27 +1,7 @@
 import { ArmstrongNumber } from "../ArmstrongNumber"
 
-describe('ArmstrongNumber', () => {
-	it('should return the correct value', () => {
-		expect(ArmstrongNumber(9)).toBe(true)
-	})
-	it('should return the correct value', () => {
-		expect(ArmstrongNumber(-310)).toBe(false)
-	})
-	it('should return the correct value', () => {
-		expect(ArmstrongNumber(407)).toBe(true)
-	})
-	it('should return the correct value', () => {
-		expect(ArmstrongNumber(420)).toBe(false)
-	})
-	it('should return the correct value', () => {
-		expect(ArmstrongNumber(0)).toBe(false)
-	})
-
-	it('should return the correct value', () => {
-		expect(ArmstrongNumber(13579)).toBe(false)
-	})
-
-	it('should return the correct value', () => {
-		expect(ArmstrongNumber(92727)).toBe(true)
-	})
+test('ArmstrongNumber', () => {
+  test.each([[9, true], [-310, false], [0, false], [407, true], [420, false], [92727, true], [13579, false]])('i is an Armstrong number or not', (num, expected) => {
+    expect(ArmstrongNumber(num)).toBe(expected)
+  })
 })
