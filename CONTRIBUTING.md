@@ -182,7 +182,7 @@ test("Factorial", () => {
 
 ```ts
 // More concise, plus we get test name formatting
-test("Factorial", () => {
+describe("Factorial", () => {
   test.each([[0, 1], [1, 1], [3, 6], [4, 24]])('%i! = %i', (n, expected) => {
     expect(factorial(n)).toBe(expected);
   });
