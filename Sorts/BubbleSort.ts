@@ -4,7 +4,7 @@
  * @Complexity_Analysis 
  * Space complexity - O(1) 
  * Time complexity  
- *      Best case   -   O(n)
+ *      Best case   -   O(n^2)
  *                      The best case occurs when an array is already sorted. 
  *      Worst case  -   O(n^2)
  *                      The worst case occurs when an array is reverse sorted.
