@@ -1,4 +1,4 @@
-/* Stack data-structure. Its work is based on the LIFO method (last-IN-first-OUT).
+/* Stack data-structure. It's work is based on the LIFO method (last-IN-first-OUT).
  * It means that elements added to the stack are placed on the top and only the
  * last element (from the top) can be reached. After we get access to the last
  * element, it pops from the stack.
