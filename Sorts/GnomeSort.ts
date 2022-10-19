@@ -16,10 +16,10 @@ export const gnomeSort = (arr: number[]): number[] => {
 
   while (i < arr.length) {
     if (arr[i - 1] <= arr[i]) {
-      i++;
+      i++; //increment index if sub-array[0:i] already sorted
     } else {
-      [arr[i], arr[i - 1]] = [arr[i - 1], arr[i]];
-      i = Math.max(1, i - 1);
+      [arr[i], arr[i - 1]] = [arr[i - 1], arr[i]]; //swapping two numbers
+      i = Math.max(1, i - 1); //go back to the previous index to check the swapped number
     }
   }
   return arr;
