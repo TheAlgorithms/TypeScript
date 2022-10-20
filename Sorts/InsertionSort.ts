@@ -4,7 +4,7 @@
  * @param {number[]} num - The input array
  * @return {number[]} - The sorted array.
  * @see [Insertion Sort](https://www.freecodecamp.org/news/sorting-algorithms-explained-with-examples-in-python-java-and-c#insertion-sort)
- * @example BinaryConvert([8, 3, 5, 1, 4, 2]) = [1, 2, 3, 4, 5, 8]
+ * @example insertionSort([8, 3, 5, 1, 4, 2]) = [1, 2, 3, 4, 5, 8]
  */
 
 export const insertionSort = (arr: number[]): number[] => {
