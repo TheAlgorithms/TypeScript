@@ -18,29 +18,38 @@ export const knapsack = (
   weights: number[],
   values: number[]
 ) => {
+  // Declaring a data structure to store calculated states/values
   var dp: number[][] = new Array(numberOfItems + 1);
 
   for (var i = 0; i < dp.length; i++) {
+    // Placing an array at each index of dp to make it a 2d matrix
     dp[i] = new Array(totalWeight + 1);
   }
 
+  // Loop traversing each state of dp
   for (var i = 0; i < numberOfItems; i++) {
     for (var j = 0; j <= totalWeight; j++) {
       if (i == 0) {
         if (j >= weights[i]) {
+          // grab the first item if it's weight is less than remaining weight (j)
           dp[i][j] = values[i];
           continue;
         }
+        // if weight[i] is more than remaining weight (j) leave it
         dp[i][j] = 0;
         continue;
       }
 
       if (j < weights[i]) {
+        // weight of current item (weights[i]) is more than remaining weight (j), leave the current item and just carry on previous items
         dp[i][j] = dp[i - 1][j];
         continue;
       }
+      // select the maximum of (if current weight is collected thus adding it's value) and (if current weight is not collected thus not adding it's value)
       dp[i][j] = Math.max(dp[i - 1][j - weights[i]] + values[i], dp[i - 1][j]);
     }
   }
+
+  // Return the final maximized value at last position of dp matrix
   return dp[numberOfItems - 1][totalWeight];
 };
