@@ -18,7 +18,7 @@
  * @param {Number} end end index position of array
  * @return {Number} Position of the key element
  */
-const binarySearch = (array: number[], key: number, start: number, end: number): number => {
+const findPosbinarySearch = (array: number[], key: number, start: number, end: number): number => {
   if (start === end) {
     if (array[start] > key) {
       return start;
@@ -34,9 +34,9 @@ const binarySearch = (array: number[], key: number, start: number, end: number):
   const mid = Math.floor((start + end) / 2);
 
   if (array[mid] < key) {
-    return binarySearch(array, key, mid + 1, end);
+    return findPosbinarySearch(array, key, mid + 1, end);
   } else if (array[mid] > key) {
-    return binarySearch(array, key, start, mid - 1);
+    return findPosbinarySearch(array, key, start, mid - 1);
   } else {
     return mid;
   }
@@ -47,13 +47,15 @@ const binarySearch = (array: number[], key: number, start: number, end: number):
  * @param {Array} list List to be sorted.
  * @return {Array} The sorted list.
  */
-export binaryInsertionSort (array: number[]): number[] => {
+export const binaryInsertionSort = (array: number[]): number[] => {
   const totalLength = array.length;
   for (let itr = 1; itr < totalLength; itr += 1) {
     const key = array[itr];
-    const indexPosition = binarySearch(array, key, 0, itr - 1);
+    const indexPosition = findPosbinarySearch(array, key, 0, itr - 1);
     array.splice(itr, 1);
     array.splice(indexPosition, 0, key);
   }
   return array;
 }
+
+console.log(binaryInsertionSort([5,4, 3, 1, 2]))
