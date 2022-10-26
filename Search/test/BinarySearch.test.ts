@@ -25,10 +25,10 @@ describe("BinarySearch", () => {
             expect(func([1,2,2,3,3,3,4], 2)).toBe(1);
         });
         it("should return the first index when the target is the first item in the array", () => {
-            expect(func(testArray, 1)).toBe(0);
+            expect(func(testArray, 1)).toBe(1);
         });
         it("should return the last index when the target is the last item in the array", () => {
-            expect(func(testArray, 4)).toBe(3);
+            expect(func(testArray, 4)).toBe(4);
         });
     }
 });
