@@ -1,23 +1,12 @@
 /**
  * @class Queue 
- * @description class based implementation of a queue, it works based on the FIFO method 
- *    
- * @methods
- *    @function .push - insert an object in the end of the queue
- *    @function .pop - remove an element of the end o the queue 
- *    @function .length - returns the size of the qeuue 
- *    @function .isEmpty - returns if the queue is empty
+ * @description Circular implementation of a queue 
 */
-/* queue data-structure. It's work is based on the LIFO method (last-IN-first-OUT).
- * It means that elements added to the queue are placed on the top and only the
- * last element (from the top) can be reached. After we get access to the last
- * element, it pops from the queue.
- * This is a array-based class implementation of a queue.
- */
 export class Queue<T> {
-  private queue: T[] = [];
+  private queue: T[];
   private limit: number;
-
+  private frontIdx: number;
+  private rearIdx: number;
   /**
    * constructor of the queue, can set a limit, if not provided there is no limit to the queue.
    * @function constructor
@@ -26,19 +15,28 @@ export class Queue<T> {
    */
   constructor(limit: number = Number.MAX_VALUE) {
     this.limit = limit;
+    this.queue = new Array<T>(limit);
+    this.frontIdx = 0;
+    this.rearIdx = 0;
   }
 
+  private increaseRear = () => this.rearIdx = (this.rearIdx + 1) % this.limit;
+  private increaseFront = () => this.frontIdx = (this.frontIdx + 1) % this.limit;
   /**
    * @function push
    * @description - adds a new element in the end of the queue
    * @param {T} value - the new value to add
    */
-  push(value: T) {
-    if (this.length() + 1 > this.limit) {
-      throw new Error('Maximum queue size reached');
+  public push(value: T) {
+    if (this.length() === this.limit)
+      throw ("Maximum queue size reached");
+    if (this.queue.length < this.limit) {
+      this.queue.push(value);
     }
-
-    this.queue.push(value);
+    else {
+      this.queue[this.rearIdx] = value;
+    }
+    this.increaseRear();
   }
 
   /**
@@ -47,12 +45,13 @@ export class Queue<T> {
    * @throws will throw an error if the queue is empty
    * @return {T} removed element
    */
-  pop(): T {
-    if (this.length() !== 0) {
-      return this.queue.shift() as T;
+  public pop(): T {
+    if (this.length() === 0) {
+      throw new Error('Empty queue');
     }
-
-    throw new Error('Empty queue');
+    const frontValue = this.front();
+    this.increaseFront();
+    return frontValue;
   }
 
   /**
@@ -60,8 +59,8 @@ export class Queue<T> {
    * @description - number of elements in the queue
    * @return {number} the number of elements in the queue
    */
-  length(): number {
-    return this.queue.length;
+  public length(): number {
+    return Math.abs(this.rearIdx - this.frontIdx);
   }
 
   /**
@@ -78,8 +77,8 @@ export class Queue<T> {
    * @description - return the first element in the queue 
    * @return {T | null} return the first element in the queue or null if the queue is empty 
    */
-  front(): T | null {
-    return this.length() !== 0 ? this.queue[0] : null
+  public front(): T {
+    return this.queue[this.frontIdx];
   }
 
   /**
@@ -87,7 +86,7 @@ export class Queue<T> {
    * @description - return the last added in the queue 
    * @return {T | null} return the last element or null if the queue is empty
    */
-  back(): T | null {
-    return this.length() !== 0 ? this.queue[this.length() - 1] : null
+  public back(): T | null {
+    return this.queue[this.rearIdx - 1];
   }
 }

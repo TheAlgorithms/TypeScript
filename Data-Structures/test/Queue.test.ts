@@ -1,8 +1,8 @@
 import { Queue } from "../Queue";
 
 describe('Queue data structure', () => {
-  let queue = new Queue<number>(5);
   test("push and pop", () => {
+    const queue = new Queue<number>(5);
     [10, 20, 30].forEach((testValue) => queue.push(testValue));
     expect(queue.front()).toBe(10);
     expect(queue.pop()).toBe(10);
