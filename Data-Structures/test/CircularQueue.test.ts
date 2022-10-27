@@ -1,8 +1,8 @@
-import { Queue } from "../Queue";
+import { CircularQueue } from "../CircularQueue";
 
-describe('Queue data structure', () => {
+describe('CircularQueue data structure', () => {
   test("push and pop", () => {
-    const queue = new Queue<number>(5);
+    const queue = new CircularQueue<number>(5);
     [10, 20, 30].forEach((testValue) => queue.push(testValue));
     expect(queue.front()).toBe(10);
     expect(queue.pop()).toBe(10);
@@ -10,10 +10,10 @@ describe('Queue data structure', () => {
     expect(queue.back()).toBe(30);
   })
   test("Empty queue case", () => {
-    expect(() => (new Queue<number>(0)).pop()).toThrow('Empty queue');
+    expect(() => (new CircularQueue<number>(0)).pop()).toThrow('Empty queue');
   })
 
   test("Maximum size reached case", () => {
-    expect(() => (new Queue<number>(0)).push(10)).toThrow('Maximum queue size reached');
+    expect(() => (new CircularQueue<number>(0)).push(10)).toThrow('Maximum queue size reached');
   })
 })

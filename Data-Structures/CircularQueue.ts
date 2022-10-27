@@ -1,8 +1,8 @@
 /**
- * @class Queue 
+ * @class CircularQueue 
  * @description Circular implementation of a queue 
 */
-export class Queue<T> {
+export class CircularQueue<T> {
   private queue: T[];
   private limit: number;
   private frontIdx: number;
