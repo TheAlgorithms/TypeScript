@@ -1,9 +1,7 @@
-import { IsEven } from "./IsEven";
-
 /**
  * @function calculateMedian
  * @description This script will find the meadian value of a array of numbers.
- * @param {number[]} numbers - Array of numeric values
+ * @param {number[]} numbers - Sorted array of numeric values
  * @return {number} - median of input numbers
  * @see [Median](https://en.wikipedia.org/wiki/Median)
  * @example calculateMedian([1, 2, 4, 5, 8]) = 4
@@ -16,10 +14,9 @@ export const calculateMedian = (numbers: number[]): number => {
     throw new TypeError("Invalid Input");
   }
 
-  let sortedArray: number[] = numbers.sort((n1,n2) => n1 - n2);
-  const totalNumbers = sortedArray.length;
+  const totalNumbers = numbers.length;
 
-  if (IsEven(totalNumbers)){
+  if (totalNumbers % 2 === 0){
     let index = (totalNumbers) / 2;
     return (sortedArray[index - 1] + sortedArray[index]) / 2;
   } else {
