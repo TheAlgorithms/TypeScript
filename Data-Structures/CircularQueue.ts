@@ -2,7 +2,13 @@
  * @class CircularQueue 
  * @description Circular implementation of a queue 
 */
-export class CircularQueue<T> {
+export interface Queue<T> {
+  push(value: T): void;
+  pop(): T;
+  length(): number;
+}
+
+export class CircularQueue<T> implements Queue<T> {
   private queue: T[];
   private limit: number;
   private frontIdx: number;
