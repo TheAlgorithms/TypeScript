@@ -24,12 +24,14 @@
   * [Is Even](https://github.com/TheAlgorithms/TypeScript/blob/master/maths/is_even.ts)
   * [Is Leap Year](https://github.com/TheAlgorithms/TypeScript/blob/master/maths/is_leap_year.ts)
   * [Is Odd](https://github.com/TheAlgorithms/TypeScript/blob/master/maths/is_odd.ts)
+  * [Lowest Common Multiple](https://github.com/TheAlgorithms/TypeScript/blob/master/maths/lowest_common_multiple.ts)
   * [Perfect Square](https://github.com/TheAlgorithms/TypeScript/blob/master/maths/perfect_square.ts)
   * [Radians To Degrees](https://github.com/TheAlgorithms/TypeScript/blob/master/maths/radians_to_degrees.ts)
   * [Sieve Of Eratosthenes](https://github.com/TheAlgorithms/TypeScript/blob/master/maths/sieve_of_eratosthenes.ts)
 
 ## Search
   * [Binary Search](https://github.com/TheAlgorithms/TypeScript/blob/master/search/binary_search.ts)
+  * [Linearsearch](https://github.com/TheAlgorithms/TypeScript/blob/master/search/linearsearch.ts)
 
 ## Sorts
   * [Bubble Sort](https://github.com/TheAlgorithms/TypeScript/blob/master/sorts/bubble_sort.ts)

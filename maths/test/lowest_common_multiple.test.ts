@@ -1,4 +1,4 @@
-import { binaryLCM, lowestCommonMultiple, naiveLCM } from "../LowestCommonMultiple";
+import { binaryLCM, lowestCommonMultiple, naiveLCM } from "../lowest_common_multiple";
 
 describe("naiveLCM", () => {
   test.each([[[3, 4], 12], [[8, 6], 24], [[5, 8, 3], 120], [[0.8, 0.4], 0.8]])(

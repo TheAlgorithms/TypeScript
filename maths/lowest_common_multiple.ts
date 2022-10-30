@@ -9,7 +9,7 @@
  * @example LowestCommonMultiple(5, 8, 3) = 120
  */
 
-import { greatestCommonFactor } from "./GreatestCommonFactor";
+import { greatestCommonFactor } from "./greatest_common_factor";
 
 //A naive solution which requires no additional mathematical algorithm
 
