@@ -31,7 +31,7 @@
 
 ## Search
   * [Binary Search](https://github.com/TheAlgorithms/TypeScript/blob/master/search/binary_search.ts)
-  * [Linearsearch](https://github.com/TheAlgorithms/TypeScript/blob/master/search/linearsearch.ts)
+  * [Linear Search](https://github.com/TheAlgorithms/TypeScript/blob/master/search/linear_search.ts)
 
 ## Sorts
   * [Bubble Sort](https://github.com/TheAlgorithms/TypeScript/blob/master/sorts/bubble_sort.ts)
