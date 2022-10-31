@@ -1,4 +1,4 @@
-import { linearSearch } from "../LinearSearch";
+import { linearSearch } from "../linear_search";
 
 describe("Linear search", () => {
   test.each([
