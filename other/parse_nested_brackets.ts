@@ -34,11 +34,11 @@ export const parseNestedBrackets = (
     } else if (text[i] === brackets.closingBrackets) {
       if (prFloor === 1) {
         end = i;
-        const v = text.slice(begin + 1, end);
+        const tag = text.slice(begin + 1, end);
         // push the tag in this present floor.
-        array.push(`${brackets.openBrackets}${v}${brackets.closingBrackets}`);
+        array.push(`${brackets.openBrackets}${tag}${brackets.closingBrackets}`);
         // push the array of the tags in the next floor.
-        array = array.concat(parseNestedBrackets(v, brackets));
+        array = array.concat(parseNestedBrackets(tag, brackets));
       }
       prFloor--;
     }
