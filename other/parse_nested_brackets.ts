@@ -1,6 +1,6 @@
 /**
  * @function parseNestedBrackets
- * @description Parse nested brackets algorithm (recursive implementation) for a string.
+ * @description Parse nested brackets algorithm for a string.
  * @param {string} w - string to parse
  * @param { openBrackets: string; closingBrackets: string } brackets - object containing the open and closing brackets
  * @returns {string[]} - array of the tags
