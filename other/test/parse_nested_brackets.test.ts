@@ -11,7 +11,8 @@ describe("parseNestedBrackets", () => {
     expect(
       parseNestedBrackets(
         `THIS IS SAMPLE TEXT(MAIN hoge 0.1 fuga(ITEM fuga hoge)hoge(ITEM2 nogami(ABBR)))`,
-        { openBrackets: "(", closingBrackets: ")" }
+        "(",
+        ")"
       )
     ).toEqual([
       "(MAIN hoge 0.1 fuga(ITEM fuga hoge)hoge(ITEM2 nogami(ABBR)))",
