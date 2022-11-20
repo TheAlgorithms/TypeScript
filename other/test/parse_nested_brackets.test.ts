@@ -1,15 +1,6 @@
 import { parseNestedBrackets } from "../parse_nested_brackets";
 
 describe("parseNestedBrackets", () => {
-  it("should be defined", () => {
-    expect(parseNestedBrackets).toBeDefined();
-  });
-  it("should return an array", () => {
-    expect(Array.isArray(parseNestedBrackets("<test>"))).toBeTruthy();
-  });
-  it("should return an array of strings", () => {
-    expect(typeof parseNestedBrackets("<test>")[0]).toBe("string");
-  });
   it("should return an array of the tags", () => {
     expect(parseNestedBrackets("<MAIN hoge><MAIN2 fuga>")).toEqual([
       "<MAIN hoge>",
