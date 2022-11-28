@@ -28,9 +28,9 @@
   * [Perfect Square](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/perfect_square.ts)
   * [Radians To Degrees](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/radians_to_degrees.ts)
   * Series
-    * [Hexagonalnumbers](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/series/hexagonalnumbers.ts)
+    * [Hexagonal Numbers](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/series/hexagonal_numbers.ts)
     * Test
-      * [Hexagonalnumbers.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/series/test/hexagonalnumbers.test.ts)
+      * [Hexagonal Numbers.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/series/test/hexagonal_numbers.test.ts)
   * [Sieve Of Eratosthenes](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/sieve_of_eratosthenes.ts)
 
 ## Other
