@@ -56,9 +56,9 @@ should add unique value.
 
 #### File Naming Convention
 
-- Filenames should use the UpperCamelCase (PascalCase) style.
+- Filenames should use the snake_case style. This is needed for our workflows to work correctly.
 - There should be no spaces in filenames.
-- **Example:** `UserProfile.ts` is allowed. Do not use `userprofile.ts`, `Userprofile.ts`, `user-Profile.ts`, `userProfile.ts`; these naming conventions are discouraged.
+- **Example:** `user_profile.ts` is allowed. Do not use `userprofile.ts`, `Userprofile.ts`, `user-Profile.ts`, `userProfile.ts`, `UserProfile.ts`; these naming conventions are discouraged.
 
 #### Commit Messages Formatting
 
