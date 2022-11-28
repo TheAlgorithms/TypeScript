@@ -1,4 +1,4 @@
-import { HexagonalNumbers } from "../HexagonalNumbers";
+import { HexagonalNumbers } from "../hexagonal_numbers";
 
 describe("HexagonalNumbers", () => {
   it("should return the first 10 hexagonal numbers", () => {
