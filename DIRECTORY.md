@@ -26,6 +26,7 @@
   * [Is Odd](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/is_odd.ts)
   * [Lowest Common Multiple](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/lowest_common_multiple.ts)
   * [Perfect Square](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/perfect_square.ts)
+  * [Pronic Number](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/pronic_number.ts)
   * [Radians To Degrees](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/radians_to_degrees.ts)
   * Series
     * [Hexagonal Numbers](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/series/hexagonal_numbers.ts)
