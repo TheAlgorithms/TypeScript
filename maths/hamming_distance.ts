@@ -17,9 +17,7 @@ const HammingDistance = (str1: string, str2: string) => {
 
   let dist = 0
 
-  for (let i = 0; i < str1.length; i += 1) {
-    if (str1[i] !== str2[i]) dist += 1
-  }
+  for (let i = 0; i < str1.length; i++) if (str1[i] !== str2[i]) dist++
 
   return dist
 }
