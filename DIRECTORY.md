@@ -20,6 +20,7 @@
   * [Fibonacci](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/fibonacci.ts)
   * [Find Min](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/find_min.ts)
   * [Greatest Common Factor](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/greatest_common_factor.ts)
+  * [Hamming Distance](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/hamming_distance.ts)
   * [Is Divisible](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/is_divisible.ts)
   * [Is Even](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/is_even.ts)
   * [Is Leap Year](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/is_leap_year.ts)
