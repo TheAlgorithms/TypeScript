@@ -1,20 +1,11 @@
 /**
- * This is a class-based implementation of a Queue.
+ * This is an array-based implementation of a Queue.
  * A Queue is a data structure that follows the FIFO (First In First Out) principle.
  * It means that the first element that was added to the queue will be the first one to be removed.
+ * The time complexity of the operations is O(n).
  */
-export class Queue<T> {
+export class ArrayQueue<T> {
     private queue: T[] = [];
-    private limit: number;
-
-    /**
-     * Sets an item limit for the queue.
-     *
-     * @param {number} [limit=Number.MAX_VALUE] The item limit of the queue.
-     */
-    constructor(limit: number = Number.MAX_VALUE) {
-        this.limit = limit;
-    }
 
     /**
      * Returns the number of items in the queue.
@@ -38,27 +29,23 @@ export class Queue<T> {
      * Adds an item to the queue.
      *
      * @param item The item being added to the queue.
-     * @throws Queue Overflow if the queue is full.
      */
     enqueue(item: T): void {
-        if (this.queue.length + 1 > this.limit) {
-            throw new Error("Queue Overflow");
-        }
-
         this.queue.push(item);
     }
 
     /**
-     * Removes an item from the queue.
+     * Removes an item from the queue and returns it.
      *
      * @throws Queue Underflow if the queue is empty.
+     * @returns The item that was removed from the queue.
      */
-    dequeue(): void {
+    dequeue(): T {
         if (this.isEmpty()) {
             throw new Error("Queue Underflow");
         }
 
-        this.queue.shift();
+        return this.queue.shift() as T;
     }
 
     /**
