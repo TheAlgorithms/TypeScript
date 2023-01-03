@@ -4,6 +4,7 @@
 
 ## Data Structures
   * [Stack](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/data_structures/stack.ts)
+  * [Array Queue](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/data_structures/array_queue.ts)
 
 ## Dynamic Programming
   * [Knapsack](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/dynamic_programming/knapsack.ts)
