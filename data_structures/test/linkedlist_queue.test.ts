@@ -1,21 +1,21 @@
 
-import { LinkedlistQueue } from './../linkedlist_queue';
+import { LinkedQueue } from './../linkedlist_queue';
 
 describe("Testing Queue data structure", () => {
     it("enqueue should add a new element to the queue", () => {
-        const queue = new LinkedlistQueue<number>();
+        const queue = new LinkedQueue<number>();
         queue.enqueue(1);
 
         expect(queue.length).toBe(1);
     });
 
     it("isEmpty should return true on empty queue", () => {
-        const queue = new LinkedlistQueue<number>();
+        const queue = new LinkedQueue<number>();
         expect(queue.isEmpty()).toBeTruthy();
     });
 
     it("isEmpty should return false on not empty queue", () => {
-        const queue = new LinkedlistQueue<number>();
+        const queue = new LinkedQueue<number>();
         queue.enqueue(1);
 
         expect(queue.isEmpty()).toBeFalsy();
@@ -24,7 +24,7 @@ describe("Testing Queue data structure", () => {
 
 
     it("length should return the number of elements in the queue", () => {
-        const queue = new LinkedlistQueue<number>();
+        const queue = new LinkedQueue<number>();
         queue.enqueue(1);
         queue.enqueue(1);
         queue.enqueue(1);
@@ -33,7 +33,7 @@ describe("Testing Queue data structure", () => {
     });
 
     it("dequeue should remove the first element", () => {
-        const queue = new LinkedlistQueue<number>();
+        const queue = new LinkedQueue<number>();
         queue.enqueue(1);
         queue.enqueue(2);
         queue.enqueue(3);

@@ -1,8 +1,13 @@
-/* The queue data strcture is sequential collection of elements that
-follows the priciple of FIFO */
-/*here we are using a singly linkedlist so we are only going to traverse to the next node */
+/**
+ * This is an linkedlist-based implementation of a Queue.
+ * A Queue is a data structure that follows the FIFO (First In First Out) principle.
+ * It means that the first element that was added to the queue will be the first one to be removed.
+ * The time complexity of the operations is O(n).
+ 
+ */
 
-/*USAGE
+/** USAGE
+
 *Printers
 *CPU task scheduling
 *Callback queue in javascript
@@ -15,49 +20,52 @@ type Node<T> = {
 }
 
 
-export class LinkedlistQueue<T> {
+export class LinkedQueue<T> {
 
     public length: number;
     public head?: Node<T>;
     private tail?: Node<T>;
 
     constructor() {
-        this.head = this.tail = undefined;  //when a new linkedlist is created the head becomes equal to the tail .
+        this.head = this.tail = undefined;
         this.length = 0;
     }
 
-    // adds elements to the rear/tail of the collection.
+    // adds elements to the rear/tail of the Queue
     enqueue(item: T): void {
-        const node = { value: item } as Node<T>; //creates a new node
-        this.length++ //increase the length  of the linkedlist
+        const node = { value: item } as Node<T>; // Creates a new node
+        this.length++ // Increase the length of the Queue
 
 
         if (!this.tail) {
             this.tail = this.head = node;
             return;
         }
-        this.tail.next = node; //updates  the next tail to the node created
-        this.tail = node;  //the tail of the linkedlist then becomes the node created!!
+        this.tail.next = node; // Updates  the next tail to the node created
+        this.tail = node;  // The tail of the Queue then becomes the node created!!
 
     }
-    //remove elements to the front/head of the collection
+    // Remove elements to the front/head of the Queue
     deque(): T | undefined {
+
+        // If there is no head return undefined
         if (!this.head) {
-            return undefined; //if there is no head return undefined
+            return undefined;
         }
+
         this.length--;
-        let head = this.head; //we store the head in order not to lose track of it
-        this.head = this.head.next; //update the the head to the next node
-        return head.value; // return the value of the head
+        let head = this.head; // We store the head in order not to lose track of it
+        this.head = this.head.next; // Update the the head to the next node
+        return head.value; // Return the value of the head
     }
 
 
-    // returns the value of the head
+    // Returns the value of the head
     peek(): T | undefined {
         return this.head?.value;
     }
 
-    // checks if the the linkedlist is empty
+    // Returns true if the Queue is empty
     isEmpty(): boolean {
         return this.length == 0
     }
