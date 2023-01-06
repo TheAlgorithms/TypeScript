@@ -21,9 +21,6 @@ type Node<T> = {
     next?: Node<T>,
 }
 
-
-
-
 export class LinkedQueue<T> implements Queue<T> {
 
     public size: number;
@@ -67,13 +64,17 @@ export class LinkedQueue<T> implements Queue<T> {
 
 
     // Returns the value of the head
-    peek(): T | undefined {
+    peek(): T | undefined | null {
+
+        if (this.isEmpty()) {
+            return null;
+        }
         return this.head?.value;
     }
 
     // Returns true if the Queue is empty
     isEmpty(): boolean {
-        return this.size == 0
+        return this.size === 0
     }
 
     length(): number {
