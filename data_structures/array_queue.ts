@@ -53,7 +53,7 @@ export class ArrayQueue<T> {
      *
      * @returns The item at the front of the queue or null if the queue is empty.
      */
-    front(): T | null {
+    peek(): T | null {
         if (this.isEmpty()) {
             return null;
         }
