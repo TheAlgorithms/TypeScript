@@ -14,13 +14,7 @@
 
 */
 
-export interface Queue<T> {
-    enqueue(item: T): void
-    dequeue(): T | undefined
-    peek(): T | undefined | null
-    isEmpty(): boolean
-
-}
+import { Queue } from "./queue";
 
 type Node<T> = {
     value: T,
@@ -32,19 +26,19 @@ type Node<T> = {
 
 export class LinkedQueue<T> implements Queue<T> {
 
-    public length: number;
+    public size: number;
     public head?: Node<T>;
     private tail?: Node<T>;
 
     constructor() {
         this.head = this.tail = undefined;
-        this.length = 0;
+        this.size = 0;
     }
 
     // adds elements to the rear/tail of the Queue
     enqueue(item: T): void {
         const node = { value: item } as Node<T>; // Creates a new node
-        this.length++ // Increase the length of the Queue
+        this.size++ // Increase the length of the Queue
 
 
         if (!this.tail) {
@@ -55,15 +49,17 @@ export class LinkedQueue<T> implements Queue<T> {
         this.tail = node;  // The tail of the Queue then becomes the node created!!
 
     }
+
+
     // Remove elements to the front/head of the Queue
     dequeue(): T | undefined {
 
         // If there is no head return undefined
         if (!this.head) {
-            return undefined;
+            throw new Error("Queue Underflow");
         }
 
-        this.length--;
+        this.size--;
         let head = this.head; // We store the head in order not to lose track of it
         this.head = this.head.next; // Update the the head to the next node
         return head.value; // Return the value of the head
@@ -77,7 +73,11 @@ export class LinkedQueue<T> implements Queue<T> {
 
     // Returns true if the Queue is empty
     isEmpty(): boolean {
-        return this.length == 0
+        return this.size == 0
+    }
+
+    length(): number {
+        return this.size;
     }
 }
 
