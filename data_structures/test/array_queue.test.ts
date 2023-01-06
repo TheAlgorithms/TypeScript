@@ -24,13 +24,13 @@ describe("Testing Queue data structure", () => {
         const queue = new ArrayQueue<number>();
         queue.enqueue(1);
 
-        expect(queue.front()).toBe(1);
+        expect(queue.peek()).toBe(1);
     });
 
     it("front should return null when the queue is empty", () => {
         const queue = new ArrayQueue<number>();
 
-        expect(queue.front()).toBe(null);
+        expect(queue.peek()).toBe(null);
     });
 
     it("length should return the number of elements in the queue", () => {

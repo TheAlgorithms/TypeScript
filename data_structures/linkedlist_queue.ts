@@ -14,13 +14,23 @@
 
 */
 
+export interface Queue<T> {
+    enqueue(item: T): void
+    dequeue(): T | undefined
+    peek(): T | undefined | null
+    isEmpty(): boolean
+
+}
+
 type Node<T> = {
     value: T,
     next?: Node<T>,
 }
 
 
-export class LinkedQueue<T> {
+
+
+export class LinkedQueue<T> implements Queue<T> {
 
     public length: number;
     public head?: Node<T>;
@@ -46,7 +56,7 @@ export class LinkedQueue<T> {
 
     }
     // Remove elements to the front/head of the Queue
-    deque(): T | undefined {
+    dequeue(): T | undefined {
 
         // If there is no head return undefined
         if (!this.head) {

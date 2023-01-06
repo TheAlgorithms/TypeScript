@@ -4,7 +4,14 @@
  * It means that the first element that was added to the queue will be the first one to be removed.
  * The time complexity of the operations is O(n).
  */
-export class ArrayQueue<T> {
+interface Queue<T> {
+    enqueue(item: T): void
+    dequeue(): T | undefined
+    peek(): T | undefined | null
+    isEmpty(): boolean
+
+}
+export class ArrayQueue<T> implements Queue<T>{
     private queue: T[] = [];
 
     /**
@@ -53,7 +60,7 @@ export class ArrayQueue<T> {
      *
      * @returns The item at the front of the queue or null if the queue is empty.
      */
-    front(): T | null {
+    peek(): T | null {
         if (this.isEmpty()) {
             return null;
         }
