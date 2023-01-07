@@ -1,4 +1,4 @@
-import { test } from './Queue.test'
+import { test } from './queue.test'
 
 import { LinkedQueue } from '../linkedlist_queue';
 
