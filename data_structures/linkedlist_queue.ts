@@ -32,7 +32,11 @@ export class LinkedQueue<T> implements Queue<T> {
         this.size = 0;
     }
 
-    // adds elements to the rear/tail of the Queue
+    /**
+     * Adds an item to the queue.
+     *
+     * @param item The item being added to the queue.
+     */
     enqueue(item: T): void {
         const node = { value: item } as Node<T>; // Creates a new node
         this.size++ // Increase the length of the Queue
@@ -48,10 +52,14 @@ export class LinkedQueue<T> implements Queue<T> {
     }
 
 
-    // Remove elements to the front/head of the Queue
+    /**
+     * Removes an item from the queue and returns it.
+     *
+     * @throws Queue Underflow if the queue is empty.
+     * @returns The item that was removed from the queue.
+     */
     dequeue(): T | undefined {
 
-        // If there is no head return undefined
         if (!this.head) {
             throw new Error("Queue Underflow");
         }
@@ -63,7 +71,11 @@ export class LinkedQueue<T> implements Queue<T> {
     }
 
 
-    // Returns the value of the head
+    /**
+     * Returns the item at the front of the queue.
+     *
+     * @returns The item at the front of the queue or null if the queue is empty.
+     */
     peek(): T | undefined | null {
 
         if (this.isEmpty()) {
@@ -72,11 +84,20 @@ export class LinkedQueue<T> implements Queue<T> {
         return this.head?.value;
     }
 
-    // Returns true if the Queue is empty
+    /**
+     * Checks if the queue is empty.
+     *
+     * @returns {boolean} Whether the queue is empty or not.
+     */
     isEmpty(): boolean {
         return this.size === 0
     }
 
+    /**
+     * Returns the number of items in the queue.
+     *
+     * @returns {number} The number of items in the queue.
+     */
     length(): number {
         return this.size;
     }
