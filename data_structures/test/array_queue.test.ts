@@ -1,6 +1,4 @@
 import { ArrayQueue } from "../array_queue";
-import { test } from './queue.test'
+import { testQueue } from './queue.test'
 
-test(ArrayQueue);
-
-
+describe("Array Queue", () => testQueue(ArrayQueue));
