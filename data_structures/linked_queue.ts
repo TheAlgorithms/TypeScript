@@ -1,19 +1,3 @@
-/**
- * This is an linkedlist-based implementation of a Queue.
- * A Queue is a data structure that follows the FIFO (First In First Out) principle.
- * It means that the first element that was added to the queue will be the first one to be removed.
- * The time complexity of the operations is O(1).
- 
- */
-
-/** USAGE
-
-*Printers
-*CPU task scheduling
-*Callback queue in javascript
-
-*/
-
 import { Queue } from "./queue";
 
 type Node<T> = {
@@ -21,6 +5,12 @@ type Node<T> = {
     next?: Node<T>,
 }
 
+/**
+ * This is a LinkedList-like implementation of a Queue,
+ * allowing the operations to be implemented in constant time.
+ * A Queue is a data structure that follows the FIFO (First-In First-Out) principle:
+ * The first element that was added to the queue will be the first one to be removed.
+ */
 export class LinkedQueue<T> implements Queue<T> {
 
     public size: number;
