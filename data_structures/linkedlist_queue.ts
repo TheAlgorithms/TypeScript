@@ -2,7 +2,7 @@
  * This is an linkedlist-based implementation of a Queue.
  * A Queue is a data structure that follows the FIFO (First In First Out) principle.
  * It means that the first element that was added to the queue will be the first one to be removed.
- * The time complexity of the operations is O(n).
+ * The time complexity of the operations is O(1).
  
  */
 

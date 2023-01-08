@@ -4,5 +4,4 @@ export interface Queue<T> {
 	peek(): T | undefined | null
 	isEmpty(): boolean
 	length(): number
-
 }
