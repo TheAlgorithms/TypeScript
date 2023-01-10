@@ -63,6 +63,7 @@ should add unique value.
 #### Commit Messages Formatting
 
 - Prefer to use the [Conventional Commits](https://www.conventionalcommits.org/) format: `<type>: <short summary>`. If necessary, put any extra information in the description.
+- Prefer to use the following [Conventional Commits](https://www.conventionalcommits.org/) format: `<type>: <short summary>`. If necessary, put any extra information in the description.
 - Commit types include (but are not limited to): 
   - **docs**: Documentation only changes
   - **feat**: A new feature
