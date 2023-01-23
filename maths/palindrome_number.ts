@@ -7,13 +7,12 @@
  * @author FatimaChariwala <https://github.com/fatima-0000>
  */
 
-export const isPalindrome = (number: number): boolean => {
-    const stringValue = number.toString();
-    length = stringValue.length - 1;
-    for (let i = 0; i < length; ++i, --length) {
-        if (stringValue[i] !== stringValue[length]) {
-            return false;
-        }
+export const IsPalindrome = (number: number): boolean => {
+    let reverseString = "";
+    let stringValue = number.toString();
+    let length = stringValue.length - 1;
+    for (let i = length; i >= 0; --i) {
+        reverseString = reverseString + stringValue[i];
     }
-    return true;
+    return stringValue == reverseString;
 };
