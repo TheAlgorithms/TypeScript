@@ -27,6 +27,7 @@
   * [Is Even](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/is_even.ts)
   * [Is Leap Year](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/is_leap_year.ts)
   * [Is Odd](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/is_odd.ts)
+  * [IS Palindrome](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/is_palindrome.ts)
   * [Lowest Common Multiple](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/lowest_common_multiple.ts)
   * [Perfect Square](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/perfect_square.ts)
   * [Pronic Number](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/pronic_number.ts)
