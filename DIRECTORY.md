@@ -3,9 +3,11 @@
   * [Xor Cipher](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/ciphers/xor_cipher.ts)
 
 ## Data Structures
-  * [Stack](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/data_structures/stack.ts)
   * [Array Queue](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/data_structures/array_queue.ts)
-  * [Linkedlist Queue](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/data_structures/linkedlist_queue.ts)
+  * [Linked Queue](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/data_structures/linked_queue.ts)
+  * [Queue](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/data_structures/queue.ts)
+  * [Stack](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/data_structures/stack.ts)
+  * [Stack Queue](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/data_structures/stack_queue.ts)
 
 ## Dynamic Programming
   * [Knapsack](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/dynamic_programming/knapsack.ts)
