@@ -3,9 +3,11 @@
   * [Xor Cipher](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/ciphers/xor_cipher.ts)
 
 ## Data Structures
-  * [Stack](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/data_structures/stack.ts)
   * [Array Queue](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/data_structures/array_queue.ts)
-  * [Linkedlist Queue](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/data_structures/linkedlist_queue.ts)
+  * [Linked Queue](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/data_structures/linked_queue.ts)
+  * [Queue](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/data_structures/queue.ts)
+  * [Stack](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/data_structures/stack.ts)
+  * [Stack Queue](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/data_structures/stack_queue.ts)
 
 ## Dynamic Programming
   * [Knapsack](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/dynamic_programming/knapsack.ts)
@@ -27,6 +29,7 @@
   * [Is Even](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/is_even.ts)
   * [Is Leap Year](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/is_leap_year.ts)
   * [Is Odd](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/is_odd.ts)
+  * [Is Square Free](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/is_square_free.ts)
   * [Lowest Common Multiple](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/lowest_common_multiple.ts)
   * [Perfect Square](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/perfect_square.ts)
   * [Pronic Number](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/pronic_number.ts)
