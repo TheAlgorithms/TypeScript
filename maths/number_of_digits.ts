@@ -10,10 +10,9 @@
  */
 
 export const NumberOfDigits = (num: number): number => {
-  // raise corresponding errors upon invalid inputs
-  if (typeof num !== 'number') throw new TypeError('Input needs to be a number');
-  if (num < 0) throw new TypeError('Input cannot be negative');
-  if (!Number.isInteger(num)) throw new TypeError('Input cannot be a decimal');
+  if (num < 0 || !Number.isInteger(num)) {
+    throw new Error("only natural numbers are supported");
+  }
 
   return Math.floor(Math.log10(num)) + 1;
 };
