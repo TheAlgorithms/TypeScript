@@ -10,7 +10,7 @@
  */
 
 export const NumberOfDigits = (num: number): number => {
-  if (num < 0 || !Number.isInteger(num)) {
+  if (num <= 0 || !Number.isInteger(num)) {
     throw new Error("only natural numbers are supported");
   }
 
