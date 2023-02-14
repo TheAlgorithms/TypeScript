@@ -13,7 +13,7 @@ describe("Factors", () => {
   test.each([[1, [1]], [2, [1,2]], [4, [1,2,4]], [6, [1,2,3,6]], [16, [1,2,4,8,16]]])(
     "of %i should return the correct array of its factors",
     (num, expected) => {
-      expect(Factors(num)).toBe(expected);
+      expect(Factors(num)).toStrictEqual(expected);
     },
   );
 });
