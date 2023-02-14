@@ -19,7 +19,7 @@ export const IsPrime = (num: number): boolean => {
 
   // iterate from 2 to the square root of num to find a factor
   // return false upon finding a factor
-  for (let i = 2; i < Math.sqrt(num); i++) {
+  for (let i = 2; i <= Math.sqrt(num); i++) {
     if (num % i === 0) return false;
   }
 
