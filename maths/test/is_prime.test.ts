@@ -1,8 +1,8 @@
 import { IsPrime } from "../is_prime";
 
 describe("IsPrime", () => {
-  test.each([[1, false], [2, true], [3, true], [13, true], [24, false]])(
-    "correct output for for %i",
+  test.each([[1, false], [2, true], [3, true], [3*3, false], [13, true], [24, false]])(
+    "correct output for %i",
     (nums, expected) => {
       expect(IsPrime(nums)).toBe(expected);
     },
