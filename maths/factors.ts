@@ -17,11 +17,18 @@ export const FindFactors = (num: number): number[] => {
   const res: number[] = [];
   // iterate from 1 to square root of num
   // push factors into the res array
-  for (let i: number = 0; i <= Math.sqrt(num); i++) {
-    if (num % i === 0) res.push(i);
+  let i: number = 1;
+  while (i * i <= num) {
+    if (num % i === 0) {
+      res.push(i);
+      // if i is the same as num / i
+      const sqrtFactor = Math.floor(num / i);
+      if (sqrtFactor !== i) {
+        res.push(sqrtFactor);
+      }
+    }
+    i++;
   }
 
-  // add num to the result array
-  res.push(num);
   return res;
 };

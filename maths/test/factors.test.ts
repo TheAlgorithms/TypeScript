@@ -10,7 +10,7 @@ describe("FindFactors", () => {
     },
   );
 
-  test.each([[1, [1]], [2, [1,2]], [4, [1,2,4]], [6, [1,2,3,6]], [16, [1,2,4,8,16]]])(
+  test.each([[1, [1]], [2, [1,2]], [4, [1,4,2]], [6, [1,6,2,3]], [16, [1,16,2,8,4]]])(
     "of %i should return the correct array of its factors",
     (num, expected) => {
       expect(FindFactors(num)).toStrictEqual(expected);
