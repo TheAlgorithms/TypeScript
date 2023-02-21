@@ -73,4 +73,14 @@ class LinkedList<T> {
         this.head = this.head.next;
         this.len--;
     }
+
+    display() {
+        let temp: Node<T> = this.head;
+        let arr: Array<T> = new Array<T>();
+        while (temp !== undefined) {
+            arr.push(temp.data);
+            temp = temp.next;
+        }
+        console.log(arr);
+    }
 }
