@@ -13,4 +13,13 @@ class LinkedList<T> {
         this.tail = undefined;
         this.len = 0;
     }
+
+    addAtStart(data: T) {
+        const newNode: Node<T> = {
+            data: data, 
+            next: this.head
+       };
+       this.head = newNode;
+       this.len++;
+    }
 }
