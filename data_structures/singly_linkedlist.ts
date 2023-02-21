@@ -90,4 +90,11 @@ class LinkedList<T> {
         }
         return this.head.data;
     }
+
+    peekLast(): T | null {
+        if (this.head === undefined) {
+            return null;
+        }
+        return this.tail.data;
+    }
 }
