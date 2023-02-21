@@ -68,4 +68,9 @@ class LinkedList<T> {
         current = undefined;
         this.len--;
     }
+ 
+    deleteStart() {
+        this.head = this.head.next;
+        this.len--;
+    }
 }
