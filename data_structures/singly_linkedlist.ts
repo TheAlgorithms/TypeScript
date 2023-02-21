@@ -40,4 +40,22 @@ class LinkedList<T> {
         this.len++;
     }
 
+    deleteNode(data: T) {
+        if (this.head.data === data) {
+            this.head = undefined;
+        } else {
+            let prev: Node<T>;
+            let current: Node<T> = this.head;
+            while (current.next !== undefined) {
+                prev = current;
+                current = current.next;
+                if (current.data === data) {
+                    prev.next = current.next;
+                    this.len--;
+                }
+            }
+        }
+    }
+
+
 }
