@@ -97,4 +97,11 @@ class LinkedList<T> {
         }
         return this.tail.data;
     }
+
+    length(): number {
+        if (this.head === undefined) {
+            return 0;
+        }
+        return this.len;
+    }
 }
