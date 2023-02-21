@@ -83,4 +83,11 @@ class LinkedList<T> {
         }
         console.log(arr);
     }
+
+    peekFirst(): T | null {
+        if (this.head === undefined) {
+            return null;
+        }
+        return this.head.data;
+    }
 }
