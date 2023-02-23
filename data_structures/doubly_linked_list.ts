@@ -2,18 +2,17 @@
  * This is an implementation of a Doubly Linked List.
  * A Doubly Linked List is a data structure that contains a head, tail and length property.
  * Linked Lists consist of nodes, and each node has a value and a pointer to the next and previous node (can be null).
- * The time complexity of the operations is O(n).
- * 
+ *
  * @see https://www.geeksforgeeks.org/doubly-linked-list/
- * 
+ *
  * @template T The type of the value of the nodes.
- * @property {DoublyLinkedListNode<T> | null} head The head of the list.
- * @property {DoublyLinkedListNode<T> | null} tail The tail of the list.
- * @property {number} length The length of the list.
+ * @property head The head of the list.
+ * @property tail The tail of the list.
+ * @property length The length of the list.
  */
 export class DoublyLinkedList<T> {
-    private head: DoublyLinkedListNode<T> | null = null;
-    private tail: DoublyLinkedListNode<T> | null = null;
+    private head?: DoublyLinkedListNode<T> = undefined;
+    private tail?: DoublyLinkedListNode<T> = undefined;
     private length: number = 0;
 
     /**
@@ -26,30 +25,28 @@ export class DoublyLinkedList<T> {
     }
 
     /**
-     * Gets a node at a specific index.
+     * Gets a value of a node at a specific index.
+     * Time complexity: O(n)
      *
      * @param index The index of the node.
-     * @returns The node at the index.
-     * @throws Index out of bounds if the index is not valid.
+     * @returns The value of a node at the specified index.
      */
-    get(index: number): DoublyLinkedListNode<T> | null {
+    get(index: number): T | null {
         if (index < 0 || index >= this.length) {
-            throw new Error("Index out of bounds");
+            return null;
         }
 
-        let currentNode: DoublyLinkedListNode<T> | null = this.head;
-        let i = 0;
-
-        while (i < index) {
-            currentNode = currentNode!.next;
-            i++;
+        let currentNode: DoublyLinkedListNode<T> | undefined = this.head;
+        for (let i: number = 0; i < index; i++) {
+            currentNode = currentNode?.next;
         }
 
-        return currentNode;
+        return currentNode?.value ?? null;
     }
 
     /**
      * Inserts a node at the head of the list.
+     * Time complexity: O(1)
      *
      * @param value The value of the node being inserted.
      */
@@ -70,30 +67,33 @@ export class DoublyLinkedList<T> {
 
     /**
      * Removes a node from the head of the list.
+     * Time complexity: O(1)
      *
-     * @returns The node that was removed.
+     * @returns The value of the node that was removed.
+     * @throws Index out of bounds if the list is empty.
      */
-    pop(): DoublyLinkedListNode<T> | null {
+    pop(): T {
         if (!this.head) {
-            return null;
+            throw new Error("Index out of bounds");
         }
 
         const removedNode = this.head;
 
         if (this.head === this.tail) {
-            this.tail = null;
+            this.tail = undefined;
         } else {
-            this.head.next!.prev = null;
+            this.head.next!.prev = undefined;
         }
 
         this.head = this.head.next;
         this.length--;
 
-        return removedNode;
+        return removedNode.value;
     }
 
     /**
      * Inserts a node at the tail of the list.
+     * Time complexity: O(1)
      *
      * @param value The value of the node being inserted.
      */
@@ -113,30 +113,33 @@ export class DoublyLinkedList<T> {
 
     /**
      * Removes a node from the tail of the list.
+     * Time complexity: O(1)
      *
-     * @returns The node that was removed.
+     * @returns The value of the node that was removed.
+     * @throws Index out of bounds if the list is empty.
      */
-    removeTail(): DoublyLinkedListNode<T> | null {
+    removeTail(): T {
         if (!this.head) {
-            return null;
+            throw new Error("Index out of bounds");
         }
 
         const removedNode = this.tail;
 
         if (this.head === this.tail) {
-            this.head = null;
+            this.head = undefined;
         } else {
-            this.tail!.prev!.next = null;
+            this.tail!.prev!.next = undefined;
         }
 
         this.tail = this.tail!.prev;
         this.length--;
 
-        return removedNode;
+        return removedNode!.value;
     }
 
     /**
      * Inserts a node at a specific index.
+     * Time complexity: O(n)
      *
      * @param index The index where the node will be inserted.
      * @param value The value of the node being inserted.
@@ -158,10 +161,13 @@ export class DoublyLinkedList<T> {
         }
 
         const newNode = new DoublyLinkedListNode(value);
-        const prevNode = this.get(index - 1)!;
-        const nextNode = prevNode.next;
+        let prevNode: DoublyLinkedListNode<T> | undefined = this.head;
+        for (let i: number = 0; i < index - 1; i++) {
+            prevNode = prevNode?.next;
+        }
+        const nextNode = prevNode?.next;
 
-        prevNode.next = newNode;
+        prevNode!.next = newNode;
         newNode.prev = prevNode;
         newNode.next = nextNode;
         nextNode!.prev = newNode;
@@ -171,12 +177,13 @@ export class DoublyLinkedList<T> {
 
     /**
      * Removes a node at a specific index.
+     * Time complexity: O(n)
      *
      * @param index The index of the node to be removed.
-     * @returns The node that was removed.
+     * @returns The value of the node that was removed.
      * @throws Index out of bounds if the index is not valid.
      */
-    removeAt(index: number): DoublyLinkedListNode<T> | null {
+    removeAt(index: number): T {
         if (index < 0 || index >= this.length) {
             throw new Error("Index out of bounds");
         }
@@ -189,28 +196,32 @@ export class DoublyLinkedList<T> {
             return this.removeTail();
         }
 
-        const removedNode = this.get(index)!;
-        removedNode.prev!.next = removedNode.next;
-        removedNode.next!.prev = removedNode.prev;
+        let removedNode: DoublyLinkedListNode<T> | undefined = this.head;
+        for (let i: number = 0; i < index; i++) {
+            removedNode = removedNode?.next;
+        }
+        removedNode!.prev!.next = removedNode!.next;
+        removedNode!.next!.prev = removedNode!.prev;
 
         this.length--;
 
-        return removedNode;
+        return removedNode!.value;
     }
 
     /**
      * Reverses the list.
+     * Time complexity: O(n)
      *
-     * @returns The reversed list.
+     * @returns The reversed list or null if the list is empty.
      */
-    reverse(): void {
+    reverse(): DoublyLinkedList<T> | null {
         if (!this.head) {
-            return;
+            return null;
         }
 
-        let currentNode: DoublyLinkedListNode<T> | null = this.head;
-        let nextNode: DoublyLinkedListNode<T> | null = null;
-        let prevNode: DoublyLinkedListNode<T> | null = null;
+        let currentNode: DoublyLinkedListNode<T> | undefined = this.head;
+        let nextNode: DoublyLinkedListNode<T> | undefined = undefined;
+        let prevNode: DoublyLinkedListNode<T> | undefined = undefined;
 
         while (currentNode) {
             nextNode = currentNode.next;
@@ -225,14 +236,16 @@ export class DoublyLinkedList<T> {
 
         this.tail = this.head;
         this.head = prevNode;
+
+        return this;
     }
 
     /**
-     * Removes all nodes from the list.
+     * Clears the list.
      */
     clear(): void {
-        this.head = null;
-        this.tail = null;
+        this.head = undefined;
+        this.tail = undefined;
         this.length = 0;
     }
 
@@ -244,7 +257,7 @@ export class DoublyLinkedList<T> {
     toArray(): T[] {
         const array: T[] = [];
 
-        let currentNode: DoublyLinkedListNode<T> | null = this.head;
+        let currentNode: DoublyLinkedListNode<T> | undefined = this.head;
 
         while (currentNode) {
             array.push(currentNode.value);
@@ -252,24 +265,6 @@ export class DoublyLinkedList<T> {
         }
 
         return array;
-    }
-
-    /**
-     * Gets the head of the list.
-     *
-     * @returns The head of the list.
-     */
-    getHead(): DoublyLinkedListNode<T> | null {
-        return this.head;
-    }
-
-    /**
-     * Gets the tail of the list.
-     *
-     * @returns The tail of the list.
-     */
-    getTail(): DoublyLinkedListNode<T> | null {
-        return this.tail;
     }
 
     /**
@@ -290,10 +285,10 @@ export class DoublyLinkedList<T> {
  * @property next The next node after this node.
  * @property prev The previous node before this node.
  */
-export class DoublyLinkedListNode<T> {
+class DoublyLinkedListNode<T> {
     constructor(
         public value: T,
-        public next: DoublyLinkedListNode<T> | null = null,
-        public prev: DoublyLinkedListNode<T> | null = null
+        public next?: DoublyLinkedListNode<T>,
+        public prev?: DoublyLinkedListNode<T>
     ) {}
 }
