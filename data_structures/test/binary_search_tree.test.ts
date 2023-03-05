@@ -21,24 +21,25 @@ describe('BinarySearchTree', () => {
       expect(binarySearchTree.rootNode?.data).toBe(25);
     });
 
-    it('should insert a new leaf node and return the correct child of the previous one', () => {
-      binarySearchTree.insert(1);
-      expect(binarySearchTree.search(5).leftChild?.data).toBe(1);
+    it('should search for data and return it.', () => {
+      expect(binarySearchTree.search(5)).toBe(5);
     });
 
     it('should traverse in in-order through the tree', () => {
-      expect(binarySearchTree.inOrderTraversal(binarySearchTree.rootNode)).toStrictEqual([5, 12, 25, 64, 80]);
+      expect(binarySearchTree.inOrderTraversal()).toStrictEqual([5, 12, 25, 64, 80]);
     });
 
     it('should traverse in pre-order through the tree', () => {
+      console.log(binarySearchTree.preOrderTraversal());
+
       expect(
-        binarySearchTree.preOrderTraversal(binarySearchTree.rootNode),
-      ).toStrictEqual([25, 5, 12, 64, 80]);
+        binarySearchTree.preOrderTraversal(),
+      ).toStrictEqual([25, 12, 5, 80, 64]);
     });
 
     it('should traverse in post-order through the tree', () => {
       expect(
-        binarySearchTree.postOrderTraversal(binarySearchTree.rootNode),
+        binarySearchTree.postOrderTraversal(),
       ).toStrictEqual([5, 12, 64, 80, 25]);
     });
 

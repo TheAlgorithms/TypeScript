@@ -52,9 +52,9 @@ export class BinarySearchTree<T> {
    *
    * @param data The data to search for.
    */
-  search(data: T): TreeNode<T> {
+  search(data: T): T | undefined {
     if (!this.rootNode) {
-      throw new Error('No root node defined.');
+      return undefined;
     }
 
     let currentNode = this.rootNode;
@@ -74,7 +74,7 @@ export class BinarySearchTree<T> {
       }
     }
 
-    return currentNode;
+    return currentNode.data;
   }
 
   /**
@@ -83,10 +83,10 @@ export class BinarySearchTree<T> {
    * @param data The data to be stored in the binary search tree.
    * @returns
    */
-  insert(data: T): TreeNode<T> {
+  insert(data: T): void {
     if (!this.rootNode) {
       this.rootNode = new TreeNode<T>(data);
-      return this.rootNode;
+      return;
     }
 
     let currentNode: TreeNode<T> = this.rootNode;
@@ -96,14 +96,14 @@ export class BinarySearchTree<T> {
           currentNode = currentNode.rightChild;
         } else {
           currentNode.rightChild = new TreeNode<T>(data);
-          return currentNode.rightChild;
+          return;
         }
       } else {
         if (currentNode.leftChild) {
           currentNode = currentNode.leftChild;
         } else {
           currentNode.leftChild = new TreeNode<T>(data);
-          return currentNode.leftChild;
+          return;
         }
       }
     }
@@ -116,7 +116,7 @@ export class BinarySearchTree<T> {
    */
   findMin(): T {
     if (!this.rootNode) {
-      throw new Error('No root node defined');
+      throw new Error('Empty tree.');
     }
 
     const traverse = (node: TreeNode<T>): T => {
@@ -133,7 +133,7 @@ export class BinarySearchTree<T> {
    */
   findMax(): T {
     if (!this.rootNode) {
-      throw new Error('No root node defined');
+      throw new Error('Empty tree.');
     }
 
     const traverse = (node: TreeNode<T>): T => {
@@ -147,53 +147,79 @@ export class BinarySearchTree<T> {
    * Traverses to the binary search tree in in-order, i. e. it follow the schema of:
    * Left Node -> Root Node -> Right Node
    *
-   * @param node The node to start from.
    * @param array The already found node data for recursive access.
    * @returns
    */
-  inOrderTraversal(node?: TreeNode<T>, array: T[] = []): T[] {
-    if (node) {
-      this.inOrderTraversal(node.leftChild, array);
-      array.push(node.data);
-      this.inOrderTraversal(node.rightChild, array);
+  inOrderTraversal(array: T[] = []): T[] {
+    if (!this.rootNode) { 
+      return array;
     }
 
-    return array;
+    const traverse = (node?: TreeNode<T>, array: T[] = []): T[] => {
+      if (!node) {
+        return array;
+      }
+
+      traverse(node.leftChild, array);
+      array.push(node.data);
+      traverse(node.rightChild, array);
+      return array;
+    };
+
+    return traverse(this.rootNode);
   }
 
   /**
    * Traverses to the binary search tree in pre-order, i. e. it follow the schema of:
    * Root Node -> Left Node -> Right Node
    *
-   * @param node The node to start from.
    * @param array The already found node data for recursive access.
    * @returns
    */
-  preOrderTraversal(node?: TreeNode<T>, array: T[] = []): T[] {
-    if (node) {
-      array.push(node.data);
-      this.inOrderTraversal(node.leftChild, array);
-      this.inOrderTraversal(node.rightChild, array);
+  preOrderTraversal(array: T[] = []): T[] {
+    if (!this.rootNode) {
+      return array;
     }
 
-    return array;
+    const traverse = (node?: TreeNode<T>, array: T[] = []): T[] => {
+      if (!node) {
+        return array;
+      }
+
+      array.push(node.data);
+      traverse(node.leftChild, array);
+      traverse(node.rightChild, array);
+
+      return array;
+    };
+
+    return traverse(this.rootNode);
   }
 
   /**
    * Traverses to the binary search tree in post-order, i. e. it follow the schema of:
    * Left Node -> Right Node -> Root Node
    *
-   * @param node The node to start from.
    * @param array The already found node data for recursive access.
    * @returns
    */
-  postOrderTraversal(node?: TreeNode<T>, array: T[] = []): T[] {
-    if (node) {
-      this.inOrderTraversal(node.leftChild, array);
-      this.inOrderTraversal(node.rightChild, array);
-      array.push(node.data);
+  postOrderTraversal(array: T[] = []): T[] {
+    if (!this.rootNode) {
+      return array;
     }
 
-    return array;
+    const traverse = (node?: TreeNode<T>, array: T[] = []): T[] => {
+      if (!node) {
+        return array;
+      }
+
+      traverse(node.leftChild, array);
+      traverse(node.rightChild, array);
+      array.push(node.data);
+
+      return array;
+    };
+
+    return traverse(this.rootNode);
   }
 }
