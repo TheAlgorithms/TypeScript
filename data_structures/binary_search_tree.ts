@@ -48,33 +48,33 @@ export class BinarySearchTree<T> {
   }
 
   /**
-   * Searches for data in the current binary search tree.
+   * Checks whether the tree has the given data or not.
    *
-   * @param data The data to search for.
+   * @param data The data to check for.
    */
-  search(data: T): T | undefined {
+  has(data: T): boolean {
     if (!this.rootNode) {
-      return undefined;
+      return false;
     }
 
     let currentNode = this.rootNode;
     while (currentNode.data !== data) {
       if (data > currentNode.data) {
         if (!currentNode.rightChild) {
-          throw new Error('No such element found.');
+          return false;
         }
 
         currentNode = currentNode.rightChild;
       } else {
         if (!currentNode.leftChild) {
-          throw new Error('No such element found.');
+          return false;
         }
 
         currentNode = currentNode.leftChild;
       }
     }
 
-    return currentNode.data;
+    return true;
   }
 
   /**
