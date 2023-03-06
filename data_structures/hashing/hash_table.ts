@@ -9,17 +9,15 @@
  * @template V The value type.
  * @param size The size of the hash table.
  * @param buckets The buckets in which to store the key-value pairs.
+ * @param loadFactor The load factor to determine when to resize the hash table.
  */
 export class HashTable<K, V> {
-    private size: number;
-    private buckets: HashTableEntry<K, V>[][];
+    private size!: number;
+    private buckets!: HashTableEntry<K, V>[][];
+    private readonly loadFactor = 0.75;
 
     constructor() {
-        this.size = 0;
-        this.buckets = [];
-        for (let i = 0; i < 16; i++) {
-            this.buckets.push([]);
-        }
+        this.clear();
     }
 
     /**
@@ -38,6 +36,11 @@ export class HashTable<K, V> {
      * @param value The value.
      */
     set(key: K, value: V): void {
+        const loadFactor = this.size / this.buckets.length;
+        if (loadFactor > this.loadFactor) {
+            this.resize();
+        }
+
         const index = this.hash(key);
         const bucket = this.buckets[index];
 
@@ -119,11 +122,7 @@ export class HashTable<K, V> {
      */
     clear(): void {
         this.size = 0;
-        this.buckets = [];
-
-        for (let i = 0; i < 16; i++) {
-            this.buckets.push([]);
-        }
+        this.initializeBuckets(16);
     }
 
     /**
@@ -175,6 +174,18 @@ export class HashTable<K, V> {
     }
 
     /**
+     * Initializes the buckets.
+     *
+     * @param amount The amount of buckets to initialize.
+     */
+    private initializeBuckets(amount: number): void {
+        this.buckets = [];
+        for (let i = 0; i < amount; i++) {
+            this.buckets.push([]);
+        }
+    }
+
+    /**
      * Hashes a key to an index.
      * This implementation uses the djb2 algorithm, which might not be the best.
      * Feel free to change it to something else.
@@ -182,7 +193,7 @@ export class HashTable<K, V> {
      * @param key The key.
      * @return The index.
      */
-    private hash(key: K): number {
+    protected hash(key: K): number {
         let hash = 0;
 
         for (let i = 0; i < String(key).length; i++) {
@@ -190,6 +201,18 @@ export class HashTable<K, V> {
         }
 
         return hash % this.buckets.length;
+    }
+
+    /**
+     * Resizes the hash table by doubling the amount of buckets.
+     */
+    private resize(): void {
+        this.initializeBuckets(this.buckets.length * 2);
+        this.size = 0;
+
+        for (const entry of this.entries()) {
+            this.set(entry.key, entry.value);
+        }
     }
 }
 
