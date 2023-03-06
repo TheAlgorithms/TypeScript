@@ -103,7 +103,7 @@ export class DoublyLinkedList<T> {
         if (!this.head) {
             this.head = newNode;
         } else {
-            this.tail!.next = newNode;
+            this.tail!.next = undefined;
             newNode.prev = this.tail;
         }
 
