@@ -12,6 +12,13 @@ describe("Hash Table", () => {
         expect(hashTable.values()).toEqual([1]);
     });
 
+    it("should override a value", () => {
+        hashTable.set("a", 1);
+        hashTable.set("a", 2);
+
+        expect(hashTable.values()).toEqual([2]);
+    });
+
     it("should get a value", () => {
         hashTable.set("a", 1);
 
