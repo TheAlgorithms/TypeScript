@@ -1,4 +1,4 @@
-import { LinkedList } from "./linked_list";
+import { SinglyLinkedList } from "./singly_linked_list";
 
 /**
  * This is an implementation of a stack, based on a linked list.
@@ -7,14 +7,14 @@ import { LinkedList } from "./linked_list";
  * to determine which element is next in the list.
  */
 export class LinkedListStack<T> {
-    private list: LinkedList<T>;
+    private list: SinglyLinkedList<T>;
     private limit: number;
 
     /**
      * Creates a new stack object.
      */
     constructor(limit: number = Number.MAX_VALUE) {
-        this.list = new LinkedList<T>();
+        this.list = new SinglyLinkedList<T>();
         this.limit = limit;
     }
 

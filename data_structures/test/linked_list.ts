@@ -1,8 +1,10 @@
 import { LinkedList } from "../linked_list";
 
-describe('LinkedList', () => {
+type LinkedListConstructor = new <T>() => LinkedList<T>;
+
+export function testLinkedList(LinkedList: LinkedListConstructor) {
   describe('with filled list (push)', () => {
-    let list: LinkedList<number>;
+    let list: LinkedList<number> = new LinkedList<number>;
 
     beforeEach(() => {
       list = new LinkedList<number>();
@@ -32,7 +34,7 @@ describe('LinkedList', () => {
   });
 
   describe('with filled list (append)', () => {
-    let list: LinkedList<number>;
+    let list: LinkedList<number> = new LinkedList<number>();
 
     beforeEach(() => {
       list = new LinkedList<number>();
@@ -93,7 +95,7 @@ describe('LinkedList', () => {
     });
 
     it('should return null for get when index is out of bounds', () => {
-      expect(list.get(1)).toBeUndefined();
+      expect(list.get(1)).toBeNull();
     });
 
     it('should throw error for pop when list is empty', () => {
@@ -104,4 +106,4 @@ describe('LinkedList', () => {
       expect(() => list.removeTail()).toThrowError('Index out of bounds');
     });
   });
-});
+}
