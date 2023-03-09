@@ -3,11 +3,9 @@ import { LinkedListStack } from "../linked_list_stack";
 describe("Linked List Stack", () => {
     let stack: LinkedListStack<number> = new LinkedListStack<number>(4);
 
-    beforeEach(() => {
-        stack.push(1);
-        stack.push(2);
-        stack.push(3);
-    });
+    stack.push(1);
+    stack.push(2);
+    stack.push(3);
 
     it("should get the top element from the stack", () => {
         expect(stack.top()).toBe(3);
