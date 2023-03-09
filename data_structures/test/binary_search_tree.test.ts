@@ -21,8 +21,9 @@ describe('BinarySearchTree', () => {
       expect(binarySearchTree.rootNode?.data).toBe(25);
     });
 
-    it('should search for data and return it.', () => {
-      expect(binarySearchTree.search(5)).toBe(5);
+    it('should return whether an element is in the set', () => {
+      expect(binarySearchTree.has(5)).toBe(true);
+      expect(binarySearchTree.has(42)).toBe(false);
     });
 
     it('should traverse in in-order through the tree', () => {
