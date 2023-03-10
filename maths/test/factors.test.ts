@@ -1,19 +1,25 @@
 import { FindFactors } from "../factors";
 
 describe("FindFactors", () => {
-  test.each([-890, -5.56, -7, 0, 0.73, 4.2, NaN, -Infinity, Infinity])(
-    "should throw an error for non natural number %d",
-    (num) => {
-      expect(() => FindFactors(num)).toThrowError(
-        "only natural numbers are supported",
-      );
-    },
-  );
+    test.each([-890, -5.56, -7, 0, 0.73, 4.2, NaN, -Infinity, Infinity])(
+        "should throw an error for non natural number %d",
+        (num) => {
+            expect(() => FindFactors(num)).toThrowError(
+                "Only natural numbers are supported."
+            );
+        }
+    );
 
-  test.each([[1, [1]], [2, [1,2]], [4, [1,4,2]], [6, [1,6,2,3]], [16, [1,16,2,8,4]]])(
-    "of %i should return the correct array of its factors",
-    (num, expected) => {
-      expect(FindFactors(num)).toStrictEqual(expected);
-    },
-  );
+    test.each([
+        [1, new Set([1])],
+        [2, new Set([1, 2])],
+        [4, new Set([1, 2, 4])],
+        [6, new Set([1, 2, 3, 6])],
+        [16, new Set([1, 2, 4, 8, 16])],
+    ])(
+        "of %i should return the correct set of its factors",
+        (num, expected) => {
+            expect(FindFactors(num)).toStrictEqual(expected);
+        }
+    );
 });
