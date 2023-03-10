@@ -19,11 +19,9 @@ export const FindFactors = (num: number): Set<number> => {
     while (i * i <= num) {
         if (num % i === 0) {
             res.add(i);
-            // If i is the same as num / i
+
             const sqrtFactor = Math.floor(num / i);
-            if (sqrtFactor !== i) {
-                res.add(sqrtFactor);
-            }
+            res.add(sqrtFactor);
         }
         i++;
     }
