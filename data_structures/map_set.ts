@@ -1,17 +1,30 @@
-import { HashTable } from "./hash_table";
-import { Set } from "../set";
+import { HashMap } from "./hashing/hash_map";
 
 /**
- * This is an implementation of the Set data structure based on a HashTable.
- *
- * @template T The type of the elements in the set.
- * @implements Set<T>
+ * This interface is a representation of the Set data structure.
  */
-export class HashSet<T> implements Set<T> {
-    private hashTable: HashTable<T, null>;
+export interface Set<K> {
+    getSize(): number;
+    add(value: K): void;
+    get(value: K): K | null;
+    delete(value: K): void;
+    has(value: K): boolean;
+    clear(): void;
+    values(): K[];
+}
+
+/**
+ * This class is a representation of the Set data structure based on a hash map.
+ *
+ * @template K The value type.
+ * @implements Set<K>
+ * @property {Map<K, null>} hashTable The hash map used to store the set.
+ */
+export abstract class MapSet<K> implements Set<K> {
+    private hashTable: HashMap<K, null>;
 
     constructor() {
-        this.hashTable = new HashTable();
+        this.hashTable = new HashMap();
     }
 
     /**
@@ -19,8 +32,18 @@ export class HashSet<T> implements Set<T> {
      *
      * @param value The value to add to the set.
      */
-    add(value: T): void {
+    add(value: K): void {
         this.hashTable.set(value, null);
+    }
+
+    /**
+     * Gets a value from the set.
+     *
+     * @param value The value to get from the set.
+     * @returns The value if it exists, null otherwise.
+     */
+    get(value: K): K | null {
+        return this.hashTable.get(value);
     }
 
     /**
@@ -28,7 +51,7 @@ export class HashSet<T> implements Set<T> {
      *
      * @param value The value to remove from the set.
      */
-    delete(value: T): void {
+    delete(value: K): void {
         this.hashTable.delete(value);
     }
 
@@ -38,7 +61,7 @@ export class HashSet<T> implements Set<T> {
      * @param value The value to check for.
      * @returns Whether the set contains the value.
      */
-    has(value: T): boolean {
+    has(value: K): boolean {
         return this.hashTable.has(value);
     }
 
@@ -54,7 +77,7 @@ export class HashSet<T> implements Set<T> {
      *
      * @returns An array of all the values in the set.
      */
-    values(): T[] {
+    values(): K[] {
         return this.hashTable.keys();
     }
 
