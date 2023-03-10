@@ -15,15 +15,13 @@ export const FindFactors = (num: number): Set<number> => {
 
     const res: Set<number> = new Set();
     // Iterates from 1 to square root of num & pushes factors into the res set.
-    let i: number = 1;
-    while (i * i <= num) {
+    for (let i = 1; i * i <= num; i++) {
         if (num % i === 0) {
             res.add(i);
 
             const sqrtFactor = Math.floor(num / i);
             res.add(sqrtFactor);
         }
-        i++;
     }
 
     return res;
