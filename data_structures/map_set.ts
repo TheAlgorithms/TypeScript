@@ -1,31 +1,24 @@
-import { HashMap } from "./hashing/hash_map";
-
-/**
- * This interface is a representation of the Set data structure.
- */
-export interface Set<K> {
-    getSize(): number;
-    add(value: K): void;
-    get(value: K): K | null;
-    delete(value: K): void;
-    has(value: K): boolean;
-    clear(): void;
-    values(): K[];
-}
+import { Map } from "./map";
+import { Set } from "./set";
 
 /**
  * This class is a representation of the Set data structure based on a hash map.
  *
  * @template K The value type.
  * @implements Set<K>
- * @property {Map<K, null>} hashTable The hash map used to store the set.
+ * @property {Map<K, null>} map The map used to store the set.
  */
 export abstract class MapSet<K> implements Set<K> {
-    private hashTable: HashMap<K, null>;
+    private map: Map<K, null>;
 
     constructor() {
-        this.hashTable = new HashMap();
+        this.map = this.initMap();
     }
+
+    /**
+     * Initializes the map used to store the set.
+     */
+    protected abstract initMap(): Map<K, null>;
 
     /**
      * Adds a new element to the set.
@@ -33,17 +26,7 @@ export abstract class MapSet<K> implements Set<K> {
      * @param value The value to add to the set.
      */
     add(value: K): void {
-        this.hashTable.set(value, null);
-    }
-
-    /**
-     * Gets a value from the set.
-     *
-     * @param value The value to get from the set.
-     * @returns The value if it exists, null otherwise.
-     */
-    get(value: K): K | null {
-        return this.hashTable.get(value);
+        this.map.set(value, null);
     }
 
     /**
@@ -52,7 +35,7 @@ export abstract class MapSet<K> implements Set<K> {
      * @param value The value to remove from the set.
      */
     delete(value: K): void {
-        this.hashTable.delete(value);
+        this.map.delete(value);
     }
 
     /**
@@ -62,14 +45,14 @@ export abstract class MapSet<K> implements Set<K> {
      * @returns Whether the set contains the value.
      */
     has(value: K): boolean {
-        return this.hashTable.has(value);
+        return this.map.has(value);
     }
 
     /**
      * Removes all elements from the set.
      */
     clear(): void {
-        this.hashTable.clear();
+        this.map.clear();
     }
 
     /**
@@ -78,7 +61,7 @@ export abstract class MapSet<K> implements Set<K> {
      * @returns An array of all the values in the set.
      */
     values(): K[] {
-        return this.hashTable.keys();
+        return this.map.keys();
     }
 
     /**
@@ -87,6 +70,6 @@ export abstract class MapSet<K> implements Set<K> {
      * @returns The number of elements in the set.
      */
     getSize(): number {
-        return this.hashTable.getSize();
+        return this.map.getSize();
     }
 }
