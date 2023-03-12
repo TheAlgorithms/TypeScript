@@ -1,4 +1,4 @@
-import { Map } from "../map";
+import { Map } from "../map/map";
 import { MapSet } from "../map_set";
 import { HashMap } from "./hash_map";
 

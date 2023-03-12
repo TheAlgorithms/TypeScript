@@ -1,4 +1,4 @@
-import { HashMapEntry } from "./hashing/hash_map";
+import { HashMapEntry } from "../hashing/hash_map";
 
 /**
  * This interface is a representation of the Map data structure.
