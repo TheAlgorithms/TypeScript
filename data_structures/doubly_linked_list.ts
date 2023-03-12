@@ -1,3 +1,5 @@
+import { LinkedList } from "./linked_list";
+
 /**
  * This is an implementation of a Doubly Linked List.
  * A Doubly Linked List is a data structure that contains a head, tail and length property.
@@ -10,7 +12,7 @@
  * @property tail The tail of the list.
  * @property length The length of the list.
  */
-export class DoublyLinkedList<T> {
+export class DoublyLinkedList<T> implements LinkedList<T> {
     private head?: DoublyLinkedListNode<T> = undefined;
     private tail?: DoublyLinkedListNode<T> = undefined;
     private length: number = 0;
