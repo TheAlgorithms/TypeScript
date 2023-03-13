@@ -1,5 +1,7 @@
+import { Map } from "../map";
+
 /**
- * Represents a hash table.
+ * Represents a hash map.
  * Time complexity:
  * - Set, Get, Delete, Has: O(1) on average, O(n) in the worst case.
  * - Clear: O(m) where m is the number of buckets.
@@ -7,13 +9,13 @@
  *
  * @template K The key type.
  * @template V The value type.
- * @param size The size of the hash table.
+ * @param size The size of the hash map.
  * @param buckets The buckets in which to store the key-value pairs.
- * @param loadFactor The load factor to determine when to resize the hash table.
+ * @param loadFactor The load factor to determine when to resize the hash map.
  */
-export class HashTable<K, V> {
+export class HashMap<K, V> implements Map<K, V> {
     private size!: number;
-    private buckets!: HashTableEntry<K, V>[][];
+    private buckets!: HashMapEntry<K, V>[][];
     private readonly loadFactor = 0.75;
 
     constructor() {
@@ -45,7 +47,7 @@ export class HashTable<K, V> {
         const bucket = this.buckets[index];
 
         if (bucket.length === 0) {
-            bucket.push(new HashTableEntry(key, value));
+            bucket.push(new HashMapEntry(key, value));
             this.size++;
             return;
         }
@@ -57,7 +59,7 @@ export class HashTable<K, V> {
             }
         }
 
-        bucket.push(new HashTableEntry(key, value));
+        bucket.push(new HashMapEntry(key, value));
         this.size++;
     }
 
@@ -118,7 +120,7 @@ export class HashTable<K, V> {
     }
 
     /**
-     * Clears the hash table.
+     * Clears the hash map.
      */
     clear(): void {
         this.size = 0;
@@ -162,8 +164,8 @@ export class HashTable<K, V> {
      *
      * @returns The entries.
      */
-    entries(): HashTableEntry<K, V>[] {
-        const entries: HashTableEntry<K, V>[] = [];
+    entries(): HashMapEntry<K, V>[] {
+        const entries: HashMapEntry<K, V>[] = [];
         for (const bucket of this.buckets) {
             for (const entry of bucket) {
                 entries.push(entry);
@@ -204,7 +206,7 @@ export class HashTable<K, V> {
     }
 
     /**
-     * Resizes the hash table by doubling the amount of buckets.
+     * Resizes the hash map by doubling the amount of buckets.
      */
     private resize(): void {
         this.initializeBuckets(this.buckets.length * 2);
@@ -224,7 +226,7 @@ export class HashTable<K, V> {
  * @param key The key.
  * @param value The value.
  */
-class HashTableEntry<K, V> {
+export class HashMapEntry<K, V> {
     key: K;
     value: V;
 
