@@ -1,4 +1,5 @@
 import { Queue } from '../queue';
+
 type QueueConstructor = new <T>() => Queue<T>
 export function testQueue(Queue: QueueConstructor) {
 	it("enqueue should add a new element to the queue", () => {

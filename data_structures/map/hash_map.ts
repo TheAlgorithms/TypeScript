@@ -1,4 +1,4 @@
-import { Map } from "../map";
+import { Map } from "./map";
 
 /**
  * Represents a hash map.
