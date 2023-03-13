@@ -1,6 +1,6 @@
 import { Map } from "../map/map";
-import { MapSet } from "../map_set";
-import { HashMap } from "./hash_map";
+import { HashMap } from "../map/hash_map";
+import { MapSet } from "./map_set";
 
 /**
  * This class is a representation of the Set data structure based on a hash map.

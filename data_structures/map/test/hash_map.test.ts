@@ -1,4 +1,4 @@
-import { HashMap } from "../hash_map";
+import { HashMap } from "../../map/hash_map";
 
 describe("Hash Map", () => {
     let hashMap: HashMap<string, number>;
