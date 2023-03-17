@@ -1,16 +1,13 @@
-import { Queue } from "./queue";
-
 /**
  * Circular Queue implementation using array.
  *
  * @template T The type of the elements in the queue.
- * @implements {Queue<T>}
  * @param {T[]} queue The array that holds the elements of the queue.
  * @param {number} frontIndex The index of the front element of the queue.
  * @param {number} rearIndex The index of the rear element of the queue.
  * @param {number} size The size of the queue.
  */
-export class CircularQueue<T> implements Queue<T> {
+export class CircularQueue<T> {
     private queue: T[];
     private frontIndex: number;
     private rearIndex: number;
