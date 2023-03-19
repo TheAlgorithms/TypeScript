@@ -1,0 +1,41 @@
+name: Directory/Filename Formatter workflow
+on: [push, pull_request]
+
+jobs:
+  main:
+    name: (Directory) Formatter
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@main
+      - name: Setup Git configuration
+        run: |
+          git config --global user.name 'autoprettier'
+          git config --global user.email 'actions@github.com'
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
+      - name: Filename Formatter
+        run: |
+          IFS=$'\n'
+          for fname in `find . -type f -name '*.ts' -o -name '*.ts'`
+          do
+            echo "${fname}"
+            new_fname=`echo ${fname} | tr ' ' '_'`
+            echo "      ${new_fname}"
+            new_fname=`echo ${new_fname} | tr 'A-Z' 'a-z'`
+            echo "      ${new_fname}"
+            new_fname=`echo ${new_fname} | tr '-' '_'`
+            echo "      ${new_fname}"
+            if [ ${fname} != ${new_fname} ]
+            then
+              echo "      ${fname} --> ${new_fname}"
+              git "mv" "${fname}" ${new_fname}
+            fi
+          done
+          git commit -am "Formatting filenames ${GITHUB_SHA::8}" || true
+      - name: Update DIRECTORY.md
+        run: |
+          wget https://raw.githubusercontent.com/TheAlgorithms/scripts/main/build_directory_md.py
+          python3 build_directory_md.py TypeScript . .ts jest.config.ts,sorts/test,search/test,maths/test,dynamic_programming/test,data_structures/test,ciphers/test > DIRECTORY.md
+
+          git diff
+          git commit -m "Update DIRECTORY.md" DIRECTORY.md || true
+          git push --force origin HEAD:$GITHUB_REF || true

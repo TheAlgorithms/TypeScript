@@ -56,13 +56,13 @@ should add unique value.
 
 #### File Naming Convention
 
-- Filenames should use the UpperCamelCase (PascalCase) style.
+- Filenames should use the snake_case style. This is needed for our workflows to work correctly.
 - There should be no spaces in filenames.
-- **Example:** `UserProfile.ts` is allowed. Do not use `userprofile.ts`, `Userprofile.ts`, `user-Profile.ts`, `userProfile.ts`; these naming conventions are discouraged.
+- **Example:** `user_profile.ts` is allowed. Do not use `userprofile.ts`, `Userprofile.ts`, `user-Profile.ts`, `userProfile.ts`, `UserProfile.ts`; these naming conventions are discouraged.
 
 #### Commit Messages Formatting
 
-- Prefer to use the following format: `<type>: <short summary>`. If necessary, put any extra information in the description.
+- Prefer to use the [Conventional Commits](https://www.conventionalcommits.org/) format: `<type>: <short summary>`. If necessary, put any extra information in the description.
 - Commit types include (but are not limited to): 
   - **docs**: Documentation only changes
   - **feat**: A new feature
