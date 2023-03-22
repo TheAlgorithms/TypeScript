@@ -1,11 +1,13 @@
-import {nthFibonacci} from '../fibonacci';
+import { nthFibonacci, nthFibonacciRecursively } from '../fibonacci';
 
-describe('nthFibonacci', () => {
-  test('should return correct value', () => {        
-    expect(nthFibonacci(0)).toBe(0);  
-    expect(nthFibonacci(1)).toBe(1);
-    expect(nthFibonacci(5)).toBe(5);
-    expect(nthFibonacci(4)).toBe(3);
-    expect(nthFibonacci(0)).toBe(0);
-  });
-});
+const test = (func: (n: number) => number) =>
+  it.each([
+    [0, 0],
+    [1, 1],
+    [2, 1],
+    [5, 5],
+    [10, 55],
+    [15, 610],
+  ])('fib(%i) = %i', (n, expected) => expect(func(n)).toBe(expected));
+describe('Fibonacci iterative', () => test(nthFibonacci));
+describe('Fibonacci recursive', () => test(nthFibonacciRecursively));
