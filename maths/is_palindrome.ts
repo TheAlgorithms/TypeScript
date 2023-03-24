@@ -1,22 +1,20 @@
 /**
- * A function to see if a number is a Palindrome.
+ * A function to see if a number is a palindrome.
+ * Time Complexity: O(log(n))
  *
  * @param number The input number.
  * @return {boolean} Wether the number is a Palindrome or not.
- * @example isPalindrome(12321) => true | isPalindrome(455) => false
- * @see https://en.wikipedia.org/wiki/Palindromic_number
- * @author FatimaChariwala <https://github.com/fatima-0000>
  */
-
 export const IsPalindrome = (number: number): boolean => {
-    const stringValue = number.toString();
-    const length = stringValue.length - 1;
-
-    for (let i = 0; i <= length; i++) {
-        if (stringValue[i] !== stringValue[length - i]) {
-            return false;
-        }
+    if (number < 0 || (number % 10 === 0 && number !== 0)) {
+        return false;
     }
 
-    return true;
+    let reversed: number = 0;
+    while (number > reversed) {
+        reversed = reversed * 10 + (number % 10);
+        number = Math.floor(number / 10);
+    }
+
+    return number === reversed || number === Math.floor(reversed / 10);
 };
