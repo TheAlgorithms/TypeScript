@@ -1,5 +1,6 @@
 /**
  * A function to see if a number is a palindrome.
+ * Note that if the reversed number is larger than MAX_SAFE_INTEGER, rounding errors may occur and the result may be incorrect.
  * Time Complexity: O(log(n))
  *
  * @param number The input number.
