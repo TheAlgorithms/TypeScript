@@ -1,4 +1,4 @@
-import { SinglyLinkedList } from "./singly_linked_list";
+import { SinglyLinkedList } from "../list/singly_linked_list";
 
 /**
  * This is an implementation of a stack, based on a linked list.

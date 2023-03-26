@@ -1,17 +1,16 @@
 /**
- * A Stack Based Queue Implementation. 
- * The Queue data structure which follows the FIFO (First in First Out) rule. 
- * The dequeue operation in a normal stack based queue would be o(n), as the entire has to be shifted 
- * With the help of two stacks, the time complexity of this can be brought down to amortized-O(1). 
- * Here, one stack acts as an Enqueue stack where elements are added. 
+ * A Stack Based Queue Implementation.
+ * The Queue data structure which follows the FIFO (First in First Out) rule.
+ * The dequeue operation in a normal stack based queue would be o(n), as the entire has to be shifted
+ * With the help of two stacks, the time complexity of this can be brought down to amortized-O(1).
+ * Here, one stack acts as an Enqueue stack where elements are added.
  * The other stack acts as a dequeue stack which helps in dequeuing the elements
  */
 
-import { Queue } from './queue';
-import { Stack } from './stack';
+import { Stack } from "../stack/stack";
+import { Queue } from "./queue";
 
-export class StackQueue<T> implements Queue<T>{
-
+export class StackQueue<T> implements Queue<T> {
     private enqueueStack: Stack<T> = new Stack<T>();
     private dequeueStack: Stack<T> = new Stack<T>();
 
@@ -44,7 +43,7 @@ export class StackQueue<T> implements Queue<T>{
 
     /**
      * Shifts the elements from the enqueueStack to the dequeueStack
-     * In the worst case, all the elements from the enqueue stack needs to shifted, which needs O(n) time. 
+     * In the worst case, all the elements from the enqueue stack needs to shifted, which needs O(n) time.
      * However, after the shift, elements can de dequeued at O(1).
      * This helps in dequeuing the elements in amortized O(1) time.
      */
