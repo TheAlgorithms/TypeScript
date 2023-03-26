@@ -16,11 +16,7 @@
 export const jugglerSequence = (a: number, n: number) => {
   let k: number = a;
   for (let i: number = 0; i < n; i++) {
-    if (k % 2 === 0) {
-      k = Math.floor(Math.pow(k, 1 / 2));
-    } else {
-      k = Math.floor(Math.pow(k, 3 / 2));
-    }
+    k = Math.floor(Math.pow(k, (k % 2 === 0 ? 1 : 3) / 2));
   }
 
   return k;
