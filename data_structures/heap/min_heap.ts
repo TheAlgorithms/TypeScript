@@ -12,70 +12,29 @@ import { Heap } from "./heap";
  * are ((parentindex * 2) + 1) and ((parentindex * 2) + 2)
  *
  */
-export class MinHeap<T> implements Heap<T> {
-  private heap: T[];
-
+export class MinHeap<T> extends Heap<T> {
   constructor(elements: T[] = []) {
-    this.heap = [];
-    for (let element of elements) {
-      this.insert(element);
-    }
+    super(elements);
   }
 
-  public insert(value: T): void {
-    this.heap.push(value);
-    this.bubbleUp();
+  /**
+   * Checks if the value at the parent index is lesser than or equal to
+   * the value at the child index
+   */
+  protected isRightlyPlaced(childIndex: number, parentIndex: number): boolean {
+    return this.heap[parentIndex] <= this.heap[childIndex];
   }
 
-  public extract(): T {
-    let minElement = this.heap[0];
-    this.heap[0] = this.heap[this.size() - 1];
-    this.heap.pop();
-    this.sinkDown();
-    return minElement;
-  }
-
-  private sinkDown(): void {
-    let index = 0;
-    let leftChildIndex = index * 2 + 1;
-    let rightChildIndex = index * 2 + 2;
-    let smallerChildIndex;
-    while (this.heap[leftChildIndex] || this.heap[rightChildIndex]) {
-      smallerChildIndex =
-        (this.heap[leftChildIndex] || Infinity) <
-        (this.heap[rightChildIndex] || Infinity)
-          ? leftChildIndex
-          : rightChildIndex;
-      if (this.heap[smallerChildIndex] > this.heap[index]) break;
-      [this.heap[smallerChildIndex], this.heap[index]] = [
-        this.heap[index],
-        this.heap[smallerChildIndex],
-      ];
-      index = smallerChildIndex;
-      leftChildIndex = index * 2 + 1;
-      rightChildIndex = index * 2 + 2;
-    }
-  }
-
-  private bubbleUp(): void {
-    let index = this.size() - 1;
-    let parentIndex;
-    while (index > 0) {
-      parentIndex = Math.floor((index - 1) / 2);
-      if (this.heap[parentIndex] <= this.heap[index]) break;
-      [this.heap[parentIndex], this.heap[index]] = [
-        this.heap[index],
-        this.heap[parentIndex],
-      ];
-      index = parentIndex;
-    }
-  }
-
-  public size(): number {
-    return this.heap.length;
-  }
-
-  public isEmpty(): boolean {
-    return this.size() === 0;
+  /**
+   * Returns the child index that stores a smaller value
+   */
+  protected getChildIndexToSwap(
+    leftChildIndex: number,
+    rightChildIndex: number
+  ): number {
+    return (this.heap[leftChildIndex] || -Infinity) <
+      (this.heap[rightChildIndex] || -Infinity)
+      ? leftChildIndex
+      : rightChildIndex;
   }
 }
