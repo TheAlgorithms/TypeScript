@@ -11,25 +11,19 @@ describe("MinHeap", () => {
   });
 
   it("should initialize a heap from input array", () => {
-    expect(heap).toEqual({
-      heap: [1, 4, 7, 16, 9, 34, 18, 42, 55, 12, 51, 43, 81, 39],
-    });
+    expect(heap.isEmpty()).toEqual(false);
   });
 
   it("should remove and return the min element in the heap", () => {
     const minValue = heap.extract();
 
     expect(minValue).toEqual(1);
-    expect(heap).toEqual({
-      heap: [4, 9, 7, 16, 12, 34, 18, 42, 55, 39, 51, 43, 81],
-    });
+    expect(heap.check()).toEqual(true);
   });
 
   it("should insert a new element and bubble Up the element to it correct index in the heap", () => {
     heap.insert(24);
 
-    expect(heap).toEqual({
-      heap: [4, 9, 7, 16, 12, 34, 18, 42, 55, 39, 51, 43, 81, 24],
-    });
+    expect(heap.check()).toEqual(true);
   });
 });

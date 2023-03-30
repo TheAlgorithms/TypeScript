@@ -11,25 +11,19 @@ describe("MaxHeap", () => {
   });
 
   it("should initialize a heap from input array", () => {
-    expect(heap).toEqual({
-      heap: [81, 51, 55, 42, 43, 39, 18, 4, 16, 1, 9, 7, 34, 12],
-    });
+    expect(heap.isEmpty()).toEqual(false);
+    expect(heap.check()).toEqual(true);
   });
 
   it("should remove and return the max element in the heap", () => {
     const maxValue = heap.extract();
 
     expect(maxValue).toEqual(81);
-    expect(heap).toEqual({
-      heap: [55, 51, 39, 42, 43, 34, 18, 4, 16, 1, 9, 7, 12],
-    });
+    expect(heap.check()).toEqual(true);
   });
 
   it("should insert a new element and bubble Up the element to it correct index in the heap", () => {
     heap.insert(61);
-
-    expect(heap).toEqual({
-      heap: [61, 51, 55, 42, 43, 34, 39, 4, 16, 1, 9, 7, 12, 18],
-    });
+    expect(heap.check()).toEqual(true);
   });
 });

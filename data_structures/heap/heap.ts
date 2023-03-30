@@ -66,8 +66,8 @@ export abstract class Heap<T> {
 
   protected sinkDown(): void {
     let index = 0;
-    let leftChildIndex = index * 2 + 1;
-    let rightChildIndex = index * 2 + 2;
+    let leftChildIndex = this.getLeftChildIndex(index);
+    let rightChildIndex = this.getRightChildIndex(index);
     let childIndexToSwap;
 
     while (this.heap[leftChildIndex] || this.heap[rightChildIndex]) {
@@ -81,8 +81,36 @@ export abstract class Heap<T> {
         this.heap[childIndexToSwap],
       ];
       index = childIndexToSwap;
-      leftChildIndex = index * 2 + 1;
-      rightChildIndex = index * 2 + 2;
+      leftChildIndex = this.getLeftChildIndex(index);
+      rightChildIndex = this.getRightChildIndex(index);
     }
+  }
+
+  protected getLeftChildIndex(index: number): number {
+    return index * 2 + 1;
+  }
+
+  protected getRightChildIndex(index: number): number {
+    return index * 2 + 2;
+  }
+
+  public check(index: number = 0): boolean {
+    if (!this.heap[index]) return true;
+    const leftChildIndex = this.getLeftChildIndex(index);
+    const rightChildIndex = this.getRightChildIndex(index);
+
+    if (
+      this.heap[leftChildIndex] &&
+      !this.isRightlyPlaced(leftChildIndex, index)
+    )
+      return false;
+
+    if (
+      this.heap[rightChildIndex] &&
+      !this.isRightlyPlaced(rightChildIndex, index)
+    )
+      return false;
+
+    return this.check(leftChildIndex) && this.check(rightChildIndex);
   }
 }
