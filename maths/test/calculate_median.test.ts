@@ -1,4 +1,4 @@
-import { calculateMedian } from "../CalculateMedian";
+import { calculateMedian } from "../calculate_median";
 
 describe("Tests for CalculateMedian", () => {
     it("should be a function", () => {
