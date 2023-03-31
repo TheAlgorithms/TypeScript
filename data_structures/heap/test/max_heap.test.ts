@@ -12,18 +12,18 @@ describe("MaxHeap", () => {
 
   it("should initialize a heap from input array", () => {
     expect(heap.isEmpty()).toEqual(false);
-    expect(heap.check()).toEqual(true);
+    heap.check();
   });
 
   it("should remove and return the max element in the heap", () => {
     const maxValue = heap.extract();
 
     expect(maxValue).toEqual(81);
-    expect(heap.check()).toEqual(true);
+    heap.check();
   });
 
   it("should insert a new element and bubble Up the element to it correct index in the heap", () => {
     heap.insert(61);
-    expect(heap.check()).toEqual(true);
+    heap.check();
   });
 });

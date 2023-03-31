@@ -94,7 +94,11 @@ export abstract class Heap<T> {
     return index * 2 + 2;
   }
 
-  public check(index: number = 0): boolean {
+  public check(): boolean {
+    return this._check();
+  }
+
+  protected _check(index: number = 0): boolean {
     if (!this.heap[index]) return true;
     const leftChildIndex = this.getLeftChildIndex(index);
     const rightChildIndex = this.getRightChildIndex(index);
@@ -103,14 +107,14 @@ export abstract class Heap<T> {
       this.heap[leftChildIndex] &&
       !this.isRightlyPlaced(leftChildIndex, index)
     )
-      return false;
+      throw new Error("Heap does not adhere to heap invariant");
 
     if (
       this.heap[rightChildIndex] &&
       !this.isRightlyPlaced(rightChildIndex, index)
     )
-      return false;
+      throw new Error("Heap does not adhere to heap invariant");
 
-    return this.check(leftChildIndex) && this.check(rightChildIndex);
+    return this._check(leftChildIndex) && this._check(rightChildIndex);
   }
 }
