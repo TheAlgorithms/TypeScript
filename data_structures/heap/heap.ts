@@ -99,7 +99,7 @@ export abstract class Heap<T> {
   }
 
   protected _check(index: number = 0): void {
-    if (!this.heap[index]) return true;
+    if (!this.heap[index]) return;
     const leftChildIndex = this.getLeftChildIndex(index);
     const rightChildIndex = this.getRightChildIndex(index);
 
