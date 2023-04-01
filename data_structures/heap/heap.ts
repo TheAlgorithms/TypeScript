@@ -94,11 +94,11 @@ export abstract class Heap<T> {
     return index * 2 + 2;
   }
 
-  public check(): boolean {
+  public check(): void {
     return this._check();
   }
 
-  protected _check(index: number = 0): boolean {
+  protected _check(index: number = 0): void {
     if (!this.heap[index]) return true;
     const leftChildIndex = this.getLeftChildIndex(index);
     const rightChildIndex = this.getRightChildIndex(index);
