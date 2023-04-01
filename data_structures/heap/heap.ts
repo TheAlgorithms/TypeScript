@@ -115,6 +115,7 @@ export abstract class Heap<T> {
     )
       throw new Error("Heap does not adhere to heap invariant");
 
-    return this._check(leftChildIndex) && this._check(rightChildIndex);
+    this._check(leftChildIndex);
+    this._check(rightChildIndex);
   }
 }
