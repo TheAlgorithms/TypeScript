@@ -4,6 +4,6 @@
  * @param n The number to check.
  */
 
-export const perfectCube = (n: number) => {
-  return Number.isInteger(Math.pow(n, 1 / 3));
+export const perfectCube = (n: number): boolean => {
+  return Math.round(n ** (1 / 3)) ** 3 === n;
 };
