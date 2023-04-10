@@ -1,6 +1,6 @@
 /**
  * @function shellSort
- * @description In shell sort is the optimization for insertion sort algorithm.
+ * @description Shell sort algorithm is the optimization for insertion sort algorithm.
  * @Complexity_Analysis
  * Space complexity - O(1)
  * Time complexity
