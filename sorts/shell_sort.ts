@@ -13,21 +13,18 @@
  * @see [Shell Sort] (https://www.geeksforgeeks.org/shellsort/)
  * @example shellSort([4, 1, 8, 10, 3, 2, 5, 0, 7, 6, 9]) = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
  */
-
- export function shellSort<T>(arr: T[]): Array<T> {
-    // start with the biggest gap
-    // reduce gap twice on each step
-    for(let gap = Math.floor(arr.length / 2); gap > 0; gap = Math.floor(gap / 2) ) {
+export function shellSort<T>(arr: T[]): Array<T> {
+    // start with the biggest gap, reduce gap twice on each step
+    for (let gap = arr.length >> 1; gap > 0; gap >>= 1) {
         for (let i = gap; i < arr.length; i++) {
             const temp = arr[i];
-            // index for compared element on the left side
-            let j = i;
+            let j = i; // index for compared element on the left side
+            // shift larger elements down
             while (j >= gap && arr[j - gap] > temp) {
-                // swap the elements
                 arr[j] = arr[j - gap];
-                j-=gap;
+                j -= gap;
             }
-            arr[j] = temp;
+            arr[j] = temp; // place i-th element at appropriate position
         }
     }
     return arr;
