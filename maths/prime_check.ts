@@ -1,4 +1,4 @@
-/**
+/*
  * @function isPrime
  * @description program to check if a number is prime or not
  * @see [Prime Check](https://www.programiz.com/javascript/examples/prime-number)

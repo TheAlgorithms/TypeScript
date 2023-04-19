@@ -20,6 +20,3 @@ function binaryToDecimal(binary: string): number {
 }
 
 
-const binary: string = '1011';
-const decimal: number = binaryToDecimal(binary);
-console.log(`The decimal representation of ${binary} is ${decimal}`);
