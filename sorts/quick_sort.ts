@@ -2,7 +2,7 @@
  * @function quickSort
  * @description is an algorithm based on divide and conquer approach in which an array is split into sub-arrays and these sub arrays are recursively sorted to get final array
  * @see [Quick Sort](https://www.javatpoint.com/quick-sort)
- * @example quickSort([8, 3, 5, 1, 4, 2]) = [1, 2, 3, 4, 5, 8]
+ * @example QuickSort([8, 3, 5, 1, 4, 2]) = [1, 2, 3, 4, 5, 8]
  */
 
 export const partition = (
@@ -34,7 +34,7 @@ export const partition = (
 };
 
 /**
- * quicksort implementation
+ * Quicksort implementation
  *
  * @param {number[]} array
  * @param {number} [left=0]
@@ -51,7 +51,7 @@ export const partition = (
  *                      When the above two cases are not met
  */
 
-export const quickSort = (
+export const QuickSort = (
   array: number[],
   left: number = 0,
   right: number = array.length - 1
@@ -62,11 +62,11 @@ export const quickSort = (
     index = partition(array, left, right);
 
     if (left < index - 1) {
-      quickSort(array, left, index - 1);
+      QuickSort(array, left, index - 1);
     }
 
     if (index < right) {
-      quickSort(array, index, right);
+      QuickSort(array, index, right);
     }
   }
 
