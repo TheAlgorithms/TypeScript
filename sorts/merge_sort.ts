@@ -14,43 +14,29 @@
  * T(n) = 2T(n/2) + O(n) 
  * The solution of the above recurrence is O(nLogn).
  */
+                                   
+export function mergeSort(array: number[]): number[] {
+  if (array.length <= 1) return array
+  
+  const midIndex = Math.floor(array.length / 2)
+  const leftArray = array.slice(0, midIndex)
+  const rightArray = array.slice(midIndex, array.length)
+  
+  return merge(mergeSort(leftArray), mergeSort(rightArray))
+}
 
- export const MergeSort = (items: number[]): number[] => {
-    var halfLength = Math.ceil(items.length / 2);
-    var low = items.slice(0, halfLength);
-    var high = items.slice(halfLength);
-    if (halfLength > 1) {
-        low = MergeSort(low);
-        high = MergeSort(high);
+function merge (array1: number[], array2: number[]): number[] {
+  const result = []
+  let index1 = 0
+  let index2 = 0
+  
+  while (index1 < array1.length && index2 < array2.length) {
+    if (array1[index1] < array2[index2]) {
+      result.push(array1[index1++])
+    } else {
+      result.push(array2[index2++])
     }
-    return merge(low, high);
-};
-
-export const merge = (low: number[], high: number[]): number[] => {
-    let indexLow = 0;
-    let indexHigh = 0;
-    let curIndex = 0;
-    let merged = Array<number>(low.length + high.length);
-
-    while (indexLow < low.length && indexHigh < high.length) {
-
-        if (low[indexLow] <= high[indexHigh]) {
-            merged[curIndex++] = low[indexLow];
-            indexLow++;
-        } else {
-            merged[curIndex++] = high[indexHigh];
-            indexHigh++;
-        }
-    }
-
-    while (indexLow < low.length) {
-        merged[curIndex++] = low[indexLow];
-        indexLow++;
-    }
-
-    while (indexHigh < high.length) {
-        merged[curIndex++] = high[indexHigh];
-        indexHigh++;
-    }
-    return merged;
-};
+  }
+  
+  return [...result, ...array1.slice(index1), ...array2.slice(index2)]
+}
