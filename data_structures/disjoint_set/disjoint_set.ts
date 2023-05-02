@@ -4,15 +4,15 @@
  * Elements are uniquely represented by an index (0-based).
  *
  * The find operation uses path compression.
- * This allows the time complexity to the find operation be O(alpha(n)).
- * Being alpha(n) the inverse Ackermann function.
+ * This allows the time complexity of the find operation be O(alpha(n)).
+ * alpha(n) being the inverse Ackermann function.
  * 
- * The join uses union by size: The smaller set is joined to the bigger one.
+ * The join operation uses union by size: The smaller set is joined to the bigger one.
  * 
  * You can perform the following operations on the disjoint set:
- * - find: Determine which subset a particular element is in - O(alpha(n)) where alpha(n) is the inverse Ackermann function
- * - join: Join two subsets into a single subset - O(1).
- * - isSame: Check if two elements are in the same subset - O(1).
+ * - find: Determine which subset a particular element is in - O(alpha(n))
+ * - join: Join two subsets into a single subset - O(1)
+ * - isSame: Check if two elements are in the same subset - O(1)
  */
 export class DisjointSet {
   /** Direct parent for an element */
@@ -22,7 +22,7 @@ export class DisjointSet {
   private size: number[];
 
   constructor(n: number) {
-    // Initially each set has it's own id element
+    // Initially each set has its own id element
     this.head = Array.from({ length: n }, (_, index) => index);
     this.size = Array(n).fill(1);
   }
@@ -32,7 +32,7 @@ export class DisjointSet {
    */
   find(index: number): number {
     if (this.head[index] != index) {
-      // Use path compression (Set an edge between the element and it's head)
+      // Use path compression (set an edge between the element and its head)
       this.head[index] = this.find(this.head[index]);
     }
     return this.head[index];
