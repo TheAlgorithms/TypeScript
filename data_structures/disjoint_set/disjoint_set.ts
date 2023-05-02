@@ -10,7 +10,7 @@
  * The join uses union by size: The smaller set is joined to the bigger one.
  * 
  * You can perform the following operations on the disjoint set:
- * - find: Determine which subset a particular element is in - O(alpha(n))
+ * - find: Determine which subset a particular element is in - O(alpha(n)) where alpha(n) is the inverse Ackermann function
  * - join: Join two subsets into a single subset - O(1).
  * - isSame: Check if two elements are in the same subset - O(1).
  */
