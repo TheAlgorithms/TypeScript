@@ -4,10 +4,9 @@
  * Elements are uniquely represented by an index (0-based).
  * 
  * It uses union by size: The smaller set is joined to the bigger one.
- * This allows to keep the `find` complexity to O(logn).
  * 
  * You can perform the following operations on the disjoint set:
- * - find: Determine which subset a particular element is in - O(logn) ~ O(1) with path compression.
+ * - find: Determine which subset a particular element is in - O(1) with path compression.
  * - join: Join two subsets into a single subset - O(1).
  * - isSame: Check if two elements are in the same subset - O(1).
  */
@@ -20,8 +19,8 @@ export class DisjointSet {
 
   constructor(n: number) {
     // Initially each set has it's own id element
-    this.head = [...new Array(n)].map((_, index) => index);
-    this.size = new Array(n).fill(1);
+    this.head = Array.from({ length: n }, (_, index) => index);
+    this.size = Array(n).fill(1);
   }
 
   /**
@@ -38,7 +37,6 @@ export class DisjointSet {
 
   /**
    * Join two sets
-   * It uses union by size to leverage `find` complexity to O(logn)
    */
   join(first: number, second: number): void {
     // Get the root of each set to join
@@ -64,8 +62,6 @@ export class DisjointSet {
    * Check whether two elements are in the same set
    */
   isSame(first: number, second: number): boolean {
-    console.log(this.head);
-    console.log("HIII", first, this.find(first), second, this.find(second));
     return this.find(first) === this.find(second);
   }
 }
