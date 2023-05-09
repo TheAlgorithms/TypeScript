@@ -20,8 +20,8 @@ export abstract class Heap<T> {
   ): boolean;
 
   /**
-   * In a maxHeap the the index with the larger value in returned
-   * In a maxHeap the the index with the larger value in returned
+   * In a maxHeap the index with the larger value in returned
+   * In a minHeap the index with the smaller value in returned
    */
   protected abstract getChildIndexToSwap(
     leftChildIndex: number,
