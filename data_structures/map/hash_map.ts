@@ -209,10 +209,12 @@ export class HashMap<K, V> implements Map<K, V> {
      * Resizes the hash map by doubling the amount of buckets.
      */
     private resize(): void {
+        const entries = this.entries();
+
         this.initializeBuckets(this.buckets.length * 2);
         this.size = 0;
 
-        for (const entry of this.entries()) {
+        for (const entry of entries) {
             this.set(entry.key, entry.value);
         }
     }
