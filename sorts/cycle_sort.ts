@@ -1,5 +1,5 @@
 /**
- * @function CycleSort
+ * @function cycleSort
  * @description Cycle sort is an in-place, unstable sorting algorithm, a comparison sort that is theoretically optimal in terms of the total number of writes to the original array, unlike any other in-place sorting algorithm. It is based on the idea that the permutation to be sorted can be factored into cycles, which can individually be rotated to give a sorted result.
  * @param {number[]}array - The input array
  * @return {number[]} - The sorted array.
@@ -8,8 +8,8 @@
  */
   
 export const cycleSort = (array: number[]) => {
-  for (let index: number = 0; index < array.length - 1; index++) {
-      MoveCycle(array, index);
+  for (let i: number = 0; i < array.length - 1; i++) {
+      MoveCycle(array, i);
   }  
   return array;
 };
@@ -17,43 +17,43 @@ export const cycleSort = (array: number[]) => {
 function MoveCycle(array: number[], startIndex: number) : void {
     
     let currentItem: number = array[startIndex];
-    let nextPositionChange: number = startIndex + CountSmallerElements(array, startIndex, currentItem);
-    if(nextPositionChange == startIndex)
+    let nextChangeIndex: number = startIndex + CountSmallerItems(array, startIndex, currentItem);
+    if(nextChangeIndex == startIndex)
     {
         return;
     }
 
-    nextPositionChange = OffsetSameElements(array, nextPositionChange, currentItem);
+    nextChangeIndex = SkipDuplicates(array, nextChangeIndex, currentItem);
 
-    let tmp: number = array[nextPositionChange];
-    array[nextPositionChange] = currentItem;
+    let tmp: number = array[nextChangeIndex];
+    array[nextChangeIndex] = currentItem;
     currentItem = tmp;
 
-    while (nextPositionChange != startIndex)
+    while (nextChangeIndex != startIndex)
     {
-        nextPositionChange = startIndex + CountSmallerElements(array, startIndex, currentItem);
-        nextPositionChange = OffsetSameElements(array, nextPositionChange, currentItem);
+        nextChangeIndex = startIndex + CountSmallerItems(array, startIndex, currentItem);
+        nextChangeIndex = SkipDuplicates(array, nextChangeIndex, currentItem);
 
-        tmp = array[nextPositionChange];
-        array[nextPositionChange] = currentItem;
+        tmp = array[nextChangeIndex];
+        array[nextChangeIndex] = currentItem;
         currentItem = tmp;
     }
 }
 
-function CountSmallerElements(array: number[], startIndex: number, currentItem: number) : number{
-    let smallerElementsCount: number = 0;
+function CountSmallerItems(array: number[], startIndex: number, currentItem: number) : number{
+    let elementsCount: number = 0;
 
-    for (let index: number = startIndex + 1; index < array.length; index++) {
-        if(currentItem > array[index])
+    for (let i: number = startIndex + 1; i < array.length; i++) {
+        if(currentItem > array[i])
         {
-            smallerElementsCount++;
+            elementsCount++;
         }
     }
 
-    return smallerElementsCount;
+    return elementsCount;
 }
 
-function OffsetSameElements(array: number[], currentPosition: number, currentItem: number): number {    
+function SkipDuplicates(array: number[], currentPosition: number, currentItem: number): number {    
     while (array[currentPosition] == currentItem) {
         currentPosition++;
     }
