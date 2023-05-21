@@ -53,6 +53,7 @@
 
 ## Sorts
   * [Bubble Sort](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/sorts/bubble_sort.ts)
+  * [Cycle Sort](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/sorts/cycle_sort.ts)
   * [Gnome Sort](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/sorts/gnome_sort.ts)
   * [Insertion Sort](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/sorts/insertion_sort.ts)
   * [Merge Sort](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/sorts/merge_sort.ts)
