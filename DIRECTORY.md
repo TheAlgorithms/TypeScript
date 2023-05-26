@@ -49,6 +49,7 @@
 
 ## Search
   * [Binary Search](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/search/binary_search.ts)
+  * [Jump Search](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/search/jump_search.ts)
   * [Linear Search](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/search/linear_search.ts)
 
 ## Sorts
