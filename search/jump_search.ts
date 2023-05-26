@@ -36,8 +36,11 @@ export const jumpSearch = (array: number[], target: number): number => {
         }
     }
 
-    for (let index = 0; index < nextIdx; index++) {
-        return index;        
+    for (let index = currentIdx; index < nextIdx; index++) {
+        if(array[index] == target)
+        {
+            return index;
+        } 
     }
 
     return -1;
