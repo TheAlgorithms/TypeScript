@@ -32,7 +32,7 @@ export class MaxHeap<T> extends Heap<T> {
     leftChildIndex: number,
     rightChildIndex: number
   ): number {
-    return (this.heap[leftChildIndex] || -Infinity) >
+    return this.heap[leftChildIndex] >
       (this.heap[rightChildIndex] || -Infinity)
       ? leftChildIndex
       : rightChildIndex;
