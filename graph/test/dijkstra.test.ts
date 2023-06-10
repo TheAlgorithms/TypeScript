@@ -2,17 +2,17 @@ import { dijkstra } from "../dijkstra";
 
 describe("dijkstra", () => {
 
-  const init_graph = (N: number): number[][] => {
+  const init_graph = (N: number): [number, number][][] => {
     let graph = Array(N);
     for (let i = 0; i < N; ++i) {
-      graph[i] = Array(N).fill(0);
+      graph[i] = [];
     }
     return graph;
   }
 
-  const add_edge = (graph: number[][], a: number, b: number, weight: number) => {
-    graph[a][b] = weight;
-    graph[b][a] = weight;
+  const add_edge = (graph: [number, number][][], a: number, b: number, weight: number) => {
+    graph[a].push([b, weight]);
+    graph[b].push([a, weight]);
   }
 
   it("should return the correct value", () => {
@@ -31,13 +31,11 @@ describe("dijkstra", () => {
     add_edge(graph, 6, 7, 1);
     add_edge(graph, 6, 8, 6);
     add_edge(graph, 7, 8, 7);
-
     expect(dijkstra(graph, 0)).toStrictEqual([0, 4, 12, 19, 21, 11, 9, 8, 14]);
   });
 
   it("should return the correct value for single element graph", () => {
-    expect(dijkstra([[0]], 0)).toStrictEqual([0]);
-    expect(dijkstra([[10]], 0)).toStrictEqual([0]);
+    expect(dijkstra([[]], 0)).toStrictEqual([0]);
   });
 
   let linear_graph = init_graph(4);
