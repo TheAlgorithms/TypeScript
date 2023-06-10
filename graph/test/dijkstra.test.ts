@@ -16,7 +16,6 @@ describe("dijkstra", () => {
   }
 
   it("should return the correct value", () => {
-    // Example from https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/
     let graph = init_graph(9);
     add_edge(graph, 0, 1, 4);
     add_edge(graph, 0, 7, 8);
@@ -54,8 +53,7 @@ describe("dijkstra", () => {
 
   let unreachable_graph = init_graph(3);
   add_edge(unreachable_graph, 0, 1, 1);
-  const m = Number.MAX_SAFE_INTEGER
-  test.each([[0, [0, 1, m]], [1, [1, 0, m]], [2, [m, m, 0]]])(
+  test.each([[0, [0, 1, Infinity]], [1, [1, 0, Infinity]], [2, [Infinity, Infinity, 0]]])(
     "correct result for graph with unreachable nodes with source node %i",
     (source, result) => {
       expect(dijkstra(unreachable_graph, source)).toStrictEqual(result);

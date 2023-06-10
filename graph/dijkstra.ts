@@ -11,8 +11,8 @@
  */
 export const dijkstra = (graph: number[][], start: number): number[] => {
   let visited = Array(graph.length).fill(false);
-  let paths = Array(graph.length).fill(Number.MAX_SAFE_INTEGER);
-  paths[start] = 0;
+  let distances = Array(graph.length).fill(Infinity);
+  distances[start] = 0;
 
   let node = start;
   while (node !== -1) {
@@ -21,15 +21,15 @@ export const dijkstra = (graph: number[][], start: number): number[] => {
       if (child == node || weight === 0) {
         return;
       }
-      let new_path = paths[node] + weight;
-      if (new_path < paths[child]) {
-        paths[child] = new_path;
+      let new_path = distances[node] + weight;
+      if (new_path < distances[child]) {
+        distances[child] = new_path;
       }
     });
-    node = extract_min(paths, visited);
+    node = extract_min(distances, visited);
   }
 
-  return paths;
+  return distances;
 }
 
 const extract_min = (paths: number[], visited: boolean[]): number => {
