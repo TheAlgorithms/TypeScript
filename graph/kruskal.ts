@@ -2,7 +2,7 @@ import { DisjointSet } from '../data_structures/disjoint_set/disjoint_set';
 
 /**
  * @function kruskal
- * @description Compute a minimum spanning tree(MST) of a fully connected weighted undirected graph
+ * @description Compute a minimum spanning forest of a weighted undirected graph
  * @Complexity_Analysis
  * Time complexity: O(Elog(V))
  * Space Complexity: O(V)
