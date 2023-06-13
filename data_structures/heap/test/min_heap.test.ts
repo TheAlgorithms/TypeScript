@@ -1,4 +1,4 @@
-import { MinHeap } from "../heap";
+import { MinHeap, PriorityQueue } from "../heap";
 
 describe("MinHeap", () => {
   let heap: MinHeap<number>;
@@ -7,7 +7,10 @@ describe("MinHeap", () => {
   ];
 
   beforeEach(() => {
-    heap = new MinHeap(elements);
+    heap = new MinHeap();
+    for (let element of elements) {
+      heap.insert(element);
+    }
   });
 
   it("should initialize a heap from input array", () => {
@@ -27,7 +30,7 @@ describe("MinHeap", () => {
     heap.check();
   });
 
-  const extract_all = (heap: MinHeap<number>) => {
+  const extract_all = (heap: MinHeap<number>, elements: number[]) => {
     [...elements].sort((a, b) => a - b).forEach((element: number) => {
       expect(heap.extract()).toEqual(element);
     });
@@ -36,7 +39,7 @@ describe("MinHeap", () => {
   }
 
   it("should remove and return the min elements in order", () => {
-    extract_all(heap);
+    extract_all(heap, elements);
   });
 
   it("should insert all, then remove and return the min elements in order", () => {
@@ -46,6 +49,27 @@ describe("MinHeap", () => {
     });
     heap.check();
     expect(heap.size()).toEqual(elements.length);
-    extract_all(heap);
+    extract_all(heap, elements);
+  });
+
+  it("should increase priority", () => {
+    let heap = new PriorityQueue((a: number) => { return a; }, elements.length);
+    elements.forEach((element: number) => {
+      heap.insert(element);
+    });
+    heap.check();
+    expect(heap.size()).toEqual(elements.length);
+
+    heap.increasePriority(55, 14);
+    heap.increasePriority(18, 16);
+    heap.increasePriority(81, 72);
+    heap.increasePriority(9, 0);
+    heap.increasePriority(43, 33);
+    heap.check();
+    // Elements after increasing priority
+    const newElements: number[] = [
+      12, 4, 33, 42, 0, 7, 39, 16, 14, 1, 51, 34, 72, 16,
+    ];
+    extract_all(heap, newElements);
   });
 });

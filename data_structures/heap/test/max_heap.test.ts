@@ -7,7 +7,10 @@ describe("MaxHeap", () => {
   ];
 
   beforeEach(() => {
-    heap = new MaxHeap(elements);
+    heap = new MaxHeap();
+    for (let element of elements) {
+      heap.insert(element);
+    }
   });
 
   it("should initialize a heap from input array", () => {
