@@ -88,4 +88,22 @@ describe("Hash Map", () => {
             { key: "c", value: 3 },
         ]);
     });
+
+    it("should keep entries when trigger resize", () => {
+        hashMap.set('a', 1);
+        hashMap.set('b', 2);
+        hashMap.set('c', 3);
+        hashMap.set('d', 4);
+        hashMap.set('e', 5);
+        hashMap.set('f', 6);
+        hashMap.set('g', 7);
+        hashMap.set('h', 8);
+        hashMap.set('i', 9);
+        hashMap.set('j', 10);
+        hashMap.set('k', 11);
+        hashMap.set('l', 12);
+        hashMap.set('m', 13);
+        hashMap.set('n', 14);
+        expect(hashMap.getSize()).toBe(14);
+    })
 });
