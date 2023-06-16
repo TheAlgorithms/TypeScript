@@ -1,8 +1,24 @@
-export abstract class Heap<T> {
-  protected heap: T[];
+/**
+ * A heap is a complete binary tree
+ * In a complete binary tree each level is filled before lower levels are added
+ * Each level is filled from left to right
+ *
+ * In a (min|max) heap the value of every node is (less|greater) than that if its children
+ *
+ * The heap if often implemented using an array structure.
+ * In the array implementation, the relationship between a parent index and its two children
+ * are ((parentindex * 2) + 1) and ((parentindex * 2) + 2)
+ *
+ */
 
-  constructor(elements: T[] = []) {
+export abstract class Heap<T> {
+  private heap: T[];
+  // A comparison function. Returns true if a should be the parent of b.
+  private compare: (a: any, b: any) => boolean;
+
+  constructor(elements: T[] = [], compare: (a: T, b: T) => boolean) {
     this.heap = [];
+    this.compare = compare;
     for (let element of elements) {
       this.insert(element);
     }
@@ -14,19 +30,22 @@ export abstract class Heap<T> {
    * In a minHeap the value at parentIndex should be smaller than the value at childIndex
    *
    */
-  protected abstract isRightlyPlaced(
-    childIndex: number,
-    parentIndex: number
-  ): boolean;
+  private isRightlyPlaced( childIndex: number, parentIndex: number) {
+    return this.compare(this.heap[parentIndex], this.heap[childIndex]);
+  }
 
   /**
    * In a maxHeap the index with the larger value is returned
    * In a minHeap the index with the smaller value is returned
    */
-  protected abstract getChildIndexToSwap(
-    leftChildIndex: number,
-    rightChildIndex: number
-  ): number;
+  private getChildIndexToSwap(leftChildIndex: number, rightChildIndex: number): number {
+    if (rightChildIndex >= this.size()) {
+      return leftChildIndex;
+    }
+    return this.compare(this.heap[leftChildIndex], this.heap[rightChildIndex])
+      ? leftChildIndex
+      : rightChildIndex;
+  }
 
   public insert(value: T): void {
     this.heap.push(value);
@@ -49,7 +68,7 @@ export abstract class Heap<T> {
     return this.size() === 0;
   }
 
-  protected bubbleUp(): void {
+  private bubbleUp(): void {
     let index = this.size() - 1;
     let parentIndex;
 
@@ -64,7 +83,7 @@ export abstract class Heap<T> {
     }
   }
 
-  protected sinkDown(): void {
+  private sinkDown(): void {
     let index = 0;
     let leftChildIndex = this.getLeftChildIndex(index);
     let rightChildIndex = this.getRightChildIndex(index);
@@ -86,11 +105,11 @@ export abstract class Heap<T> {
     }
   }
 
-  protected getLeftChildIndex(index: number): number {
+  private getLeftChildIndex(index: number): number {
     return index * 2 + 1;
   }
 
-  protected getRightChildIndex(index: number): number {
+  private getRightChildIndex(index: number): number {
     return index * 2 + 2;
   }
 
@@ -98,7 +117,7 @@ export abstract class Heap<T> {
     return this._check();
   }
 
-  protected _check(index: number = 0): void {
+  private _check(index: number = 0): void {
     if (!this.heap[index]) return;
     const leftChildIndex = this.getLeftChildIndex(index);
     const rightChildIndex = this.getRightChildIndex(index);
@@ -117,5 +136,17 @@ export abstract class Heap<T> {
 
     this._check(leftChildIndex);
     this._check(rightChildIndex);
+  }
+}
+
+export class MinHeap<T> extends Heap<T> {
+  constructor(elements: T[] = [], compare = (a: T, b: T) => { return a < b }) {
+    super(elements, compare);
+  }
+}
+
+export class MaxHeap<T> extends Heap<T> {
+  constructor(elements: T[] = [], compare = (a: T, b: T) => { return a > b }) {
+    super(elements, compare);
   }
 }
