@@ -1,54 +1,40 @@
+import {partition} from "./quick_sort";
 /**
- * @function partition
- * @description is a helper function used in the QuickSelect algorithm to partition the array around a pivot element
- * @param {number[]} arr - The array to partition
- * @param {number} left - The left boundary of the partition range
- * @param {number} right - The right boundary of the partition range
- * @param {number} pivotIndex - The index of the pivot element
- * @returns {number} - The new index of the pivot element after partitioning
- */
-
-function partition(arr: number[], left: number, right: number, pivotIndex: number): number {
-    const pivotValue = arr[pivotIndex];
-    [arr[pivotIndex], arr[right]] = [arr[right], arr[pivotIndex]];
-    let storeIndex = left;
-
-    for (let i = left; i < right; i++) {
-        if (arr[i] < pivotValue) {
-            [arr[i], arr[storeIndex]] = [arr[storeIndex], arr[i]];
-            storeIndex++;
-        }
-    }
-
-    [arr[storeIndex], arr[right]] = [arr[right], arr[storeIndex]];
-    return storeIndex;
-}
-
-/**
- * @function quickSelect
+ * @function QuickSelect
  * @description is an algorithm based on the QuickSort approach that selects the kth smallest element from an array
- * @param {number[]} arr - The array from which to select the element
- * @param {number} left - The left boundary of the array or subarray to consider
- * @param {number} right - The right boundary of the array or subarray to consider
+ * @param {number[]} array - The array from which to select the element
  * @param {number} k - The index representing the kth smallest element to find
+ * @param {number} left - The left boundary of the array or subarray to consider (default: 0)
+ * @param {number} right - The right boundary of the array or subarray to consider (default: array.length - 1)
  * @returns {number} - The kth smallest element from the array
+ * @throws {Error} - If k is out of bounds (less than 0 or greater than or equal to array.length)
  */
 
-export function quickSelect(arr: number[], left: number, right: number, k: number): number {
+export const QuickSelect = (
+    array: number[],
+    k: number,
+    left: number = 0,
+    right: number = array.length - 1
+):number => {
+    if(k < 0 || k >= array.length) {
+        throw new Error('k is out of bounds');
+    }
     if (left === right) {
-        return arr[left];
+        // If the list contains only one element, return that element
+        return array[left];
     }
 
-    const pivotIndex = Math.floor(Math.random() * (right - left + 1)) + left;
-    const pivotNewIndex = partition(arr, left, right, pivotIndex);
+    // Partition the array
+    let pivotIndex = partition(array, left, right);
 
-    if (k === pivotNewIndex) {
-        return arr[k];
-    } else if (k < pivotNewIndex) {
-        return quickSelect(arr, left, pivotNewIndex - 1, k);
+    // The pivot is in its final sorted position
+    if (k === pivotIndex) {
+        return array[k];
+    } else if (k < pivotIndex) {
+        // If k is less than the pivot index, look left
+        return QuickSelect(array, k, left, pivotIndex - 1);
     } else {
-        return quickSelect(arr, pivotNewIndex + 1, right, k);
+        // If k is greater than the pivot index, look right
+        return QuickSelect(array, k, pivotIndex + 1, right);
     }
-}
-
-
+};

@@ -1,18 +1,29 @@
-import { quickSelect } from "../quick_select";
+import { QuickSelect } from "../quick_select";
 
-describe("Quick Select", () => {
-
-    it("should return the correct value for worst case", () => {
-        const arr = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
-        const k = 2; // kth smallest element
-
-        expect(quickSelect(arr, 0, arr.length - 1, k)).toBe(3);
+describe('QuickSelect', () => {
+    test('should return the kth smallest element in an array', () => {
+        const array = [8, 3, 5, 1, 4, 2];
+        expect(QuickSelect(array, 0)).toBe(1);
+        expect(QuickSelect(array, 1)).toBe(2);
+        expect(QuickSelect(array, 2)).toBe(3);
+        expect(QuickSelect(array, 3)).toBe(4);
+        expect(QuickSelect(array, 4)).toBe(5);
+        expect(QuickSelect(array, 5)).toBe(8);
     });
 
-    it("should return the correct value for best case", () => {
-        const arr = [1, 4, 2, 9, 5, 7, 3, 8, 10, 6];
-        const k = 5; // kth smallest element
+    test('should work with arrays of size 1', () => {
+        const array = [4];
+        expect(QuickSelect(array, 0)).toBe(4);
+    });
 
-        expect(quickSelect(arr, 0, arr.length - 1, k)).toBe(6);
+    test('should work with large arrays', () => {
+        const array = Array.from({length: 1000}, (_, i) => i + 1);
+        expect(QuickSelect(array, 499)).toBe(500);
+    });
+
+    test('should throw error when k is out of bounds', () => {
+        const array = [8, 3, 5, 1, 4, 2];
+        expect(() => QuickSelect(array, -1)).toThrow();
+        expect(() => QuickSelect(array, 6)).toThrow();
     });
 });
