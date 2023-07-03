@@ -12,16 +12,13 @@
  */
 
 export abstract class Heap<T> {
-  private heap: T[];
+  protected heap: T[];
   // A comparison function. Returns true if a should be the parent of b.
-  private compare: (a: any, b: any) => boolean;
+  private compare: (a: T, b: T) => boolean;
 
-  constructor(elements: T[] = [], compare: (a: T, b: T) => boolean) {
+  constructor(compare: (a: T, b: T) => boolean) {
     this.heap = [];
     this.compare = compare;
-    for (let element of elements) {
-      this.insert(element);
-    }
   }
 
   /**
@@ -68,17 +65,20 @@ export abstract class Heap<T> {
     return this.size() === 0;
   }
 
-  private bubbleUp(): void {
-    let index = this.size() - 1;
+  protected swap(a: number, b: number) {
+    [this.heap[a], this.heap[b]] = [
+      this.heap[b],
+      this.heap[a],
+    ];
+  }
+
+  protected bubbleUp(index = this.size() - 1): void {
     let parentIndex;
 
     while (index > 0) {
       parentIndex = Math.floor((index - 1) / 2);
       if (this.isRightlyPlaced(index, parentIndex)) break;
-      [this.heap[parentIndex], this.heap[index]] = [
-        this.heap[index],
-        this.heap[parentIndex],
-      ];
+      this.swap(parentIndex, index);
       index = parentIndex;
     }
   }
@@ -95,10 +95,7 @@ export abstract class Heap<T> {
         rightChildIndex
       );
       if (this.isRightlyPlaced(childIndexToSwap, index)) break;
-      [this.heap[childIndexToSwap], this.heap[index]] = [
-        this.heap[index],
-        this.heap[childIndexToSwap],
-      ];
+      this.swap(childIndexToSwap, index);
       index = childIndexToSwap;
       leftChildIndex = this.getLeftChildIndex(index);
       rightChildIndex = this.getRightChildIndex(index);
@@ -140,13 +137,60 @@ export abstract class Heap<T> {
 }
 
 export class MinHeap<T> extends Heap<T> {
-  constructor(elements: T[] = [], compare = (a: T, b: T) => { return a < b }) {
-    super(elements, compare);
+  constructor(compare = (a: T, b: T) => { return a < b }) {
+    super(compare);
   }
 }
 
 export class MaxHeap<T> extends Heap<T> {
-  constructor(elements: T[] = [], compare = (a: T, b: T) => { return a > b }) {
-    super(elements, compare);
+  constructor(compare = (a: T, b: T) => { return a > b }) {
+    super(compare);
+  }
+}
+
+// Priority queue that supports increasePriority() in O(log(n)). The limitation is that there can only be a single element for each key, and the max number or keys must be specified at heap construction. Most of the functions are wrappers around MinHeap functions and update the keys array.
+export class PriorityQueue<T> extends MinHeap<T> {
+  // Maps from the n'th node to its index within the heap.
+  private keys: number[];
+  // Maps from element to its index with keys.
+  private keys_index: (a: T) => number;
+
+  constructor(keys_index: (a: T) => number, num_keys: number, compare = (a: T, b: T) => { return a < b }) {
+    super(compare);
+    this.keys = Array(num_keys).fill(-1);
+    this.keys_index = keys_index;
+  }
+
+  protected swap(a: number, b: number) {
+    let akey = this.keys_index(this.heap[a]);
+    let bkey = this.keys_index(this.heap[b]);
+    [this.keys[akey], this.keys[bkey]] = [this.keys[bkey], this.keys[akey]];
+    super.swap(a, b);
+  }
+
+  public insert(value: T) {
+    this.keys[this.keys_index(value)] = this.size();
+    super.insert(value);
+  }
+
+  public extract(): T {
+    // Unmark the the highest priority element and set key to zero for the last element in the heap.
+    this.keys[this.keys_index(this.heap[0])] = -1;
+    if (this.size() > 1) {
+      this.keys[this.keys_index(this.heap[this.size() - 1])] = 0;
+    }
+    return super.extract();
+  }
+
+  public increasePriority(idx: number, value: T) {
+    if (this.keys[idx] == -1) {
+      // If the key does not exist, insert the value.
+      this.insert(value);
+      return;
+    }
+    let key = this.keys[idx];
+    // Increase the priority and bubble it up the heap.
+    this.heap[key] = value;
+    this.bubbleUp(key);
   }
 }
