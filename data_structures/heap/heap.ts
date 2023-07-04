@@ -14,7 +14,7 @@
 export abstract class Heap<T> {
   protected heap: T[];
   // A comparison function. Returns true if a should be the parent of b.
-  private compare: (a: T, b: T) => boolean;
+  protected compare: (a: T, b: T) => boolean;
 
   constructor(compare: (a: T, b: T) => boolean) {
     this.heap = [];
@@ -189,6 +189,10 @@ export class PriorityQueue<T> extends MinHeap<T> {
       return;
     }
     let key = this.keys[idx];
+    if (this.compare(this.heap[key], value)) {
+      // Do not do anything if the value in the heap already has a higher priority.
+      return;
+    }
     // Increase the priority and bubble it up the heap.
     this.heap[key] = value;
     this.bubbleUp(key);
