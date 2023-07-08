@@ -24,7 +24,7 @@ export const prim = (graph: [number, number][][]): [Edge[], number] => {
   add_children(graph, priorityQueue, 0);
 
   while (!priorityQueue.isEmpty()) {
-    // We always store the previously visited edge in `edge.a`, and the newly visited node in `edge.b`.
+    // We have already visited vertex `edge.a`. If we have not visited `edge.b` yet, we add its outgoing edges to the PriorityQueue.
     let edge = priorityQueue.extract();
     if (visited.has(edge.b)) {
       continue;
