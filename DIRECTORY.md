@@ -85,7 +85,6 @@
   * [Is Leap Year](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/is_leap_year.ts)
   * [Is Odd](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/is_odd.ts)
   * [Is Palindrome](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/is_palindrome.ts)
-  * [Is Prime](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/is_prime.ts)
   * [Is Square Free](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/is_square_free.ts)
   * [Juggler Sequence](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/juggler_sequence.ts)
   * [Lowest Common Multiple](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/lowest_common_multiple.ts)
@@ -93,6 +92,7 @@
   * [Pascals Triangle](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/pascals_triangle.ts)
   * [Perfect Cube](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/perfect_cube.ts)
   * [Perfect Square](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/perfect_square.ts)
+  * [Primes](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/primes.ts)
   * [Pronic Number](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/pronic_number.ts)
   * [Radians To Degrees](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/radians_to_degrees.ts)
   * Series
