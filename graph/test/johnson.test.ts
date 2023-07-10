@@ -96,7 +96,7 @@ describe("johnson", () => {
     expect(johnson(linear_graph)).toStrictEqual(expected);
   });
 
-  it("should return the correct value for a linear graph", () => {
+  it("should return the correct value for a linear graph with unreachable node", () => {
     let linear_graph = init_graph(3);
     add_edge(linear_graph, 0, 1, 1);
 
