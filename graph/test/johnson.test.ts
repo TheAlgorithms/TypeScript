@@ -78,6 +78,10 @@ describe("johnson", () => {
     expect(johnson(graph)).toStrictEqual(undefined);
   });
 
+  it("should return the correct value for zero element graph", () => {
+    expect(johnson([])).toStrictEqual([]);
+  });
+
   it("should return the correct value for single element graph", () => {
     expect(johnson([[]])).toStrictEqual([[0]]);
   });
@@ -89,6 +93,14 @@ describe("johnson", () => {
     add_edge(linear_graph, 2, 3, 3);
 
     let expected = [[0, 1, 3, 6 ], [1, 0, 2, 5], [3, 2, 0, 3], [6, 5, 3, 0]];
+    expect(johnson(linear_graph)).toStrictEqual(expected);
+  });
+
+  it("should return the correct value for a linear graph", () => {
+    let linear_graph = init_graph(3);
+    add_edge(linear_graph, 0, 1, 1);
+
+    let expected = [[0, 1, Infinity], [1, 0, Infinity], [Infinity, Infinity, 0]];
     expect(johnson(linear_graph)).toStrictEqual(expected);
   });
 })

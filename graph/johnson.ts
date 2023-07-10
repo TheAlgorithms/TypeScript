@@ -18,7 +18,7 @@ export const johnson = (graph: [number, number][][]): number[][] | undefined => 
   let newNodeGraph = structuredClone(graph);
   let newNode: [number, number][] = [];
   for (let i = 0; i < N; ++i) {
-    newNode.push([0, 0]);
+    newNode.push([i, 0]);
   }
   newNodeGraph.push(newNode);
 
