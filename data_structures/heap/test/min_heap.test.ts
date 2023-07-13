@@ -65,6 +65,11 @@ describe("MinHeap", () => {
     heap.increasePriority(81, 72);
     heap.increasePriority(9, 0);
     heap.increasePriority(43, 33);
+    // decreasing priority should do nothing
+    heap.increasePriority(72, 100);
+    heap.increasePriority(12, 24);
+    heap.increasePriority(39, 40);
+
     heap.check();
     // Elements after increasing priority
     const newElements: number[] = [
