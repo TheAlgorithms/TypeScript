@@ -58,11 +58,17 @@
 ## Graph
   * [Bellman Ford](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/graph/bellman_ford.ts)
   * [Dijkstra](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/graph/dijkstra.ts)
+  * [Floyd Warshall](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/graph/floyd_warshall.ts)
+  * [Johnson](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/graph/johnson.ts)
   * [Kruskal](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/graph/kruskal.ts)
+  * [Prim](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/graph/prim.ts)
   * Test
     * [Bellman Ford.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/graph/test/bellman_ford.test.ts)
     * [Dijkstra.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/graph/test/dijkstra.test.ts)
+    * [Floyd Warshall.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/graph/test/floyd_warshall.test.ts)
+    * [Johnson.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/graph/test/johnson.test.ts)
     * [Kruskal.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/graph/test/kruskal.test.ts)
+    * [Prim.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/graph/test/prim.test.ts)
 
 ## Maths
   * [Absolute Value](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/absolute_value.ts)
