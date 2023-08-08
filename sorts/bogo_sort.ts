@@ -1,11 +1,14 @@
+import { isSortedArray } from "../other/is_sorted_array";
+import { shuffleArray } from "../other/shuffle_array";
+
 /**
  * @function bubbleSort
  * @description bogo sort is very simple to understand, it randomly shuffeles the input array until it is sorted
  * @Complexity_Analysis
  * Space complexity - O(1)
  * Time complexity
- *      Best case   -   O(1)
- *                      The best case occurs when the first shuufle sorts the array.
+ *      Best case   -   O(n)
+ *                      The best case occurs when the array is already sorted.
  *      Worst case  -   unbounded
  *                      The worst case occurs when the suffeles never make the array sorted.
  *      Average case -  unbounded
@@ -18,21 +21,7 @@
  */
 export function bogoSort(arr: number[]): number[] {
 	while (!isSortedArray(arr)) {
-		for (var i = arr.length - 1; i > 0; i--) {
-			var j = Math.floor(Math.random() * (i + 1));
-			var temp = arr[i];
-			arr[i] = arr[j];
-			arr[j] = temp;
-		}
+		shuffleArray(arr);
 	}
 	return arr;
-}
-
-function isSortedArray(arr: number[]): boolean {
-	for (let i = 0; i < arr.length - 1; i++) {
-		if (arr[i] >= arr[i + 1]) {
-			return false;
-		}
-	}
-	return true;
 }
