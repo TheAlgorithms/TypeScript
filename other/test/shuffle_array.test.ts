@@ -1,18 +1,25 @@
 import { shuffleArray } from '../shuffle_array';
 
 describe('shuffleArray', () => {
-	it('should not change the length of the array', () => {
-		let arr = [1, 2, 3];
-		shuffleArray(arr);
-		expect(arr.length).toEqual(3);
-	});
-	it('should return an array with the same element but possibly with different order', () => {
-		let arr = [1, 2, 3, 6, 78, 2];
-		shuffleArray(arr);
-		expect(
-			arr.every((elem) => {
-				return [1, 2, 3, 6, 78, 2].includes(elem);
-			})
-		).toEqual(true);
-	});
+	test.each([{ arr: [1, 2, 3] }, { arr: [1, 2, 3, 6, 78, 2] }])(
+		"The length of the array $arr does'nt change after shuffling the array",
+		({ arr }) => {
+			const originalLength = arr.length;
+			shuffleArray(arr);
+			expect(arr.length).toEqual(originalLength);
+		}
+	);
+
+	test.each([{ arr: [1, 2, 3] }, { arr: [1, 2, 3, 6, 78, 2] }])(
+		'The elements of the array $arr remain the same (possibly with different order) after shuffling the array',
+		({ arr }) => {
+			const copyArray = Array.from(arr);
+			shuffleArray(arr);
+			expect(
+				arr.every((elem) => {
+					return copyArray.includes(elem);
+				})
+			).toEqual(true);
+		}
+	);
 });
