@@ -1,8 +1,8 @@
-import { isSortedArray } from "../other/is_sorted_array";
-import { shuffleArray } from "../other/shuffle_array";
+import { isSortedArray } from '../other/is_sorted_array';
+import { shuffleArray } from '../other/shuffle_array';
 
 /**
- * @function bubbleSort
+ * @function bogoSort
  * @description bogo sort is very simple to understand, it randomly shuffeles the input array until it is sorted
  * @Complexity_Analysis
  * Space complexity - O(1)
@@ -10,9 +10,11 @@ import { shuffleArray } from "../other/shuffle_array";
  *      Best case   -   O(n)
  *                      The best case occurs when the array is already sorted.
  *      Worst case  -   unbounded
- *                      The worst case occurs when the suffeles never make the array sorted.
- *      Average case -  unbounded
- *                      The average case occurs when the suffeles never make the array sorted.
+ *                      The worst case occurs when the shuffles never make the array sorted.
+ *      Average case -  O(n!n)
+ *                      The average case occurs when the shuffles sort the array after
+ *                      n! iterations (every iteration has a probability of 1/n! to sort the array),
+ *                      each iteration takes O(n) time.
  *
  * @param {number[]} arr - The input array
  * @return {number[]} - The sorted array.
