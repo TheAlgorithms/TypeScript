@@ -1,11 +1,11 @@
 export function generateCombinations(n: number, k: number): number[][] {
-  return generateAllCombos(n, k);
+  return generateAllCombos(n, k, 1);
 }
 
 function generateAllCombos(
   n: number,
   k: number,
-  startCursor: number = 1,
+  startCursor: number,
   combinationsAcc: number[][] = [],
   currentCombination: number[] = []
 ): number[][] {
@@ -15,6 +15,7 @@ function generateAllCombos(
     }
     return combinationsAcc;
   }
+
   const endCursor = n - k + 2;
   for (let i = startCursor; i < endCursor; i++) {
     currentCombination.push(i);
