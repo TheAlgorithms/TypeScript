@@ -17,15 +17,6 @@ export class Trie {
 
   constructor() {}
 
-  /**
-   *
-   * @param word
-   * @param position
-   * @param letterMap
-   * @returns
-   *
-   * Private method to insert word in letterMap of type (Trie)
-   */
   private insertNode(node: TrieNode, word: string): void {
     for (const char of word) {
       if (!node.children[char]) {
@@ -36,16 +27,6 @@ export class Trie {
     node.isWord = true;
   }
 
-  /**
-   *
-   * @param word
-   * @param position
-   * @param letterMap
-   * @returns
-   *
-   * Private method implementation to search word in letterMap of type (Trie)
-   *
-   */
 
   private searchNode(
     node: TrieNode,
@@ -63,7 +44,6 @@ export class Trie {
 
   /**
    *
-   * @param word
    * Method to add word in Trie
    */
   public add(word: string): this {
@@ -72,11 +52,12 @@ export class Trie {
   }
 
   /**
-   *
    * @param word
    * @returns
    * Method to find/search word inside letterMap which is of type Trie
    */
+
+  //isPrefixMatch is a parameter used to specify whether we perform prefix match or not
   public find(word: string, isPrefixMatch: boolean = false): boolean {
     return this.searchNode(this.root, word, isPrefixMatch);
   }
