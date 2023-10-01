@@ -27,3 +27,14 @@ export const greatestCommonFactor = (nums: number[]): number => {
   
   return nums.reduce(binaryGCF);
 };
+
+/**
+ * @author : dev-madhurendra
+ * Finds the Highest Common Factor (HCF) or Greatest Common Divisor (GCD) of two numbers.
+ *
+ * @param {number} x - The first integer.
+ * @param {number} y - The second integer.
+ * @returns {number} The HCF/GCD of the two input numbers.
+ *
+ */
+export const findHCFUsingEuclidAlgorithm = (x: number, y: number): number => y === 0 ? x : findHCFUsingEuclidAlgorithm(y, x % y)

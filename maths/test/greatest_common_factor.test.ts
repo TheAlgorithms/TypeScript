@@ -1,4 +1,4 @@
-import { binaryGCF, greatestCommonFactor } from "../greatest_common_factor";
+import { binaryGCF, findHCFUsingEuclidAlgorithm, greatestCommonFactor } from "../greatest_common_factor";
 
 describe("binaryGCF", () => {
   test.each([[12, 8, 4], [1, 199, 1], [88, 40, 8], [288, 160, 32]])(
@@ -19,6 +19,8 @@ describe("binaryGCF", () => {
       "numbers must be natural to determine factors",
     );
   });
+
+
 });
 
 describe("greatestCommonFactor", () => {
@@ -34,4 +36,14 @@ describe("greatestCommonFactor", () => {
       "at least one number must be passed in",
     );
   });
+
 });
+
+describe('FindHCFUsingFormula' , () => {
+  test.each([[12, 8, 4], [1, 199, 1], [88, 40, 8], [288, 160, 32]])(
+    "of given two numbers is correct",
+    (numa, numb, expected) => {
+      expect(findHCFUsingEuclidAlgorithm(numa, numb)).toBe(expected);
+    },
+  );
+})
