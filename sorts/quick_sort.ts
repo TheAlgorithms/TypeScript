@@ -40,7 +40,7 @@ export const partition = (
  * @param {number} right - The right index of the subarray.
  * @returns {number} - The index of the chosen pivot element.
  */
-export const choosePivot = (
+const choosePivot = (
   left: number,
   right: number
 ): number => {
