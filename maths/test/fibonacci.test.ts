@@ -11,4 +11,4 @@ const test = (func: (n: number) => number) =>
   ])('fib(%i) = %i', (n, expected) => expect(func(n)).toBe(expected));
 describe('Fibonacci iterative', () => test(nthFibonacci));
 describe('Fibonacci recursive', () => test(nthFibonacciRecursively));
-describe('Fibonacci recursive', () => test(nthFibonacciUsingFormula));
+describe('Fibonacci Using formula', () => test(nthFibonacciUsingFormula));
