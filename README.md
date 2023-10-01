@@ -46,3 +46,10 @@ if you make any mistakes. The names of the maintainers of this repository are li
 [actions]: https://github.com/TheAlgorithms/TypeScript/actions
 [repositories]: https://github.com/orgs/TheAlgorithms/repositories
 [help-wanted]: https://github.com/TheAlgorithms/TypeScript/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22
+
+---
+## Thanks to all the contributors ❤️
+
+<a href = "https://github.com/TheAlgorithms/TypeScript/graphs/contributors">
+  <img src = "https://contrib.rocks/image?repo=TheAlgorithms/TypeScript"/>
+</a>
