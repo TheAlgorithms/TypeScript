@@ -1,9 +1,9 @@
 /**
- * @author : dev-madhurendra
+ * @author dev-madhurendra
  * Counting sort is an algorithm for sorting a collection
  * of objects according to keys that are small integers.
- * @see: https://en.wikipedia.org/wiki/Counting_sort
- * @example : 
+ * @see https://en.wikipedia.org/wiki/Counting_sort
+ * @example
  * const array = [3, 0, 2, 5, 4, 1]
  * countingSort(array, 0, 5)
  */
