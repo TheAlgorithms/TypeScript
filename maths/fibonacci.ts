@@ -56,3 +56,18 @@ export const nthFibonacciRecursively = (number: number): number => {
     nthFibonacciRecursively(number - 1) + nthFibonacciRecursively(number - 2)
   );
 };
+
+
+/**
+ * @param number The index of the number in the Fibonacci sequence.
+ * @return The Fibonacci number on the nth index in the sequence.
+ * @example nthFibonacci(4) => 3 | nthFibonacci(6) => 8
+ * @see : https://math.hmc.edu/funfacts/fibonacci-number-formula/
+ * @author : dev-madhurendra<https://github.com/dev-madhurendra>
+ */
+
+const sqrt5 = Math.sqrt(5)
+const phi = (1 + sqrt5) / 2
+const psi = (1 - sqrt5) / 2
+
+export const nthFibonacciUsingFormula = (n : number) => Math.round((phi ** n - psi ** n) / sqrt5)
