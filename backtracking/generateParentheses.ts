@@ -8,18 +8,18 @@
 const generateParentheses = (n: number): string[] => {
   const result: string[] = [];
 
-  const solve = (chars: string, openParenthese: number, closedParenthese: number) => {
-    if (openParenthese === n && closedParenthese === n) {
+  const solve = (chars: string, openParentheses: number, closedParentheses: number) => {
+    if (openParentheses === n && closedParentheses === n) {
       result.push(chars);
       return;
     }
 
-    if (openParenthese <= n) {
-      solve(chars + "(", openParenthese + 1, closedParenthese);
+    if (openParentheses <= n) {
+      solve(chars + "(", openParentheses + 1, closedParentheses);
     }
 
-    if (closedParenthese < openParenthese) {
-      solve(chars + ")", openParenthese, closedParenthese + 1);
+    if (closedParentheses < openParentheses) {
+      solve(chars + ")", openParentheses, closedParentheses + 1);
     }
   };
 
