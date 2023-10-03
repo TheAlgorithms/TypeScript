@@ -10,7 +10,7 @@ export const partition = (
   left: number = 0,
   right: number = array.length - 1
 ) => {
-  const pivot = array[Math.floor((right + left) / 2)];
+  const pivot = array[choosePivot(left,right)];
   let i = left;
   let j = right;
 
@@ -31,6 +31,20 @@ export const partition = (
   }
 
   return i;
+};
+
+/**
+ * @function choosePivot
+ * @description Chooses a pivot element randomly within the subarray.
+ * @param {number} left - The left index of the subarray.
+ * @param {number} right - The right index of the subarray.
+ * @returns {number} - The index of the chosen pivot element.
+ */
+const choosePivot = (
+  left: number,
+  right: number
+): number => {
+  return Math.floor(Math.random() * (right - left + 1)) + left
 };
 
 /**
@@ -55,7 +69,7 @@ export const QuickSort = (
   array: number[],
   left: number = 0,
   right: number = array.length - 1
-) => {
+): number[] => {
   let index;
 
   if (array.length > 1) {
