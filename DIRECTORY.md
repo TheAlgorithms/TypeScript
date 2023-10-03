@@ -1,4 +1,18 @@
 
+## Backtracking
+  * [All Combinations Of Size K](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/backtracking/all_combinations_of_size_k.ts)
+  * [Generateparentheses](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/backtracking/generateparentheses.ts)
+  * Test
+    * [All Combinations Of Size K.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/backtracking/test/all_combinations_of_size_k.test.ts)
+    * [Generateparentheses.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/backtracking/test/generateparentheses.test.ts)
+
+## Bit Manipulation
+  * [Is Power Of 2](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/bit_manipulation/is_power_of_2.ts)
+  * [Is Power Of 4](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/bit_manipulation/is_power_of_4.ts)
+  * Test
+    * [Is Power Of 2.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/bit_manipulation/test/is_power_of_2.test.ts)
+    * [Is Power Of 4.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/bit_manipulation/test/is_power_of_4.test.ts)
+
 ## Ciphers
   * [Xor Cipher](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/ciphers/xor_cipher.ts)
 
@@ -51,6 +65,9 @@
     * [Binary Search Tree](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/data_structures/tree/binary_search_tree.ts)
     * Test
       * [Binary Search Tree.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/data_structures/tree/test/binary_search_tree.test.ts)
+  * Tries
+      * [Tries.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/data_structures/tries/test/tries.test.ts)
+    * [Tries](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/data_structures/tries/tries.ts)
 
 ## Dynamic Programming
   * [Knapsack](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/dynamic_programming/knapsack.ts)
@@ -111,17 +128,24 @@
   * [Zellers Congruence](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/zellers_congruence.ts)
 
 ## Other
+  * [Is Sorted Array](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/other/is_sorted_array.ts)
   * [Parse Nested Brackets](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/other/parse_nested_brackets.ts)
+  * [Shuffle Array](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/other/shuffle_array.ts)
   * Test
+    * [Is Sorted Array.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/other/test/is_sorted_array.test.ts)
     * [Parse Nested Brackets.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/other/test/parse_nested_brackets.test.ts)
+    * [Shuffle Array.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/other/test/shuffle_array.test.ts)
 
 ## Search
   * [Binary Search](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/search/binary_search.ts)
   * [Jump Search](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/search/jump_search.ts)
   * [Linear Search](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/search/linear_search.ts)
+  * [Sentinel Search](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/search/sentinel_search.ts)
 
 ## Sorts
+  * [Bogo Sort](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/sorts/bogo_sort.ts)
   * [Bubble Sort](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/sorts/bubble_sort.ts)
+  * [Counting Sort](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/sorts/counting_sort.ts)
   * [Cycle Sort](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/sorts/cycle_sort.ts)
   * [Gnome Sort](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/sorts/gnome_sort.ts)
   * [Insertion Sort](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/sorts/insertion_sort.ts)
