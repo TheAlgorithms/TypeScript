@@ -1,4 +1,4 @@
-import { generateCombinations } from "../all-combinations-of-size-k";
+import { generateCombinations } from "../all_combinations_of_size_k";
 
 const cases = [
   [
