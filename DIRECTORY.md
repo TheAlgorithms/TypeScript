@@ -1,10 +1,10 @@
 
 ## Backtracking
   * [All Combinations Of Size K](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/backtracking/all_combinations_of_size_k.ts)
-  * [Generateparentheses](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/backtracking/generateparentheses.ts)
+  * [Generate Parentheses](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/backtracking/generate_parentheses.ts)
   * Test
     * [All Combinations Of Size K.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/backtracking/test/all_combinations_of_size_k.test.ts)
-    * [Generateparentheses.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/backtracking/test/generateparentheses.test.ts)
+    * [Generate Parentheses](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/backtracking/test/generate_parentheses.ts)
 
 ## Bit Manipulation
   * [Is Power Of 2](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/bit_manipulation/is_power_of_2.ts)
