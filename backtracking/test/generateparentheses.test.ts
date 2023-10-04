@@ -1,4 +1,4 @@
-import { generateParentheses } from "../generateParentheses";
+import { generateParentheses } from "../generateparentheses";
 
 const cases: [number, string[]][] = [
   [0, [""]],
