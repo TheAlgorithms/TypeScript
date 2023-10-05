@@ -3,7 +3,7 @@ import { BaconianCipher } from "../baconian_cipher";
 describe("BaconianCipher", () => {
   let baconianCipher: BaconianCipher = new BaconianCipher();
 
-  it("'Hello world' === baconianDecode(baconianEncode('Hello world'))", () => {
+  it("'HELLO WORLD' === baconianDecode(baconianEncode('Hello world'))", () => {
     const word: string = "Hello world";
     const expectedResult: string = "HELLO WORLD";
     const result: string = baconianCipher.baconianDecode(
