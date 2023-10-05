@@ -14,4 +14,3 @@
 export const TanH = (x: number): number => {
     return (Math.exp(x) - Math.exp(-x)) / (Math.exp(x) + Math.exp(-x))
 }
-  
