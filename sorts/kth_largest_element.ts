@@ -5,9 +5,8 @@
  * @condition : 
  * 1. k < size_of_array
  * @explanation : 
- * 1. Filter out duplicates
- * 2. Sort in descending order
- * 3. Get the kth largest element
+ * 1. Sort in descending order
+ * 2. Get the kth largest element
  * 
  */
 export const kthLargestElement = (array: number[], k: number) : number => 
