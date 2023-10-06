@@ -9,9 +9,11 @@
 ## Bit Manipulation
   * [Is Power Of 2](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/bit_manipulation/is_power_of_2.ts)
   * [Is Power Of 4](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/bit_manipulation/is_power_of_4.ts)
+  * [Log Two](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/bit_manipulation/log_two.ts)
   * Test
     * [Is Power Of 2.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/bit_manipulation/test/is_power_of_2.test.ts)
     * [Is Power Of 4.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/bit_manipulation/test/is_power_of_4.test.ts)
+    * [Log Two.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/bit_manipulation/test/log_two.test.ts)
 
 ## Ciphers
   * [Xor Cipher](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/ciphers/xor_cipher.ts)
@@ -71,6 +73,7 @@
 
 ## Dynamic Programming
   * [Knapsack](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/dynamic_programming/knapsack.ts)
+  * [Lcs](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/dynamic_programming/lcs.ts)
 
 ## Graph
   * [Bellman Ford](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/graph/bellman_ford.ts)
@@ -154,3 +157,4 @@
   * [Quick Sort](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/sorts/quick_sort.ts)
   * [Selection Sort](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/sorts/selection_sort.ts)
   * [Shell Sort](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/sorts/shell_sort.ts)
+  * [Swap Sort](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/sorts/swap_sort.ts)
