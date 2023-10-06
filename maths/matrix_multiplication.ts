@@ -4,7 +4,7 @@
  * @param {number[][]} matrixA First matrix of the operation.
  * @param {number[][]} matrixB Second matrix of the operation.
  * @return {number[][]} The result of the multiplication.
- * @see https://en.wikipedia.org/wiki/Median
+ * @see https://en.wikipedia.org/wiki/Matrix_multiplication
  * @example matrixMultiplication([[5, 6, 7], [1, 2, 3]], [[0, 2], [1, 3], [4, 5]]) = [[34, 63], [14, 23]]
  */
 export const matrixMultiplication = (matrixA:number[][],matrixB:number[][])=>{
