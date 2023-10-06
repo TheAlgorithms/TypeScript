@@ -100,6 +100,7 @@
   * [Calculate Median](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/calculate_median.ts)
   * [Degrees To Radians](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/degrees_to_radians.ts)
   * [Digit Sum](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/digit_sum.ts)
+  * [Double Factorial Iterative](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/double_factorial_iterative.ts)
   * [Factorial](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/factorial.ts)
   * [Factors](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/factors.ts)
   * [Fibonacci](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/fibonacci.ts)
