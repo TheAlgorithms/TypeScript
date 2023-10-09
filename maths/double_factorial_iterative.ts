@@ -18,13 +18,12 @@
  */
 const DoubleFactorialIterative = (n: number) => {
   if(n < 0) throw new RangeError("The number needs to be non-negative")
-  if(n === 0) return 1;
-  let doubleFactorial = 1;
+  let doubleFactorial = 1
 
   for(let i = n; i > 0; i -= 2)
-    doubleFactorial *= i;
+    doubleFactorial *= i
 
-  return doubleFactorial;
+  return doubleFactorial
 }
 
-export { DoubleFactorialIterative };
+export { DoubleFactorialIterative }
