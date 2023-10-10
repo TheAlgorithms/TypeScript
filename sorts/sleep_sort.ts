@@ -35,7 +35,7 @@ export const sleepSort = async (arr: number[]): Promise<number[]> => {
 
   await Promise.all(
     arr.map(async (n: number) => {
-      await sleep(n);
+      await sleep(n*100);
       sortedArr.push(n);
     })
   );
