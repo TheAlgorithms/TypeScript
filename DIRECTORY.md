@@ -7,11 +7,15 @@
     * [Generateparentheses.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/backtracking/test/generateparentheses.test.ts)
 
 ## Bit Manipulation
+  * [Is Even](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/bit_manipulation/is_even.ts)
   * [Is Power Of 2](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/bit_manipulation/is_power_of_2.ts)
   * [Is Power Of 4](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/bit_manipulation/is_power_of_4.ts)
+  * [Log Two](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/bit_manipulation/log_two.ts)
   * Test
+    * [Is Even.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/bit_manipulation/test/is_even.test.ts)
     * [Is Power Of 2.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/bit_manipulation/test/is_power_of_2.test.ts)
     * [Is Power Of 4.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/bit_manipulation/test/is_power_of_4.test.ts)
+    * [Log Two.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/bit_manipulation/test/log_two.test.ts)
 
 ## Ciphers
   * [Xor Cipher](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/ciphers/xor_cipher.ts)
@@ -71,9 +75,11 @@
 
 ## Dynamic Programming
   * [Knapsack](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/dynamic_programming/knapsack.ts)
+  * [Lcs](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/dynamic_programming/lcs.ts)
 
 ## Graph
   * [Bellman Ford](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/graph/bellman_ford.ts)
+  * [Bipartite Graph](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/graph/bipartite_graph.ts)
   * [Dijkstra](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/graph/dijkstra.ts)
   * [Floyd Warshall](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/graph/floyd_warshall.ts)
   * [Johnson](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/graph/johnson.ts)
@@ -81,6 +87,7 @@
   * [Prim](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/graph/prim.ts)
   * Test
     * [Bellman Ford.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/graph/test/bellman_ford.test.ts)
+    * [Bipartite Graph.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/graph/test/bipartite_graph.test.ts)
     * [Dijkstra.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/graph/test/dijkstra.test.ts)
     * [Floyd Warshall.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/graph/test/floyd_warshall.test.ts)
     * [Johnson.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/graph/test/johnson.test.ts)
@@ -101,6 +108,7 @@
   * [Factors](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/factors.ts)
   * [Fibonacci](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/fibonacci.ts)
   * [Find Min](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/find_min.ts)
+  * [Gaussian Elimination](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/gaussian_elimination.ts)
   * [Greatest Common Factor](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/greatest_common_factor.ts)
   * [Hamming Distance](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/hamming_distance.ts)
   * [Is Divisible](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/is_divisible.ts)
@@ -148,9 +156,11 @@
   * [Counting Sort](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/sorts/counting_sort.ts)
   * [Cycle Sort](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/sorts/cycle_sort.ts)
   * [Gnome Sort](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/sorts/gnome_sort.ts)
+  * [Heap Sort](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/sorts/heap_sort.ts)
   * [Insertion Sort](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/sorts/insertion_sort.ts)
   * [Merge Sort](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/sorts/merge_sort.ts)
   * [Quick Select](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/sorts/quick_select.ts)
   * [Quick Sort](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/sorts/quick_sort.ts)
   * [Selection Sort](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/sorts/selection_sort.ts)
   * [Shell Sort](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/sorts/shell_sort.ts)
+  * [Swap Sort](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/sorts/swap_sort.ts)
