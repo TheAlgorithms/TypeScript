@@ -10,7 +10,7 @@ TypeScript Repository of TheAlgorithms, which implements various algorithms and 
   [![Contributions Welcome][welcome]](CONTRIBUTING.md)
   [![Discord chat][chat]][discord-server]
 
-  
+
 </div>
 
 ---
