@@ -22,7 +22,6 @@
       * [Singly Linked List.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/data_structures/list/test/singly_linked_list.test.ts)
   * Map
     * [Hash Map](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/data_structures/map/hash_map.ts)
-    * [Map](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/data_structures/map/map.ts)
     * Test
       * [Hash Map.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/data_structures/map/test/hash_map.test.ts)
   * Queue
