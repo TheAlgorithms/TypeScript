@@ -35,8 +35,10 @@
   * [Pronic Number](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/pronic_number.ts)
   * [Radians To Degrees](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/radians_to_degrees.ts)
   * Series
+    * [Cubic Numbers](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/series/cubic_numbers.ts)
     * [Hexagonal Numbers](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/series/hexagonal_numbers.ts)
     * Test
+      * [Cubic Numbers.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/series/test/cubic_numbers.test.ts)
       * [Hexagonal Numbers.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/series/test/hexagonal_numbers.test.ts)
   * [Sieve Of Eratosthenes](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/sieve_of_eratosthenes.ts)
   * [Signum](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/signum.ts)
