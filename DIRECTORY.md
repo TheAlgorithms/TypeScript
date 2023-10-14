@@ -10,8 +10,7 @@
   * Heap
     * [Heap](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/data_structures/heap/heap.ts)
     * Test
-      * [Max Heap.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/data_structures/heap/test/max_heap.test.ts)
-      * [Min Heap.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/data_structures/heap/test/min_heap.test.ts)
+      * [Heap.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/data_structures/heap/test/heap.test.ts)
   * List
     * [Doubly Linked List](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/data_structures/list/doubly_linked_list.ts)
     * [Linked List](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/data_structures/list/linked_list.ts)
