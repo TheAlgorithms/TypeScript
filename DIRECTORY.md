@@ -36,8 +36,10 @@
   * [Radians To Degrees](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/radians_to_degrees.ts)
   * Series
     * [Hexagonal Numbers](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/series/hexagonal_numbers.ts)
+    * [Square Numbers](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/series/square_numbers.ts)
     * Test
       * [Hexagonal Numbers.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/series/test/hexagonal_numbers.test.ts)
+      * [Square Numbers.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/series/test/square_numbers.test.ts)
   * [Sieve Of Eratosthenes](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/sieve_of_eratosthenes.ts)
   * [Signum](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/signum.ts)
 
