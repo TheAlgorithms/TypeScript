@@ -9,8 +9,8 @@
  * @example SquareRoot(50) = 7.0710678118654755
  */
 
-export const SquareRoot = (num: number, precision: number = 1e-15): number => {
-  if (num < 0) throw new Error("number must be non-negative number > 0");
+export const squareRoot = (num: number, precision: number = 1e-15): number => {
+  if (num < 0) throw new Error("number must be non-negative number");
   if (num === 0) return 0;
 
   let sqrt: number = num;
@@ -19,7 +19,6 @@ export const SquareRoot = (num: number, precision: number = 1e-15): number => {
   while (true) {
     curr = 0.5 * (sqrt + num / sqrt);
     if (Math.abs(curr - sqrt) < precision) {
-      console.log(sqrt);
       return sqrt;
     }
     sqrt = curr;
