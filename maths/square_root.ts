@@ -1,5 +1,5 @@
 /**
- * @function SquareRoot
+ * @function squareRoot
  * @description Finding the square root of a number using Newton's method.
  * @param {number} num - A number.
  * @param {number} precision - Precision of square root, 1e-15 by default.
