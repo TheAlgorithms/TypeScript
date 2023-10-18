@@ -1,22 +1,22 @@
-import { BinaryConvert } from '../binary_convert'
+import { binaryConvert } from '../binary_convert'
 
-describe('BinaryConvert', () => {
+describe('binaryConvert', () => {
   it('should return the correct value', () => {
-    expect(BinaryConvert(4)).toBe('100')
+    expect(binaryConvert(4)).toBe('100')
   })
   it('should return the correct value', () => {
-    expect(BinaryConvert(12)).toBe('1100')
+    expect(binaryConvert(12)).toBe('1100')
   })
   it('should return the correct value of the sum from two number', () => {
-    expect(BinaryConvert(12 + 2)).toBe('1110')
+    expect(binaryConvert(12 + 2)).toBe('1110')
   })
   it('should return the correct value of the subtract from two number', () => {
-    expect(BinaryConvert(245 - 56)).toBe('10111101')
+    expect(binaryConvert(245 - 56)).toBe('10111101')
   })
   it('should return the correct value', () => {
-    expect(BinaryConvert(254)).toBe('11111110')
+    expect(binaryConvert(254)).toBe('11111110')
   })
   it('should return the correct value', () => {
-    expect(BinaryConvert(63483)).toBe('1111011111111011')
+    expect(binaryConvert(63483)).toBe('1111011111111011')
   })
 })

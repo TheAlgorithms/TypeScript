@@ -1,4 +1,4 @@
-import { Calendar, GetWeekday } from "../zellers_congruence";
+import { Calendar, getWeekday } from "../zellers_congruence";
 
 describe("Zeller's congruence", () => {
   test.each([
@@ -23,7 +23,7 @@ describe("Zeller's congruence", () => {
   ])(
     `The weekday of $year-$month-$day in the default calendar is $expected`,
     ({ year, month, day, expected }) => {
-      expect(GetWeekday(year, month, day)).toEqual(expected);
+      expect(getWeekday(year, month, day)).toEqual(expected);
     }
   );
 
@@ -47,12 +47,12 @@ describe("Zeller's congruence", () => {
   ])(
     `The weekday of $year-$month-$day in the Julian calendar is $expected`,
     ({ year, month, day, expected }) => {
-      expect(GetWeekday(year, month, day, Calendar.Julian)).toEqual(expected);
+      expect(getWeekday(year, month, day, Calendar.Julian)).toEqual(expected);
     }
   );
 
   test(`The default calendar is Gregorian`, () => {
-    expect(GetWeekday(1, 1, 1)).toEqual(1);
+    expect(getWeekday(1, 1, 1)).toEqual(1);
   });
 
   test.each([
@@ -70,7 +70,7 @@ describe("Zeller's congruence", () => {
       const dateString = `${year.toString().padStart(4, "0")}-${month
         .toString()
         .padStart(2, "0")}-${day.toString().padStart(2, "0")}`;
-      expect(GetWeekday(year, month, day)).toEqual(
+      expect(getWeekday(year, month, day)).toEqual(
         new Date(dateString).getUTCDay()
       );
     }
@@ -81,7 +81,7 @@ describe("Zeller's congruence", () => {
     { year: -5, month: 1, day: 1 },
     { year: 12.2, month: 1, day: 1 },
   ])(`Should throw an error for invalid year $year`, ({ year, month, day }) => {
-    expect(() => GetWeekday(year, month, day)).toThrow(
+    expect(() => getWeekday(year, month, day)).toThrow(
       "Year must be an integer greater than 0"
     );
   });
@@ -94,7 +94,7 @@ describe("Zeller's congruence", () => {
   ])(
     `Should throw an error for invalid month $month`,
     ({ year, month, day }) => {
-      expect(() => GetWeekday(year, month, day)).toThrow(
+      expect(() => getWeekday(year, month, day)).toThrow(
         "Month must be an integer between 1 and 12"
       );
     }
@@ -105,7 +105,7 @@ describe("Zeller's congruence", () => {
     { year: 2001, month: 1, day: 0 },
     { year: 2001, month: 1, day: 32 },
   ])(`Should throw an error for invalid day $day`, ({ year, month, day }) => {
-    expect(() => GetWeekday(year, month, day)).toThrow(
+    expect(() => getWeekday(year, month, day)).toThrow(
       "Day must be an integer between 1 and 31"
     );
   });

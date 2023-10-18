@@ -6,7 +6,7 @@
  * @param number The input number.
  * @return {boolean} Wether the number is a Palindrome or not.
  */
-export const IsPalindrome = (number: number): boolean => {
+export const isPalindrome = (number: number): boolean => {
     if (number < 0 || (number % 10 === 0 && number !== 0)) {
         return false;
     }

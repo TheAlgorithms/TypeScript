@@ -9,7 +9,7 @@
  * For the provided n, the nth ugly number shall be computed.
  * @see [GeeksForGeeks](https://www.geeksforgeeks.org/ugly-numbers/)
  */
-function* uglyNums(): Generator<number, void, unknown> {
+function* uglyNumbers(): Generator<number, void, unknown> {
   yield 1
 
   let idx2 = 0, idx3 = 0, idx5 = 0
@@ -33,4 +33,4 @@ function* uglyNums(): Generator<number, void, unknown> {
   }
 }
 
-export { uglyNums }
+export { uglyNumbers }

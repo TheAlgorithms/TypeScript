@@ -1,5 +1,5 @@
 /**
- * @function GreatestCommonFactor
+ * @function greatestCommonFactor
  * @description Determine the greatest common factor of a group of numbers.
  * @param {Number[]} nums - An array of numbers.
  * @return {Number} - The greatest common factor.

@@ -1,5 +1,5 @@
 /**
- * @function AliquotSum
+ * @function aliquotSum
  * @description Returns the aliquot sum of the provided number
  * @summary The aliquot sum of a number n is the sum of all the proper divisors
  * of n apart from n itself.
@@ -9,10 +9,10 @@
  * @param {number} num The input number
  * @return {number} The aliquot sum of the number
  * @see [Wikipedia](https://en.wikipedia.org/wiki/Aliquot_sum)
- * @example AliquotSum(18) = 21
- * @example AliquotSum(15) = 9
+ * @example aliquotSum(18) = 21
+ * @example aliquotSum(15) = 9
  */
-export const AliquotSum = (num: number): number => {
+export const aliquotSum = (num: number): number => {
   if (typeof num !== 'number') throw new TypeError('Input needs to be a number')
   if (num < 0) throw new TypeError('Input cannot be negative')
   if (!Number.isInteger(num)) throw new TypeError('Input cannot be a decimal')
