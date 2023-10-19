@@ -111,6 +111,7 @@
   * [Is Square Free](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/is_square_free.ts)
   * [Juggler Sequence](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/juggler_sequence.ts)
   * [Lowest Common Multiple](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/lowest_common_multiple.ts)
+  * [Matrix Multiplication](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/matrix_multiplication.ts)
   * [Number Of Digits](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/number_of_digits.ts)
   * [Pascals Triangle](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/pascals_triangle.ts)
   * [Perfect Cube](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/perfect_cube.ts)
