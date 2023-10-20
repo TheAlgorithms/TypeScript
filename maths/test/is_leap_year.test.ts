@@ -1,12 +1,12 @@
-import { IsLeapYear } from "../is_leap_year";
+import { isLeapYear } from "../is_leap_year";
 
-describe("IsLeapYear", () => {
+describe("isLeapYear", () => {
   test.each([4, 8, 12, 2004])(
     "a year is a leap year it is divisible by 4 but not by 400 like %i",
     (year) => {
       expect(year % 4 === 0).toBe(true);
       expect(year % 400 === 0).toBe(false);
-      expect(IsLeapYear(year)).toBe(true);
+      expect(isLeapYear(year)).toBe(true);
     },
   );
 
@@ -14,7 +14,7 @@ describe("IsLeapYear", () => {
     "a year is a leap year it is divisible by 400 like %i",
     (year) => {
       expect(year % 400 === 0).toBe(true);
-      expect(IsLeapYear(year)).toBe(true);
+      expect(isLeapYear(year)).toBe(true);
     },
   );
 
@@ -22,7 +22,7 @@ describe("IsLeapYear", () => {
     "a year is not a leap year if it is not divisible by 4 like %i",
     (year) => {
       expect(year % 4 === 0).toBe(false);
-      expect(IsLeapYear(year)).toBe(false);
+      expect(isLeapYear(year)).toBe(false);
     },
   );
 
@@ -31,7 +31,7 @@ describe("IsLeapYear", () => {
     (year) => {
       expect(year % 100 === 0).toBe(true);
       expect(year % 400 === 0).toBe(false);
-      expect(IsLeapYear(year)).toBe(false);
+      expect(isLeapYear(year)).toBe(false);
     },
   );
 
@@ -40,7 +40,7 @@ describe("IsLeapYear", () => {
     (year) => {
       expect(year > 0).toBe(true);
       expect(Number.isInteger(year)).toBe(true);
-      expect(() => IsLeapYear(year)).not.toThrow();
+      expect(() => isLeapYear(year)).not.toThrow();
     },
   );
 
@@ -48,7 +48,7 @@ describe("IsLeapYear", () => {
     "a year is not supported if it is negative like %i",
     (year) => {
       expect(year < 0).toBe(true);
-      expect(() => IsLeapYear(year)).toThrow("year must be a natural number > 0");
+      expect(() => isLeapYear(year)).toThrow("year must be a natural number > 0");
     },
   );
 
@@ -56,11 +56,11 @@ describe("IsLeapYear", () => {
     "a year is not supported if it is not an integer %d",
     (year) => {
       expect(Number.isInteger(year)).toBe(false);
-      expect(() => IsLeapYear(year)).toThrow("year must be a natural number > 0");
+      expect(() => isLeapYear(year)).toThrow("year must be a natural number > 0");
     },
   );
 
   test("a year is not supported if it is 0", () => {
-    expect(() => IsLeapYear(0)).toThrow("year must be a natural number > 0");
+    expect(() => isLeapYear(0)).toThrow("year must be a natural number > 0");
   })
 });

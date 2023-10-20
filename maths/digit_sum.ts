@@ -1,14 +1,14 @@
 /**
- * @function DigitSum
+ * @function digitSum
  * @description Calculate the sum of all digits of a natural number (number base 10).
  * @param {number} num - A natural number.
  * @return {number} - Sum of all digits of given natural number.
  * @see https://en.wikipedia.org/wiki/Digit_sum
- * @example DigitSum(12) = 3
- * @example DigitSum(9045) = 18
+ * @example digitSum(12) = 3
+ * @example digitSum(9045) = 18
  */
 
-export const DigitSum = (num: number): number => {
+export const digitSum = (num: number): number => {
   if (num < 0 || !Number.isInteger(num)) {
     throw new Error("only natural numbers are supported");
   }

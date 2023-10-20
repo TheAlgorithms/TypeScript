@@ -9,18 +9,18 @@
  * For the provided n, the nth ugly number shall be computed.
  * @see [GeeksForGeeks](https://www.geeksforgeeks.org/ugly-numbers/)
  */
-function* UglyNumbers() {
+function* uglyNumbers(): Generator<number, void, unknown> {
   yield 1
 
   let idx2 = 0, idx3 = 0, idx5 = 0
-  const uglyNumbers = [1]
+  const uglyNums = [1]
 
   let nextx2: number, nextx3: number, nextx5: number, nextUglyNum: number
 
   while(true) {
-    nextx2 = uglyNumbers[idx2] * 2
-    nextx3 = uglyNumbers[idx3] * 3
-    nextx5 = uglyNumbers[idx5] * 5
+    nextx2 = uglyNums[idx2] * 2
+    nextx3 = uglyNums[idx3] * 3
+    nextx5 = uglyNums[idx5] * 5
 
     nextUglyNum = Math.min(nextx2, nextx3, nextx5)
     yield nextUglyNum
@@ -29,8 +29,8 @@ function* UglyNumbers() {
     if(nextx3 === nextUglyNum) idx3++
     if(nextx5 === nextUglyNum) idx5++
     
-    uglyNumbers.push(nextUglyNum)
+    uglyNums.push(nextUglyNum)
   }
 }
 
-export { UglyNumbers }
+export { uglyNumbers }

@@ -1,5 +1,5 @@
 /**
- * @function LowestCommonMultiple
+ * @function lowestCommonMultiple
  * @description Determine the lowest common multiple of a group of numbers.
  * @param {Number[]} nums - An array of numbers.
  * @return {Number} - The lowest common multiple.
