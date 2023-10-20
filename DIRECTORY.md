@@ -139,6 +139,7 @@
 
 ## Search
   * [Binary Search](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/search/binary_search.ts)
+  * [Interpolation Search](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/search/interpolation_search.ts)
   * [Jump Search](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/search/jump_search.ts)
   * [Linear Search](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/search/linear_search.ts)
   * [Sentinel Search](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/search/sentinel_search.ts)
