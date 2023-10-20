@@ -124,6 +124,7 @@
       * [Hexagonal Numbers.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/series/test/hexagonal_numbers.test.ts)
   * [Sieve Of Eratosthenes](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/sieve_of_eratosthenes.ts)
   * [Signum](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/signum.ts)
+  * [Square Root](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/square_root.ts)
   * [Ugly Numbers](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/ugly_numbers.ts)
   * [Zellers Congruence](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/zellers_congruence.ts)
 
