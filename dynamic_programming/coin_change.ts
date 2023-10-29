@@ -13,7 +13,7 @@ export interface CoinChange {
  */
 export const coinChange = (money: number, coins: number[]): CoinChange => {
 
-    const minCoins: number[] = Array(money + 1).fill(1000000000);
+    const minCoins: number[] = Array(money + 1).fill(Infinity);
     const lastCoin: number[] = Array(money + 1).fill(-1);
 
     minCoins[0] = 0;
