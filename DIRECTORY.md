@@ -166,3 +166,4 @@
   * [Selection Sort](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/sorts/selection_sort.ts)
   * [Shell Sort](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/sorts/shell_sort.ts)
   * [Swap Sort](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/sorts/swap_sort.ts)
+  * [Tree Sort](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/sorts/tree_sort.ts)
