@@ -1,7 +1,7 @@
 /**
  * @author : tamaf96<https://github.com/tamaf96>
  * @description
- *  Tree Sort sorts a list by building a binary search tree and traverse is.
+ *  Tree Sort sorts a list by building a binary search tree and traversing it.
  * @param {T[]} arr - Array of comparible items
  * @return {T[]} - The sorted Array.
  * @see <https://en.wikipedia.org/wiki/Tree_sort>
