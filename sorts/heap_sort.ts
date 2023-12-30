@@ -4,7 +4,7 @@
  * @see [Heap Sort](https://www.geeksforgeeks.org/heap-sort/)
  * @example MergeSort([7, 3, 5, 1, 4, 2]) = [1, 2, 3, 4, 5, 7]
  * @Complexity_Analysis
- * Space complexity - O(n)
+ * Space complexity - O(1)
  * Time complexity
  *      Best case   -   O(nlogn)
  *      Worst case  -   O(nlogn)
