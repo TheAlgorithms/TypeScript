@@ -6,6 +6,6 @@
  * @param {num} number
  */
 
-export const PerfectSquare = (num: number) => {
+export const perfectSquare = (num: number) => {
   return Number.isInteger(Math.sqrt(num));
 };

@@ -1,10 +1,10 @@
-import { FindFactors } from "../factors";
+import { findFactors } from "../factors";
 
-describe("FindFactors", () => {
+describe("findFactors", () => {
     test.each([-890, -5.56, -7, 0, 0.73, 4.2, NaN, -Infinity, Infinity])(
         "should throw an error for non natural number %d",
         (num) => {
-            expect(() => FindFactors(num)).toThrowError(
+            expect(() => findFactors(num)).toThrowError(
                 "Only natural numbers are supported."
             );
         }
@@ -19,7 +19,7 @@ describe("FindFactors", () => {
     ])(
         "of %i should return the correct set of its factors",
         (num, expected) => {
-            expect(FindFactors(num)).toStrictEqual(expected);
+            expect(findFactors(num)).toStrictEqual(expected);
         }
     );
 });

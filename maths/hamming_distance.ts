@@ -1,5 +1,5 @@
 /**
- * @function HammingDistance
+ * @function hammingDistance
  * @description Returns the Hamming distance between two strings of equal length
  * @summary The Hamming distance between two strings of equal length is the
  * number of positions at which the corresponding symbols are different. In other words,
@@ -10,9 +10,9 @@
  * @param str2 One of the strings to compare to the other
  * @returns {number}
  * @see [Wikipedia](https://en.wikipedia.org/wiki/Hamming_distance)
- * @example HammingDistance('happy', 'homie')
+ * @example hammingDistance('happy', 'homie')
  */
-const HammingDistance = (str1: string, str2: string) => {
+const hammingDistance = (str1: string, str2: string) => {
   if (str1.length !== str2.length) throw new Error('Strings must of the same length.')
 
   let dist = 0
@@ -22,4 +22,4 @@ const HammingDistance = (str1: string, str2: string) => {
   return dist
 }
 
-export { HammingDistance }
+export { hammingDistance }

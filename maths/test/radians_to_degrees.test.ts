@@ -1,4 +1,4 @@
-import {radiansToDegrees} from '../radians_to_degrees'; 
+import { radiansToDegrees } from '../radians_to_degrees'; 
   
 test("RadiansToDegrees", () => {
   expect(radiansToDegrees(0)).toBe(0);

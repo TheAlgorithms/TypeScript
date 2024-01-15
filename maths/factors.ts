@@ -1,14 +1,14 @@
 /**
- * @function FindFactors
+ * @function findFactors
  * @description Find all the factors of a natural number.
  * @param {number} num - A natural number.
  * @return {Set<number>} - A set of all the factors of given natural number.
  * @see https://en.wikipedia.org/wiki/Divisor
- * @example FindFactors(1) = [1]
- * @example FindFactors(4) = [1,2,4]
- * @example FindFactors(16) = [1,3,5,15]
+ * @example findFactors(1) = [1]
+ * @example findFactors(4) = [1,2,4]
+ * @example findFactors(16) = [1,3,5,15]
  */
-export const FindFactors = (num: number): Set<number> => {
+export const findFactors = (num: number): Set<number> => {
     if (num <= 0 || !Number.isInteger(num)) {
         throw new Error("Only natural numbers are supported.");
     }

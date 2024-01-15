@@ -1,6 +1,6 @@
-import { IsDivisible } from "../is_divisible";
+import { isDivisible } from "../is_divisible";
 
-describe("IsDivisible", () => {
+describe("isDivisible", () => {
     test.each([
         [1, 1],
         [6, 3],
@@ -14,7 +14,7 @@ describe("IsDivisible", () => {
     ])(
         "%f is divisible by %f",
         (num1, num2) => {
-            expect(IsDivisible(num1, num2)).toBe(true);
+            expect(isDivisible(num1, num2)).toBe(true);
         },
     );
 
@@ -31,11 +31,11 @@ describe("IsDivisible", () => {
     ])(
         "%f is not divisible by %f",
         (num1, num2) => {
-            expect(IsDivisible(num1, num2)).toBe(false);
+            expect(isDivisible(num1, num2)).toBe(false);
         },
     );
 
     test("should not divide by 0", () => {
-        expect(() => IsDivisible(10, 0)).toThrow();
+        expect(() => isDivisible(10, 0)).toThrow();
     });
 });
