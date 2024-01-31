@@ -7,6 +7,7 @@ TypeScript Repository of TheAlgorithms, which implements various algorithms and 
 
   [![TypeScript Banner][banner]](DIRECTORY.md)
 
+  [![codecov](https://codecov.io/gh/TheAlgorithms/TypeScript/graph/badge.svg?token=Z51PSAC1FD)](https://codecov.io/gh/TheAlgorithms/TypeScript)
   [![Contributions Welcome][welcome]](CONTRIBUTING.md)
   [![Discord chat][chat]][discord-server]
   <a href="https://gitpod.io/#https://github.com/TheAlgorithms/TypeScript">
