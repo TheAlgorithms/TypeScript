@@ -73,6 +73,7 @@
     * [Tries](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/data_structures/tries/tries.ts)
 
 ## Dynamic Programming
+  * [Coin Change](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/dynamic_programming/coin_change.ts)
   * [Knapsack](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/dynamic_programming/knapsack.ts)
   * [Lcs](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/dynamic_programming/lcs.ts)
 
@@ -82,16 +83,20 @@
   * [Dijkstra](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/graph/dijkstra.ts)
   * [Floyd Warshall](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/graph/floyd_warshall.ts)
   * [Johnson](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/graph/johnson.ts)
+  * [Kosajaru](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/graph/kosajaru.ts)
   * [Kruskal](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/graph/kruskal.ts)
   * [Prim](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/graph/prim.ts)
+  * [Tarjan](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/graph/tarjan.ts)
   * Test
     * [Bellman Ford.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/graph/test/bellman_ford.test.ts)
     * [Bipartite Graph.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/graph/test/bipartite_graph.test.ts)
     * [Dijkstra.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/graph/test/dijkstra.test.ts)
     * [Floyd Warshall.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/graph/test/floyd_warshall.test.ts)
     * [Johnson.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/graph/test/johnson.test.ts)
+    * [Kosajaru.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/graph/test/kosajaru.test.ts)
     * [Kruskal.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/graph/test/kruskal.test.ts)
     * [Prim.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/graph/test/prim.test.ts)
+    * [Tarjan.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/graph/test/tarjan.test.ts)
 
 ## Maths
   * [Absolute Value](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/absolute_value.ts)
@@ -103,6 +108,7 @@
   * [Calculate Median](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/calculate_median.ts)
   * [Degrees To Radians](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/degrees_to_radians.ts)
   * [Digit Sum](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/digit_sum.ts)
+  * [Euler Totient](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/euler_totient.ts)
   * [Factorial](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/factorial.ts)
   * [Factors](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/factors.ts)
   * [Fibonacci](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/fibonacci.ts)
@@ -123,6 +129,7 @@
   * [Pascals Triangle](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/pascals_triangle.ts)
   * [Perfect Cube](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/perfect_cube.ts)
   * [Perfect Square](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/perfect_square.ts)
+  * [Prime Factorization](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/prime_factorization.ts)
   * [Primes](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/primes.ts)
   * [Pronic Number](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/pronic_number.ts)
   * [Radians To Degrees](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/radians_to_degrees.ts)
