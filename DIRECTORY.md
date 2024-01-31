@@ -128,6 +128,7 @@
   * [Number Of Digits](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/number_of_digits.ts)
   * [Pascals Triangle](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/pascals_triangle.ts)
   * [Perfect Cube](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/perfect_cube.ts)
+  * [Perfect Number](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/perfect_number.ts)
   * [Perfect Square](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/perfect_square.ts)
   * [Prime Factorization](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/prime_factorization.ts)
   * [Primes](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/primes.ts)
