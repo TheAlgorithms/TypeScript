@@ -9,20 +9,16 @@ describe("squareRoot", () => {
   );
 
   test.each([0, 1, 4, 9, 16, 25])(
-    "should return correct rational square root value",
-    () => {
-      (n: number) => {
-        expect(() => squareRoot(n)).toBeCloseTo(Math.sqrt(n));
-      };
+    "should return correct rational square root value for %i",
+    (n: number) => {
+      expect(squareRoot(n)).toBeCloseTo(Math.sqrt(n));
     }
   );
 
   test.each([2, 15, 20, 40, 99, 10032])(
-    "should return correct irrational square root value",
-    () => {
-      (n: number) => {
-        expect(() => squareRoot(n)).toBeCloseTo(Math.sqrt(n));
-      };
+    "should return correct irrational square root value %i",
+    (n: number) => {
+      expect(squareRoot(n)).toBeCloseTo(Math.sqrt(n));
     }
   );
 });
