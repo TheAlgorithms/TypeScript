@@ -1,30 +1,30 @@
 import { Edge, prim } from "../prim";
 
-let edge_equal = (x: Edge, y: Edge): boolean => {
+const edge_equal = (x: Edge, y: Edge): boolean => {
   return (x.a == y.a && x.b == y.b) || (x.a == y.b && x.b == y.a) && x.weight == y.weight;
 }
 
-let test_graph = (expected_tree_edges: Edge[], other_edges: Edge[], num_vertices: number, expected_cost: number) => {
+const test_graph = (expected_tree_edges: Edge[], other_edges: Edge[], num_vertices: number, expected_cost: number) => {
   // First make sure the graph is undirected
-  let graph: [number, number][][] = [];
+  const graph: [number, number][][] = [];
   for (let _ = 0; _ < num_vertices; ++_) {
     graph.push([]);
   }
-  for (let edge of expected_tree_edges) {
+  for (const edge of expected_tree_edges) {
     graph[edge.a].push([edge.b, edge.weight]);
     graph[edge.b].push([edge.a, edge.weight]);
   }
-  for (let edge of other_edges) {
+  for (const edge of other_edges) {
     graph[edge.a].push([edge.b, edge.weight]);
     graph[edge.b].push([edge.a, edge.weight]);
   }
 
-  let [tree_edges, cost] = prim(graph);
+  const [tree_edges, cost] = prim(graph);
   expect(cost).toStrictEqual(expected_cost);
-  for (let expected_edge of expected_tree_edges) {
+  for (const expected_edge of expected_tree_edges) {
     expect(tree_edges.find(edge => edge_equal(edge, expected_edge))).toBeTruthy();
   }
-  for (let unexpected_edge of other_edges) {
+  for (const unexpected_edge of other_edges) {
     expect(tree_edges.find(edge => edge_equal(edge, unexpected_edge))).toBeFalsy();
   }
 };
@@ -45,13 +45,13 @@ describe("prim", () => {
   });
 
   it("should return the correct value", () => {
-    let expected_tree_edges = [
+    const expected_tree_edges = [
       new Edge(0, 1, 1),
       new Edge(1, 3, 2),
       new Edge(3, 2, 3),
     ];
 
-    let other_edges = [
+    const other_edges = [
       new Edge(0, 2, 4),
       new Edge(0, 3, 5),
       new Edge(1, 2, 6),
@@ -61,7 +61,7 @@ describe("prim", () => {
   });
 
   it("should return the correct value", () => {
-    let expected_tree_edges = [
+    const expected_tree_edges = [
       new Edge(0, 2, 2),
       new Edge(1, 3, 9),
       new Edge(2, 6, 74),
@@ -73,7 +73,7 @@ describe("prim", () => {
       new Edge(8, 9, 2),
     ]
 
-    let other_edges = [
+    const other_edges = [
       new Edge(0, 1, 10),
       new Edge(2, 4, 47),
       new Edge(4, 5, 42),

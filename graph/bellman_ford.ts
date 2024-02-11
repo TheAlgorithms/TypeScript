@@ -12,7 +12,7 @@
 export const bellmanFord = (graph: [number, number][][], start: number): number[] | undefined => {
   // We save the shortest distance to each node in `distances`. If a node is
   // unreachable from the start node, its distance is Infinity.
-  let distances = Array(graph.length).fill(Infinity);
+  const distances = Array(graph.length).fill(Infinity);
   distances[start] = 0;
 
   // On the i'th iteration, we compute all shortest paths that consists of i+1

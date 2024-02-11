@@ -8,7 +8,7 @@
 export function addBinary(firstBinaryNo: string, secondBinaryNo: string): string {
     let lengthOfFirstNumber: number = firstBinaryNo.length - 1;
     let lengthOfSecondNumber: number = secondBinaryNo.length - 1;
-    let solution: string[] = [];
+    const solution: string[] = [];
     let carry: number = 0;
 
     while ( lengthOfFirstNumber >= 0 || lengthOfSecondNumber >= 0) {

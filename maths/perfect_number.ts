@@ -13,7 +13,7 @@ export const isPerfectNumber = (n: number): boolean => {
         return false;
     }
     let sum = 1;
-    let sqrt = Math.sqrt(n);
+    const sqrt = Math.sqrt(n);
     for (let i = 2; i < sqrt; i++) {
         if (n % i === 0) {
             sum += i + n / i;

@@ -14,16 +14,16 @@ describe("floydWarshall", () => {
   });
 
   it("should return the correct value", () => {
-    let graph = [];
+    const graph = [];
     for (let i = 1; i <= 5; ++i) {
-      let arr = [];
+      const arr = [];
       for (let j = 1; j <= 5; ++j) {
         arr.push(i * j);
       }
       graph.push(arr);
     }
 
-    let expected = [
+    const expected = [
       [ 1, 2, 3, 4, 5 ],
       [ 2, 4, 5, 6, 7 ],
       [ 3, 5, 6, 7, 8 ],
@@ -34,7 +34,7 @@ describe("floydWarshall", () => {
   });
 
   it("should return the correct value", () => {
-    let graph = [
+    const graph = [
       [0, 4, Infinity, Infinity, Infinity, Infinity, Infinity, 8, Infinity],
       [4, 0, 8, Infinity, Infinity, Infinity, Infinity, 11, Infinity],
       [Infinity, 8, 0, 7, Infinity, 4, Infinity, Infinity, 2],
@@ -46,7 +46,7 @@ describe("floydWarshall", () => {
       [Infinity, Infinity, 2, Infinity, Infinity, Infinity, 6, 7, 0]
     ];
 
-    let expected = [
+    const expected = [
       [0, 4, 12, 19, 21, 11, 9, 8, 14],
       [4, 0, 8, 15, 22, 12, 12, 11, 10],
       [12, 8, 0, 7, 14, 4, 6, 7, 2],

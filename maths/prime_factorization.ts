@@ -7,7 +7,7 @@
  * @example factorize(5) = Map {5 => 1}
  */
 export const factorize = (n: number): Map<number, number> => {
-    let result: Map<number, number> = new Map();
+    const result: Map<number, number> = new Map();
 
     for (let i = 2; i * i <= n; i++) {
         while (n % i == 0) {

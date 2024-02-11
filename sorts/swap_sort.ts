@@ -12,7 +12,7 @@ export const minSwapsToSort =  (inputArr: number[]): number => {
     
     sortedArray.sort()
 
-    let indexMap = new Map();
+    const indexMap = new Map();
 
     for (let i = 0; i < inputArr.length; i++)
       indexMap.set(inputArr[i],i);

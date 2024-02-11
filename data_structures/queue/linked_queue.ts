@@ -55,7 +55,7 @@ export class LinkedQueue<T> implements Queue<T> {
         }
 
         this.size--;
-        let head = this.head; // We store the head in order not to lose track of it
+        const head = this.head; // We store the head in order not to lose track of it
         this.head = this.head.next; // Update the the head to the next node
         return head.value; // Return the value of the head
     }
