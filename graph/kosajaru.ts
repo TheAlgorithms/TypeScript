@@ -14,7 +14,7 @@ const getNodePriorities = (graph: number[][], visited: boolean[], stack: number[
 
 // Return the transpose of graph. The tranpose of a directed graph is a graph where each of the edges are flipped.
 const transpose = (graph: number[][]): number[][] => {
-  let transposedGraph = Array(graph.length);
+  const transposedGraph = Array(graph.length);
   for (let i = 0; i < graph.length; ++i) {
     transposedGraph[i] = [];
   }
@@ -52,20 +52,20 @@ const gatherScc = (graph: number[][], visited: boolean[], node: number, scc: num
  * @see https://en.wikipedia.org/wiki/Kosaraju%27s_algorithm
  */
 export const kosajaru = (graph: number[][]): number[][] => {
-  let visited = Array(graph.length).fill(false);
+  const visited = Array(graph.length).fill(false);
 
-  let stack: number[] = [];
+  const stack: number[] = [];
   for (let i = 0; i < graph.length; ++i) {
     getNodePriorities(graph, visited, stack, i);
   }
 
   const transposedGraph = transpose(graph);
 
-  let sccs = [];
+  const sccs = [];
   visited.fill(false);
   for (let i = stack.length - 1; i >= 0; --i) {
     if (!visited[stack[i]]) {
-      let scc: number[] = [];
+      const scc: number[] = [];
       gatherScc(transposedGraph, visited, stack[i], scc);
       sccs.push(scc);
     }

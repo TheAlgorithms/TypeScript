@@ -16,10 +16,10 @@ export const calculateMedian = (numbers: number[]): number => {
     const totalNumbers = numbers.length;
 
     if (totalNumbers % 2 === 0) {
-        let index = totalNumbers / 2;
+        const index = totalNumbers / 2;
         return (numbers[index - 1] + numbers[index]) / 2;
     } else {
-        let index = (totalNumbers + 1) / 2;
+        const index = (totalNumbers + 1) / 2;
         return numbers[index - 1];
     }
 };

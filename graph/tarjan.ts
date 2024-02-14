@@ -15,14 +15,14 @@ export const tarjan = (graph: number[][]): number[][] => {
 
   let index = 0;
   // The order in which we discover nodes
-  let discovery: number[] = Array(graph.length);
+  const discovery: number[] = Array(graph.length);
   // For each node, holds the furthest ancestor it can reach
-  let low: number[] = Array(graph.length).fill(undefined);
+  const low: number[] = Array(graph.length).fill(undefined);
   // Holds the nodes we have visited in a DFS traversal and are considering to group into a SCC
-  let stack: number[] = [];
+  const stack: number[] = [];
   // Holds the elements in the stack.
-  let stackContains = Array(graph.length).fill(false);
-  let sccs: number[][] = [];
+  const stackContains = Array(graph.length).fill(false);
+  const sccs: number[][] = [];
 
   const dfs = (node: number) => {
     discovery[node] = index;
@@ -46,7 +46,7 @@ export const tarjan = (graph: number[][]): number[][] => {
 
     if (discovery[node] == low[node]) {
       // node is the root of a SCC. Gather the SCC's nodes from the stack.
-      let scc: number[] = [];
+      const scc: number[] = [];
       let i;
       for (i = stack.length - 1; stack[i] != node; --i) {
         scc.push(stack[i]);

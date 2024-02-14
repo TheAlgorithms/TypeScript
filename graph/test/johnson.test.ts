@@ -3,7 +3,7 @@ import { johnson } from "../johnson";
 describe("johnson", () => {
 
   const init_graph = (N: number): [number, number][][] => {
-    let graph = Array(N);
+    const graph = Array(N);
     for (let i = 0; i < N; ++i) {
       graph[i] = [];
     }
@@ -16,7 +16,7 @@ describe("johnson", () => {
   }
 
   it("should return the correct value", () => {
-    let graph = init_graph(9);
+    const graph = init_graph(9);
     add_edge(graph, 0, 1, 4);
     add_edge(graph, 0, 7, 8);
     add_edge(graph, 1, 2, 8);
@@ -32,7 +32,7 @@ describe("johnson", () => {
     add_edge(graph, 6, 8, 6);
     add_edge(graph, 7, 8, 7);
 
-    let expected = [
+    const expected = [
       [0, 4, 12, 19, 21, 11, 9, 8, 14],
       [4, 0, 8, 15, 22, 12, 12, 11, 10],
       [12, 8, 0, 7, 14, 4, 6, 7, 2],
@@ -47,14 +47,14 @@ describe("johnson", () => {
   });
 
   it("should return the correct value for graph with negative weights", () => {
-    let graph = init_graph(4);
+    const graph = init_graph(4);
     graph[0].push([1, -5]);
     graph[0].push([2, 2]);
     graph[0].push([3, 3]);
     graph[1].push([2, 4]);
     graph[2].push([3, 1]);
 
-    let expected = [
+    const expected = [
       [ 0, -5, -1, 0 ],
       [ Infinity, 0, 4, 5 ],
       [ Infinity, Infinity, 0, 1 ],
@@ -64,13 +64,13 @@ describe("johnson", () => {
   });
 
   it("should return the undefined for two node graph with negative-weight cycle", () => {
-    let graph = init_graph(2);
+    const graph = init_graph(2);
     add_edge(graph, 0, 1, -1);
     expect(johnson(graph)).toStrictEqual(undefined);
   });
 
   it("should return the undefined for three node graph with negative-weight cycle", () => {
-    let graph = init_graph(3);
+    const graph = init_graph(3);
     graph[0].push([1, -1]);
     graph[0].push([2, 7]);
     graph[1].push([2, -5]);
@@ -87,20 +87,20 @@ describe("johnson", () => {
   });
 
   it("should return the correct value for a linear graph", () => {
-    let linear_graph = init_graph(4);
+    const linear_graph = init_graph(4);
     add_edge(linear_graph, 0, 1, 1);
     add_edge(linear_graph, 1, 2, 2);
     add_edge(linear_graph, 2, 3, 3);
 
-    let expected = [[0, 1, 3, 6 ], [1, 0, 2, 5], [3, 2, 0, 3], [6, 5, 3, 0]];
+    const expected = [[0, 1, 3, 6 ], [1, 0, 2, 5], [3, 2, 0, 3], [6, 5, 3, 0]];
     expect(johnson(linear_graph)).toStrictEqual(expected);
   });
 
   it("should return the correct value for a linear graph with unreachable node", () => {
-    let linear_graph = init_graph(3);
+    const linear_graph = init_graph(3);
     add_edge(linear_graph, 0, 1, 1);
 
-    let expected = [[0, 1, Infinity], [1, 0, Infinity], [Infinity, Infinity, 0]];
+    const expected = [[0, 1, Infinity], [1, 0, Infinity], [Infinity, Infinity, 0]];
     expect(johnson(linear_graph)).toStrictEqual(expected);
   });
 })

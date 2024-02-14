@@ -13,15 +13,15 @@ import { DisjointSet } from '../data_structures/disjoint_set/disjoint_set';
  */
 export const kruskal = (edges: Edge[], num_vertices: number): [Edge[], number] => {
   let cost = 0;
-  let minimum_spanning_tree = [];
+  const minimum_spanning_tree = [];
 
   // Use a disjoint set to quickly join sets and find if vertices live in different sets
-  let sets = new DisjointSet(num_vertices);
+  const sets = new DisjointSet(num_vertices);
 
   // Sort the edges in ascending order by weight so that we can greedily add cheaper edges to the tree
   edges.sort((a, b) => a.weight - b.weight);
 
-  for (let edge of edges) {
+  for (const edge of edges) {
     if (sets.find(edge.a) !== sets.find(edge.b)) {
       // Node A and B live in different sets. Add edge(a, b) to the tree and join the nodes' sets together.
       minimum_spanning_tree.push(edge);

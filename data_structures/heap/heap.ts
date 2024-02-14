@@ -50,7 +50,7 @@ export abstract class Heap<T> {
   }
 
   public extract(): T {
-    let maxElement = this.heap[0];
+    const maxElement = this.heap[0];
     this.heap[0] = this.heap[this.size() - 1];
     this.heap.pop();
     this.sinkDown();
@@ -162,8 +162,8 @@ export class PriorityQueue<T> extends MinHeap<T> {
   }
 
   protected swap(a: number, b: number) {
-    let akey = this.keys_index(this.heap[a]);
-    let bkey = this.keys_index(this.heap[b]);
+    const akey = this.keys_index(this.heap[a]);
+    const bkey = this.keys_index(this.heap[b]);
     [this.keys[akey], this.keys[bkey]] = [this.keys[bkey], this.keys[akey]];
     super.swap(a, b);
   }
@@ -188,7 +188,7 @@ export class PriorityQueue<T> extends MinHeap<T> {
       this.insert(value);
       return;
     }
-    let key = this.keys[idx];
+    const key = this.keys[idx];
     if (this.compare(this.heap[key], value)) {
       // Do not do anything if the value in the heap already has a higher priority.
       return;

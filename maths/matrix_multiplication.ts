@@ -13,7 +13,7 @@ function matrixMultiplication(matA: number[][], b: number[][]): number[][];
 function matrixMultiplication(matA: number[][], b: number): number[][];
 function matrixMultiplication(matA: number[][], b: number[]): number[];
 
-function matrixMultiplication(matA: number[][], b: any): Number[][] | Number[] | null {
+function matrixMultiplication(matA: number[][], b: any): number[][] | number[] | null {
   let matC: any = null;
 
   if (typeof b === 'number') {

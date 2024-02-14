@@ -8,7 +8,7 @@ describe("MaxHeap", () => {
 
   beforeEach(() => {
     heap = new MaxHeap();
-    for (let element of elements) {
+    for (const element of elements) {
       heap.insert(element);
     }
   });
@@ -61,7 +61,7 @@ describe("MinHeap", () => {
 
   beforeEach(() => {
     heap = new MinHeap();
-    for (let element of elements) {
+    for (const element of elements) {
       heap.insert(element);
     }
   });
@@ -106,7 +106,7 @@ describe("MinHeap", () => {
   });
 
   it("should increase priority", () => {
-    let heap = new PriorityQueue((a: number) => { return a; }, elements.length);
+    const heap = new PriorityQueue((a: number) => { return a; }, elements.length);
     elements.forEach((element: number) => {
       heap.insert(element);
     });

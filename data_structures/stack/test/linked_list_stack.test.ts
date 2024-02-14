@@ -1,7 +1,7 @@
 import { LinkedListStack } from "../linked_list_stack";
 
 describe("Linked List Stack", () => {
-    let stack: LinkedListStack<number> = new LinkedListStack<number>(4);
+    const stack: LinkedListStack<number> = new LinkedListStack<number>(4);
 
     stack.push(1);
     stack.push(2);

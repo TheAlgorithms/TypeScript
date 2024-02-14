@@ -10,12 +10,12 @@
  */
 export const floydWarshall = (graph: number[][]): number[][] => {
   let distances = structuredClone(graph);
-  let N = graph.length;
+  const N = graph.length;
 
   // We begin by setting the weighted adjacency matrix as the shortest paths.
   // For the k'th iteration, we try to relax the shortest paths by including node k in the path.
   for (let k = 0; k < N; ++k) {
-    let newDistances = [];
+    const newDistances = [];
     for (let i = 0; i < N; ++i) {
       newDistances.push(Array(N).fill(Infinity));
     }

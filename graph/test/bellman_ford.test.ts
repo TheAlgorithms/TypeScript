@@ -1,7 +1,7 @@
 import { bellmanFord } from "../bellman_ford";
 
 const init_graph = (N: number): [number, number][][] => {
-  let graph = Array(N);
+  const graph = Array(N);
   for (let i = 0; i < N; ++i) {
     graph[i] = [];
   }
@@ -16,7 +16,7 @@ describe("bellmanFord", () => {
   }
 
   it("should return the correct value", () => {
-    let graph = init_graph(9);
+    const graph = init_graph(9);
     add_edge(graph, 0, 1, 4);
     add_edge(graph, 0, 7, 8);
     add_edge(graph, 1, 2, 8);
@@ -38,7 +38,7 @@ describe("bellmanFord", () => {
     expect(bellmanFord([[]], 0)).toStrictEqual([0]);
   });
 
-  let linear_graph = init_graph(4);
+  const linear_graph = init_graph(4);
   add_edge(linear_graph, 0, 1, 1);
   add_edge(linear_graph, 1, 2, 2);
   add_edge(linear_graph, 2, 3, 3);
@@ -49,7 +49,7 @@ describe("bellmanFord", () => {
     }
   );
 
-  let unreachable_graph = init_graph(3);
+  const unreachable_graph = init_graph(3);
   add_edge(unreachable_graph, 0, 1, 1);
   test.each([[0, [0, 1, Infinity]], [1, [1, 0, Infinity]], [2, [Infinity, Infinity, 0]]])(
     "correct result for graph with unreachable nodes with source node %i",
@@ -61,7 +61,7 @@ describe("bellmanFord", () => {
 
 describe("bellmanFord negative cycle graphs", () => {
   it("should returned undefined for 2-node graph with negative cycle", () => {
-    let basic = init_graph(2);
+    const basic = init_graph(2);
     basic[0].push([1, 2]);
     basic[1].push([0, -3]);
     expect(bellmanFord(basic, 0)).toStrictEqual(undefined);
@@ -69,7 +69,7 @@ describe("bellmanFord negative cycle graphs", () => {
   });
 
   it("should returned undefined for graph with negative cycle", () => {
-    let negative = init_graph(5);
+    const negative = init_graph(5);
     negative[0].push([1, 6]);
     negative[0].push([3, 7]);
     negative[1].push([2, 5]);
