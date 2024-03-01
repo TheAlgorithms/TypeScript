@@ -25,13 +25,13 @@ export const jumpSearch = (array: number[], target: number): number => {
     let currentIdx: number = 0,
         stepSize: number = Math.floor(Math.sqrt(array.length)),
         nextIdx: number = stepSize;
-        
+
     while (array[nextIdx - 1] < target) {
         currentIdx = nextIdx;
         nextIdx += stepSize;
 
-        if (nextIdx >= array.length) {
-            nextIdx = array.length - 1;
+        if (nextIdx > array.length) {
+            nextIdx = array.length;
             break;
         }
     }
