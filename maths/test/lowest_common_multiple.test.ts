@@ -29,10 +29,15 @@ describe("binaryLCM", () => {
     },
   );
 
-  test("only whole numbers should be accepted", () => {
-    expect(() => binaryLCM(-2, -3)).toThrowError(
-      "numbers must be positive to determine lowest common multiple",
-    );
+  test("only natural numbers should be accepted", () => {
+    expect(() => binaryLCM(-2, -3)).toThrowError();
+    expect(() => binaryLCM(2, -3)).toThrowError();
+    expect(() => binaryLCM(-2, 3)).toThrowError();
+  });
+
+  test("should throw when any of the inputs is not an int", () => {
+    expect(() => binaryLCM(1, 2.5)).toThrowError();
+    expect(() => binaryLCM(1.5, 2)).toThrowError();
   });
 });
 
@@ -45,9 +50,7 @@ describe("lowestCommonMultiple", () => {
   );
 
   test("only positive numbers should be accepted", () => {
-    expect(() => lowestCommonMultiple([-2, -3])).toThrowError(
-      "numbers must be positive to determine lowest common multiple",
-    );
+    expect(() => lowestCommonMultiple([-2, -3])).toThrowError();
   });
 
   test("at least one number must be passed in", () => {

@@ -38,14 +38,6 @@ export const naiveLCM = (nums: number[]): number => {
 //Note that due to utilizing GCF, which requires natural numbers, this method only accepts natural numbers.
 
 export const binaryLCM = (a: number, b: number): number => {
-  if (a < 0 || b < 0) {
-    throw new Error("numbers must be positive to determine lowest common multiple");
-  }
-
-  if (!Number.isInteger(a) || !Number.isInteger(b)) {
-    throw new Error("this method, which utilizes GCF, requires natural numbers.");
-  }
-
   return a * b / greatestCommonFactor([a, b]);
 }
 
