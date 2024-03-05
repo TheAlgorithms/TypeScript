@@ -15,7 +15,7 @@ import { Map } from "./map";
  */
 export class HashMap<K, V> implements Map<K, V> {
     private size!: number;
-    private buckets!: HashMapEntry<K, V>[][];
+    private buckets!: MapEntry<K, V>[][];
     private readonly loadFactor = 0.75;
 
     constructor() {
@@ -47,7 +47,7 @@ export class HashMap<K, V> implements Map<K, V> {
         const bucket = this.buckets[index];
 
         if (bucket.length === 0) {
-            bucket.push(new HashMapEntry(key, value));
+            bucket.push(new MapEntry(key, value));
             this.size++;
             return;
         }
@@ -59,7 +59,7 @@ export class HashMap<K, V> implements Map<K, V> {
             }
         }
 
-        bucket.push(new HashMapEntry(key, value));
+        bucket.push(new MapEntry(key, value));
         this.size++;
     }
 
@@ -164,8 +164,8 @@ export class HashMap<K, V> implements Map<K, V> {
      *
      * @returns The entries.
      */
-    entries(): HashMapEntry<K, V>[] {
-        const entries: HashMapEntry<K, V>[] = [];
+    entries(): MapEntry<K, V>[] {
+        const entries: MapEntry<K, V>[] = [];
         for (const bucket of this.buckets) {
             for (const entry of bucket) {
                 entries.push(entry);
@@ -228,7 +228,7 @@ export class HashMap<K, V> implements Map<K, V> {
  * @param key The key.
  * @param value The value.
  */
-export class HashMapEntry<K, V> {
+export class MapEntry<K, V> {
     key: K;
     value: V;
 

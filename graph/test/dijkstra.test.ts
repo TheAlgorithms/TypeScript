@@ -3,7 +3,7 @@ import { dijkstra } from "../dijkstra";
 describe("dijkstra", () => {
 
   const init_graph = (N: number): [number, number][][] => {
-    let graph = Array(N);
+    const graph = Array(N);
     for (let i = 0; i < N; ++i) {
       graph[i] = [];
     }
@@ -16,7 +16,7 @@ describe("dijkstra", () => {
   }
 
   it("should return the correct value", () => {
-    let graph = init_graph(9);
+    const graph = init_graph(9);
     add_edge(graph, 0, 1, 4);
     add_edge(graph, 0, 7, 8);
     add_edge(graph, 1, 2, 8);
@@ -38,7 +38,7 @@ describe("dijkstra", () => {
     expect(dijkstra([[]], 0)).toStrictEqual([0]);
   });
 
-  let linear_graph = init_graph(4);
+  const linear_graph = init_graph(4);
   add_edge(linear_graph, 0, 1, 1);
   add_edge(linear_graph, 1, 2, 2);
   add_edge(linear_graph, 2, 3, 3);
@@ -49,7 +49,7 @@ describe("dijkstra", () => {
     }
   );
 
-  let unreachable_graph = init_graph(3);
+  const unreachable_graph = init_graph(3);
   add_edge(unreachable_graph, 0, 1, 1);
   test.each([[0, [0, 1, Infinity]], [1, [1, 0, Infinity]], [2, [Infinity, Infinity, 0]]])(
     "correct result for graph with unreachable nodes with source node %i",

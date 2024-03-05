@@ -13,17 +13,17 @@ import { MinHeap, PriorityQueue } from '../data_structures/heap/heap';
 export const dijkstra = (graph: [number, number][][], start: number): number[] => {
   // We use a priority queue to make sure we always visit the closest node. The
   // queue makes comparisons based on path weights.
-  let priorityQueue = new PriorityQueue((a: [number, number]) => { return a[0] }, graph.length, (a: [number, number], b: [number, number]) => { return a[1] < b[1] });
+  const priorityQueue = new PriorityQueue((a: [number, number]) => { return a[0] }, graph.length, (a: [number, number], b: [number, number]) => { return a[1] < b[1] });
   priorityQueue.insert([start, 0]);
   // We save the shortest distance to each node in `distances`. If a node is
   // unreachable from the start node, its distance is Infinity.
-  let distances = Array(graph.length).fill(Infinity);
+  const distances = Array(graph.length).fill(Infinity);
   distances[start] = 0;
 
   while (priorityQueue.size() > 0) {
     const [node, _] = priorityQueue.extract();
     graph[node].forEach(([child, weight]) => {
-      let new_distance = distances[node] + weight;
+      const new_distance = distances[node] + weight;
       if (new_distance < distances[child]) {
         // Found a new shortest path to child node. Record its distance and add child to the queue.
         // If the child already exists in the queue, the priority will be updated. This will make sure the queue will be at most size V (number of vertices).

@@ -23,7 +23,7 @@ export const knapsack = (
   const numberOfItems = weights.length;
 
   // Declaring a data structure to store calculated states/values
-  let dp: number[][] = new Array(numberOfItems + 1);
+  const dp: number[][] = new Array(numberOfItems + 1);
 
   for (let i = 0; i < dp.length; i++) {
     // Placing an array at each index of dp to make it a 2d matrix

@@ -1,6 +1,6 @@
-import { BinomialCoefficient } from '../binomial_coefficient'; 
+import { binomialCoefficient } from '../binomial_coefficient'; 
 
-describe('BinomialCoefficient', () => {
+describe('binomialCoefficient', () => {
     it('should calculate the correct binomial coefficient', () => {
         // Test cases with expected results
         const testCases: [number, number, number][] = [
@@ -14,7 +14,7 @@ describe('BinomialCoefficient', () => {
 
         // Iterate through each test case and verify the result
         testCases.forEach(([n, k, expected]) => {
-            const result = BinomialCoefficient(n, k);
+            const result = binomialCoefficient(n, k);
             expect(result).toEqual(expected);
         });
     });
@@ -27,7 +27,7 @@ describe('BinomialCoefficient', () => {
         ];
 
         invalidCases.forEach(([n, k]) => {
-            const result = BinomialCoefficient(n, k);
+            const result = binomialCoefficient(n, k);
             expect(result).toEqual(0);
         });
     });

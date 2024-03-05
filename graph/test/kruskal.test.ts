@@ -1,12 +1,12 @@
 import { Edge, kruskal } from "../kruskal";
 
-let test_graph = (expected_tree_edges: Edge[], other_edges: Edge[], num_vertices: number, expected_cost: number) => {
-  let [tree_edges, cost] = kruskal(expected_tree_edges.concat(other_edges), num_vertices);
+const test_graph = (expected_tree_edges: Edge[], other_edges: Edge[], num_vertices: number, expected_cost: number) => {
+  const [tree_edges, cost] = kruskal(expected_tree_edges.concat(other_edges), num_vertices);
   expect(cost).toStrictEqual(expected_cost);
-  for (let expected_edge of expected_tree_edges) {
+  for (const expected_edge of expected_tree_edges) {
     expect(tree_edges.includes(expected_edge)).toBeTruthy();
   }
-  for (let unexpected_edge of other_edges) {
+  for (const unexpected_edge of other_edges) {
     expect(tree_edges.includes(unexpected_edge)).toBeFalsy();
   }
 };
@@ -28,13 +28,13 @@ describe("kruskal", () => {
   });
 
   it("should return the correct value", () => {
-    let expected_tree_edges = [
+    const expected_tree_edges = [
       new Edge(0, 1, 1),
       new Edge(1, 3, 2),
       new Edge(2, 3, 3),
     ];
 
-    let other_edges = [
+    const other_edges = [
       new Edge(0, 2, 4),
       new Edge(0, 3, 5),
       new Edge(1, 2, 6),
@@ -44,7 +44,7 @@ describe("kruskal", () => {
   });
 
   it("should return the correct value", () => {
-    let expected_tree_edges = [
+    const expected_tree_edges = [
       new Edge(0, 2, 2),
       new Edge(1, 3, 9),
       new Edge(2, 6, 74),
@@ -56,7 +56,7 @@ describe("kruskal", () => {
       new Edge(8, 9, 2),
     ]
 
-    let other_edges = [
+    const other_edges = [
       new Edge(0, 1, 10),
       new Edge(2, 4, 47),
       new Edge(4, 5, 42),
@@ -69,12 +69,12 @@ describe("kruskal", () => {
 
 describe("kruskal forest", () => {
   it("should return empty tree for forest of 2 node trees", () => {
-    let edges = [new Edge(0, 1, 10), new Edge(2, 3, 15)];
+    const edges = [new Edge(0, 1, 10), new Edge(2, 3, 15)];
     test_graph(edges, [], 4, 25);
   });
 
   it("should return the correct value", () => {
-    let expected_tree_edges = [
+    const expected_tree_edges = [
       // Tree 1
       new Edge(0, 2, 2),
       new Edge(1, 3, 9),
@@ -92,7 +92,7 @@ describe("kruskal forest", () => {
       new Edge(12, 13, 3),
     ]
 
-    let other_edges = [
+    const other_edges = [
       // Tree 1
       new Edge(0, 1, 10),
       new Edge(2, 4, 47),

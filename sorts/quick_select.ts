@@ -25,7 +25,7 @@ export const QuickSelect = (
     }
 
     // Partition the array
-    let pivotIndex = partition(array, left, right);
+    const pivotIndex = partition(array, left, right);
 
     // The pivot is in its final sorted position
     if (k === pivotIndex) {

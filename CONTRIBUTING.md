@@ -63,14 +63,14 @@ should add unique value.
 #### Commit Messages Formatting
 
 - Prefer to use the [Conventional Commits](https://www.conventionalcommits.org/) format: `<type>: <short summary>`. If necessary, put any extra information in the description.
-- Commit types include (but are not limited to): 
+- Commit types include (but are not limited to):
   - **docs**: Documentation only changes
   - **feat**: A new feature
   - **fix**: A bug fix
   - **test**: Adding or fixing tests
   - **chore**: CI / code quality / minor quality of life improvements
 
-- **Examples**: 
+- **Examples**:
   - `feat: add quicksort algorithm`
   - `chore: fix spelling`
   - `fix: improper error message`

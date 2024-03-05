@@ -10,25 +10,31 @@
  * @see https://en.m.wikipedia.org/wiki/Fibonacci_number
  * @author MohdFaisalBidda <https://github.com/MohdFaisalBidda>
  */
-export const nthFibonacci = (number: number): number => {
-  if (number < 0) {
-    throw 'Number should be greater than 0';
+function* generateFibonacci(): Generator<number> {
+  let a = 0;
+  let b = 1;
+  while (true) {
+    yield a;
+    const c = a + b;
+    a = b;
+    b = c;
   }
+}
+
+export const nthFibonacci = (number: number): number => {
+  if (isNaN(number)) throw new Error('The input needs to be a number');
+  if (!Number.isInteger(number) || number < 0) throw new Error('The input needs to be a non-negative integer');
 
   if (number === 0) {
     return 0;
   }
-
-  let a = 0,
-    b = 1;
-  for (let i = 1; i < number; ++i) {
-    const c = a + b;
-
-    a = b;
-    b = c;
+  
+  const fibonacciGenerator = generateFibonacci();
+  let result = 0;
+  for (let i = 0; i <= number; ++i) {
+    result = fibonacciGenerator.next().value;
   }
-
-  return b;
+  return result;
 };
 
 /**

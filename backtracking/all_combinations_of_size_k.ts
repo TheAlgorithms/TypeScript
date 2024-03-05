@@ -10,8 +10,8 @@
  *   and repeat the same process for the next number.
  */
 export function generateCombinations(n: number, k: number): number[][] {
-  let combinationsAcc: number[][] = [];
-  let currentCombination: number[] = [];
+  const combinationsAcc: number[][] = [];
+  const currentCombination: number[] = [];
 
   function generateAllCombos(
     n: number,

@@ -13,11 +13,11 @@ export const prim = (graph: [number, number][][]): [Edge[], number] => {
   if (graph.length == 0) {
     return [[], 0];
   }
-  let minimum_spanning_tree: Edge[] = [];
+  const minimum_spanning_tree: Edge[] = [];
   let total_weight = 0;
 
-  let priorityQueue = new PriorityQueue((e: Edge) => { return e.b }, graph.length, (a: Edge, b: Edge) => { return a.weight < b.weight });
-  let visited = new Set<number>();
+  const priorityQueue = new PriorityQueue((e: Edge) => { return e.b }, graph.length, (a: Edge, b: Edge) => { return a.weight < b.weight });
+  const visited = new Set<number>();
 
   // Start from the 0'th node. For fully connected graphs, we can start from any node and still produce the MST.
   visited.add(0);
@@ -25,7 +25,7 @@ export const prim = (graph: [number, number][][]): [Edge[], number] => {
 
   while (!priorityQueue.isEmpty()) {
     // We have already visited vertex `edge.a`. If we have not visited `edge.b` yet, we add its outgoing edges to the PriorityQueue.
-    let edge = priorityQueue.extract();
+    const edge = priorityQueue.extract();
     if (visited.has(edge.b)) {
       continue;
     }
@@ -40,7 +40,7 @@ export const prim = (graph: [number, number][][]): [Edge[], number] => {
 
 const add_children = (graph: [number, number][][], priorityQueue: PriorityQueue<Edge>, node: number) => {
   for (let i = 0; i < graph[node].length; ++i) {
-    let out_edge = graph[node][i];
+    const out_edge = graph[node][i];
     // By increasing the priority, we ensure we only add each vertex to the queue one time, and the queue will be at most size V.
     priorityQueue.increasePriority(out_edge[0], new Edge(node, out_edge[0], out_edge[1]));
   }
