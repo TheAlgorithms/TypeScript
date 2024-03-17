@@ -5,17 +5,19 @@
     "description": "A repository for All algorithms implemented in Typescript (for educational purposes only)",
     "main": "",
     "devDependencies": {
-      "@types/jest": "^29.0.3",
-      "husky": "^8.0.1",
-      "jest": "^29.0.3",
-      "ts-jest": "^29.0.2",
-      "ts-node": "^10.9.1"
+        "@types/jest": "^29.0.3",
+        "husky": "^8.0.1",
+        "jest": "^29.0.3",
+        "prettier": "^3.2.5",
+        "ts-jest": "^29.0.2",
+        "ts-node": "^10.9.1"
     },
     "scripts": {
-      "test": "jest --no-cache",
-      "style": "standard",
-      "prepare": "husky install"
+        "test": "jest --no-cache",
+        "style": "npx prettier . --write",
+        "check-style": "npx prettier . --check",
+        "prepare": "husky install"
     },
     "author": "TheAlgorithms",
     "license": "MIT"
-  }
+}
