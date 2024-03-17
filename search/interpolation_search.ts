@@ -9,41 +9,47 @@
  * @see https://en.wikipedia.org/wiki/Interpolation_search
  * @example interpolationSearch([1, 3, 5, 7, 9, 11], 1) => 0
  */
-export const interpolationSearch = (array: number[], target: number): number => {
-  let lowIndex: number = 0;
-  let highIndex: number = array.length - 1;
-  let currentValue: number = array[lowIndex];
-  let pos: number = 0;
+export const interpolationSearch = (
+  array: number[],
+  target: number
+): number => {
+  let lowIndex: number = 0
+  let highIndex: number = array.length - 1
+  let currentValue: number = array[lowIndex]
+  let pos: number = 0
 
   while (lowIndex <= highIndex) {
-    const lowValue: number = array[lowIndex];
-    const highValue: number = array[highIndex];
+    const lowValue: number = array[lowIndex]
+    const highValue: number = array[highIndex]
 
     if (lowValue === highValue) {
       if (array[lowIndex] === target) {
-        return lowIndex;
+        return lowIndex
       }
-      break;
+      break
     }
 
-    pos = Math.round(lowIndex + (target-lowValue)*(highIndex-lowIndex) / (highValue-lowValue));
+    pos = Math.round(
+      lowIndex +
+        ((target - lowValue) * (highIndex - lowIndex)) / (highValue - lowValue)
+    )
 
     if (pos < 0 || pos >= array.length) {
-      break;
+      break
     }
 
-    currentValue = array[pos];
+    currentValue = array[pos]
 
     if (target === currentValue) {
-      return pos;
+      return pos
     }
 
     if (target > currentValue) {
-      lowIndex = pos + 1;
+      lowIndex = pos + 1
     } else {
-      highIndex = pos - 1;
+      highIndex = pos - 1
     }
   }
 
-  return -1;
+  return -1
 }

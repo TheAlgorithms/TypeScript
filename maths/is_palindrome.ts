@@ -7,15 +7,15 @@
  * @return {boolean} Wether the number is a Palindrome or not.
  */
 export const isPalindrome = (number: number): boolean => {
-    if (number < 0 || (number % 10 === 0 && number !== 0)) {
-        return false;
-    }
+  if (number < 0 || (number % 10 === 0 && number !== 0)) {
+    return false
+  }
 
-    let reversed: number = 0;
-    while (number > reversed) {
-        reversed = reversed * 10 + (number % 10);
-        number = Math.floor(number / 10);
-    }
+  let reversed: number = 0
+  while (number > reversed) {
+    reversed = reversed * 10 + (number % 10)
+    number = Math.floor(number / 10)
+  }
 
-    return number === reversed || number === Math.floor(reversed / 10);
-};
+  return number === reversed || number === Math.floor(reversed / 10)
+}

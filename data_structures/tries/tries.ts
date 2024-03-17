@@ -5,12 +5,12 @@ class TrieNode {
   /**
    * An object that stores child nodes for each character in the alphabet.
    */
-  children: { [key: string]: TrieNode } = {};
+  children: { [key: string]: TrieNode } = {}
 
   /**
    * Indicates whether the node represents the end of a word.
    */
-  isWord: boolean = false;
+  isWord: boolean = false
 }
 
 /**
@@ -20,7 +20,7 @@ export class Trie {
   /**
    * The root node of the Trie.
    */
-  root: TrieNode = new TrieNode();
+  root: TrieNode = new TrieNode()
 
   /**
    * Creates a new Trie instance.
@@ -35,11 +35,11 @@ export class Trie {
   private insertNode(node: TrieNode, word: string): void {
     for (const char of word) {
       if (!node.children[char]) {
-        node.children[char] = new TrieNode();
+        node.children[char] = new TrieNode()
       }
-      node = node.children[char];
+      node = node.children[char]
     }
-    node.isWord = true;
+    node.isWord = true
   }
 
   /**
@@ -52,7 +52,7 @@ export class Trie {
    * @returns True if the word (or prefix) is found in the Trie; otherwise, false.
    */
   public find(word: string, isPrefixMatch: boolean = false): boolean {
-    return this.searchNode(this.root, word, isPrefixMatch);
+    return this.searchNode(this.root, word, isPrefixMatch)
   }
 
   /**
@@ -62,8 +62,8 @@ export class Trie {
    * @returns The Trie instance, allowing for method chaining.
    */
   public add(word: string): this {
-    this.insertNode(this.root, word);
-    return this;
+    this.insertNode(this.root, word)
+    return this
   }
 
   /**
@@ -82,10 +82,10 @@ export class Trie {
   ): boolean {
     for (const char of word) {
       if (!node.children[char]) {
-        return false;
+        return false
       }
-      node = node.children[char];
+      node = node.children[char]
     }
-    return prefixMatch || node.isWord;
+    return prefixMatch || node.isWord
   }
 }

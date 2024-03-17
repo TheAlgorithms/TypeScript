@@ -7,14 +7,14 @@
  * @example phi(5) = 4
  */
 export const phi = (n: number): number => {
-    let result: number = n;
-    for (let i = 2; i * i <= n; i++) {
-        if (n % i == 0) {
-            while (n % i == 0) n = n / i;
-            result -= Math.floor(result / i);
-        }
+  let result: number = n
+  for (let i = 2; i * i <= n; i++) {
+    if (n % i == 0) {
+      while (n % i == 0) n = n / i
+      result -= Math.floor(result / i)
     }
-    if (n > 1) result -= Math.floor(result / n);
+  }
+  if (n > 1) result -= Math.floor(result / n)
 
-    return result;
-};
+  return result
+}

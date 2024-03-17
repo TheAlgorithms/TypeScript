@@ -7,7 +7,7 @@ class TreeNode<T> {
   constructor(
     public data: T,
     public leftChild?: TreeNode<T>,
-    public rightChild?: TreeNode<T>,
+    public rightChild?: TreeNode<T>
   ) {}
 }
 
@@ -27,7 +27,7 @@ class TreeNode<T> {
  * @template T The data type of the values in the binary tree.
  */
 export class BinarySearchTree<T> {
-  rootNode?: TreeNode<T>;
+  rootNode?: TreeNode<T>
 
   /**
    * Instantiates the binary search tree.
@@ -35,7 +35,7 @@ export class BinarySearchTree<T> {
    * @param rootNode The root node.
    */
   constructor() {
-    this.rootNode = undefined;
+    this.rootNode = undefined
   }
 
   /**
@@ -44,7 +44,7 @@ export class BinarySearchTree<T> {
    * @returns Whether the binary search tree is empty.
    */
   isEmpty(): boolean {
-    return this.rootNode === undefined;
+    return this.rootNode === undefined
   }
 
   /**
@@ -54,27 +54,27 @@ export class BinarySearchTree<T> {
    */
   has(data: T): boolean {
     if (!this.rootNode) {
-      return false;
+      return false
     }
 
-    let currentNode = this.rootNode;
+    let currentNode = this.rootNode
     while (currentNode.data !== data) {
       if (data > currentNode.data) {
         if (!currentNode.rightChild) {
-          return false;
+          return false
         }
 
-        currentNode = currentNode.rightChild;
+        currentNode = currentNode.rightChild
       } else {
         if (!currentNode.leftChild) {
-          return false;
+          return false
         }
 
-        currentNode = currentNode.leftChild;
+        currentNode = currentNode.leftChild
       }
     }
 
-    return true;
+    return true
   }
 
   /**
@@ -85,25 +85,25 @@ export class BinarySearchTree<T> {
    */
   insert(data: T): void {
     if (!this.rootNode) {
-      this.rootNode = new TreeNode<T>(data);
-      return;
+      this.rootNode = new TreeNode<T>(data)
+      return
     }
 
-    let currentNode: TreeNode<T> = this.rootNode;
+    let currentNode: TreeNode<T> = this.rootNode
     while (true) {
       if (data > currentNode.data) {
         if (currentNode.rightChild) {
-          currentNode = currentNode.rightChild;
+          currentNode = currentNode.rightChild
         } else {
-          currentNode.rightChild = new TreeNode<T>(data);
-          return;
+          currentNode.rightChild = new TreeNode<T>(data)
+          return
         }
       } else {
         if (currentNode.leftChild) {
-          currentNode = currentNode.leftChild;
+          currentNode = currentNode.leftChild
         } else {
-          currentNode.leftChild = new TreeNode<T>(data);
-          return;
+          currentNode.leftChild = new TreeNode<T>(data)
+          return
         }
       }
     }
@@ -116,14 +116,14 @@ export class BinarySearchTree<T> {
    */
   findMin(): T {
     if (!this.rootNode) {
-      throw new Error('Empty tree.');
+      throw new Error('Empty tree.')
     }
 
     const traverse = (node: TreeNode<T>): T => {
-      return !node.leftChild ? node.data : traverse(node.leftChild);
-    };
+      return !node.leftChild ? node.data : traverse(node.leftChild)
+    }
 
-    return traverse(this.rootNode);
+    return traverse(this.rootNode)
   }
 
   /**
@@ -133,14 +133,14 @@ export class BinarySearchTree<T> {
    */
   findMax(): T {
     if (!this.rootNode) {
-      throw new Error('Empty tree.');
+      throw new Error('Empty tree.')
     }
 
     const traverse = (node: TreeNode<T>): T => {
-      return !node.rightChild ? node.data : traverse(node.rightChild);
-    };
+      return !node.rightChild ? node.data : traverse(node.rightChild)
+    }
 
-    return traverse(this.rootNode);
+    return traverse(this.rootNode)
   }
 
   /**
@@ -151,22 +151,22 @@ export class BinarySearchTree<T> {
    * @returns
    */
   inOrderTraversal(array: T[] = []): T[] {
-    if (!this.rootNode) { 
-      return array;
+    if (!this.rootNode) {
+      return array
     }
 
     const traverse = (node?: TreeNode<T>, array: T[] = []): T[] => {
       if (!node) {
-        return array;
+        return array
       }
 
-      traverse(node.leftChild, array);
-      array.push(node.data);
-      traverse(node.rightChild, array);
-      return array;
-    };
+      traverse(node.leftChild, array)
+      array.push(node.data)
+      traverse(node.rightChild, array)
+      return array
+    }
 
-    return traverse(this.rootNode);
+    return traverse(this.rootNode)
   }
 
   /**
@@ -178,22 +178,22 @@ export class BinarySearchTree<T> {
    */
   preOrderTraversal(array: T[] = []): T[] {
     if (!this.rootNode) {
-      return array;
+      return array
     }
 
     const traverse = (node?: TreeNode<T>, array: T[] = []): T[] => {
       if (!node) {
-        return array;
+        return array
       }
 
-      array.push(node.data);
-      traverse(node.leftChild, array);
-      traverse(node.rightChild, array);
+      array.push(node.data)
+      traverse(node.leftChild, array)
+      traverse(node.rightChild, array)
 
-      return array;
-    };
+      return array
+    }
 
-    return traverse(this.rootNode);
+    return traverse(this.rootNode)
   }
 
   /**
@@ -205,21 +205,21 @@ export class BinarySearchTree<T> {
    */
   postOrderTraversal(array: T[] = []): T[] {
     if (!this.rootNode) {
-      return array;
+      return array
     }
 
     const traverse = (node?: TreeNode<T>, array: T[] = []): T[] => {
       if (!node) {
-        return array;
+        return array
       }
 
-      traverse(node.leftChild, array);
-      traverse(node.rightChild, array);
-      array.push(node.data);
+      traverse(node.leftChild, array)
+      traverse(node.rightChild, array)
+      array.push(node.data)
 
-      return array;
-    };
+      return array
+    }
 
-    return traverse(this.rootNode);
+    return traverse(this.rootNode)
   }
 }

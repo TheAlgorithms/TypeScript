@@ -1,4 +1,4 @@
-import { factorial } from "./factorial";
+import { factorial } from './factorial'
 /**
  * @function binomialCoefficient
  * @description Calculate the binomial coefficient (n choose k) of two input numbers.
@@ -12,13 +12,13 @@ import { factorial } from "./factorial";
  */
 
 export const binomialCoefficient = (n: number, k: number): number => {
-    // Check if k is larger than n or negative
-    if (k > n || k < 0) {
-        return 0;
-    }
+  // Check if k is larger than n or negative
+  if (k > n || k < 0) {
+    return 0
+  }
 
-    // Calculate the binomial coefficient using the implemented factorial
-    const numerator = factorial(n);
-    const denominator = factorial(k) * factorial(n - k);
-    return numerator / denominator;
-};
+  // Calculate the binomial coefficient using the implemented factorial
+  const numerator = factorial(n)
+  const denominator = factorial(k) * factorial(n - k)
+  return numerator / denominator
+}

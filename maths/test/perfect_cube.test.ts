@@ -1,4 +1,4 @@
-import { perfectCube } from "../perfect_cube";
+import { perfectCube } from '../perfect_cube'
 
 describe('perfect cube tests', () => {
   it.each([
@@ -8,8 +8,8 @@ describe('perfect cube tests', () => {
     [12, false],
     [64, true],
     [151, false],
-    [125, true],
+    [125, true]
   ])('The return value of %i should be %s', (n, expectation) => {
-    expect(perfectCube(n)).toBe(expectation);
-  });
-});
+    expect(perfectCube(n)).toBe(expectation)
+  })
+})

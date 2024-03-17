@@ -1,4 +1,4 @@
-import { isPerfectNumber } from "../perfect_number";
+import { isPerfectNumber } from '../perfect_number'
 
 describe('perfect Numbers tests', () => {
   it.each([
@@ -11,8 +11,8 @@ describe('perfect Numbers tests', () => {
     [100, false],
     [0, false],
     [-1, false],
-    [1.5, false],
+    [1.5, false]
   ])('The return value of %i should be %s', (n, expectation) => {
-    expect(isPerfectNumber(n)).toBe(expectation);
-  });
-});
+    expect(isPerfectNumber(n)).toBe(expectation)
+  })
+})

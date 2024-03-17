@@ -9,15 +9,15 @@
  * @see https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm
  */
 export const floydWarshall = (graph: number[][]): number[][] => {
-  let distances = structuredClone(graph);
-  const N = graph.length;
+  let distances = structuredClone(graph)
+  const N = graph.length
 
   // We begin by setting the weighted adjacency matrix as the shortest paths.
   // For the k'th iteration, we try to relax the shortest paths by including node k in the path.
   for (let k = 0; k < N; ++k) {
-    const newDistances = [];
+    const newDistances = []
     for (let i = 0; i < N; ++i) {
-      newDistances.push(Array(N).fill(Infinity));
+      newDistances.push(Array(N).fill(Infinity))
     }
 
     for (let i = 0; i < N; ++i) {
@@ -25,13 +25,14 @@ export const floydWarshall = (graph: number[][]): number[][] => {
         // The shortest path from node i to j is the minimum of:
         // 1. the shortest path (i -> j) without node k
         // 2. the sum of the shortest path (i -> k) and (k -> j)
-        newDistances[i][j] = Math.min(distances[i][j], distances[i][k] + distances[k][j]);
+        newDistances[i][j] = Math.min(
+          distances[i][j],
+          distances[i][k] + distances[k][j]
+        )
       }
     }
-    distances = newDistances;
+    distances = newDistances
   }
 
-  return distances;
+  return distances
 }
-
-

@@ -1,4 +1,4 @@
-import { LinkedList } from "./linked_list";
+import { LinkedList } from './linked_list'
 
 /**
  * Represents a node in a linked list.
@@ -8,7 +8,10 @@ import { LinkedList } from "./linked_list";
  * @property next A reference to the next node in the list. Can reference to null, if there is no next element.
  */
 class ListNode<T> {
-  constructor(public data: T, public next?: ListNode<T>) {}
+  constructor(
+    public data: T,
+    public next?: ListNode<T>
+  ) {}
 }
 
 /**
@@ -23,17 +26,17 @@ class ListNode<T> {
  * @property length The length of the list.
  */
 export class SinglyLinkedList<T> implements LinkedList<T> {
-  private head?: ListNode<T>;
-  private tail?: ListNode<T>;
-  private length: number;
+  private head?: ListNode<T>
+  private tail?: ListNode<T>
+  private length: number
 
   /**
    * Creates a new, empty linked list.
    */
   constructor() {
-    this.head = undefined;
-    this.tail = undefined;
-    this.length = 0;
+    this.head = undefined
+    this.tail = undefined
+    this.length = 0
   }
 
   /**
@@ -42,7 +45,7 @@ export class SinglyLinkedList<T> implements LinkedList<T> {
    * @returns Whether the list is empty or not.
    */
   isEmpty(): boolean {
-    return !this.head;
+    return !this.head
   }
 
   /**
@@ -54,23 +57,23 @@ export class SinglyLinkedList<T> implements LinkedList<T> {
    */
   get(index: number): T | null {
     if (index < 0 || index >= this.length) {
-      return null;
+      return null
     }
 
     if (this.isEmpty()) {
-      return null;
+      return null
     }
 
-    let currentNode: ListNode<T> = this.head!;
+    let currentNode: ListNode<T> = this.head!
     for (let i: number = 0; i < index; i++) {
       if (!currentNode.next) {
-        return null;
+        return null
       }
 
-      currentNode = currentNode.next;
+      currentNode = currentNode.next
     }
 
-    return currentNode.data;
+    return currentNode.data
   }
 
   /**
@@ -80,17 +83,17 @@ export class SinglyLinkedList<T> implements LinkedList<T> {
    * @param data The data to be inserted.
    */
   push(data: T): void {
-    const node: ListNode<T> = new ListNode<T>(data);
+    const node: ListNode<T> = new ListNode<T>(data)
 
     if (this.isEmpty()) {
-      this.head = node;
-      this.tail = node;
+      this.head = node
+      this.tail = node
     } else {
-      node.next = this.head;
-      this.head = node;
+      node.next = this.head
+      this.head = node
     }
 
-    this.length++;
+    this.length++
   }
 
   /**
@@ -102,14 +105,14 @@ export class SinglyLinkedList<T> implements LinkedList<T> {
    */
   pop(): T {
     if (this.isEmpty()) {
-      throw new Error('Index out of bounds');
+      throw new Error('Index out of bounds')
     }
 
-    const node: ListNode<T> = this.head!;
-    this.head = this.head!.next;
-    this.length--;
+    const node: ListNode<T> = this.head!
+    this.head = this.head!.next
+    this.length--
 
-    return node.data;
+    return node.data
   }
 
   /**
@@ -119,16 +122,16 @@ export class SinglyLinkedList<T> implements LinkedList<T> {
    * @param data The data of the node being inserted.
    */
   append(data: T): void {
-    const node: ListNode<T> = new ListNode<T>(data);
+    const node: ListNode<T> = new ListNode<T>(data)
 
     if (this.isEmpty()) {
-      this.head = node;
+      this.head = node
     } else {
-      this.tail!.next = node;
+      this.tail!.next = node
     }
 
-    this.tail = node;
-    this.length++;
+    this.tail = node
+    this.length++
   }
 
   /**
@@ -140,27 +143,27 @@ export class SinglyLinkedList<T> implements LinkedList<T> {
    */
   removeTail(): T {
     if (!this.head) {
-      throw new Error('Index out of bounds');
+      throw new Error('Index out of bounds')
     }
 
-    const currentTail = this.tail;
+    const currentTail = this.tail
     if (this.head === this.tail) {
-      this.head = undefined;
-      this.tail = undefined;
-      this.length--;
+      this.head = undefined
+      this.tail = undefined
+      this.length--
 
-      return currentTail!.data;
+      return currentTail!.data
     }
 
-    let currentNode: ListNode<T> = this.head;
+    let currentNode: ListNode<T> = this.head
     while (currentNode.next !== currentTail) {
-      currentNode = currentNode.next!;
+      currentNode = currentNode.next!
     }
 
-    this.tail = currentNode;
-    this.length--;
+    this.tail = currentNode
+    this.length--
 
-    return currentTail!.data;
+    return currentTail!.data
   }
 
   /**
@@ -173,32 +176,32 @@ export class SinglyLinkedList<T> implements LinkedList<T> {
    */
   insertAt(index: number, data: T): void {
     if (index < 0 || index > this.length) {
-      throw new Error('Index out of bounds');
+      throw new Error('Index out of bounds')
     }
 
     if (index === 0) {
-      this.push(data);
+      this.push(data)
 
-      return;
+      return
     }
 
     if (index === this.length) {
-      this.append(data);
+      this.append(data)
 
-      return;
+      return
     }
 
-    const newNode = new ListNode<T>(data);
-    let currentNode: ListNode<T> | undefined = this.head;
+    const newNode = new ListNode<T>(data)
+    let currentNode: ListNode<T> | undefined = this.head
     for (let i: number = 0; i < index - 1; i++) {
-      currentNode = currentNode?.next;
+      currentNode = currentNode?.next
     }
 
-    const nextNode = currentNode?.next;
-    currentNode!.next = newNode;
-    newNode.next = nextNode;
+    const nextNode = currentNode?.next
+    currentNode!.next = newNode
+    newNode.next = nextNode
 
-    this.length++;
+    this.length++
   }
 
   /**
@@ -211,40 +214,40 @@ export class SinglyLinkedList<T> implements LinkedList<T> {
    */
   removeAt(index: number): T {
     if (index < 0 || index >= this.length) {
-      throw new Error('Index out of bounds');
+      throw new Error('Index out of bounds')
     }
 
     if (index === 0) {
-      return this.pop();
+      return this.pop()
     }
 
     if (index === this.length - 1) {
-      return this.removeTail();
+      return this.removeTail()
     }
 
-    let previousNode: ListNode<T> | undefined;
-    let currentNode: ListNode<T> | undefined = this.head;
+    let previousNode: ListNode<T> | undefined
+    let currentNode: ListNode<T> | undefined = this.head
     for (let i: number = 0; i < index; i++) {
       if (i === index - 1) {
-        previousNode = currentNode;
+        previousNode = currentNode
       }
 
-      currentNode = currentNode?.next;
+      currentNode = currentNode?.next
     }
 
-    previousNode!.next = currentNode?.next;
-    this.length--;
+    previousNode!.next = currentNode?.next
+    this.length--
 
-    return currentNode!.data;
+    return currentNode!.data
   }
 
   /**
    * Clears the list.
    */
   clear(): void {
-    this.head = undefined;
-    this.tail = undefined;
-    this.length = 0;
+    this.head = undefined
+    this.tail = undefined
+    this.length = 0
   }
 
   /**
@@ -253,15 +256,15 @@ export class SinglyLinkedList<T> implements LinkedList<T> {
    * @returns The array representation of the list.
    */
   toArray(): T[] {
-    const array: T[] = [];
-    let currentNode: ListNode<T> | undefined = this.head;
+    const array: T[] = []
+    let currentNode: ListNode<T> | undefined = this.head
 
     while (currentNode) {
-      array.push(currentNode.data);
-      currentNode = currentNode.next;
+      array.push(currentNode.data)
+      currentNode = currentNode.next
     }
 
-    return array;
+    return array
   }
 
   /**
@@ -270,6 +273,6 @@ export class SinglyLinkedList<T> implements LinkedList<T> {
    * @returns The length of the list.
    */
   getLength(): number {
-    return this.length;
+    return this.length
   }
 }

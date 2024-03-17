@@ -11,49 +11,63 @@ import { PriorityQueue } from '../data_structures/heap/heap'
  */
 export const prim = (graph: [number, number][][]): [Edge[], number] => {
   if (graph.length == 0) {
-    return [[], 0];
+    return [[], 0]
   }
-  const minimum_spanning_tree: Edge[] = [];
-  let total_weight = 0;
+  const minimum_spanning_tree: Edge[] = []
+  let total_weight = 0
 
-  const priorityQueue = new PriorityQueue((e: Edge) => { return e.b }, graph.length, (a: Edge, b: Edge) => { return a.weight < b.weight });
-  const visited = new Set<number>();
+  const priorityQueue = new PriorityQueue(
+    (e: Edge) => {
+      return e.b
+    },
+    graph.length,
+    (a: Edge, b: Edge) => {
+      return a.weight < b.weight
+    }
+  )
+  const visited = new Set<number>()
 
   // Start from the 0'th node. For fully connected graphs, we can start from any node and still produce the MST.
-  visited.add(0);
-  add_children(graph, priorityQueue, 0);
+  visited.add(0)
+  add_children(graph, priorityQueue, 0)
 
   while (!priorityQueue.isEmpty()) {
     // We have already visited vertex `edge.a`. If we have not visited `edge.b` yet, we add its outgoing edges to the PriorityQueue.
-    const edge = priorityQueue.extract();
+    const edge = priorityQueue.extract()
     if (visited.has(edge.b)) {
-      continue;
+      continue
     }
-    minimum_spanning_tree.push(edge);
-    total_weight += edge.weight;
-    visited.add(edge.b);
-    add_children(graph, priorityQueue, edge.b);
+    minimum_spanning_tree.push(edge)
+    total_weight += edge.weight
+    visited.add(edge.b)
+    add_children(graph, priorityQueue, edge.b)
   }
 
-  return [minimum_spanning_tree, total_weight];
+  return [minimum_spanning_tree, total_weight]
 }
 
-const add_children = (graph: [number, number][][], priorityQueue: PriorityQueue<Edge>, node: number) => {
+const add_children = (
+  graph: [number, number][][],
+  priorityQueue: PriorityQueue<Edge>,
+  node: number
+) => {
   for (let i = 0; i < graph[node].length; ++i) {
-    const out_edge = graph[node][i];
+    const out_edge = graph[node][i]
     // By increasing the priority, we ensure we only add each vertex to the queue one time, and the queue will be at most size V.
-    priorityQueue.increasePriority(out_edge[0], new Edge(node, out_edge[0], out_edge[1]));
+    priorityQueue.increasePriority(
+      out_edge[0],
+      new Edge(node, out_edge[0], out_edge[1])
+    )
   }
 }
 
 export class Edge {
-  a: number = 0;
-  b: number = 0;
-  weight: number = 0;
+  a: number = 0
+  b: number = 0
+  weight: number = 0
   constructor(a: number, b: number, weight: number) {
-    this.a = a;
-    this.b = b;
-    this.weight = weight;
+    this.a = a
+    this.b = b
+    this.weight = weight
   }
 }
-

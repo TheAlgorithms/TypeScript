@@ -12,13 +12,13 @@
  */
 
 export abstract class Heap<T> {
-  protected heap: T[];
+  protected heap: T[]
   // A comparison function. Returns true if a should be the parent of b.
-  protected compare: (a: T, b: T) => boolean;
+  protected compare: (a: T, b: T) => boolean
 
   constructor(compare: (a: T, b: T) => boolean) {
-    this.heap = [];
-    this.compare = compare;
+    this.heap = []
+    this.compare = compare
   }
 
   /**
@@ -27,174 +27,188 @@ export abstract class Heap<T> {
    * In a minHeap the value at parentIndex should be smaller than the value at childIndex
    *
    */
-  private isRightlyPlaced( childIndex: number, parentIndex: number) {
-    return this.compare(this.heap[parentIndex], this.heap[childIndex]);
+  private isRightlyPlaced(childIndex: number, parentIndex: number) {
+    return this.compare(this.heap[parentIndex], this.heap[childIndex])
   }
 
   /**
    * In a maxHeap the index with the larger value is returned
    * In a minHeap the index with the smaller value is returned
    */
-  private getChildIndexToSwap(leftChildIndex: number, rightChildIndex: number): number {
+  private getChildIndexToSwap(
+    leftChildIndex: number,
+    rightChildIndex: number
+  ): number {
     if (rightChildIndex >= this.size()) {
-      return leftChildIndex;
+      return leftChildIndex
     }
     return this.compare(this.heap[leftChildIndex], this.heap[rightChildIndex])
       ? leftChildIndex
-      : rightChildIndex;
+      : rightChildIndex
   }
 
   public insert(value: T): void {
-    this.heap.push(value);
-    this.bubbleUp();
+    this.heap.push(value)
+    this.bubbleUp()
   }
 
   public extract(): T {
-    const maxElement = this.heap[0];
-    this.heap[0] = this.heap[this.size() - 1];
-    this.heap.pop();
-    this.sinkDown();
-    return maxElement;
+    const maxElement = this.heap[0]
+    this.heap[0] = this.heap[this.size() - 1]
+    this.heap.pop()
+    this.sinkDown()
+    return maxElement
   }
 
   public size(): number {
-    return this.heap.length;
+    return this.heap.length
   }
 
   public isEmpty(): boolean {
-    return this.size() === 0;
+    return this.size() === 0
   }
 
   protected swap(a: number, b: number) {
-    [this.heap[a], this.heap[b]] = [
-      this.heap[b],
-      this.heap[a],
-    ];
+    ;[this.heap[a], this.heap[b]] = [this.heap[b], this.heap[a]]
   }
 
   protected bubbleUp(index = this.size() - 1): void {
-    let parentIndex;
+    let parentIndex
 
     while (index > 0) {
-      parentIndex = Math.floor((index - 1) / 2);
-      if (this.isRightlyPlaced(index, parentIndex)) break;
-      this.swap(parentIndex, index);
-      index = parentIndex;
+      parentIndex = Math.floor((index - 1) / 2)
+      if (this.isRightlyPlaced(index, parentIndex)) break
+      this.swap(parentIndex, index)
+      index = parentIndex
     }
   }
 
   private sinkDown(): void {
-    let index = 0;
-    let leftChildIndex = this.getLeftChildIndex(index);
-    let rightChildIndex = this.getRightChildIndex(index);
-    let childIndexToSwap;
+    let index = 0
+    let leftChildIndex = this.getLeftChildIndex(index)
+    let rightChildIndex = this.getRightChildIndex(index)
+    let childIndexToSwap
 
     while (this.heap[leftChildIndex] || this.heap[rightChildIndex]) {
       childIndexToSwap = this.getChildIndexToSwap(
         leftChildIndex,
         rightChildIndex
-      );
-      if (this.isRightlyPlaced(childIndexToSwap, index)) break;
-      this.swap(childIndexToSwap, index);
-      index = childIndexToSwap;
-      leftChildIndex = this.getLeftChildIndex(index);
-      rightChildIndex = this.getRightChildIndex(index);
+      )
+      if (this.isRightlyPlaced(childIndexToSwap, index)) break
+      this.swap(childIndexToSwap, index)
+      index = childIndexToSwap
+      leftChildIndex = this.getLeftChildIndex(index)
+      rightChildIndex = this.getRightChildIndex(index)
     }
   }
 
   private getLeftChildIndex(index: number): number {
-    return index * 2 + 1;
+    return index * 2 + 1
   }
 
   private getRightChildIndex(index: number): number {
-    return index * 2 + 2;
+    return index * 2 + 2
   }
 
   public check(): void {
-    return this._check();
+    return this._check()
   }
 
   private _check(index: number = 0): void {
-    if (!this.heap[index]) return;
-    const leftChildIndex = this.getLeftChildIndex(index);
-    const rightChildIndex = this.getRightChildIndex(index);
+    if (!this.heap[index]) return
+    const leftChildIndex = this.getLeftChildIndex(index)
+    const rightChildIndex = this.getRightChildIndex(index)
 
     if (
       this.heap[leftChildIndex] &&
       !this.isRightlyPlaced(leftChildIndex, index)
     )
-      throw new Error("Heap does not adhere to heap invariant");
+      throw new Error('Heap does not adhere to heap invariant')
 
     if (
       this.heap[rightChildIndex] &&
       !this.isRightlyPlaced(rightChildIndex, index)
     )
-      throw new Error("Heap does not adhere to heap invariant");
+      throw new Error('Heap does not adhere to heap invariant')
 
-    this._check(leftChildIndex);
-    this._check(rightChildIndex);
+    this._check(leftChildIndex)
+    this._check(rightChildIndex)
   }
 }
 
 export class MinHeap<T> extends Heap<T> {
-  constructor(compare = (a: T, b: T) => { return a < b }) {
-    super(compare);
+  constructor(
+    compare = (a: T, b: T) => {
+      return a < b
+    }
+  ) {
+    super(compare)
   }
 }
 
 export class MaxHeap<T> extends Heap<T> {
-  constructor(compare = (a: T, b: T) => { return a > b }) {
-    super(compare);
+  constructor(
+    compare = (a: T, b: T) => {
+      return a > b
+    }
+  ) {
+    super(compare)
   }
 }
 
 // Priority queue that supports increasePriority() in O(log(n)). The limitation is that there can only be a single element for each key, and the max number or keys must be specified at heap construction. Most of the functions are wrappers around MinHeap functions and update the keys array.
 export class PriorityQueue<T> extends MinHeap<T> {
   // Maps from the n'th node to its index within the heap.
-  private keys: number[];
+  private keys: number[]
   // Maps from element to its index with keys.
-  private keys_index: (a: T) => number;
+  private keys_index: (a: T) => number
 
-  constructor(keys_index: (a: T) => number, num_keys: number, compare = (a: T, b: T) => { return a < b }) {
-    super(compare);
-    this.keys = Array(num_keys).fill(-1);
-    this.keys_index = keys_index;
+  constructor(
+    keys_index: (a: T) => number,
+    num_keys: number,
+    compare = (a: T, b: T) => {
+      return a < b
+    }
+  ) {
+    super(compare)
+    this.keys = Array(num_keys).fill(-1)
+    this.keys_index = keys_index
   }
 
   protected swap(a: number, b: number) {
-    const akey = this.keys_index(this.heap[a]);
-    const bkey = this.keys_index(this.heap[b]);
-    [this.keys[akey], this.keys[bkey]] = [this.keys[bkey], this.keys[akey]];
-    super.swap(a, b);
+    const akey = this.keys_index(this.heap[a])
+    const bkey = this.keys_index(this.heap[b])
+    ;[this.keys[akey], this.keys[bkey]] = [this.keys[bkey], this.keys[akey]]
+    super.swap(a, b)
   }
 
   public insert(value: T) {
-    this.keys[this.keys_index(value)] = this.size();
-    super.insert(value);
+    this.keys[this.keys_index(value)] = this.size()
+    super.insert(value)
   }
 
   public extract(): T {
     // Unmark the the highest priority element and set key to zero for the last element in the heap.
-    this.keys[this.keys_index(this.heap[0])] = -1;
+    this.keys[this.keys_index(this.heap[0])] = -1
     if (this.size() > 1) {
-      this.keys[this.keys_index(this.heap[this.size() - 1])] = 0;
+      this.keys[this.keys_index(this.heap[this.size() - 1])] = 0
     }
-    return super.extract();
+    return super.extract()
   }
 
   public increasePriority(idx: number, value: T) {
     if (this.keys[idx] == -1) {
       // If the key does not exist, insert the value.
-      this.insert(value);
-      return;
+      this.insert(value)
+      return
     }
-    const key = this.keys[idx];
+    const key = this.keys[idx]
     if (this.compare(this.heap[key], value)) {
       // Do not do anything if the value in the heap already has a higher priority.
-      return;
+      return
     }
     // Increase the priority and bubble it up the heap.
-    this.heap[key] = value;
-    this.bubbleUp(key);
+    this.heap[key] = value
+    this.bubbleUp(key)
   }
 }

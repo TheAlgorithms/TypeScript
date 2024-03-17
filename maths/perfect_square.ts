@@ -7,5 +7,5 @@
  */
 
 export const perfectSquare = (num: number) => {
-  return Number.isInteger(Math.sqrt(num));
-};
+  return Number.isInteger(Math.sqrt(num))
+}

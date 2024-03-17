@@ -9,8 +9,8 @@
  */
 
 export const isDivisible = (num1: number, num2: number): boolean => {
-    if (num2 === 0) {
-        throw new Error('Cannot divide by 0');
-    }
-    return num1 % num2 === 0;
-};
+  if (num2 === 0) {
+    throw new Error('Cannot divide by 0')
+  }
+  return num1 % num2 === 0
+}

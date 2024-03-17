@@ -9,19 +9,19 @@
  */
 
 export const isPerfectNumber = (n: number): boolean => {
-    if (n <= 0 || !Number.isInteger(n)) {
-        return false;
+  if (n <= 0 || !Number.isInteger(n)) {
+    return false
+  }
+  let sum = 1
+  const sqrt = Math.sqrt(n)
+  for (let i = 2; i < sqrt; i++) {
+    if (n % i === 0) {
+      sum += i + n / i
     }
-    let sum = 1;
-    const sqrt = Math.sqrt(n);
-    for (let i = 2; i < sqrt; i++) {
-        if (n % i === 0) {
-            sum += i + n / i;
-        }
-    }
-    if (sqrt === Math.floor(sqrt)) {
-        sum += sqrt;
-    }
+  }
+  if (sqrt === Math.floor(sqrt)) {
+    sum += sqrt
+  }
 
-    return sum === n;
-};
+  return sum === n
+}

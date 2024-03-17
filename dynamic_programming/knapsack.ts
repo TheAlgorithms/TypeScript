@@ -16,18 +16,18 @@ export const knapsack = (
 ) => {
   if (weights.length != values.length) {
     throw new Error(
-      "weights and values arrays should have same number of elements"
-    );
+      'weights and values arrays should have same number of elements'
+    )
   }
 
-  const numberOfItems = weights.length;
+  const numberOfItems = weights.length
 
   // Declaring a data structure to store calculated states/values
-  const dp: number[][] = new Array(numberOfItems + 1);
+  const dp: number[][] = new Array(numberOfItems + 1)
 
   for (let i = 0; i < dp.length; i++) {
     // Placing an array at each index of dp to make it a 2d matrix
-    dp[i] = new Array(capacity + 1);
+    dp[i] = new Array(capacity + 1)
   }
 
   // Loop traversing each state of dp
@@ -36,24 +36,21 @@ export const knapsack = (
       if (i == 0) {
         if (j >= weights[i]) {
           // grab the first item if it's weight is less than remaining weight (j)
-          dp[i][j] = values[i];
+          dp[i][j] = values[i]
         } else {
           // if weight[i] is more than remaining weight (j) leave it
-          dp[i][j] = 0;
+          dp[i][j] = 0
         }
       } else if (j < weights[i]) {
         // if weight of current item (weights[i]) is more than remaining weight (j), leave the current item and just carry on previous items
-        dp[i][j] = dp[i - 1][j];
+        dp[i][j] = dp[i - 1][j]
       } else {
         // select the maximum of (if current weight is collected thus adding it's value) and (if current weight is not collected thus not adding it's value)
-        dp[i][j] = Math.max(
-          dp[i - 1][j - weights[i]] + values[i],
-          dp[i - 1][j]
-        );
+        dp[i][j] = Math.max(dp[i - 1][j - weights[i]] + values[i], dp[i - 1][j])
       }
     }
   }
 
   // Return the final maximized value at last position of dp matrix
-  return dp[numberOfItems - 1][capacity];
-};
+  return dp[numberOfItems - 1][capacity]
+}
