@@ -11,31 +11,32 @@
  * @author MohdFaisalBidda <https://github.com/MohdFaisalBidda>
  */
 function* generateFibonacci(): Generator<number> {
-  let a = 0;
-  let b = 1;
+  let a = 0
+  let b = 1
   while (true) {
-    yield a;
-    const c = a + b;
-    a = b;
-    b = c;
+    yield a
+    const c = a + b
+    a = b
+    b = c
   }
 }
 
 export const nthFibonacci = (number: number): number => {
-  if (isNaN(number)) throw new Error('The input needs to be a number');
-  if (!Number.isInteger(number) || number < 0) throw new Error('The input needs to be a non-negative integer');
+  if (isNaN(number)) throw new Error('The input needs to be a number')
+  if (!Number.isInteger(number) || number < 0)
+    throw new Error('The input needs to be a non-negative integer')
 
   if (number === 0) {
-    return 0;
+    return 0
   }
-  
-  const fibonacciGenerator = generateFibonacci();
-  let result = 0;
+
+  const fibonacciGenerator = generateFibonacci()
+  let result = 0
   for (let i = 0; i <= number; ++i) {
-    result = fibonacciGenerator.next().value;
+    result = fibonacciGenerator.next().value
   }
-  return result;
-};
+  return result
+}
 
 /**
  * A function to get nth Fibonacci number recursively. **Note: This recursive approach increases the time complexity**
@@ -51,18 +52,17 @@ export const nthFibonacci = (number: number): number => {
  */
 export const nthFibonacciRecursively = (number: number): number => {
   if (number === 0) {
-    return 0;
+    return 0
   }
 
   if (number <= 2) {
-    return 1;
+    return 1
   }
 
   return (
     nthFibonacciRecursively(number - 1) + nthFibonacciRecursively(number - 2)
-  );
-};
-
+  )
+}
 
 /**
  * @param number The index of the number in the Fibonacci sequence.
@@ -76,4 +76,5 @@ const sqrt5 = Math.sqrt(5)
 const phi = (1 + sqrt5) / 2
 const psi = (1 - sqrt5) / 2
 
-export const nthFibonacciUsingFormula = (n : number) => Math.round((phi ** n - psi ** n) / sqrt5)
+export const nthFibonacciUsingFormula = (n: number) =>
+  Math.round((phi ** n - psi ** n) / sqrt5)

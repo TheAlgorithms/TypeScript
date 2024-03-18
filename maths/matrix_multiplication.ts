@@ -9,36 +9,43 @@
  * @example GreatestCommonFactor([[1, 2], [3, 4]], [1, 2]) = [5, 11]
  */
 
-function matrixMultiplication(matA: number[][], b: number[][]): number[][];
-function matrixMultiplication(matA: number[][], b: number): number[][];
-function matrixMultiplication(matA: number[][], b: number[]): number[];
+function matrixMultiplication(matA: number[][], b: number[][]): number[][]
+function matrixMultiplication(matA: number[][], b: number): number[][]
+function matrixMultiplication(matA: number[][], b: number[]): number[]
 
-function matrixMultiplication(matA: number[][], b: any): Number[][] | Number[] | null {
-  let matC: any = null;
+function matrixMultiplication(
+  matA: number[][],
+  b: any
+): number[][] | number[] | null {
+  let matC: any = null
 
   if (typeof b === 'number') {
-    matC = matA.map(row => row.map(colVal => colVal * b));
+    matC = matA.map((row) => row.map((colVal) => colVal * b))
   } else {
     if (matA[0].length !== b.length) {
-      return null;
+      return null
     }
 
     if (typeof b[0] === 'number') {
-      matC = matA.map(row => row.reduce((sum, colVal, i) => sum + colVal * b[i], 0));
+      matC = matA.map((row) =>
+        row.reduce((sum, colVal, i) => sum + colVal * b[i], 0)
+      )
     } else {
-      matC = new Array(matA.length).fill(null).map(() => new Array(b[0].length).fill(0));
-      let i: number, j: number, k: number;
+      matC = new Array(matA.length)
+        .fill(null)
+        .map(() => new Array(b[0].length).fill(0))
+      let i: number, j: number, k: number
 
       for (i = 0; i < matA.length; i++) {
         for (j = 0; j < b[0].length; j++) {
           for (k = 0; k < matA[0].length; k++) {
-            matC[i][j] += matA[i][k] * b[k][j];
+            matC[i][j] += matA[i][k] * b[k][j]
           }
         }
       }
     }
   }
-  return matC;
+  return matC
 }
 
-export { matrixMultiplication };
+export { matrixMultiplication }
