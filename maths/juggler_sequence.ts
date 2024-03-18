@@ -14,10 +14,10 @@
  * @see https://en.wikipedia.org/wiki/Juggler_sequence
  */
 export const jugglerSequence = (a: number, n: number) => {
-  let k: number = a;
+  let k: number = a
   for (let i: number = 0; i < n; i++) {
-    k = Math.floor(Math.pow(k, (k % 2 === 0 ? 1 : 3) / 2));
+    k = Math.floor(Math.pow(k, (k % 2 === 0 ? 1 : 3) / 2))
   }
 
-  return k;
-};
+  return k
+}

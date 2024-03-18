@@ -12,4 +12,5 @@
  * const result = isPowerOfFour(16); // Returns true (16 is 4^2)
  * const result2 = isPowerOfFour(5);  // Returns false (5 is not a power of four)
  */
-export const isPowerOfFour = (n: number): boolean => ((n > 0) && ((n & n - 1) === 0) && (n % 3 === 1))
+export const isPowerOfFour = (n: number): boolean =>
+  n > 0 && (n & (n - 1)) === 0 && n % 3 === 1

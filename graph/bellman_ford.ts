@@ -9,11 +9,14 @@
  * @return {number[] | undefined} - The shortest path to each node, undefined if there is negative weight cycle
  * @see https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm
  */
-export const bellmanFord = (graph: [number, number][][], start: number): number[] | undefined => {
+export const bellmanFord = (
+  graph: [number, number][][],
+  start: number
+): number[] | undefined => {
   // We save the shortest distance to each node in `distances`. If a node is
   // unreachable from the start node, its distance is Infinity.
-  let distances = Array(graph.length).fill(Infinity);
-  distances[start] = 0;
+  const distances = Array(graph.length).fill(Infinity)
+  distances[start] = 0
 
   // On the i'th iteration, we compute all shortest paths that consists of i+1
   // nodes. If we compute this V-1 times, we will have computed all simple
@@ -21,7 +24,7 @@ export const bellmanFord = (graph: [number, number][][], start: number): number[
   for (let i = 0; i < graph.length - 1; ++i) {
     for (let node = 0; node < graph.length; ++node) {
       for (const [child, weight] of graph[node]) {
-        const new_distance = distances[node] + weight;
+        const new_distance = distances[node] + weight
         if (new_distance < distances[child]) {
           distances[child] = new_distance
         }
@@ -35,11 +38,10 @@ export const bellmanFord = (graph: [number, number][][], start: number): number[
   for (let node = 0; node < graph.length; ++node) {
     for (const [child, weight] of graph[node]) {
       if (distances[child] > distances[node] + weight) {
-        return undefined;
+        return undefined
       }
     }
   }
 
-  return distances;
+  return distances
 }
-

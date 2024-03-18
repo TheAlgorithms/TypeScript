@@ -1,5 +1,5 @@
-import { isSortedArray } from '../other/is_sorted_array';
-import { shuffleArray } from '../other/shuffle_array';
+import { isSortedArray } from '../other/is_sorted_array'
+import { shuffleArray } from '../other/shuffle_array'
 
 /**
  * @function bogoSort
@@ -22,8 +22,8 @@ import { shuffleArray } from '../other/shuffle_array';
  * @example bogoSort([8, 3, 5, 1, 4, 2]) = [1, 2, 3, 4, 5, 8]
  */
 export function bogoSort(arr: number[]): number[] {
-	while (!isSortedArray(arr)) {
-		shuffleArray(arr);
-	}
-	return arr;
+  while (!isSortedArray(arr)) {
+    shuffleArray(arr)
+  }
+  return arr
 }

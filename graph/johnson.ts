@@ -11,42 +11,43 @@ import { dijkstra } from './dijkstra'
  * @return {number[][]} - A matrix holding the shortest path for each pair of nodes. matrix[i][j] holds the distance of the shortest path (i -> j).
  * @see https://en.wikipedia.org/wiki/Johnson%27s_algorithm
  */
-export const johnson = (graph: [number, number][][]): number[][] | undefined => {
-  let N = graph.length;
+export const johnson = (
+  graph: [number, number][][]
+): number[][] | undefined => {
+  const N = graph.length
 
   // Add a new node and 0 weighted edges from the new node to all existing nodes.
-  let newNodeGraph = structuredClone(graph);
-  let newNode: [number, number][] = [];
+  const newNodeGraph = structuredClone(graph)
+  const newNode: [number, number][] = []
   for (let i = 0; i < N; ++i) {
-    newNode.push([i, 0]);
+    newNode.push([i, 0])
   }
-  newNodeGraph.push(newNode);
+  newNodeGraph.push(newNode)
 
   // Compute distances from the new node to existing nodes using the Bellman-Ford algorithm.
-  let adjustedGraph = bellmanFord(newNodeGraph, N);
+  const adjustedGraph = bellmanFord(newNodeGraph, N)
   if (adjustedGraph === undefined) {
     // Found a negative weight cycle.
-    return undefined;
+    return undefined
   }
 
   for (let i = 0; i < N; ++i) {
-    for (let edge of graph[i]) {
+    for (const edge of graph[i]) {
       // Adjust edge weights using the Bellman Ford output weights. This ensure that:
       // 1. Each weight is non-negative. This is required for the Dijkstra algorithm.
       // 2. The shortest path from node i to node j consists of the same nodes with or without adjustment.
-      edge[1] += adjustedGraph[i] - adjustedGraph[edge[0]];
+      edge[1] += adjustedGraph[i] - adjustedGraph[edge[0]]
     }
   }
 
-  let shortestPaths: number[][] = [];
+  const shortestPaths: number[][] = []
   for (let i = 0; i < N; ++i) {
     // Compute Dijkstra weights for each node and re-adjust weights to their original values.
-    let dijkstraShorestPaths = dijkstra(graph, i);
+    const dijkstraShorestPaths = dijkstra(graph, i)
     for (let j = 0; j < N; ++j) {
-      dijkstraShorestPaths[j] += adjustedGraph[j] - adjustedGraph[i];
+      dijkstraShorestPaths[j] += adjustedGraph[j] - adjustedGraph[i]
     }
-    shortestPaths.push(dijkstraShorestPaths);
+    shortestPaths.push(dijkstraShorestPaths)
   }
-  return shortestPaths;
+  return shortestPaths
 }
-

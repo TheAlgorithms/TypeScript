@@ -1,7 +1,7 @@
 /**
  * @function signum
  * @description Returns the sign of a number
- * @summary The signum function is an odd mathematical function, which returns the 
+ * @summary The signum function is an odd mathematical function, which returns the
  * sign of the provided real number.
  * It can return 3 values: 1 for values greater than zero, 0 for zero itself,
  * and -1 for values less than zero

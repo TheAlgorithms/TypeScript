@@ -9,17 +9,17 @@
  */
 
 export const calculateMedian = (numbers: number[]): number => {
-    if (numbers.length < 1) {
-        throw new TypeError("Input array must contain at least one number.");
-    }
+  if (numbers.length < 1) {
+    throw new TypeError('Input array must contain at least one number.')
+  }
 
-    const totalNumbers = numbers.length;
+  const totalNumbers = numbers.length
 
-    if (totalNumbers % 2 === 0) {
-        let index = totalNumbers / 2;
-        return (numbers[index - 1] + numbers[index]) / 2;
-    } else {
-        let index = (totalNumbers + 1) / 2;
-        return numbers[index - 1];
-    }
-};
+  if (totalNumbers % 2 === 0) {
+    const index = totalNumbers / 2
+    return (numbers[index - 1] + numbers[index]) / 2
+  } else {
+    const index = (totalNumbers + 1) / 2
+    return numbers[index - 1]
+  }
+}

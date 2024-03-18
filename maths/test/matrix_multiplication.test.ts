@@ -1,4 +1,4 @@
-import { matrixMultiplication } from '../matrix_multiplication';
+import { matrixMultiplication } from '../matrix_multiplication'
 
 describe('Matrix-matrix multiplication', () => {
   it.each([
@@ -49,9 +49,7 @@ describe('Matrix-matrix multiplication', () => {
         [1, 2],
         [3, 4]
       ],
-      [
-        [1, 2]
-      ],
+      [[1, 2]],
       null
     ],
     [
@@ -65,11 +63,11 @@ describe('Matrix-matrix multiplication', () => {
         [5, 6]
       ],
       null
-    ],
+    ]
   ])('Multiplying %j with %j should return %j', (matA, matB, expected) => {
-    expect(matrixMultiplication(matA, matB)).toEqual(expected);
-  });
-});
+    expect(matrixMultiplication(matA, matB)).toEqual(expected)
+  })
+})
 
 describe('Matrix-scalar multiplication', () => {
   it.each([
@@ -116,11 +114,11 @@ describe('Matrix-scalar multiplication', () => {
         [-3, -6],
         [-9, -12]
       ]
-    ],
+    ]
   ])('Multiplying %j with %i should return %j', (matA, scalar, expected) => {
-    expect(matrixMultiplication(matA, scalar)).toEqual(expected);
-  });
-});
+    expect(matrixMultiplication(matA, scalar)).toEqual(expected)
+  })
+})
 
 describe('Matrix-vector multiplication', () => {
   it.each([
@@ -163,8 +161,8 @@ describe('Matrix-vector multiplication', () => {
       ],
       [1, 2, 3],
       null
-    ],
+    ]
   ])('Multiplying %j with %j should return %j', (matA, vector, expected) => {
-    expect(matrixMultiplication(matA, vector)).toEqual(expected);
-  });
-});
+    expect(matrixMultiplication(matA, vector)).toEqual(expected)
+  })
+})

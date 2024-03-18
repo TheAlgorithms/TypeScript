@@ -10,61 +10,60 @@
  */
 export const tarjan = (graph: number[][]): number[][] => {
   if (graph.length === 0) {
-    return [];
+    return []
   }
 
-  let index = 0;
+  let index = 0
   // The order in which we discover nodes
-  let discovery: number[] = Array(graph.length);
+  const discovery: number[] = Array(graph.length)
   // For each node, holds the furthest ancestor it can reach
-  let low: number[] = Array(graph.length).fill(undefined);
+  const low: number[] = Array(graph.length).fill(undefined)
   // Holds the nodes we have visited in a DFS traversal and are considering to group into a SCC
-  let stack: number[] = [];
+  const stack: number[] = []
   // Holds the elements in the stack.
-  let stackContains = Array(graph.length).fill(false);
-  let sccs: number[][] = [];
+  const stackContains = Array(graph.length).fill(false)
+  const sccs: number[][] = []
 
   const dfs = (node: number) => {
-    discovery[node] = index;
-    low[node] = index;
-    ++index;
-    stack.push(node);
-    stackContains[node] = true;
+    discovery[node] = index
+    low[node] = index
+    ++index
+    stack.push(node)
+    stackContains[node] = true
 
     for (const child of graph[node]) {
       if (low[child] === undefined) {
-        dfs(child);
+        dfs(child)
         if (low[child] < low[node]) {
           // Child node loops back to this node's ancestor. Update the low node.
-          low[node] = low[child];
+          low[node] = low[child]
         }
       } else if (stackContains[child] && low[node] > discovery[child]) {
         // Found a backedge. Update the low for this node if needed.
-        low[node] = discovery[child];
+        low[node] = discovery[child]
       }
     }
 
     if (discovery[node] == low[node]) {
       // node is the root of a SCC. Gather the SCC's nodes from the stack.
-      let scc: number[] = [];
-      let i;
+      const scc: number[] = []
+      let i
       for (i = stack.length - 1; stack[i] != node; --i) {
-        scc.push(stack[i]);
-        stackContains[stack[i]] = false;
-        stack.pop();
+        scc.push(stack[i])
+        stackContains[stack[i]] = false
+        stack.pop()
       }
-      scc.push(stack[i]);
-      stackContains[stack[i]] = false;
-      stack.pop();
-      sccs.push(scc);
+      scc.push(stack[i])
+      stackContains[stack[i]] = false
+      stack.pop()
+      sccs.push(scc)
     }
   }
 
   for (let i = 0; i < graph.length; ++i) {
     if (low[i] === undefined) {
-      dfs(i);
+      dfs(i)
     }
   }
-  return sccs;
+  return sccs
 }
-

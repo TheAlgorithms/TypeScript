@@ -10,17 +10,17 @@
  */
 
 export const squareRoot = (num: number, precision: number = 1e-15): number => {
-  if (num < 0) throw new Error("number must be non-negative number");
-  if (num === 0) return 0;
+  if (num < 0) throw new Error('number must be non-negative number')
+  if (num === 0) return 0
 
-  let sqrt: number = num;
-  let curr: number;
+  let sqrt: number = num
+  let curr: number
 
   while (true) {
-    curr = 0.5 * (sqrt + num / sqrt);
+    curr = 0.5 * (sqrt + num / sqrt)
     if (Math.abs(curr - sqrt) < precision) {
-      return sqrt;
+      return sqrt
     }
-    sqrt = curr;
+    sqrt = curr
   }
-};
+}

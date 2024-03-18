@@ -11,19 +11,19 @@
 
 export const binaryGCF = (a: number, b: number): number => {
   if (!Number.isInteger(a) || !Number.isInteger(b) || a < 0 || b < 0) {
-    throw new Error("numbers must be natural to determine factors");
+    throw new Error('numbers must be natural to determine factors')
   }
 
   while (b) {
-    [a, b] = [b, a % b]
+    ;[a, b] = [b, a % b]
   }
-  return a;
+  return a
 }
 
 export const greatestCommonFactor = (nums: number[]): number => {
   if (nums.length === 0) {
-    throw new Error("at least one number must be passed in");
+    throw new Error('at least one number must be passed in')
   }
-  
-  return nums.reduce(binaryGCF);
-};
+
+  return nums.reduce(binaryGCF)
+}

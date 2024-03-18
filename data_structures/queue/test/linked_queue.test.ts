@@ -1,4 +1,4 @@
 import { testQueue } from './queue'
-import { LinkedQueue } from '../linked_queue';
+import { LinkedQueue } from '../linked_queue'
 
-describe("Linked Queue", () => testQueue(LinkedQueue));
+describe('Linked Queue', () => testQueue(LinkedQueue))
