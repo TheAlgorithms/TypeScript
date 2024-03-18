@@ -15,26 +15,26 @@
  * @see https://en.wikipedia.org/wiki/Pascal's_triangle
  */
 export const pascalsTriangle = (n: number): number[] => {
-  const arr: number[][] = [];
+  const arr: number[][] = []
   for (let i: number = 0; i < n; i++) {
     if (i === 0) {
-      arr.push([1]);
-      continue;
+      arr.push([1])
+      continue
     }
 
-    const lastRow: number[] = arr[i - 1];
-    const temp: number[] = [];
+    const lastRow: number[] = arr[i - 1]
+    const temp: number[] = []
     for (let j: number = 0; j < lastRow.length + 1; j++) {
       if (j === 0 || j === lastRow.length) {
-        temp.push(1);
-        continue;
+        temp.push(1)
+        continue
       }
 
-      temp.push(lastRow[j - 1] + lastRow[j]);
+      temp.push(lastRow[j - 1] + lastRow[j])
     }
 
-    arr.push(temp);
+    arr.push(temp)
   }
 
-  return arr[arr.length - 1];
-};
+  return arr[arr.length - 1]
+}

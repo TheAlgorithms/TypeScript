@@ -7,21 +7,21 @@
  * @example factorize(5) = Map {5 => 1}
  */
 export const factorize = (n: number): Map<number, number> => {
-    const result: Map<number, number> = new Map();
+  const result: Map<number, number> = new Map()
 
-    for (let i = 2; i * i <= n; i++) {
-        while (n % i == 0) {
-            let occurence = result.get(i);
-            if (!occurence) occurence = 0;
-            result.set(i, occurence + 1);
-            n = n / i;
-        }
+  for (let i = 2; i * i <= n; i++) {
+    while (n % i == 0) {
+      let occurence = result.get(i)
+      if (!occurence) occurence = 0
+      result.set(i, occurence + 1)
+      n = n / i
     }
-    if (n > 1) {
-        let occurence = result.get(n);
-        if (!occurence) occurence = 0;
-        result.set(n, occurence + 1);
-    }
+  }
+  if (n > 1) {
+    let occurence = result.get(n)
+    if (!occurence) occurence = 0
+    result.set(n, occurence + 1)
+  }
 
-    return result;
-};
+  return result
+}

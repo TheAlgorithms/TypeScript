@@ -1,4 +1,4 @@
-import { isPowerOfFour } from "../is_power_of_4"
+import { isPowerOfFour } from '../is_power_of_4'
 
 describe('IsPowerOfFour', () => {
   it.each([

@@ -1,39 +1,47 @@
-import { floydWarshall } from "../floyd_warshall";
+import { floydWarshall } from '../floyd_warshall'
 
-describe("floydWarshall", () => {
-  it("should return the correct value for zero element graph", () => {
-    expect(floydWarshall([])).toEqual([]);
-  });
+describe('floydWarshall', () => {
+  it('should return the correct value for zero element graph', () => {
+    expect(floydWarshall([])).toEqual([])
+  })
 
-  it("should return the correct value for one element graph", () => {
-    expect(floydWarshall([[1]])).toStrictEqual([[1]]);
-  });
+  it('should return the correct value for one element graph', () => {
+    expect(floydWarshall([[1]])).toStrictEqual([[1]])
+  })
 
-  it("should return the correct value for two element graph", () => {
-    expect(floydWarshall([[10, 4], [3, 6]])).toStrictEqual([[7, 4], [3, 6]]);
-  });
+  it('should return the correct value for two element graph', () => {
+    expect(
+      floydWarshall([
+        [10, 4],
+        [3, 6]
+      ])
+    ).toStrictEqual([
+      [7, 4],
+      [3, 6]
+    ])
+  })
 
-  it("should return the correct value", () => {
-    const graph = [];
+  it('should return the correct value', () => {
+    const graph = []
     for (let i = 1; i <= 5; ++i) {
-      const arr = [];
+      const arr = []
       for (let j = 1; j <= 5; ++j) {
-        arr.push(i * j);
+        arr.push(i * j)
       }
-      graph.push(arr);
+      graph.push(arr)
     }
 
     const expected = [
-      [ 1, 2, 3, 4, 5 ],
-      [ 2, 4, 5, 6, 7 ],
-      [ 3, 5, 6, 7, 8 ],
-      [ 4, 6, 7, 8, 9 ],
-      [ 5, 7, 8, 9, 10 ]
-    ];
-    expect(floydWarshall(graph)).toStrictEqual(expected);
-  });
+      [1, 2, 3, 4, 5],
+      [2, 4, 5, 6, 7],
+      [3, 5, 6, 7, 8],
+      [4, 6, 7, 8, 9],
+      [5, 7, 8, 9, 10]
+    ]
+    expect(floydWarshall(graph)).toStrictEqual(expected)
+  })
 
-  it("should return the correct value", () => {
+  it('should return the correct value', () => {
     const graph = [
       [0, 4, Infinity, Infinity, Infinity, Infinity, Infinity, 8, Infinity],
       [4, 0, 8, Infinity, Infinity, Infinity, Infinity, 11, Infinity],
@@ -44,7 +52,7 @@ describe("floydWarshall", () => {
       [Infinity, Infinity, Infinity, Infinity, Infinity, 2, 0, 1, 6],
       [8, 11, Infinity, Infinity, Infinity, Infinity, 1, 0, 7],
       [Infinity, Infinity, 2, Infinity, Infinity, Infinity, 6, 7, 0]
-    ];
+    ]
 
     const expected = [
       [0, 4, 12, 19, 21, 11, 9, 8, 14],
@@ -58,6 +66,6 @@ describe("floydWarshall", () => {
       [14, 10, 2, 9, 16, 6, 6, 7, 0]
     ]
 
-    expect(floydWarshall(graph)).toStrictEqual(expected);
-  });
-});
+    expect(floydWarshall(graph)).toStrictEqual(expected)
+  })
+})

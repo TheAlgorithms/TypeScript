@@ -9,8 +9,8 @@
  */
 export const factorial = (num: number): number => {
   if (num < 0 || !Number.isInteger(num)) {
-    throw new Error("only natural numbers are supported");
+    throw new Error('only natural numbers are supported')
   }
 
-  return num === 0 ? 1 : num * factorial(num - 1);
-};
+  return num === 0 ? 1 : num * factorial(num - 1)
+}

@@ -5,15 +5,15 @@
  * This is a class-based implementation of a Stack.
  */
 export class Stack<T> {
-  private stack: T[] = [];
-  private limit: number;
+  private stack: T[] = []
+  private limit: number
 
   /**
    * constructor of the stack, can set a limit, if not provided there is no limit to the stack.
    * @param {number} [limit=Number.MAX_VALUE] the limit of the stack
    */
   constructor(limit: number = Number.MAX_VALUE) {
-    this.limit = limit;
+    this.limit = limit
   }
 
   /**
@@ -23,10 +23,10 @@ export class Stack<T> {
    */
   push(value: T) {
     if (this.length() + 1 > this.limit) {
-      throw new Error('Stack Overflow');
+      throw new Error('Stack Overflow')
     }
 
-    this.stack.push(value);
+    this.stack.push(value)
   }
 
   /**
@@ -37,10 +37,10 @@ export class Stack<T> {
    */
   pop(): T {
     if (this.length() !== 0) {
-      return this.stack.pop() as T;
+      return this.stack.pop() as T
     }
 
-    throw new Error('Stack Underflow');
+    throw new Error('Stack Underflow')
   }
 
   /**
@@ -49,7 +49,7 @@ export class Stack<T> {
    * @return {number} the number of elements in the stack
    */
   length(): number {
-    return this.stack.length;
+    return this.stack.length
   }
 
   /**
@@ -58,7 +58,7 @@ export class Stack<T> {
    * @return {boolean} returns true if the stack is empty, otherwise false
    */
   isEmpty(): boolean {
-    return this.length() === 0;
+    return this.length() === 0
   }
 
   /**
@@ -68,9 +68,9 @@ export class Stack<T> {
    */
   top(): T | null {
     if (this.length() !== 0) {
-      return this.stack[this.length() - 1];
+      return this.stack[this.length() - 1]
     }
 
-    return null;
+    return null
   }
 }

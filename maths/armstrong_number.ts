@@ -1,4 +1,4 @@
-/** 
+/**
  * @function armstrongNumber
  * @description Check if the provided number is an Armstrong number or not.
  * @summary Armstrong numbers are numbers, the sum of whose digits each raised
@@ -14,7 +14,7 @@
  * @example armstrongNumber(10) = false
  */
 export const armstrongNumber = (num: number): boolean => {
-  if (typeof num !== 'number' || num <= 0) return false;
+  if (typeof num !== 'number' || num <= 0) return false
 
   let compNum = 0
   let cloneNum = num

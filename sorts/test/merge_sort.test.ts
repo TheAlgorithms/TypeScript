@@ -1,7 +1,7 @@
-import { mergeSort } from "../merge_sort"
+import { mergeSort } from '../merge_sort'
 
-describe("Merge Sort", () => {
-  it("generating array with variable length and comparing with sorted array", () => {
+describe('Merge Sort', () => {
+  it('generating array with variable length and comparing with sorted array', () => {
     const arrLenArr = [10, 200, 40000]
 
     arrLenArr.forEach((arrLen: number) => {

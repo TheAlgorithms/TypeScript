@@ -8,25 +8,25 @@
  */
 export function sieveOfEratosthenes(limit: number): number[] {
   if (!Number.isInteger(limit) || limit <= 1) {
-    throw new Error("limit should be an integer greater than 1");
+    throw new Error('limit should be an integer greater than 1')
   }
 
-  const maybePrime: boolean[] = new Array(limit + 1).fill(true);
+  const maybePrime: boolean[] = new Array(limit + 1).fill(true)
   for (let i = 2; i * i <= limit; i++) {
-    if (!maybePrime[i]) continue;
+    if (!maybePrime[i]) continue
     for (let j = i * i; j <= limit; j += i) {
-      maybePrime[j] = false;
+      maybePrime[j] = false
     }
   }
 
-  const primes: number[] = [];
+  const primes: number[] = []
   for (let i = 2; i < maybePrime.length; i++) {
     if (maybePrime[i]) {
-      primes.push(i);
+      primes.push(i)
     }
   }
 
-  return primes;
+  return primes
 }
 
 /**
@@ -35,26 +35,26 @@ export function sieveOfEratosthenes(limit: number): number[] {
  * Inspired by https://gist.github.com/e-nikolov/cd94db0de2a6b70da144124ae93a6458
  */
 export function* primeGenerator() {
-  type NumberGen = Generator<number, void, any>;
+  type NumberGen = Generator<number, void, any>
 
   function* filter(input: NumberGen, prime: number): NumberGen {
     while (true) {
-      const {done, value} = input.next();
-      if (done) break;
-      if (value % prime !== 0) yield value;
+      const { done, value } = input.next()
+      if (done) break
+      if (value % prime !== 0) yield value
     }
   }
 
   let chain: NumberGen = (function* () {
-    let i = 2;
-    while (true) yield i++;
-  })();
+    let i = 2
+    while (true) yield i++
+  })()
 
   while (true) {
-    const {done, value} = chain.next();
-    if (done) break;
-    yield value;
-    chain = filter(chain, value);
+    const { done, value } = chain.next()
+    if (done) break
+    yield value
+    chain = filter(chain, value)
   }
 }
 
@@ -70,18 +70,18 @@ export function* primeGenerator() {
 export const isPrime = (num: number): boolean => {
   // raise corresponding errors upon invalid inputs
   if (num <= 0 || !Number.isInteger(num)) {
-    throw new Error("only natural numbers are supported");
+    throw new Error('only natural numbers are supported')
   }
 
   // handle input being 1
-  if (num === 1) return false;
+  if (num === 1) return false
 
   // iterate from 2 to the square root of num to find a factor
   // return false upon finding a factor
   for (let i = 2; i <= Math.sqrt(num); i++) {
-    if (num % i === 0) return false;
+    if (num % i === 0) return false
   }
 
   // if the entire loop runs without finding a factor, return true
-  return true;
-};
+  return true
+}

@@ -10,8 +10,8 @@
  *   and repeat the same process for the next number.
  */
 export function generateCombinations(n: number, k: number): number[][] {
-  const combinationsAcc: number[][] = [];
-  const currentCombination: number[] = [];
+  const combinationsAcc: number[][] = []
+  const currentCombination: number[] = []
 
   function generateAllCombos(
     n: number,
@@ -20,19 +20,19 @@ export function generateCombinations(n: number, k: number): number[][] {
   ): number[][] {
     if (k === 0) {
       if (currentCombination.length > 0) {
-        combinationsAcc.push(currentCombination.slice());
+        combinationsAcc.push(currentCombination.slice())
       }
-      return combinationsAcc;
+      return combinationsAcc
     }
 
-    const endCursor = n - k + 2;
+    const endCursor = n - k + 2
     for (let i = startCursor; i < endCursor; i++) {
-      currentCombination.push(i);
-      generateAllCombos(n, k - 1, i + 1);
-      currentCombination.pop();
+      currentCombination.push(i)
+      generateAllCombos(n, k - 1, i + 1)
+      currentCombination.pop()
     }
-    return combinationsAcc;
+    return combinationsAcc
   }
 
-  return generateAllCombos(n, k, 1);
+  return generateAllCombos(n, k, 1)
 }

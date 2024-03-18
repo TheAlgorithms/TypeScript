@@ -5,5 +5,5 @@
  */
 
 export const perfectCube = (n: number): boolean => {
-  return Math.round(n ** (1 / 3)) ** 3 === n;
-};
+  return Math.round(n ** (1 / 3)) ** 3 === n
+}
