@@ -25,6 +25,3 @@ export const digitSum = (num: number): number => {
 
   return sum
 }
-
-
-console.log(digitSum(-4567))
