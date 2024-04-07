@@ -1,14 +1,14 @@
 /**
- * @function knapsack
- * @description Given weights and values of n (numberOfItems) items, put these items in a knapsack of capacity to get the maximum total value in the knapsack. In other words, given two integer arrays values[0..n-1] and weights[0..n-1] which represent values and weights associated with n items respectively. Also given an integer capacity which represents knapsack capacity, find out the maximum value subset of values[] such that sum of the weights of this subset is smaller than or equal to capacity. You cannot break an item, either pick the complete item or don’t pick it (0-1 property).
- * @Complexity_Analysis
- * Space complexity - O(1)
- * Time complexity (independent of input) : O(numberOfItems * capacity)
- *
- * @return maximum value subset of values[] such that sum of the weights of this subset is smaller than or equal to capacity.
- * @see [Knapsack](https://www.geeksforgeeks.org/0-1-knapsack-problem-dp-10/)
- * @example knapsack(3, 8, [3, 4, 5], [30, 50, 60]) = 90
+ * Solves the 0-1 Knapsack Problem.
+ * @param capacity Knapsack capacity
+ * @param weights Array of item weights
+ * @param values Array of item values
+ * @returns Maximum value subset such that sum of the weights of this subset is smaller than or equal to capacity
+ * @throws If weights and values arrays have different lengths
+ * @see [Knapsack](https://www.geeksforgeeks.org/0-1-knapsack-problem-dp-10/)
+ * @example knapsack(3, [3, 4, 5], [30, 50, 60]) // Output: 90
  */
+
 export const knapsack = (
   capacity: number,
   weights: number[],
