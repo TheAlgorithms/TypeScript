@@ -15,32 +15,40 @@ export const knapsack = (
   values: number[]
 ): number => {
   if (weights.length !== values.length) {
-    throw new Error('Weights and values arrays should have the same number of elements');
+    throw new Error(
+      'Weights and values arrays should have the same number of elements'
+    )
   }
 
-  const numberOfItems: number = weights.length;
+  const numberOfItems: number = weights.length
 
   // Initializing a 2D array to store calculated states/values
-  const dp: number[][] = new Array(numberOfItems + 1).fill(0).map(() => new Array(capacity + 1).fill(0));
+  const dp: number[][] = new Array(numberOfItems + 1)
+    .fill(0)
+    .map(() => new Array(capacity + 1).fill(0))
 
   // Loop traversing each state of dp
   for (let itemIndex = 1; itemIndex <= numberOfItems; itemIndex++) {
-    const weight = weights[itemIndex - 1];
-    const value = values[itemIndex - 1];
-    for (let currentCapacity = 1; currentCapacity <= capacity; currentCapacity++) {
+    const weight = weights[itemIndex - 1]
+    const value = values[itemIndex - 1]
+    for (
+      let currentCapacity = 1;
+      currentCapacity <= capacity;
+      currentCapacity++
+    ) {
       if (weight <= currentCapacity) {
         // Select the maximum value of including the current item or excluding it
         dp[itemIndex][currentCapacity] = Math.max(
           value + dp[itemIndex - 1][currentCapacity - weight],
           dp[itemIndex - 1][currentCapacity]
-        );
+        )
       } else {
         // If the current item's weight exceeds the current capacity, exclude it
-        dp[itemIndex][currentCapacity] = dp[itemIndex - 1][currentCapacity];
+        dp[itemIndex][currentCapacity] = dp[itemIndex - 1][currentCapacity]
       }
     }
   }
 
   // Return the final maximized value at the last position of the dp matrix
-  return dp[numberOfItems][capacity];
-};
+  return dp[numberOfItems][capacity]
+}
