@@ -3,14 +3,12 @@
  * In a complete binary tree each level is filled before lower levels are added
  * Each level is filled from left to right
  *
- * In a (min|max) heap the value of every node is (less|greater) than that if its children
+ * In a (min|max) heap the value of every node is (less|greater) than that of its children
  *
- * The heap if often implemented using an array structure.
+ * The heap is often implemented using an array structure.
  * In the array implementation, the relationship between a parent index and its two children
  * are ((parentindex * 2) + 1) and ((parentindex * 2) + 2)
- *
  */
-
 export abstract class Heap<T> {
   protected heap: T[]
   // A comparison function. Returns true if a should be the parent of b.
@@ -23,17 +21,16 @@ export abstract class Heap<T> {
 
   /**
    * Compares the value at parentIndex with the value at childIndex
-   * In a maxHeap the value at parentIndex should be larger than the value at childIndex
-   * In a minHeap the value at parentIndex should be smaller than the value at childIndex
-   *
+   * In a maxHeap, the value at parentIndex should be larger than the value at childIndex
+   * In a minHeap, the value at parentIndex should be smaller than the value at childIndex
    */
-  private isRightlyPlaced(childIndex: number, parentIndex: number) {
+  private isRightlyPlaced(childIndex: number, parentIndex: number): boolean {
     return this.compare(this.heap[parentIndex], this.heap[childIndex])
   }
 
   /**
-   * In a maxHeap the index with the larger value is returned
-   * In a minHeap the index with the smaller value is returned
+   * In a maxHeap, the index with the larger value is returned
+   * In a minHeap, the index with the smaller value is returned
    */
   private getChildIndexToSwap(
     leftChildIndex: number,
@@ -68,11 +65,11 @@ export abstract class Heap<T> {
     return this.size() === 0
   }
 
-  protected swap(a: number, b: number) {
+  protected swap(a: number, b: number): void {
     ;[this.heap[a], this.heap[b]] = [this.heap[b], this.heap[a]]
   }
 
-  protected bubbleUp(index = this.size() - 1): void {
+  protected bubbleUp(index: number = this.size() - 1): void {
     let parentIndex
 
     while (index > 0) {
@@ -111,7 +108,7 @@ export abstract class Heap<T> {
   }
 
   public check(): void {
-    return this._check()
+    this._check()
   }
 
   private _check(index: number = 0): void {
@@ -122,14 +119,16 @@ export abstract class Heap<T> {
     if (
       this.heap[leftChildIndex] &&
       !this.isRightlyPlaced(leftChildIndex, index)
-    )
+    ) {
       throw new Error('Heap does not adhere to heap invariant')
+    }
 
     if (
       this.heap[rightChildIndex] &&
       !this.isRightlyPlaced(rightChildIndex, index)
-    )
+    ) {
       throw new Error('Heap does not adhere to heap invariant')
+    }
 
     this._check(leftChildIndex)
     this._check(rightChildIndex)
@@ -137,26 +136,17 @@ export abstract class Heap<T> {
 }
 
 export class MinHeap<T> extends Heap<T> {
-  constructor(
-    compare = (a: T, b: T) => {
-      return a < b
-    }
-  ) {
+  constructor(compare: (a: T, b: T) => boolean = (a: T, b: T) => a < b) {
     super(compare)
   }
 }
 
 export class MaxHeap<T> extends Heap<T> {
-  constructor(
-    compare = (a: T, b: T) => {
-      return a > b
-    }
-  ) {
+  constructor(compare: (a: T, b: T) => boolean = (a: T, b: T) => a > b) {
     super(compare)
   }
 }
 
-// Priority queue that supports increasePriority() in O(log(n)). The limitation is that there can only be a single element for each key, and the max number or keys must be specified at heap construction. Most of the functions are wrappers around MinHeap functions and update the keys array.
 export class PriorityQueue<T> extends MinHeap<T> {
   // Maps from the n'th node to its index within the heap.
   private keys: number[]
@@ -166,29 +156,27 @@ export class PriorityQueue<T> extends MinHeap<T> {
   constructor(
     keys_index: (a: T) => number,
     num_keys: number,
-    compare = (a: T, b: T) => {
-      return a < b
-    }
+    compare: (a: T, b: T) => boolean = (a: T, b: T) => a < b
   ) {
     super(compare)
     this.keys = Array(num_keys).fill(-1)
     this.keys_index = keys_index
   }
 
-  protected swap(a: number, b: number) {
+  protected swap(a: number, b: number): void {
     const akey = this.keys_index(this.heap[a])
     const bkey = this.keys_index(this.heap[b])
     ;[this.keys[akey], this.keys[bkey]] = [this.keys[bkey], this.keys[akey]]
     super.swap(a, b)
   }
 
-  public insert(value: T) {
+  public insert(value: T): void {
     this.keys[this.keys_index(value)] = this.size()
     super.insert(value)
   }
 
   public extract(): T {
-    // Unmark the the highest priority element and set key to zero for the last element in the heap.
+    // Unmark the highest priority element and set key to zero for the last element in the heap.
     this.keys[this.keys_index(this.heap[0])] = -1
     if (this.size() > 1) {
       this.keys[this.keys_index(this.heap[this.size() - 1])] = 0
@@ -196,8 +184,8 @@ export class PriorityQueue<T> extends MinHeap<T> {
     return super.extract()
   }
 
-  public increasePriority(idx: number, value: T) {
-    if (this.keys[idx] == -1) {
+  public increasePriority(idx: number, value: T): void {
+    if (this.keys[idx] === -1) {
       // If the key does not exist, insert the value.
       this.insert(value)
       return
