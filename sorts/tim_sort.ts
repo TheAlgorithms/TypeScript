@@ -13,25 +13,25 @@ const MIN_MERGE = 32
  *
  * @typeparam T The type of elements in the array.
  * @param arr The array to sort.
- * @param start The start index of the portion to sort.
- * @param end The end index of the portion to sort.
+ * @param startIndex The start index of the portion to sort.
+ * @param endIndex The end index of the portion to sort.
  * @param compare The comparator function defining the order of elements.
  */
 const insertionSort = <T>(
   arr: T[],
-  start: number,
-  end: number,
+  startIndex: number,
+  endIndex: number,
   compare: Comparator<T>
 ): void => {
-  for (let i = start + 1; i <= end; i++) {
-    const key = arr[i]
+  for (let i = startIndex + 1; i <= endIndex; i++) {
+    const currentElement = arr[i]
     let j = i - 1
 
-    while (j >= start && compare(arr[j], key) > 0) {
+    while (j >= startIndex && compare(arr[j], currentElement) > 0) {
       arr[j + 1] = arr[j]
       j--
     }
-    arr[j + 1] = key
+    arr[j + 1] = currentElement
   }
 }
 
