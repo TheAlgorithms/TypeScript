@@ -22,8 +22,8 @@ export const jumpSearch = (array: number[], target: number): number => {
   if (array.length === 0) return -1
 
   // declare pointers for the current and next indexes and step size
+  const stepSize: number = Math.floor(Math.sqrt(array.length))
   let currentIdx: number = 0,
-    stepSize: number = Math.floor(Math.sqrt(array.length)),
     nextIdx: number = stepSize
 
   while (array[nextIdx - 1] < target) {
