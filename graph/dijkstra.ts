@@ -1,4 +1,4 @@
-import { MinHeap, PriorityQueue } from '../data_structures/heap/heap'
+import { PriorityQueue } from '../data_structures/heap/heap'
 /**
  * @function dijkstra
  * @description Compute the shortest path from a source node to all other nodes. The input graph is in adjacency list form. It is a multidimensional array of edges. graph[i] holds the edges for the i'th node. Each edge is a 2-tuple where the 0'th item is the destination node, and the 1'th item is the edge weight.
@@ -32,7 +32,7 @@ export const dijkstra = (
   distances[start] = 0
 
   while (priorityQueue.size() > 0) {
-    const [node, _] = priorityQueue.extract()
+    const node = priorityQueue.extract()[0]
     graph[node].forEach(([child, weight]) => {
       const new_distance = distances[node] + weight
       if (new_distance < distances[child]) {
