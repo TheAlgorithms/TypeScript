@@ -51,8 +51,7 @@ const add_children = (
   priorityQueue: PriorityQueue<Edge>,
   node: number
 ) => {
-  for (let i = 0; i < graph[node].length; ++i) {
-    const out_edge = graph[node][i]
+  for (const out_edge of graph[node]) {
     // By increasing the priority, we ensure we only add each vertex to the queue one time, and the queue will be at most size V.
     priorityQueue.increasePriority(
       out_edge[0],

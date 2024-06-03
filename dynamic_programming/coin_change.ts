@@ -17,12 +17,12 @@ export const coinChange = (money: number, coins: number[]): CoinChange => {
   minCoins[0] = 0
 
   // Fill in the DP table
-  for (let i = 0; i < coins.length; i++) {
+  for (const coin of coins) {
     for (let j = 0; j <= money; j++) {
-      if (j >= coins[i]) {
-        if (minCoins[j] > 1 + minCoins[j - coins[i]]) {
-          minCoins[j] = 1 + minCoins[j - coins[i]]
-          lastCoin[j] = coins[i]
+      if (j >= coin) {
+        if (minCoins[j] > 1 + minCoins[j - coin]) {
+          minCoins[j] = 1 + minCoins[j - coin]
+          lastCoin[j] = coin
         }
       }
     }

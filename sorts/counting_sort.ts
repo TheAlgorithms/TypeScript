@@ -13,7 +13,7 @@ export const countingSort = (inputArr: number[], min: number, max: number) => {
 
   const count = new Array(max - min + 1).fill(0)
 
-  for (let i = 0; i < inputArr.length; i++) count[inputArr[i] - min]++
+  for (const element of inputArr) count[element - min]++
 
   count[0] -= 1
 
