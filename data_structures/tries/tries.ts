@@ -23,11 +23,6 @@ export class Trie {
   root: TrieNode = new TrieNode()
 
   /**
-   * Creates a new Trie instance.
-   */
-  constructor() {}
-
-  /**
    * Inserts a word into the Trie.
    *
    * @param word - The word to insert into the Trie.
