@@ -5,7 +5,7 @@ class TrieNode {
   /**
    * An object that stores child nodes for each character in the alphabet.
    */
-  children: { [key: string]: TrieNode } = {}
+  children: Record<string, TrieNode> = {}
 
   /**
    * Indicates whether the node represents the end of a word.
