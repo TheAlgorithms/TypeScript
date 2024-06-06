@@ -10,7 +10,7 @@ class TrieNode {
   /**
    * Indicates whether the node represents the end of a word.
    */
-  isWord: boolean = false
+  isWord = false
 }
 
 /**
@@ -46,7 +46,7 @@ export class Trie {
    *   If false, the method returns true only if an exact match is found.
    * @returns True if the word (or prefix) is found in the Trie; otherwise, false.
    */
-  public find(word: string, isPrefixMatch: boolean = false): boolean {
+  public find(word: string, isPrefixMatch = false): boolean {
     return this.searchNode(this.root, word, isPrefixMatch)
   }
 
