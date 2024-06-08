@@ -5,12 +5,12 @@ class TrieNode {
   /**
    * An object that stores child nodes for each character in the alphabet.
    */
-  children: { [key: string]: TrieNode } = {}
+  children: Record<string, TrieNode> = {}
 
   /**
    * Indicates whether the node represents the end of a word.
    */
-  isWord: boolean = false
+  isWord = false
 }
 
 /**
@@ -21,11 +21,6 @@ export class Trie {
    * The root node of the Trie.
    */
   root: TrieNode = new TrieNode()
-
-  /**
-   * Creates a new Trie instance.
-   */
-  constructor() {}
 
   /**
    * Inserts a word into the Trie.
@@ -51,7 +46,7 @@ export class Trie {
    *   If false, the method returns true only if an exact match is found.
    * @returns True if the word (or prefix) is found in the Trie; otherwise, false.
    */
-  public find(word: string, isPrefixMatch: boolean = false): boolean {
+  public find(word: string, isPrefixMatch = false): boolean {
     return this.searchNode(this.root, word, isPrefixMatch)
   }
 
