@@ -8,41 +8,13 @@
  *          a positive value if `a` should come after `b`,
  *          and zero if `a` and `b` are considered equal.
  */
-type Comparator<T> = (a: T, b: T) => number;
+type Comparator<T> = (a: T, b: T) => number
 
 // Minimum size of subarrays to be sorted using insertion sort before merging
-const MIN_MERGE = 32;
+const MIN_MERGE = 32
 
 /**
- * Performs insertion sort on a portion of an array.
- *
- * @typeparam T The type of elements in the array.
- * @param arr The array to sort.
- * @param startIndex The start index of the portion to sort.
- * @param endIndex The end index of the portion to sort.
- * @param compare The comparator function defining the order of elements.
- */
-const insertionSort = <T>(
-  arr: T[],
-  startIndex: number,
-  endIndex: number,
-  compare: Comparator<T>
-): void => {
-  for (let i = startIndex + 1; i <= endIndex; i++) {
-    const currentElement = arr[i];
-    let j = i - 1;
-
-    while (j >= startIndex && compare(arr[j], currentElement) > 0) {
-      arr[j + 1] = arr[j];
-      j--;
-    }
-    arr[j + 1] = currentElement;
-  }
-};
-
-/**
- * Merges two sorted subarrays into one sorted array.
- * This version of merge includes "galloping mode" for performance optimization.
+ * Merges two sorted subarrays into one sorted array with optimized galloping mode.
  *
  * @typeparam T The type of elements in the array.
  * @param arr The array containing the subarrays to merge.
@@ -58,32 +30,63 @@ const merge = <T>(
   rightIndex: number,
   compare: Comparator<T>
 ): void => {
-  const leftArray = arr.slice(leftIndex, middleIndex + 1);
-  const rightArray = arr.slice(middleIndex + 1, rightIndex + 1);
+  const leftArrayLength = middleIndex - leftIndex + 1
+  const rightArrayLength = rightIndex - middleIndex
 
-  let leftPointer = 0;
-  let rightPointer = 0;
-  let mergedIndex = leftIndex;
+  // Create temporary arrays for the left and right subarrays
+  const leftSubarray: T[] = arr.slice(leftIndex, middleIndex + 1)
+  const rightSubarray: T[] = arr.slice(middleIndex + 1, rightIndex + 1)
 
-  while (leftPointer < leftArray.length && rightPointer < rightArray.length) {
-    if (compare(leftArray[leftPointer], rightArray[rightPointer]) <= 0) {
-      arr[mergedIndex++] = leftArray[leftPointer++];
-    } else {
-      arr[mergedIndex++] = rightArray[rightPointer++];
+  let leftPointer = 0
+  let rightPointer = 0
+  let mergedIndex = leftIndex
+
+  // Regular merge with galloping mode
+  while (leftPointer < leftArrayLength && rightPointer < rightArrayLength) {
+    let numGallops = 0
+
+    // Galloping through the left subarray
+    while (
+      leftPointer < leftArrayLength &&
+      numGallops < MIN_MERGE &&
+      compare(leftSubarray[leftPointer], rightSubarray[rightPointer]) <= 0
+    ) {
+      arr[mergedIndex++] = leftSubarray[leftPointer++]
+      numGallops++
+    }
+
+    // Galloping through the right subarray
+    while (
+      rightPointer < rightArrayLength &&
+      numGallops < MIN_MERGE &&
+      compare(rightSubarray[rightPointer], leftSubarray[leftPointer]) < 0
+    ) {
+      arr[mergedIndex++] = rightSubarray[rightPointer++]
+      numGallops++
+    }
+
+    // Standard merge without galloping
+    while (leftPointer < leftArrayLength && rightPointer < rightArrayLength) {
+      if (
+        compare(leftSubarray[leftPointer], rightSubarray[rightPointer]) <= 0
+      ) {
+        arr[mergedIndex++] = leftSubarray[leftPointer++]
+      } else {
+        arr[mergedIndex++] = rightSubarray[rightPointer++]
+      }
     }
   }
 
-  // Copy remaining elements from leftArray, if any
-  while (leftPointer < leftArray.length) {
-    arr[mergedIndex++] = leftArray[leftPointer++];
+  // Copy remaining elements from left subarray, if any
+  while (leftPointer < leftArrayLength) {
+    arr[mergedIndex++] = leftSubarray[leftPointer++]
   }
 
-  // Copy remaining elements from rightArray, if any
-  while (rightPointer < rightArray.length) {
-    arr[mergedIndex++] = rightArray[rightPointer++];
+  // Copy remaining elements from right subarray, if any
+  while (rightPointer < rightArrayLength) {
+    arr[mergedIndex++] = rightSubarray[rightPointer++]
   }
-};
-
+}
 
 /**
  * Sorts an array using the Tim sort algorithm.
@@ -93,7 +96,7 @@ const merge = <T>(
  * @param compare The comparator function defining the order of elements.
  */
 export const timSort = <T>(arr: T[], compare: Comparator<T>): void => {
-  const n = arr.length;
+  const length = arr.length
 
   /**
    * Reverses a portion of the array.
@@ -103,11 +106,11 @@ export const timSort = <T>(arr: T[], compare: Comparator<T>): void => {
    */
   const reverseRange = (start: number, end: number): void => {
     while (start < end) {
-      const temp = arr[start];
-      arr[start++] = arr[end];
-      arr[end--] = temp;
+      const temp = arr[start]
+      arr[start++] = arr[end]
+      arr[end--] = temp
     }
-  };
+  }
 
   /**
    * Identifies runs and sorts them using insertion sort.
@@ -116,17 +119,17 @@ export const timSort = <T>(arr: T[], compare: Comparator<T>): void => {
    * @param end The ending index of the range to find runs.
    */
   const findRunsAndSort = (start: number, end: number): void => {
-    for (let i = start + 1; i <= end; i++) {
-      const currentElement = arr[i];
-      let j = i - 1;
+    for (let currIdx = start + 1; currIdx <= end; currIdx++) {
+      const currentElement = arr[currIdx]
+      let prevIdx = currIdx - 1
 
-      while (j >= start && compare(arr[j], currentElement) > 0) {
-        arr[j + 1] = arr[j];
-        j--;
+      while (prevIdx >= start && compare(arr[prevIdx], currentElement) > 0) {
+        arr[prevIdx + 1] = arr[prevIdx]
+        prevIdx--
       }
-      arr[j + 1] = currentElement;
+      arr[prevIdx + 1] = currentElement
     }
-  };
+  }
 
   /**
    * Merges runs in the array.
@@ -134,53 +137,52 @@ export const timSort = <T>(arr: T[], compare: Comparator<T>): void => {
    * @param minRunLength The minimum length of a run.
    */
   const mergeRuns = (minRunLength: number): void => {
-    for (let size = minRunLength; size < n; size *= 2) {
-      for (let left = 0; left < n; left += 2 * size) {
-        const mid = left + size - 1;
-        const right = Math.min(left + 2 * size - 1, n - 1);
+    for (let size = minRunLength; size < length; size *= 2) {
+      for (let left = 0; left < length; left += 2 * size) {
+        const mid = left + size - 1
+        const right = Math.min(left + 2 * size - 1, length - 1)
 
         if (mid < right) {
-          merge(arr, left, mid, right, compare);
+          merge(arr, left, mid, right, compare)
         }
       }
     }
-  };
+  }
 
   /**
    * Handles descending runs in the array.
    */
   const handleDescendingRuns = (): void => {
-    let stackSize = 0;
-    const runStack: [number, number][] = [];
+    let stackSize = 0
+    const runStack: [number, number][] = []
 
     // Push runs onto stack
-    for (let i = 0; i < n; i++) {
-      let runStart = i;
-      while (i < n - 1 && compare(arr[i], arr[i + 1]) > 0) {
-        i++;
+    for (let idx = 0; idx < length; idx++) {
+      let runStart = idx
+      while (idx < length - 1 && compare(arr[idx], arr[idx + 1]) > 0) {
+        idx++
       }
-      if (runStart !== i) {
-        runStack.push([runStart, i]);
+      if (runStart !== idx) {
+        runStack.push([runStart, idx])
       }
     }
 
     // Merge descending runs
     while (runStack.length > 1) {
-      const [start1, end1] = runStack.pop()!;
-      const [start2, end2] = runStack.pop()!;
-      
-      merge(arr, start2, end2, end1, compare);
-      runStack.push([start2, end1]);
+      const [start1, end1] = runStack.pop()!
+      const [start2, end2] = runStack.pop()!
+
+      merge(arr, start2, end2, end1, compare)
+      runStack.push([start2, end1])
     }
-  };
+  }
 
   // Find runs and sort them
-  findRunsAndSort(0, n - 1);
+  findRunsAndSort(0, length - 1)
 
   // Merge runs
-  mergeRuns(MIN_MERGE);
+  mergeRuns(MIN_MERGE)
 
   // Handle descending runs
-  handleDescendingRuns();
-};
-
+  handleDescendingRuns()
+}
