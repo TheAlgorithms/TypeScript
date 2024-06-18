@@ -10,7 +10,9 @@
  */
 type Comparator<T> = (a: T, b: T) => number
 
-// Minimum size of subarrays to be sorted using insertion sort before merging
+/**
+ * Constants for the TimSort algorithm.
+ */
 const MIN_MERGE = 32
 const MIN_GALLOP = 7
 
@@ -96,7 +98,7 @@ const merge = <T>(
 }
 
 /**
- * Sorts an array using the Tim sort algorithm.
+ * Sorts an array using the TimSort algorithm.
  *
  * @typeparam T The type of elements in the array.
  * @param arr The array to sort.
@@ -140,31 +142,109 @@ export const timSort = <T>(arr: T[], compare: Comparator<T>): void => {
   }
 
   /**
-   * Merges runs in the array.
+   * Pushes a new run onto the stack of runs.
    *
-   * @param minRunLength The minimum length of a run.
+   * @param runs The stack of runs.
+   * @param start The starting index of the run.
+   * @param length The length of the run.
    */
-  const mergeRuns = (minRunLength: number): void => {
-    for (let size = minRunLength; size < length; size *= 2) {
-      for (let left = 0; left < length; left += 2 * size) {
-        const mid = Math.min(left + size - 1, length - 1)
-        const right = Math.min(left + 2 * size - 1, length - 1)
+  const pushRun = (
+    runs: { start: number; length: number }[],
+    start: number,
+    length: number
+  ) => {
+    runs.push({ start, length })
+  }
 
-        if (mid < right) {
-          merge(arr, left, mid, right, compare)
+  /**
+   * Merges two adjacent runs in the stack of runs.
+   *
+   * @param runs The stack of runs.
+   * @param i The index of the first run to merge.
+   */
+  const mergeAt = (runs: { start: number; length: number }[], i: number) => {
+    const { start: start1, length: length1 } = runs[i]
+    const { start: start2, length: length2 } = runs[i + 1]
+    runs[i] = { start: start1, length: length1 + length2 }
+
+    merge(
+      arr,
+      start1,
+      start1 + length1 - 1,
+      start1 + length1 + length2 - 1,
+      compare
+    )
+
+    runs.splice(i + 1, 1)
+  }
+
+  /**
+   * Forces the collapse of all remaining runs in the stack.
+   *
+   * @param runs The stack of runs.
+   */
+  const mergeForceCollapse = (runs: { start: number; length: number }[]) => {
+    while (runs.length > 1) {
+      let n = runs.length - 2
+      if (n > 0 && runs[n - 1].length < runs[n + 1].length) {
+        n--
+      }
+      mergeAt(runs, n)
+    }
+  }
+
+  /**
+   * Ensures the runs maintain the size invariant required by TimSort.
+   *
+   * @param runs The stack of runs.
+   */
+  const mergeCollapse = (runs: { start: number; length: number }[]) => {
+    while (runs.length > 1) {
+      let n = runs.length - 2
+
+      if (n > 0 && runs[n - 1].length <= runs[n].length + runs[n + 1].length) {
+        if (runs[n - 1].length < runs[n + 1].length) {
+          n--
         }
+        mergeAt(runs, n)
+      } else if (runs[n].length <= runs[n + 1].length) {
+        mergeAt(runs, n)
+      } else {
+        break
       }
     }
   }
 
   // Determine the minimum run length
   const minRun = minRunLength(length)
+  let runs: { start: number; length: number }[] = []
 
   // Find runs and sort them
-  for (let i = 0; i < length; i += minRun) {
-    findRunsAndSort(i, Math.min(i + minRun - 1, length - 1))
+  let start = 0
+  while (start < length) {
+    let end = start + 1
+    if (end < length && compare(arr[end - 1], arr[end]) <= 0) {
+      // Ascending run
+      while (end < length && compare(arr[end - 1], arr[end]) <= 0) {
+        end++
+      }
+    } else {
+      // Descending run
+      while (end < length && compare(arr[end - 1], arr[end]) > 0) {
+        end++
+      }
+      // Reverse descending run to make it ascending
+      arr.slice(start, end).reverse()
+    }
+
+    findRunsAndSort(start, end - 1)
+    pushRun(runs, start, end - start)
+
+    mergeCollapse(runs)
+
+    start = end
   }
 
-  // Merge runs
-  mergeRuns(minRun)
+  // Merge all remaining runs
+  mergeForceCollapse(runs)
 }
