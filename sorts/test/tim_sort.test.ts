@@ -50,12 +50,12 @@ describe('Tim Sort', () => {
       testTimSort(arr, comparator)
     })
 
-    it('should return the reverse sorted array for an array sorted in descending order', () => {
+    it('should return the sorted array for an array sorted in descending order', () => {
       const arr = [5, 4, 3, 2, 1]
       testTimSort(arr, comparator)
     })
 
-    it('should return the pre-sorted array for an array sorted in descending order', () => {
+    it('should return the sorted array for an array sorted in ascending order', () => {
       const arr = [1, 2, 3, 4, 5]
       testTimSort(arr, comparator)
     })
