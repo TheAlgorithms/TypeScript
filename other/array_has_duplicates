@@ -1,0 +1,18 @@
+/**
+ * @function arrayHasDuplicates
+ * @description Checks whether any element appears more than once in an array
+ * @param {number[]} arr - array to check if has duplicates
+ * @returns {boolean} - true if the array has duplicates and false if has not duplicates
+ * @example arrayHasDuplicates([1,2,3]) => false
+ * @example arrayHasDuplicates([1,2,2]) => true
+ */
+export function arrayHasDuplicates(arr: number[]): boolean {
+  for (let i = 0; i < arr.length - 1; i++) {
+    if (i != 0) {
+      if (arr[i] == arr[i-1]) {
+        return true;
+      }
+    }
+  }
+  return false
+}
