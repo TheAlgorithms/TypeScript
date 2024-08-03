@@ -11,7 +11,7 @@ describe('Fibonacci search', () => {
       [[1, 3, 5, 7, 9, 11, 13], 8, null]
     ])(
       'of %o, searching for %o, expected %i',
-      (array: number[], target: number, expected: number) => {
+      (array: number[], target: number, expected: number | null) => {
         expect(fibonacciSearch(array, target)).toBe(expected);
       }
     );
