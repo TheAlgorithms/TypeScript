@@ -1,5 +1,4 @@
 /**
- * @function fibonacciSearch
  * @description Fibonacci search algorithm for a sorted array.
  *
  * The algorithm searches for a specific value in a sorted array using Fibonacci numbers
