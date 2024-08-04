@@ -7,8 +7,8 @@ import { binarySearchIterative } from './binary_search'
  * where the value may be present and then performing a binary search within that range.
  *
  * Compared with binary search, exponential search can be more convenient and advantageous
- * in cases where the element to be searched is closer to the beginning of the array, 
- * thus avoiding several comparisons that would make the search more verbose. 
+ * in cases where the element to be searched is closer to the beginning of the array,
+ * thus avoiding several comparisons that would make the search more verbose.
  * Exponential search doubles the search time with each iteration.
  *
  * @param {number[]} array - sorted list of numbers
