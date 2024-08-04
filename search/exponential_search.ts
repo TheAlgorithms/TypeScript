@@ -1,8 +1,15 @@
+import { binarySearchIterative } from './binary_search'
+
 /**
  * @description Exponential search algorithm for a sorted array.
  *
  * The algorithm searches for a specific value in a sorted array by first finding a range
  * where the value may be present and then performing a binary search within that range.
+ *
+ * Compared with binary search, exponential search can be more convenient and advantageous
+ * in cases where the element to be searched is closer to the beginning of the array, 
+ * thus avoiding several comparisons that would make the search more verbose. 
+ * Exponential search doubles the search time with each iteration.
  *
  * @param {number[]} array - sorted list of numbers
  * @param {number} x - target number to search for
@@ -26,24 +33,9 @@ export const exponentialSearch = (
     i = i * 2
   }
 
-  return binarySearch(array, x, i / 2, Math.min(i, arrayLength - 1))
-}
+  const start = Math.floor(i / 2)
+  const end = Math.min(i, arrayLength - 1)
+  const result = binarySearchIterative(array, x, start, end)
 
-const binarySearch = (
-  array: number[],
-  x: number,
-  start: number,
-  end: number
-): number | null => {
-  while (start <= end) {
-    const mid = Math.floor((start + end) / 2)
-    if (array[mid] === x) {
-      return mid
-    } else if (array[mid] < x) {
-      start = mid + 1
-    } else {
-      end = mid - 1
-    }
-  }
-  return null
+  return result !== -1 ? result : null
 }

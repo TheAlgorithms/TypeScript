@@ -16,17 +16,17 @@
 
 export const binarySearchIterative = (
   array: number[],
-  target: number
+  target: number,
+  start: number = 0,
+  end: number = array.length - 1
 ): number => {
   if (array.length === 0) return -1
 
-  // declare pointers for the start, middle and end indices
-  let start = 0,
-    end = array.length - 1,
-    middle = (start + end) >> 1
-
   // ensure the target is within the bounds of the array
   if (target < array[start] || target > array[end]) return -1
+
+  // declare pointers for the middle index
+  let middle = (start + end) >> 1
 
   while (array[middle] !== target && start <= end) {
     // if the target is less than the middle value, move the end pointer to be middle -1 to narrow the search space
