@@ -1,4 +1,4 @@
-import { exponentialSearch } from '../exponential_search';
+import { exponentialSearch } from '../exponential_search'
 
 describe('Exponential search', () => {
   test.each([
@@ -13,7 +13,7 @@ describe('Exponential search', () => {
   ])(
     'of %o, searching for %o, expected %i',
     (array: number[], target: number, expected: number | null) => {
-      expect(exponentialSearch(array, target)).toBe(expected);
+      expect(exponentialSearch(array, target)).toBe(expected)
     }
-  );
-});
+  )
+})

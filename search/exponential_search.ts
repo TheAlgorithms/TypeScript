@@ -13,38 +13,37 @@
  */
 
 export const exponentialSearch = (
-    array: number[],
-    x: number
-  ): number | null => {
-    const arrayLength = array.length;
-    if (arrayLength === 0) return null;
-  
-    if (array[0] === x) return 0;
-  
-    let i = 1;
-    while (i < arrayLength && array[i] <= x) {
-      i = i * 2;
+  array: number[],
+  x: number
+): number | null => {
+  const arrayLength = array.length
+  if (arrayLength === 0) return null
+
+  if (array[0] === x) return 0
+
+  let i = 1
+  while (i < arrayLength && array[i] <= x) {
+    i = i * 2
+  }
+
+  return binarySearch(array, x, i / 2, Math.min(i, arrayLength - 1))
+}
+
+const binarySearch = (
+  array: number[],
+  x: number,
+  start: number,
+  end: number
+): number | null => {
+  while (start <= end) {
+    const mid = Math.floor((start + end) / 2)
+    if (array[mid] === x) {
+      return mid
+    } else if (array[mid] < x) {
+      start = mid + 1
+    } else {
+      end = mid - 1
     }
-  
-    return binarySearch(array, x, i / 2, Math.min(i, arrayLength - 1));
-  };
-  
-  const binarySearch = (
-    array: number[],
-    x: number,
-    start: number,
-    end: number
-  ): number | null => {
-    while (start <= end) {
-      const mid = Math.floor((start + end) / 2);
-      if (array[mid] === x) {
-        return mid;
-      } else if (array[mid] < x) {
-        start = mid + 1;
-      } else {
-        end = mid - 1;
-      }
-    }
-    return null;
-  };
-  
+  }
+  return null
+}
