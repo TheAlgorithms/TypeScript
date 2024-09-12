@@ -2,7 +2,7 @@ import { binarySearchIterative, binarySearchRecursive } from '../binary_search'
 
 describe('BinarySearch', () => {
   const testArray: number[] = [1, 2, 3, 4]
-  type FunctionsArray = { (array: number[], index: number): number | null }[]
+  type FunctionsArray = Array<(array: number[], index: number) => number | null>
   const functions: FunctionsArray = [
     binarySearchIterative,
     binarySearchRecursive

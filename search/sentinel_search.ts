@@ -10,7 +10,7 @@
  *
  * @param {number[]} array - sorted list of numbers
  * @param {number} target - target number to search for
- * @return {number|null} - index of the target number in the list, or null if not found
+ * @return {number | null} - index of the target number in the list, or null if not found
  * @see [SentinelSearch](https://www.geeksforgeeks.org/sentinel-linear-search/)
  * @example sentinelSearch([1,2,3], 2) => 1
  * @example sentinelSearch([4,5,6], 2) => null
@@ -30,7 +30,7 @@ export const sentinelSearch = (
   if (arrayLength === 0) return null
 
   // Element to be searched is placed at the last index
-  const last = array[arrayLength - 1]
+  const last: number = array[arrayLength - 1]
   array[arrayLength - 1] = target
 
   let index: number = 0
