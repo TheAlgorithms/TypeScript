@@ -5,8 +5,8 @@
  * @param {Number} num - A natural number
  * @return {number} The area of a regular pentagon
  * @see [Wikipedia](https://en.wikipedia.org/wiki/Pentagon)
- * @example pentArea(1) = 
- * @example pentArea(8) = 
+ * @example pentArea(1) = 1.72048
+ * @example pentArea(8) = 110.11055
  */
 
 export const pentArea = (side: number): number => {

@@ -5,8 +5,8 @@
  * @param {Number} num - An array of two natural numbers, [A, B], where A^B will be solved
  * @return {number} A^B
  * @see [Wikipedia](https://cp-algorithms.com/algebra/binary-exp.html)
- * @example binaryExponent([5, 10]) = 
- * @example binaryExponent([10, 18]) = 
+ * @example binaryExponent([5, 2]) = 25
+ * @example binaryExponent([10, 18]) = 1000000000000000000
  */
 
 export const binaryExponent = (numbers: number[]): number => {
