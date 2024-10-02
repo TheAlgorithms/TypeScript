@@ -19,7 +19,7 @@ export const coPrime = (numbers: number[]): boolean => {
     }
   
     // handle input being 1
-    if (numbers[0] == 1 || numbers[1] == 1) return false
+    if (numbers[0] === 1 || numbers[1] === 1) return false
     
     let factors0 = []
     let factors1 = []
@@ -27,12 +27,12 @@ export const coPrime = (numbers: number[]): boolean => {
     // iterate from 2 to the square root of num to find a factor
     // add factors to arrays
     for (let i = 2; i <= Math.sqrt(numbers[0]); i++) {
-      if (numbers[0] % i == 0) {
+      if (numbers[0] % i === 0) {
         factors0.push(i)
       }
     }
     for (let i = 2; i <= Math.sqrt(numbers[1]); i++) {
-        if (numbers[1] % i == 0) {
+        if (numbers[1] % i === 0) {
           factors1.push(i)
         }
     }

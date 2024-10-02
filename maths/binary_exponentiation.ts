@@ -22,7 +22,7 @@ export const binaryExponent = (numbers: number[]): number => {
     
     // binary exponentiation algorithm
     // if B == 0
-    if (numbers[1] == 0) {
+    if (numbers[1] === 0) {
         // A^0 = 1
         return 1;
     }

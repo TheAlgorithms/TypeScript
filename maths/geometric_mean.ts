@@ -14,7 +14,7 @@ export const geometricMean = (numbers: number[]): number => {
     throw new TypeError('Invalid Input')
   }
   for(let i=0; i < numbers.length; i++){
-    if (numbers[i] == 0) {
+    if (numbers[i] === 0) {
         return 0
     }
   }
