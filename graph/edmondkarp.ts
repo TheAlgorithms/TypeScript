@@ -1,5 +1,4 @@
 /**
- * @function edmondkarp
  * @description Compute the maximum flow from a source node to a sink node. The input graph is in adjacency list form. It is a multidimensional array of edges. graph[i] holds the edges for the i'th node. Each edge is a 2-tuple where the 0'th item is the destination node, and the 1'st item is the edge capacity.
  * @Complexity_Analysis
  * Time complexity: O(V * E^2) where V is the number of vertices and E is the number of edges
