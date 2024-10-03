@@ -1,5 +1,4 @@
 /**
- * @function bisectionMethod 
  * @description Bisection method is a root-finding method that applies to any continuous function for which one knows two values with opposite signs.
  * @param  {number} a - The first value
  * @param  {number} b - The second value
@@ -12,6 +11,15 @@
  */
 
 export const bisectionMethod = (a: number, b: number, e: number, f: Function): number => {
+
+    if (e <= 0) { 
+        throw new Error('Error threshold must be positive')
+    }
+
+    if (f(a) * f(b) >= 0) { 
+        throw new Error('f(a) and f(b) should have opposite signs')
+    }
+
     let c = a
     while ((b - a) >= e) {
         c = (a + b) / 2

@@ -1,5 +1,4 @@
 /**
- * @function eulerMethod
  * @description Euler's method is a first-order numerical procedure for solving ordinary differential equations (ODEs) with a given initial value.
  * @param {number} x0 - The initial value of x
  * @param {number} y0 - The initial value of y
@@ -13,6 +12,15 @@
  */
 
 export const eulerMethod = (x0: number, y0: number, h: number, n: number, f: Function): number => {
+
+    if (typeof f !== 'function') { 
+        throw new Error('f must be a function')
+    }
+
+    if (n < 0) {
+        throw new Error('Number of iterations must be non-negative')
+    }
+
     let x = x0
     let y = y0
 
