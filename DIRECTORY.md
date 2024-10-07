@@ -76,6 +76,7 @@
   * [Coin Change](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/dynamic_programming/coin_change.ts)
   * [Knapsack](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/dynamic_programming/knapsack.ts)
   * [Lcs](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/dynamic_programming/lcs.ts)
+  * [Sudoku Solver](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/dynamic_programming/sudoku_solver.ts)
 
 ## Graph
   * [Bellman Ford](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/graph/bellman_ford.ts)
@@ -156,6 +157,8 @@
 
 ## Search
   * [Binary Search](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/search/binary_search.ts)
+  * [Exponential Search](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/search/exponential_search.ts)
+  * [Fibonacci Search](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/search/fibonacci_search.ts)
   * [Interpolation Search](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/search/interpolation_search.ts)
   * [Jump Search](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/search/jump_search.ts)
   * [Linear Search](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/search/linear_search.ts)
