@@ -1,4 +1,4 @@
-import { permutations } from '../GeneratePermutations'
+import { permutations } from '../generatepermutations'
 
 const factorial = (n: number): number => {
   if (n === 0 || n === 1) {
