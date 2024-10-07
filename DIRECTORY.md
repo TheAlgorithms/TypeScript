@@ -156,6 +156,8 @@
 
 ## Search
   * [Binary Search](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/search/binary_search.ts)
+  * [Exponential Search](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/search/exponential_search.ts)
+  * [Fibonacci Search](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/search/fibonacci_search.ts)
   * [Interpolation Search](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/search/interpolation_search.ts)
   * [Jump Search](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/search/jump_search.ts)
   * [Linear Search](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/search/linear_search.ts)
