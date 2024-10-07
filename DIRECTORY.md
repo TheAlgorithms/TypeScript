@@ -76,6 +76,7 @@
   * [Coin Change](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/dynamic_programming/coin_change.ts)
   * [Knapsack](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/dynamic_programming/knapsack.ts)
   * [Lcs](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/dynamic_programming/lcs.ts)
+  * [Sudoku Solver](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/dynamic_programming/sudoku_solver.ts)
 
 ## Graph
   * [Bellman Ford](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/graph/bellman_ford.ts)
