@@ -72,9 +72,9 @@
       * [Tries.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/data_structures/tries/test/tries.test.ts)
     * [Tries](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/data_structures/tries/tries.ts)
   * Vectors
-    * [Vector2](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/data_structures/vectors/vector2.ts)
     * Test
       * [Vector2.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/data_structures/vectors/test/vector2.test.ts)
+    * [Vector2](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/data_structures/vectors/vector2.ts)
 
 ## Dynamic Programming
   * [Coin Change](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/dynamic_programming/coin_change.ts)
