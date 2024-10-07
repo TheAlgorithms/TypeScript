@@ -2,9 +2,11 @@
 ## Backtracking
   * [All Combinations Of Size K](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/backtracking/all_combinations_of_size_k.ts)
   * [Generateparentheses](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/backtracking/generateparentheses.ts)
+  * [Generatepermutations](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/backtracking/generatepermutations.ts)
   * Test
     * [All Combinations Of Size K.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/backtracking/test/all_combinations_of_size_k.test.ts)
     * [Generateparentheses.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/backtracking/test/generateparentheses.test.ts)
+    * [Generatepermutations.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/backtracking/test/generatepermutations.test.ts)
 
 ## Bit Manipulation
   * [Add Binary](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/bit_manipulation/add_binary.ts)
