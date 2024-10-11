@@ -1,0 +1,50 @@
+function oddEvenSort(inputList: number[]): number[] {
+    /**
+     * Sort input with odd-even sort.
+     *
+     * This algorithm uses the same idea of bubble sort,
+     * but by first dividing into two phases (odd and even).
+     *
+     * @param inputList - array of numbers to sort
+     * @return array sorted in ascending order
+     */
+
+    let isSorted = false;
+    while (!isSorted) {
+        isSorted = true;
+
+        // Even indexed phase
+        for (let i = 0; i < inputList.length - 1; i += 2) {
+            if (inputList[i] > inputList[i + 1]) {
+                // Swap
+                [inputList[i], inputList[i + 1]] = [inputList[i + 1], inputList[i]];
+                isSorted = false;
+            }
+        }
+
+        // Odd indexed phase
+        for (let i = 1; i < inputList.length - 1; i += 2) {
+            if (inputList[i] > inputList[i + 1]) {
+                // Swap
+                [inputList[i], inputList[i + 1]] = [inputList[i + 1], inputList[i]];
+                isSorted = false;
+            }
+        }
+    }
+
+    return inputList;
+}
+
+// Main function to take input from user
+function main() {
+    const input = prompt("Enter numbers to be sorted (space-separated):");
+    if (input) {
+        const inputList = input.split(" ").map(Number);
+        const sortedList = oddEvenSort(inputList);
+        console.log("The sorted list is: ", sortedList);
+    } else {
+        console.log("No input provided.");
+    }
+}
+
+main();
