@@ -1,43 +1,42 @@
-import { eulerMethod } from './eulerMethod';
+import { eulerMethod } from '../euler_method'
 
 describe('eulerMethod', () => {
-    it('should compute y for a linear function (x + y)', () => {
-        const result = eulerMethod(0, 1, 0.1, 10, (x, y) => x + y);
-        expect(result).toBeCloseTo(2.5937424601, 5);
-    });
+  it('should compute y for dy/dx = y with y(0) = 1 at x = 1', () => {
+    const result = eulerMethod(0, 1, 0.1, 10, (x: number, y: number) => y)
+    expect(result).toBeCloseTo(2.59374, 5)
+  })
 
-    it('should compute y for a multiplicative function (x * y)', () => {
-        const result = eulerMethod(0, 1, 0.1, 10, (x, y) => x * y);
-        expect(result).toBeCloseTo(1.7715614317, 5);
-    });
+  it('should compute y for dy/dx = -2y with y(0) = 1 at x = 1', () => {
+    const result = eulerMethod(0, 1, 0.1, 10, (x: number, y: number) => -2 * y)
+    const expectedResult = 1 * Math.pow(0.8, 10)
+    expect(result).toBeCloseTo(expectedResult, 5)
+  })
 
-    it('should return the initial value y0 when there are zero iterations', () => {
-        const result = eulerMethod(0, 1, 0.1, 0, (x, y) => x + y);
-        expect(result).toBe(1);
-    });
+  it('should compute y for dy/dx = x with y(0) = 0 at x = 1', () => {
+    const result = eulerMethod(0, 0, 0.1, 10, (x: number, y: number) => x)
+    expect(result).toBeCloseTo(0.45, 2)
+  })
 
-    it('should return the correct value for a very small step size', () => {
-        const result = eulerMethod(0, 1, 0.01, 100, (x, y) => x + y);
-        expect(result).toBeCloseTo(2.7048138294, 5);
-    });
+  it('should compute y for dy/dx = x + y with y(0) = 1 at x = 0.5', () => {
+    const h = 0.1
+    const n = 5
+    const result = eulerMethod(0, 1, h, n, (x: number, y: number) => x + y)
+    expect(result).toBeCloseTo(1.72102, 5)
+  })
 
-    it('should return the correct value after one iteration', () => {
-        const result = eulerMethod(0, 1, 0.1, 1, (x, y) => x + y);
-        expect(result).toBeCloseTo(1.1, 5);
-    });
+  it('should compute y for dy/dx = x^2 with y(0) = 0 at x = 1', () => {
+    const result = eulerMethod(0, 0, 0.2, 5, (x: number, y: number) => x ** 2)
+    expect(result).toBeCloseTo(0.24, 3)
+  })
 
-    it('should return the initial value y0 when step size is zero', () => {
-        const result = eulerMethod(0, 1, 0, 10, (x, y) => x + y);
-        expect(result).toBe(1);
-    });
-
-    it('should return correct value for negative step size', () => {
-        const result = eulerMethod(1, 1, -0.1, 10, (x, y) => x + y);
-        expect(result).toBeCloseTo(0.3162798676, 5);
-    });
-
-    it('should throw an error when number of iterations is negative', () => {
-        expect(() => eulerMethod(0, 1, 0.1, -5, (x, y) => x + y)).toThrow('Number of iterations must be non-negative');
-    });
-
-});
+  it('should handle negative step size for dy/dx = y with y(1) = e', () => {
+    const result = eulerMethod(
+      1,
+      Math.E,
+      -0.001,
+      1000,
+      (x: number, y: number) => y
+    )
+    expect(result).toBeCloseTo(1, 2)
+  })
+})

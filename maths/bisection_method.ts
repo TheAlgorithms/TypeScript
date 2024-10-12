@@ -10,26 +10,30 @@
  * @example bisectionMethod(1, 2, 0.01, (x) => x**2 - 3) = 1.732421875
  */
 
-export const bisectionMethod = (a: number, b: number, e: number, f: Function): number => {
+export const bisectionMethod = (
+  a: number,
+  b: number,
+  e: number,
+  f: Function
+): number => {
+  if (e <= 0) {
+    throw new Error('Error threshold must be positive')
+  }
 
-    if (e <= 0) { 
-        throw new Error('Error threshold must be positive')
-    }
+  if (f(a) * f(b) >= 0) {
+    throw new Error('f(a) and f(b) should have opposite signs')
+  }
 
-    if (f(a) * f(b) >= 0) { 
-        throw new Error('f(a) and f(b) should have opposite signs')
+  let c = a
+  while (Math.abs(b - a) / 2 >= e) {
+    c = (a + b) / 2
+    if (Math.abs(f(c)) < 1e-9) {
+      break
+    } else if (f(c) * f(a) < 0) {
+      b = c
+    } else {
+      a = c
     }
-
-    let c = a
-    while ((b - a) >= e) {
-        c = (a + b) / 2
-        if (f(c) === 0.0) {
-            break
-        } else if (f(c) * f(a) < 0) {
-            b = c
-        } else {
-            a = c
-        }
-    }
-    return c
+  }
+  return c
 }

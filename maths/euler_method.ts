@@ -11,23 +11,28 @@
  * @example eulerMethod(0, 1, 0.1, 10, (x, y) => x * y) = 1.7715614317
  */
 
-export const eulerMethod = (x0: number, y0: number, h: number, n: number, f: Function): number => {
+export const eulerMethod = (
+  x0: number,
+  y0: number,
+  h: number,
+  n: number,
+  f: Function
+): number => {
+  if (typeof f !== 'function') {
+    throw new Error('f must be a function')
+  }
 
-    if (typeof f !== 'function') { 
-        throw new Error('f must be a function')
-    }
+  if (n < 0) {
+    throw new Error('Number of iterations must be non-negative')
+  }
 
-    if (n < 0) {
-        throw new Error('Number of iterations must be non-negative')
-    }
+  let x = x0
+  let y = y0
 
-    let x = x0
-    let y = y0
+  for (let i = 0; i < n; i++) {
+    y = y + h * f(x, y)
+    x = x + h
+  }
 
-    for (let i = 1; i <= n; i++) {
-        y = y + h * f(x, y)
-        x = x + h
-    }
-
-    return y
+  return y
 }
