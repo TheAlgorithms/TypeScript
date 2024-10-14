@@ -109,6 +109,7 @@
   * [Degrees To Radians](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/degrees_to_radians.ts)
   * [Digit Sum](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/digit_sum.ts)
   * [Double Factorial Iterative](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/double_factorial_iterative.ts)
+  * [Euclidean Distance](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/euclidean_distance.ts)
   * [Euler Totient](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/euler_totient.ts)
   * [Factorial](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/factorial.ts)
   * [Factors](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/maths/factors.ts)
