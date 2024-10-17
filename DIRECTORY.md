@@ -2,9 +2,11 @@
 ## Backtracking
   * [All Combinations Of Size K](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/backtracking/all_combinations_of_size_k.ts)
   * [Generateparentheses](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/backtracking/generateparentheses.ts)
+  * [Generatepermutations](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/backtracking/generatepermutations.ts)
   * Test
     * [All Combinations Of Size K.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/backtracking/test/all_combinations_of_size_k.test.ts)
     * [Generateparentheses.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/backtracking/test/generateparentheses.test.ts)
+    * [Generatepermutations.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/backtracking/test/generatepermutations.test.ts)
 
 ## Bit Manipulation
   * [Add Binary](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/bit_manipulation/add_binary.ts)
@@ -156,6 +158,8 @@
 
 ## Search
   * [Binary Search](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/search/binary_search.ts)
+  * [Exponential Search](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/search/exponential_search.ts)
+  * [Fibonacci Search](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/search/fibonacci_search.ts)
   * [Interpolation Search](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/search/interpolation_search.ts)
   * [Jump Search](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/search/jump_search.ts)
   * [Linear Search](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/search/linear_search.ts)
