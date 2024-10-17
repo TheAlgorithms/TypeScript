@@ -26,6 +26,35 @@ export function addBinary(
     lengthOfSecondNumber--
   }
 
+  // Function to convert BCD to Gray code
+const bcdToGray = (bcd: string): string => {
+    let gray = '';
+    gray += bcd[0]; // The most significant bit remains the same
+
+    for (let i = 1; i < bcd.length; i++) {
+        gray += (bcd[i] === bcd[i - 1]) ? '0' : '1';
+    }
+
+    return gray;
+};
+
+// Function to convert decimal to BCD
+const decimalToBCD = (decimal: number): string => {
+    return decimal.toString().split('').map(num => {
+        return parseInt(num).toString(2).padStart(4, '0'); // Convert to binary and pad with zeros
+    }).join('');
+};
+
+// Example usage
+const decimalNumber = 45;
+const bcd = decimalToBCD(decimalNumber);
+const grayCode = bcdToGray(bcd);
+
+console.log(`Decimal: ${decimalNumber}`);
+console.log(`BCD: ${bcd}`);
+console.log(`Gray Code: ${grayCode}`);
+
+
   if (carry !== 0) solution.push(carry.toString())
 
   return solution.reverse().join('')
