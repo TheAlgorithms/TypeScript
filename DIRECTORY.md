@@ -71,6 +71,10 @@
   * Tries
       * [Tries.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/data_structures/tries/test/tries.test.ts)
     * [Tries](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/data_structures/tries/tries.ts)
+  * Vectors
+    * Test
+      * [Vector2.Test](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/data_structures/vectors/test/vector2.test.ts)
+    * [Vector2](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/data_structures/vectors/vector2.ts)
 
 ## Dynamic Programming
   * [Coin Change](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/dynamic_programming/coin_change.ts)
@@ -156,6 +160,8 @@
 
 ## Search
   * [Binary Search](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/search/binary_search.ts)
+  * [Exponential Search](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/search/exponential_search.ts)
+  * [Fibonacci Search](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/search/fibonacci_search.ts)
   * [Interpolation Search](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/search/interpolation_search.ts)
   * [Jump Search](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/search/jump_search.ts)
   * [Linear Search](https://github.com/TheAlgorithms/TypeScript/blob/HEAD/search/linear_search.ts)
