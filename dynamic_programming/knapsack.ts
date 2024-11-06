@@ -6,7 +6,7 @@
  * @returns Maximum value subset such that sum of the weights of this subset is smaller than or equal to capacity
  * @throws If weights and values arrays have different lengths
  * @see [Knapsack](https://www.geeksforgeeks.org/0-1-knapsack-problem-dp-10/)
- * @example knapsack(3, [3, 4, 5], [30, 50, 60]) // Output: 90
+ * @example knapsack(11, [1, 3, 4, 5, 6], [10, 30, 80, 50, 60]) // Output: 150
  */
 
 export const knapsack = (
