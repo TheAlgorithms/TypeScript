@@ -1,0 +1,53 @@
+/**
+ * @function CircleSort
+ * @description Sort an Array by comparing the first element to the last element, then the second element to the second last element, etc. (drawing circle into the array) and then splitting the array. Execute recursively
+ * @param {number[]}array - The input array
+ * @return {number[]} - The sorted array.
+ * @example circleSort([8, 3, 5, 1, 4, 2]) = [1, 2, 3, 4, 5, 8]
+ */
+
+const doCircle = (array: number[], left: number, right: number): boolean => {
+  let swap = false;
+
+  if (left == right) {
+    return false;
+  }
+
+  let l = left
+  let r = right
+
+  while (l < r) {
+    if (array[l] > array[r]) {
+      ;[array[l], array[r]] = [array[r], array[l]];
+      swap = true;
+    }
+    l++;
+    r--;
+  }
+
+  /**
+    * Odd size
+    */
+  if (l == r) {
+    if (array[l] > array[r + 1]) {
+      [array[l], array[r+1]] = [array[r+1], array[l]];
+      swap = true;
+    }
+  }
+
+  let middle = Math.floor((right - left) / 2);
+  let firstHalf = doCircle(array, left, left + middle);
+  let secondHalf = doCircle(array, left + middle + 1, right);
+ 
+  return swap || firstHalf || secondHalf;
+}
+
+export const CircleSort = (array: number[]) => {
+  while (doCircle(array, 0, array.length-1)) {
+    /**
+    * Nothing
+    */
+  }
+  
+  return array
+}
