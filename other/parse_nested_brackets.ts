@@ -8,7 +8,7 @@
  * @example parseNestedBrackets(`<MAIN hoge><MAIN2 fuga>`) => [ '<MAIN hoge>', '<MAIN2 fuga>' ]
  * @example parseNestedBrackets(
  *  `THIS IS SAMPLE TEXT(MAIN hoge 0.1 fuga(ITEM fuga hoge)hoge(ITEM2 nogami(ABBR)))`,
- *  { openBrackets: '(', closingBrackets: ')' }) => 
+ *  { openBrackets: '(', closingBrackets: ')' }) =>
  *  [
       '(MAIN hoge 0.1 fuga(ITEM fuga hoge)hoge(ITEM2 nogami(ABBR)))',
       '(ITEM fuga hoge)',
@@ -18,13 +18,14 @@
  */
 export const parseNestedBrackets = (
   text: string,
-  openBrackets = '<',
-  closingBrackets = '>'
-) => {
+  openBrackets: string = '<',
+  closingBrackets: string = '>'
+): string[] => {
   let array: string[] = [] // The array of the tags in this present floor.
   let prFloor = 0 // The present floor.
-  let begin = 0, // The begin index of the tag.
-    end = 0 // The end index of the tag.
+  let begin = 0 // The begin index of the tag.
+  let end = 0 // The end index of the tag.
+
   for (let i = 0; i < text.length; i++) {
     if (text[i] === openBrackets) {
       prFloor++

@@ -11,7 +11,7 @@ import { binarySearchIterative } from './binary_search'
  * thus avoiding several comparisons that would make the search more verbose.
  *
  * @param {number[]} array - sorted list of numbers
- * @param {number} x - target number to search for
+ * @param {number} target - target number to search for
  * @return {number | null} - index of the target number in the list, or null if not found
  * @see [ExponentialSearch](https://www.geeksforgeeks.org/exponential-search/)
  * @example exponentialSearch([1, 2, 3, 4, 5], 3) => 2
@@ -20,21 +20,21 @@ import { binarySearchIterative } from './binary_search'
 
 export const exponentialSearch = (
   array: number[],
-  x: number
+  target: number
 ): number | null => {
   const arrayLength = array.length
   if (arrayLength === 0) return null
 
-  if (array[0] === x) return 0
+  if (array[0] === target) return 0
 
   let i = 1
-  while (i < arrayLength && array[i] <= x) {
-    i = i * 2
+  while (i < arrayLength && array[i] <= target) {
+    i *= 2
   }
 
   const start = Math.floor(i / 2)
   const end = Math.min(i, arrayLength - 1)
-  const result = binarySearchIterative(array, x, start, end)
+  const result = binarySearchIterative(array, target, start, end)
 
   return result
 }

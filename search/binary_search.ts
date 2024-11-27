@@ -8,7 +8,7 @@
  *
  * @param {number[]} array - sorted list of numbers
  * @param {number} target - target number to search for
- * @return {number} - index of the target number in the list, or null if not found
+ * @return {number | null} - index of the target number in the list, or null if not found
  * @see [BinarySearch](https://www.geeksforgeeks.org/binary-search/)
  * @example binarySearch([1,2,3], 2) => 1
  * @example binarySearch([4,5,6], 2) => null

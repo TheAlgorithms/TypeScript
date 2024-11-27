@@ -18,9 +18,9 @@ export const fibonacciSearch = (
   target: number
 ): number | null => {
   const arrayLength = array.length
-  let a = 0 // (n-2)'th Fibonacci No.
-  let b = 1 // (n-1)'th Fibonacci No.
-  let c = a + b // n'th Fibonacci
+  let a: number = 0 // (n-2)'th Fibonacci No.
+  let b: number = 1 // (n-1)'th Fibonacci No.
+  let c: number = a + b // n'th Fibonacci
 
   while (c < arrayLength) {
     a = b
@@ -31,11 +31,10 @@ export const fibonacciSearch = (
   let offset = -1
 
   while (c > 1) {
-    let i = Math.min(offset + a, arrayLength - 1)
+    const i = Math.min(offset + a, arrayLength - 1)
 
     if (array[i] < target) {
-      c = b
-      b = a
+      ;[c, b] = [b, a]
       a = c - b
       offset = i
     } else if (array[i] > target) {
@@ -48,7 +47,7 @@ export const fibonacciSearch = (
     }
   }
 
-  if (b && array[offset + 1] === target) {
+  if (Boolean(b) && array[offset + 1] === target) {
     return offset + 1
   }
 

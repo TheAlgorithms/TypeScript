@@ -5,7 +5,7 @@
  *  if it's not present, the return it will be -1
  * @param {number[]} array - list of numbers
  * @param {number} target - target number to search for
- * @return {number} - index of the target number in the list, or -1 if not found
+ * @return {number | -1} - index of the target number in the list, or -1 if not found
  * @see https://en.wikipedia.org/wiki/Linear_search\
  * @example linearSearch([1,2,3,5], 3) => 2
  * @example linearSearch([1,5,6], 2) => -1
