@@ -19,5 +19,8 @@
     "prepare": "husky install"
   },
   "author": "TheAlgorithms",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "fp-ts": "^2.16.9"
+  }
 }
