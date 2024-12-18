@@ -12,11 +12,11 @@ export const calculateMedian = (numbers: number[]): number => {
   if (numbers.length < 1) {
     throw new TypeError('Input array must contain at least one number.')
   }
-
+  numbers.sort((a, b) => a - b)
   const totalNumbers = numbers.length
 
   if (totalNumbers % 2 === 0) {
-    const index = totalNumbers / 2
+    const index = Math.floor(totalNumbers / 2)
     return (numbers[index - 1] + numbers[index]) / 2
   } else {
     const index = (totalNumbers + 1) / 2
