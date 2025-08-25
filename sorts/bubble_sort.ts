@@ -19,7 +19,7 @@
 
 export const bubbleSort = (arr: number[]): number[] => {
   for (let i = 0; i < arr.length; i++) {
-    for (let j = 0; j < arr.length - 1; j++) {
+    for (let j = 0; j < arr.length - i; j++) {
       //iterating till the 2nd last element of array
       if (arr[j] > arr[j + 1]) {
         //current indexed number > next indexed number
