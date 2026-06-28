@@ -1,16 +1,19 @@
 /**
- * @author : dev-madhurendra<https://github.com/dev-madhurendra>
- * Checks whether the given number is a power of four or not.
+ * Checks whether the given number is a power of four.
  *
- * A number is considered a power of four if and only if there is a single '1' bit in its binary representation,
- * and that '1' bit is at the first position, followed by an even number of '0' bits.
+ * A positive integer is a power of four if:
+ *  - it is a power of two (exactly one bit set), and
+ *  - that bit is in an even position (0-based), e.g. 1 (2^0), 4 (2^2), 16 (2^4), ...
  *
- * @param {number} n - The input number to check.
- * @returns {boolean} True if the number is a power of four, false otherwise.
+ * This implementation uses the property that for powers of four: n % 3 === 1.
+ *
+ * @author dev-madhurendra <https://github.com/dev-madhurendra>
+ * @param n - The number to check.
+ * @returns true if n is a power of four; otherwise false.
  *
  * @example
- * const result = isPowerOfFour(16); // Returns true (16 is 4^2)
- * const result2 = isPowerOfFour(5);  // Returns false (5 is not a power of four)
+ * isPowerOfFour(16)  // true  (16 = 4^2)
+ * isPowerOfFour(5)   // false
  */
 export const isPowerOfFour = (n: number): boolean =>
   n > 0 && (n & (n - 1)) === 0 && n % 3 === 1
