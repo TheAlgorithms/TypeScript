@@ -17,10 +17,17 @@ export const aliquotSum = (num: number): number => {
   if (num < 0) throw new TypeError('Input cannot be negative')
   if (!Number.isInteger(num)) throw new TypeError('Input cannot be a decimal')
 
-  let sum = 0
+  if (num <= 1) return 0
 
-  for (let i = 1; i <= num / 2; i++) {
-    if (num % i === 0) sum += i
+  let sum = 1
+
+  for (let divisor = 2; divisor <= num / divisor; divisor++) {
+    if (num % divisor === 0) {
+      sum += divisor
+
+      const pairedDivisor = num / divisor
+      if (pairedDivisor !== divisor) sum += pairedDivisor
+    }
   }
 
   return sum

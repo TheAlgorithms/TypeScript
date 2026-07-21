@@ -1,6 +1,9 @@
 import { aliquotSum } from '../aliquot_sum'
 
 test.each([
+  [0, 0],
+  [1, 0],
+  [2, 1],
   [15, 9],
   [18, 21],
   [28, 28],
