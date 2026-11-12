@@ -10,6 +10,6 @@
  * @return {string} encrypted string
  */
 export const XORCipher = (str: string, key: number): string =>
-  str.replace(/./g, (char: string) =>
+  Array.from(str, (char: string) =>
     String.fromCharCode(char.charCodeAt(0) ^ key)
-  )
+  ).join('')
